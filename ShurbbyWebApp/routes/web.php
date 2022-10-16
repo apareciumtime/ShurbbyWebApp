@@ -38,6 +38,9 @@ Route::post('register', [RegisterController::class, 'register']);
 
 Route::resource('homepage', HomepageController::class);
 
+Route::get('/homepageshrubby',function(){
+    return view('homepage.index');
+});
 Route::get('/signin', function () {
     return view('homepage.signin');
 });

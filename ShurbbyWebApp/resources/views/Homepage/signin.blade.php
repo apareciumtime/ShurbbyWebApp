@@ -51,19 +51,50 @@
             <h1>สังคมแบ่งปันประสบการณ์เกี่ยวกับต้นไม้</h1>
             <h3>ลงชื่อเข้าใช้</h3>
             <div class="inputBlock">
-                <form action="" class="form">
+                <form class="form" method="POST" action="{{ route('login') }}">
+                    @csrf
+
+                    <!-- error message when email or password incorrect-->
+                    <!--@if($message=Session::get('error'))
+                        <div class="alert alert-danger alert-block">
+                            <button type="button" class='close' data-dismiss="alert">x</button>
+                            <strong>{{$message}}</strong>
+                        </div>
+                    @endif-->
+
+                    <!--wait for code that can check that input is name or email-->
                     <div class="formItem">
                         <h3>ชื่อผู้ใช้งาน</h3>
-                        <input type="text" placeholder="ชื่อผู้ใช้งาน, อีเมลล์">
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="ชื่อผู้ใช้งาน, อีเมลล์">
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div class="formItem">
                         <h3>รหัสผ่าน</h3>
-                        <input type="password" placeholder="รหัสผ่าน">
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="รหัสผ่าน">
+                        
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
+                    
+                    <div class="button">
+                        <button type="submit" class="loginBut">
+                            เข้าสู่ระบบ
+                        </button>
+                    </div>
+                        
                 </form>
                 <div class="button">
-                    <a href="" class="loginBut">เข้าสู่ระบบ</a>
-                    <a href="" class="forgetBut">ลืมรหัสผ่านหรือไม่ ?</a>
+                    <!--<a href="" class="loginBut">เข้าสู่ระบบ</a>-->
+                    @if (Route::has('password.request'))
+                        <a href="{{ route('password.request') }}" class="forgetBut">ลืมรหัสผ่านหรือไม่ ?</a>
+                    @endif
                     <a href="" class="signupBut">สร้างบัญชีใหม่</a>
                 </div>
             </div>

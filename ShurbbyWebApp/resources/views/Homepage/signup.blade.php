@@ -45,83 +45,141 @@
             <h3>สร้างบัญชีผู้ใช้งานใหม่</h3>
         </div>
 
-        <div class="inputBlock">
-            <div class="inputColumn">
-                <form action="" class="form">
+        <form class="form" method="POST" action="{{ route('register') }}">
+            <div class="inputBlock">
+                <div class="inputColumn">
+                    @csrf
                     <div class="formItem">
                         <h3>ชื่อผู้ใช้งาน</h3>
-                        <input type="text" placeholder="ชื่อผู้ใช้งาน, อีเมลล์">
+                        <input type="text" placeholder="ชื่อผู้ใช้งาน, อีเมลล์" id="name"  class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div class="formItem">
                         <h3>รหัสผ่าน</h3>
-                        <input type="text" placeholder="รหัสผ่าน">
+                        <input  id="password" type="password" placeholder="รหัสผ่าน" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div class="formItem">
                         <h3>ยืนยันรหัสผ่าน</h3>
-                        <input type="text" placeholder="ยืนยันรหัสผ่าน">
+                        <input id="password-confirm" type="password" placeholder="ยืนยันรหัสผ่าน" class="form-control" name="password_confirmation" required autocomplete="new-password">
                     </div>
                     <div class="formItem">
                         <h3>อีเมลล์</h3>
-                        <input type="text" placeholder="อีเมลล์">
+                        <input id="email" type="text" placeholder="อีเมลล์" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
-                </form>
+                </div>
             </div>
 
             <div class="inputColumn">
-                <form action="" class="form">
-                    <div class="formItem">
-                        <h3>หมายเลขโทรศัพท์</h3>
-                        <input type="text" placeholder="หมายเลขโทรศัพท์">
-                    </div>
+                <div class="formItem">
+                    <h3>หมายเลขโทรศัพท์</h3>
+                    <input id="telNum" type="text" placeholder="หมายเลขโทรศัพท์" class="form-control @error('telNum') is-invalid @enderror" name="telNum" value="{{ old('telNum') }}" required autocomplete="telNum" autofocus>
+                    @error('telNum')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
 
-                    <div class="formItem">
-                        <h3>ที่อยู่</h3>
-                        <input type="text" placeholder="ที่อยู่">
-                    </div>
+                <div class="formItem">
+                    <h3>ที่อยู่</h3>
+                    <input id="address_info" type="text" placeholder="ที่อยู่" class="form-control @error('address_info') is-invalid @enderror" name="address_info" value="{{ old('address_info') }}" required autocomplete="address_info" autofocus>
+                    @error('address_info')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
 
-                    <div class="formRowItem">
-                        <div>
-                            <h3>จังหวัด</h3>
-                            <input type="text" placeholder="จังหวัด">
-                        </div>
-                        <div>
-                            <h3>เขต</h3>
-                            <input type="text" placeholder="เขต">
-                        </div>
-                        <div>
-                            <h3>อำเภอ</h3>
-                            <input type="text" placeholder="อำเภอ">
+                <div class="formRowItem">
+                    <div>
+                        <h3>จังหวัด</h3>
+                        <input id="address_province" type="text" placeholder="จังหวัด" class="form-control @error('address_province') is-invalid @enderror" name="address_province" value="{{ old('address_province') }}" required autocomplete="address_province" autofocus>
+                        @error('address_province')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div>
+                        <h3>เขต/อำเภอ</h3>
+                        <input id="address_district" type="text" placeholder="เขต/อำเภอ" class="form-control @error('address_district') is-invalid @enderror" name="address_district" value="{{ old('address_district') }}" required autocomplete="address_district" autofocus>
+                        @error('address_district')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div>
+                        <h3>แขวง/ตำบล</h3>
+                        <input id="address_sub_district" type="text" placeholder="แขวง/ตำบล" class="form-control @error('address_sub_district') is-invalid @enderror" name="address_sub_district" value="{{ old('address_sub_district') }}" required autocomplete="address_sub_district" autofocus>
+                        @error('address_sub_district')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="formItem">
+                    <h3>รหัสไปรษณีย์</h3>
+                    <input id="address_postcode" type="text" placeholder="รหัสไปรษณีย์" class="form-control @error('address_postcode') is-invalid @enderror" name="address_postcode" value="{{ old('address_postcode') }}" required autocomplete="address_postcode" autofocus>
+                    @error('address_postcode')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+                <div class="formRowItem">
+                    <div>
+                        <h3>วันเกิด</h3>
+                        <div class="birthDay">
+                            <input id="birthday" type="date" class="form-control @error('birthday') is-invalid @enderror" name="birthday" value="{{ old('birthday') }}" required autocomplete="birthday" autofocus>
+
+                            @error('birthday')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            <!--<input type="text" placeholder="วันที่">
+                            <input type="text" placeholder="เดือน">
+                            <input type="text" placeholder="ปี">-->
                         </div>
                     </div>
-
-                    <div class="formItem">
-                        <h3>รหัสไปรษณีย์</h3>
-                        <input type="text" placeholder="รหัสไปรษณีย์">
+                    <div>
+                        <h3>เพศ</h3>
+                        <input id="gender" type="text" placeholder="เพศ" class="form-control @error('gender') is-invalid @enderror" name="gender" value="{{ old('gender') }}" required autocomplete="gender" autofocus>
+                        @error('gender')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
-
-                    <div class="formRowItem">
-                        <div>
-                            <h3>วันเกิด</h3>
-                            <div class="birthDay">
-                                <input type="text" placeholder="วันที่">
-                                <input type="text" placeholder="เดือน">
-                                <input type="text" placeholder="ปี">
-                            </div>
-                        </div>
-                        <div>
-                            <h3>เพศ</h3>
-                            <input type="text" placeholder="เพศ">
-                        </div>
-                    </div>
-
-                </form>
+                </div>
+                <button type="submit" class="signupBut">
+                    สร้างบัญชีผู้ใช้งานใหม่
+                </button>
+                
             </div>
-        </div>
-
-        <div class="button">
-            <a href="" class="signupBut">สร้างบัญชีผู้ใช้งานใหม่</a>
-        </div>
-
+            <!--
+            <div class="button">
+                <a href=""  type="submit" class="signupBut">สร้างบัญชีผู้ใช้งานใหม่</a>
+            </div>-->
+        </form>
     </section>
 </body>
 </html>
