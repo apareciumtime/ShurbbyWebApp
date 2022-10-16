@@ -11,6 +11,17 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
+                        <!--  Error handle -->
+                        @if($errors->any())
+                        <div class="row collapse">
+                            <ul class="alert-box warning radius">
+                                @foreach($errors->all() as $error)
+                                    <li> {{ $error }} </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
+
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
@@ -96,6 +107,21 @@
                                 @enderror
                             </div>
                         </div>
+
+                        <div class="row mb-3">
+                            <label for="address_province" class="col-md-4 col-form-label text-md-end">{{ __('address_province') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="address_province" type="text" class="form-control @error('address_province') is-invalid @enderror" name="address_province" value="{{ old('address_province') }}" required autocomplete="address_province" autofocus>
+
+                                @error('address_province')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
 
                         <div class="row mb-3">
                             <label for="address_district" class="col-md-4 col-form-label text-md-end">{{ __('address_district') }}</label>

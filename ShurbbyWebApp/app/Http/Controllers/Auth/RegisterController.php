@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -40,6 +41,29 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    // public function showRegistrationForm()
+    // {
+    //     return view('auth/register');
+    // }
+  
+     /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function register(Request $request)
+    {
+        $this->validator($request->all());
+        $this->create($request->all());
+        return redirect()->route('home');
+    }
+    
 
     /**
      * Get a validator for an incoming registration request.
