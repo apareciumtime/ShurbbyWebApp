@@ -28,8 +28,8 @@
         </div>
 
         <div class="head-signin">
-            <a href="#" class="signin">เข้าสู่ระบบ</a>
-            <a href="#" class="signup">สมัครสมาชิก</a>
+            <a href="{{route('login')}}" class="signin">เข้าสู่ระบบ</a>
+            <a href="{{route('register')}}" class="signup">สมัครสมาชิก</a>
         </div>
     </section>
 
@@ -55,12 +55,12 @@
                     @csrf
 
                     <!-- error message when email or password incorrect-->
-                    <!--@if($message=Session::get('error'))
-                        <div class="alert alert-danger alert-block">
-                            <button type="button" class='close' data-dismiss="alert">x</button>
+                    @if($message=Session::get('error'))
+                        <div class="forgetBut">
+                            {{-- <button type="button" class='close' data-dismiss="alert">x</button> --}}
                             <strong>{{$message}}</strong>
                         </div>
-                    @endif-->
+                    @endif
 
                     <!--wait for code that can check that input is name or email-->
                     <div class="formItem">
@@ -95,7 +95,7 @@
                     @if (Route::has('password.request'))
                         <a href="{{ route('password.request') }}" class="forgetBut">ลืมรหัสผ่านหรือไม่ ?</a>
                     @endif
-                    <a href="" class="signupBut">สร้างบัญชีใหม่</a>
+                    <a href="{{ route('register') }}" class="signupBut">สร้างบัญชีใหม่</a>
                 </div>
             </div>
         </div>

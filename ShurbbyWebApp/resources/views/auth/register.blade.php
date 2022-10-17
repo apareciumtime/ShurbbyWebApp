@@ -28,8 +28,8 @@
         </div>
 
         <div class="head-signin">
-            <a href="#" class="signin">เข้าสู่ระบบ</a>
-            <a href="#" class="signup">สมัครสมาชิก</a>
+            <a href="{{route('login')}}" class="signin">เข้าสู่ระบบ</a>
+            <a href="{{route('register')}}" class="signup">สมัครสมาชิก</a>
         </div>
     </section>
 
@@ -45,7 +45,7 @@
             <h3>สร้างบัญชีผู้ใช้งานใหม่</h3>
         </div>
 
-        <form class="form" method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register') }}">
             <div class="inputBlock">
                 <div class="inputColumn">
                     @csrf
@@ -81,7 +81,6 @@
                         @enderror
                     </div>
                 </div>
-            </div>
 
             <div class="inputColumn">
                 <div class="formItem">
@@ -179,6 +178,7 @@
             <div class="button">
                 <a href=""  type="submit" class="signupBut">สร้างบัญชีผู้ใช้งานใหม่</a>
             </div>-->
+        </div>
         </form>
     </section>
 </body>

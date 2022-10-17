@@ -57,12 +57,12 @@ class RegisterController extends Controller
      *
      * @return response()
      */
-    public function register(Request $request)
-    {
-        $this->validator($request->all());
-        $this->create($request->all());
-        return redirect()->route('home');
-    }
+    // public function register(Request $request)
+    // {
+    //     $this->validator($request->all());
+    //     $this->create($request->all());
+    //     return redirect()->route('home');
+    // }
     
 
     /**
