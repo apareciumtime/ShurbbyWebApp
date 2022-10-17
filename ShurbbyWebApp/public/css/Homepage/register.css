@@ -1,0 +1,318 @@
+a {
+    text-decoration: none;
+}
+
+body{
+    background-color: #304045;
+    margin: 0px;
+    color:#EFE5D5;
+    font-family: Sarabun;
+}
+.head{
+    /* border:1px solid salmon; */
+    position: -webkit-sticky;
+    position: sticky;
+    color:#EFE5D5;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 32px;
+    gap: 16px;
+    
+    width: 100%;
+    height: fit-content;
+    left: 0px;
+    top: 0px;
+
+    background: #304045;
+    border-bottom: 2px solid #EFE5D5;
+
+}
+
+svg{
+    fill:#EFE5D5;
+}
+
+svg:hover{
+    fill:#F1B24B;
+}
+.logo{
+    /* border:1px solid red; */
+    width:23.05px;
+    height: 32px;
+    color:#EFE5D5;
+}
+
+.logo svg{
+    width:23.05px;
+    height: 32px;
+    fill:#EFE5D5;
+}
+
+.logo svg:hover{
+    width:23.05px;
+    height: 32px;
+    fill:#F1B24B;
+}
+.head-menu-toggler{
+    display: none;
+}
+.head-menu{
+    /* border:1px solid salmon; */
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+    padding: 4px 0px;
+    gap: 36px;
+    
+    width: fit-content;
+    height: 40px;
+}
+
+.head-menu a{
+    /* border:1px solid white; */
+
+    word-break: keep-all;
+
+    display: flex;
+    justify-content:flex-start;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 12px;
+
+    width: max-content;
+    height: 40px;
+
+    color: #EFE5D5;
+}
+
+.head-signin a.signup{
+    color:#F1B24B;
+}
+
+.head-menu a:hover{
+    color:#F1B24B;
+}
+
+.head-label{
+    /* border: 1px solid #F1B24B; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+
+    width: 100%;
+    height: 43px;
+}
+
+.head-label a{
+    /* border: 1px solid #F1B24B; */
+
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 43px;
+    text-align: center;
+    color: #EFE5D5;
+}
+
+.head-signin{
+    /* border:1px solid salmon; */
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+    padding: 4px 0px;
+    gap: 36px;
+    
+    width: fit-content;
+    height: 40px;
+}
+
+.head-signin a{
+    /* border:1px solid white; */
+    word-break: keep-all;
+
+    display: flex;
+    justify-content:flex-start;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 12px;
+
+    width: max-content;
+    height: 40px;
+
+    color: #EFE5D5;
+}
+
+.head-signin a:hover{
+    color:#F1B24B;
+}
+
+
+
+/* CONTENT STYLE */
+
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    padding-top: 30px;
+    gap: 10px;
+}
+
+.signup-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup-head h2 {
+    padding-top: 5px;
+    padding-bottom: 0;
+    line-height: 0;
+}
+
+.signup-head h1 {
+    padding-top: 5px;
+    line-height: 0;
+    font-size: medium;
+}
+
+.signup-head h3 {
+    padding-top: 40px;
+    padding-bottom: 0;
+    line-height: 0;
+}
+
+#signup-Logo{
+    width:37.54px;
+    height:auto;
+}
+
+#signup-Logo svg{
+    width: 100%;
+    height: 100%;
+}
+
+.inputBlock {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 200px;
+}
+
+.inputColumn {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding-top: 0px;
+    gap: 16px;
+
+    width: 400px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding-top: 0px;
+    gap: 16px;
+
+    width: 400px;
+}
+
+.form h3{
+    font-size: 18px;
+    padding-top: 0px;
+    padding-bottom: 2px;
+    line-height: 0px;
+}
+
+input {
+    font-family: "Sarabun";
+    font-size: 15px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 12px;
+
+    width: 370px;
+    height: 28px;
+
+    color: white;
+
+    /* Primary Hover */
+    background: #5B6C67;
+    border-radius: 8px;
+    border:none;
+}
+
+.formRowItem {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 3px 0px;
+    gap: 10px;
+}
+
+.formRowItem input{
+    width: 100px;
+}
+
+.birthDay {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 3px 0px;
+    gap: 10px;
+}
+
+.birthDay input {
+    width: 50px;
+}
+
+::placeholder {
+    color: #D2D2D5;
+    opacity: 0.5;
+}
+
+.button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15px;
+}
+
+.signupBut {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 12px;
+
+    width: max-content;
+    height: 28px;
+
+    background: #4B819F;
+    color: #D2D2D5;
+
+    box-shadow: 0px 2px 4px -2px rgba(0, 0, 0, 0.5), 0px 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.signupBut:hover {
+
+}
