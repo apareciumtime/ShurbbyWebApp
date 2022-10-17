@@ -15,27 +15,13 @@ use App\Http\Controllers\Auth\RegisterController;
 |
 */
 
-Route::get('/', function () {
-    return view('homepage.home');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
-// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
-//add
-// Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('register', [RegisterController::class, 'register']);
 
-
-/* /homepage -> go to UI homepage : compare with your home*/
-/* /signin -> go to UI signin */ 
-/* /signup -> go to UI signup compare with your register */
-
-Route::resource('homepage', HomepageController::class);
-
-Route::get('/home',function(){
-    return view('homepage.home');
-});
 

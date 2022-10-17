@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign in</title>
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300|Fahkwang:300|Sarabun:300" rel="stylesheet">
-    <link rel = "stylesheet" href = "/css/Homepage/signin.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300|Fahkwang:300|Sarabun:100" rel="stylesheet">
+    <link rel = "stylesheet" href = "/css/Homepage/login.css">
 </head>
 <body>
     <section class = "head">
@@ -18,7 +18,7 @@
         </div>
 
         <div class="head-menu">
-            <a href="#" class="webboard">กระดาน</a>
+            <a href="{{route('home')}}" class="webboard">กระดาน</a>
             <a href="#" class="timeline">ไทม์ไลน์</a>
             <a href="#" class="journal">สมุดบันทึก</a>
         </div>

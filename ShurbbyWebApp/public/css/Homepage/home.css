@@ -83,7 +83,7 @@ svg:hover{
     align-items: center;
     padding: 4px 12px;
 
-    width: auto;
+    width: max-content;
     height: 40px;
 
     color: #EFE5D5;
@@ -145,7 +145,7 @@ svg:hover{
     align-items: center;
     padding: 4px 12px;
 
-    width: auto;
+    width: max-content;
     height: 40px;
 
     color: #EFE5D5;
@@ -174,7 +174,7 @@ svg:hover{
     padding: 16px;
     gap: 8px;
     
-    width: fit-content;
+    width: max-content;
     height: 100%;
 }
 
@@ -245,50 +245,3 @@ svg:hover{
     
 }
 
-
-/*
-@media screen and (max-width: 800px){
-    .head-menu, .head-signin {
-      display: none;
-    }
-
-    .head-label a{
-        font-size: 18px;
-    }
-    .head-menu-toggler{
-        position: relative;
-        display: inline-block;
-
-        /* border:1px solid red;
-        display: block;
-        width:23.05px;
-        height: 32px;
-        color:#EFE5D5;
-    }
-
-    .head-menu-toggler-content{
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        padding: 12px 16px;
-    }
-
-    .head-menu-toggler:hover .head-menu-toggler-content {
-        display: block;
-      }
-    
-    .head-menu-toggler svg{
-        width:23.05px;
-        height: 32px;
-        fill:#EFE5D5;
-    }
-    
-    .head-menu-toggler svg:hover{
-        width:23.05px;
-        height: 32px;
-        fill:#F1B24B;
-    }
-    
-}*/

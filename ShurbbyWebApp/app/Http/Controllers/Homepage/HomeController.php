@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Homepage;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -30,5 +31,4 @@ class HomeController extends Controller
     {
         return view('homepage.adminHome');
     }
-    
 }
