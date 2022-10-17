@@ -52,8 +52,8 @@
 
         <!--Sign in bar -> Sign in and Sign up-->
         <div class = "head-signin">
-            <a href = "{{route('/signin')}}" class="signin">เข้าสู่ระบบ</a>
-            <a href = "#" class="signup">สมัครสมาชิก</a>
+            <a href = "{{route('login')}}" class="signin">เข้าสู่ระบบ</a>
+            <a href = "{{route('register')}}" class="signup">สมัครสมาชิก</a>
         </div>
     </section>
 

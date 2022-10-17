@@ -1,11 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Homepage\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\HomepageController;
-use App\Http\Controllers\SigninController;
-use App\Http\Controllers\SignupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,12 +16,12 @@ use App\Http\Controllers\SignupController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('homepage.home');
 });
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
 //add
@@ -38,13 +35,7 @@ Route::post('register', [RegisterController::class, 'register']);
 
 Route::resource('homepage', HomepageController::class);
 
-Route::get('/homepageshrubby',function(){
-    return view('homepage.index');
-});
-Route::get('/signin', function () {
-    return view('homepage.signin');
+Route::get('/home',function(){
+    return view('homepage.home');
 });
 
-Route::get('/signup', function () {
-    return view('homepage.signup');
-});
