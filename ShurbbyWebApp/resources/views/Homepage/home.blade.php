@@ -54,8 +54,31 @@
 
         <!--Sign in bar -> Sign in and Sign up-->
         <div class = "head-signin">
-            <a href = "{{route('login')}}" class="signin">เข้าสู่ระบบ</a>
-            <a href = "{{route('register')}}" class="signup">สมัครสมาชิก</a>
+            @guest
+                @if (Route::has('login'))
+                    <a class="signin" href="{{ route('login') }}">{{ __('เข้าสู่ระบบ') }}</a>
+                @endif
+
+                @if (Route::has('register'))
+                    <a class="signup" href="{{ route('register') }}">{{ __('สมัครสมาชิก') }}</a>
+                @endif
+            @else
+                <a id="navbarDropdown" class="signin" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    {{ Auth::user()->name }}
+                </a>
+
+                <div class="signup">
+                    <a class="signup" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                        {{ __('ออกจากระบบ') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </div>
+            @endguest
         </div>
     </section>
 
