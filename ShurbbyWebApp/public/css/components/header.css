@@ -1,0 +1,94 @@
+a {
+    text-decoration: none;
+    color: #EFE5D5;
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 32px;
+}
+
+.headbar{
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 32px;
+    gap: 16px;
+
+    width: 100%;
+    height: auto;
+    top: 0px;
+
+    background: #304045;
+
+    border-bottom: 1px solid #EFE5D5;
+}
+
+.headbar .logo{
+    width: 25.03px;
+    height: 32px;
+}
+
+.headbar .logo svg{
+    fill: #EFE5D5;
+}
+
+.headbar .logo svg:hover{
+    fill: #F1B24B;
+}
+
+.headbar .menubar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 12px;
+    gap: 36px;
+
+    width: 341px;
+    height: 40px;
+}
+
+.menubar-menu a:hover{
+    color: #F1B24B;
+    position: sticky;
+}
+
+.headbar .label{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+
+    width: 777.97px;
+    height: 43px;
+}
+
+.headbar .loginbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 36px;
+
+    width: 184px;
+    height: 32px;
+}
+
+.login-menu{
+    display: flex;
+    font-size:18px;
+    width: max-content;
+}
+
+.loginbar-menu a:hover{
+    color:#F1B24B;
+}
+
+a.label:hover{
+    color:#F1B24B;
+}

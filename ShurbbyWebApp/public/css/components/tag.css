@@ -1,0 +1,96 @@
+.box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px;
+    gap: 10px;
+
+    width: 276px;
+    height: auto;
+}
+
+.box:hover{
+    background-color: #5B6C67;
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    width: 100%;
+    height: auto;
+}
+
+.right{
+    width: fit-content;
+    height: auto;
+
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 27px;
+
+    color: #4B819F;
+}
+
+.topic-name{
+
+    width: 100%;
+    height: auto;
+
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 27px;
+
+    color: #EFE5D5;
+}
+
+.amount{
+    width: 100%;
+    height: auto;
+
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+
+    color: #D2D2D5;
+}
+
+.follow-btn{
+    background-color: transparent;
+    border: none;
+
+    text-align: right;
+
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    
+    font-family: 'Prompt';
+
+    width: 100px;
+}
+
+.follow-text{
+    color: #EFE5D5;
+    font-size: 16px;
+    text-align: right;
+}
+
+.follow-text:hover{
+    color:#F1B24B;
+}
+
+.followed-text{
+    color: #F1B24B;
+    font-size: 16px;
+    display: none;
+    text-align: right;
+}

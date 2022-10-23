@@ -16,12 +16,16 @@ use App\Http\Controllers\Auth\RegisterController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('home', [HomeController::class, 'index'])->name('home');
+Route::view('home', 'homepage.home')->name('home');
+Route::view('timeline', 'timeline.index')->name('timeline');
+Route::view('journal', 'journal.index')->name('journal');
 
 Auth::routes();
 
-Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+Route::middleware(['auth', 'is_admin'])->get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
 
-Route::post('register', [RegisterController::class, 'register']);
-
+Route::view('login', 'auth.login')->name('login');
+Route::post('register', [RegisterController::class, 'register'])->name('register');
+// Route::get('search', #ControllerClass for  searching) --> search route method
 
