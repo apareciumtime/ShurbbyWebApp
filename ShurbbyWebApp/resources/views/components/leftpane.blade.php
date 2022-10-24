@@ -13,11 +13,17 @@
     <div class="topic">
         {{$topic}}
     </div>
-    <x-tag/>
-    <x-tag/>
+    <div class=for-tag>
+            <x-tag id="0"/>
+            <x-tag id="1"/>
+            <x-tag id="2"/>
+            <x-tag id="3"/>
+    </div>
     <div class="more">
         <a href="#">
             <h4>แสดงเพิ่มเติม</h4>
         </a>
     </div>
 </div>
+
+<div class="recommand-tag">

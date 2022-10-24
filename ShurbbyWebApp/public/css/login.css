@@ -1,0 +1,199 @@
+body{
+    margin:0;
+    background: #304045;
+}
+
+.header{
+    top:0px;
+    position:sticky;
+}
+
+.content{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 32px;
+
+    width: 100%;
+    height: 965px;
+}
+
+.article{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+    gap: 8px;
+
+    width: 50%;
+    height: auto;
+}
+
+.article .title{
+    width: 100%;
+    height: auto;
+
+    font-family: 'Prompt';
+    font-style:normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+    text-align:left;
+
+    color: #EFE5D5;
+}
+
+.article .text{
+    width: 100%;
+    height: auto;
+
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: justify;
+
+    color: #EFE5D5;
+}
+
+.logo {
+    width: 37.54px;
+    height: 48px;
+    fill:#EFE5D5;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 16px;
+    gap: 16px;
+
+    width: 50%;
+    height: auto;
+    
+    color:#EFE5D5;
+
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 400;
+}
+
+.head-content{
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+.description{
+    font-size:20px;
+}
+
+.topic{
+    font-size:18px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 108px;
+    gap: 32px;
+
+    width: max-content;
+    height: auto;
+}
+
+.form-item{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+
+    width: 300px;
+    
+}
+
+.form-control{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px ;
+    gap: 12px;
+
+    width: 284px;
+    height: auto;
+
+    background: #445650;
+    border:none;
+    border-bottom:1px solid #EFE5D5;
+    border-radius: 0px;
+
+    color:#EFE5D5;
+    font-size:18px;
+    font-family:'Prompt';
+    font-weight: 400;
+    outline:none;
+    
+}
+
+.form-control:hover{
+    border-bottom: 1px solid #F1B24B;
+}
+
+.form-control:focus{
+    border-bottom:1px solid #4B819F;
+}
+
+.button-section{
+    margin:16px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+
+    width: 100%;
+    height: 145px;
+
+}
+
+.login-btn{
+    cursor:pointer;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+
+    width: 300px;
+    height: auto;
+
+    background: #445650;
+
+    box-shadow: 0px 2px 4px -2px rgba(0, 0, 0, 0.5), 0px 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+
+    border:none;
+    
+    color:#EFE5D5;
+    font-family: 'Prompt';
+    font-size:18px;
+    font-weight: bolder;
+    
+}
+
+.login-btn:active{
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.25);
+    color:#F1B24B
+}
+
+.forget-btn:hover{
+    color:#F1B24B;
+}
+
+.register-btn:hover{
+    color:#F1B24B;
+}

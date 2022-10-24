@@ -3,7 +3,7 @@
 
 <div class="box">
     <div class="left">
-        <a href="" class="topic-name">
+        <a href="#" class="topic-name">
             ไมยราพ
         </a>
         <div class="amount">
@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="right">
-        <?php $status=0;?>
+        <?php $status=0;?>  <!--Have to query $status of this tag with its ID-->
             <button id ="follow-btn" class="follow-btn">
                     <div class = "follow-text">
                         ติดตาม

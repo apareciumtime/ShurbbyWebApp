@@ -20,10 +20,6 @@ a {
 
     background: #445650;
     border-radius: 8px;
-
-    flex: none;
-    order: 0;
-    flex-grow: 0;
 }
 
 .search-icon{
@@ -48,6 +44,8 @@ a {
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
+
+    outline:none;
 }
 
 .toptag{
@@ -81,6 +79,11 @@ a {
     color: #FAFAFA;
 }
 
+.for-tag{
+    width: fit-content;
+    height: fit-content;
+}
+
 .more{
     display: flex;
     flex-direction: row;
@@ -100,4 +103,9 @@ a {
 
 .more a:hover{
     color:#F1B24B;
+}
+
+.for-tag{
+    width:max-content;
+    height: auto;
 }

@@ -156,12 +156,13 @@ svg:hover{
 }
 
 .body{
+    border:1px solid red;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    padding: 0px;
+    padding: 16px;
 
-    weight: 100%;
+    width: 100%;
     height: 1966px;
 
 }
@@ -173,12 +174,13 @@ svg:hover{
     align-items: flex-start;
     padding: 16px;
     gap: 8px;
-    
+
     width: max-content;
-    height: 100%;
+    height: fit-content;
 }
 
 .left-pane .search-bar{
+    border:1px solid red;
     display:inline-flex;
     flex-direction: row;
     align-items: center;

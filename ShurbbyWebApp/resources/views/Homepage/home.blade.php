@@ -17,7 +17,11 @@
     </section>
     <section class="body">
         <div class="leftpane">
-            <x-leftpane topic="แท็กยอดนิยม"/>
+            <x-leftpane topic="แท็กยอดนิยม">
+                <x-tag/>
+                <x-tag/>
+                <x-tag/>
+            </x-leftpane>
         </div>
         <div class="interpane">
             <h1>Hello</h1>
