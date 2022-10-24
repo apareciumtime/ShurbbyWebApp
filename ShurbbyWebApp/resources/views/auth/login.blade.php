@@ -33,7 +33,7 @@
             <div class="topic">ลงชื่อเข้าใช้</div>
 
             <div class="input-block">
-                <form class="form" method="POST" action="{{ route('login') }}">
+                <form class="form" method="POST" action="{{ route('login') }}" id="form">
                     @csrf
 
                     <!-- error message when email or password incorrect-->

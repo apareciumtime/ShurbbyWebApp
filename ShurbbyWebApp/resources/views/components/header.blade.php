@@ -32,7 +32,40 @@
         </a>
     </div>
     <div class="loginbar">
-        <div class = "loginbar-menu">
+        @guest
+            @if (Route::has('login'))
+                <div class = "loginbar-menu">
+                    <a href = "{{route('login')}}" class = "login-menu">
+                        เข้าสู่ระบบ
+                    </a>
+                </div>
+            @endif
+
+            @if (Route::has('register'))
+                <div class = "loginbar-menu">
+                    <a href = "{{route('register')}}" class = "login-menu">
+                        สมัครสมาชิก
+                    </a>
+                </div>
+            @endif
+            @else
+                <a id="navbarDropdown" class="signin" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    {{ Auth::user()->name }}
+                </a>
+
+                <div class="signup">
+                    <a class="signup" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                        {{ __('ออกจากระบบ') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </div>
+        @endguest
+        {{-- <div class = "loginbar-menu">
             <a href = "{{route('login')}}" class = "login-menu">
                 เข้าสู่ระบบ
             </a>
@@ -41,7 +74,7 @@
             <a href = "{{route('register')}}" class = "login-menu">
                 สมัครสมาชิก
             </a>
-        </div>
+        </div> --}}
     </div> 
 </div>
 </body>

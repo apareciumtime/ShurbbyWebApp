@@ -57,12 +57,17 @@ class RegisterController extends Controller
      *
      * @return response()
      */
-    // public function register(Request $request)
-    // {
-    //     $this->validator($request->all());
-    //     $this->create($request->all());
-    //     return redirect()->route('home');
-    // }
+    public function register(Request $request)
+    {
+        $this->validator($request->all());
+        $this->create($request->all());
+
+        $input = $request->all();
+        # if login successfully -> check Admin?
+        if (auth()->attempt(array('email' => $input['email'],'password' => $input['password']))) {
+            return redirect()->route('home');   
+        }
+    }
     
 
     /**
@@ -73,11 +78,12 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        // dd($data);
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'telNum' => ['required', 'string', 'size:10'],
+            'telNum' => ['required', 'string' ,'size:12'],
             'address_info' => ['required', 'string', 'max:255'],
             'address_province' => ['required', 'string', 'max:255'],
             'address_district' => ['required', 'string', 'max:255'],
@@ -97,6 +103,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        // dd($data);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

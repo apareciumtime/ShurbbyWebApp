@@ -26,6 +26,6 @@ Auth::routes();
 Route::middleware(['auth', 'is_admin'])->get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
 
 Route::view('login', 'auth.login')->name('login');
-Route::post('register', [RegisterController::class, 'register'])->name('register');
+Route::post('register', [RegisterController::class, 'register']);
 // Route::get('search', #ControllerClass for  searching) --> search route method
 

@@ -26,28 +26,28 @@
             <div class="topic">สร้างบัญชีผู้ใช้งานใหม่</div>
         </div>
 
-        <form method="POST" action="{{ route('register') }}" class="form-register">
+        <form method="POST" action="{{ route('register') }}" class="form-register" id="login-form" enctype="multipart/form-data">
             <div class="input-form">
-
+                @csrf
                 <div class="topic">ข้อมูลผู้ใช้งาน</div>
                 <div class="group-input">
                     <label>ชื่อผู้ใช้งาน</label>
-                    <input type="text" placeholder="ชื่อผู้ใช้งาน" id="name"  class="form-register @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                    <input type="text" placeholder="ชื่อผู้ใช้งาน" id="name"  class="form-register form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                 </div>
 
                 <div class="group-input">
                     <label>รหัสผ่าน</label>
-                    <input type="password" placeholder="รหัสผ่าน" id="password"  class="form-register @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" required autocomplete="password" autofocus>
+                    <input type="password" placeholder="รหัสผ่าน" id="password"  class="form-register form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" required autocomplete="password" autofocus>
                 </div>
 
                 <div class="group-input">
                     <label>ยืนยันรหัสผ่าน</label>
-                    <input type="password" placeholder="รหัสผ่าน" id="password_confirm"  class="form-register @error('password_confirm') is-invalid @enderror" name="password_confirm" value="{{ old('password_confirm') }}" required autocomplete="password_confirm" autofocus>
+                    <input type="password" placeholder="รหัสผ่าน" id="password_confirm"  class="form-register form-control @error('password_confirm') is-invalid @enderror" name="password_confirm" value="{{ old('password_confirm') }}" required autocomplete="password_confirm" autofocus>
                 </div>
 
                 <div class="group-input">
                     <label>อีเมล</label>
-                    <input id="email" type="text" placeholder="อีเมล" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                    <input id="email" type="text" placeholder="อีเมล" class="form-register form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                 </div>
 
             </div>
@@ -57,42 +57,42 @@
                 <div class="topic">ข้อมูลส่วนตัว</div>
                 <div class="group-input">
                     <label>หมายเลขโทรศัพท์</label>
-                    <input type="tel" placeholder="หมายเลขโทรศัพท์" id="telNum" class="form-register @error('telNum') is-invalid @enderror" name="telNum" value="{{ old('telNum') }}" required autocomplete="telNum" autofocus pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                    <input type="text" placeholder="หมายเลขโทรศัพท์" id="telNum" class="form-register form-control @error('telNum') is-invalid @enderror" name="telNum" value="{{ old('telNum') }}" required autocomplete="telNum" autofocus pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
                 </div>
 
                 <div class="group-input">
                     <label>ที่อยู่</label>
-                    <input type="text" placeholder="ที่อยู่" id="address_info"  class="form-register @error('address_info') is-invalid @enderror" name="address_info" value="{{ old('address_info') }}" required autocomplete="address_info" autofocus>
+                    <input type="text" placeholder="ที่อยู่" id="address_info"  class="form-register form-control @error('address_info') is-invalid @enderror" name="address_info" value="{{ old('address_info') }}" required autocomplete="address_info" autofocus>
                 </div>
 
                 <div class="group-input">
                     <label>จังหวัด</label>
-                    <input type="text" placeholder="จังหวัด" id="address_province"  class="form-register @error('address_province') is-invalid @enderror" name="address_province" value="{{ old('address_province') }}" required autocomplete="address_province" autofocus>
+                    <input type="text" placeholder="จังหวัด" id="address_province"  class="form-register form-control @error('address_province') is-invalid @enderror" name="address_province" value="{{ old('address_province') }}" required autocomplete="address_province" autofocus>
                 </div>
                 
                 <div class="group-input">
                     <label>เขต/อำเภอ</label>
-                    <input type="text" placeholder="เขต/อำเภอ" id="address_district"  class="form-register @error('address_district') is-invalid @enderror" name="address_district" value="{{ old('address_district') }}" required autocomplete="address_district" autofocus>
+                    <input type="text" placeholder="เขต/อำเภอ" id="address_district"  class="form-register form-control @error('address_district') is-invalid @enderror" name="address_district" value="{{ old('address_district') }}" required autocomplete="address_district" autofocus>
                 </div>
                 
                 <div class="group-input">
                     <label>แขวง/ตำบล</label>
-                    <input type="text" placeholder="แขวง/ตำบล" id="address_sub_district"  class="form-register @error('address_sub_district') is-invalid @enderror" name="address_sub_district" value="{{ old('address_sub_district') }}" required autocomplete="address_sub_district" autofocus>
+                    <input type="text" placeholder="แขวง/ตำบล" id="address_sub_district"  class="form-register form-control @error('address_sub_district') is-invalid @enderror" name="address_sub_district" value="{{ old('address_sub_district') }}" required autocomplete="address_sub_district" autofocus>
                 </div>
                 
                 <div class="group-input">
                     <label>รหัสไปรษณีย์</label>
-                    <input type="text" placeholder="รหัสไปรษณีย์" id="address_postcode"  class="form-register @error('address_postcode') is-invalid @enderror" name="address_postcode" value="{{ old('address_postcode') }}" required autocomplete="address_postcode" autofocus>
+                    <input type="text" placeholder="รหัสไปรษณีย์" id="address_postcode"  class="form-register form-control @error('address_postcode') is-invalid @enderror" name="address_postcode" value="{{ old('address_postcode') }}" required autocomplete="address_postcode" autofocus>
                 </div>
 
                 <div class="group-input">
                     <label>วัน/เดือน/ปี เกิด</label>
-                    <input id="birthday" type="date" class="form-control @error('birthday') is-invalid @enderror" name="birthday" value="{{ old('birthday') }}" required autocomplete="birthday" autofocus>
+                    <input id="birthday" type="date" class="form-register form-control @error('birthday') is-invalid @enderror" name="birthday" value="{{ old('birthday') }}" required autocomplete="birthday" autofocus>
                 </div>
 
                 <div class="group-input">
                     <label>เพศ</label>
-                    <select id="gender" name="gender">
+                    <select id="gender" name="gender" class="form-register form-control">
                         <option value="male">ชาย</option>
                         <option value="female">หญิง</option>
                         <option value="undefine">กำหนดเอง</option>
@@ -101,7 +101,7 @@
             </div>
         </form>
 
-        <button type="submit" class="register-btn" form="form-register">
+        <button type="submit" class="register-btn" form="login-form">
             สร้างบัญชีผู้ใช้งานใหม่
         </button>
 
