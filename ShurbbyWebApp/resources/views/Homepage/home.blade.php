@@ -21,6 +21,8 @@
                 <x-tag/>
                 <x-tag/>
                 <x-tag/>
+                <x-tag/>
+                <x-tag/>
             </x-leftpane>
         </div>
         <div class="interpane">

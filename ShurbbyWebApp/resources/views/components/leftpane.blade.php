@@ -14,10 +14,7 @@
         {{$topic}}
     </div>
     <div class=for-tag>
-            <x-tag id="0"/>
-            <x-tag id="1"/>
-            <x-tag id="2"/>
-            <x-tag id="3"/>
+            {{ $slot }}
     </div>
     <div class="more">
         <a href="#">

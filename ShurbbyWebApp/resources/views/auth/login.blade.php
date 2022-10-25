@@ -46,7 +46,7 @@
 
                     <!--wait for code that can check that input is name or email-->
                     <div class="form-item" form="form">
-                        <div class="topic">ชื่อผู้ใช้งาน</div>
+                        <div class="topic">อีเมล</div>
                         <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="อีเมล">
                         @error('email')
                             <span class="invalid-feedback" role="alert">
