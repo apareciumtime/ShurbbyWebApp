@@ -2,24 +2,19 @@
 
 namespace App\View\Components;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\View\Component;
-use NunoMaduro\Collision\Adapters\Phpunit\Style;
 
 class header extends Component
 {
-    public $label;
-    public $username;
-    
+    public $title;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($label)
+    public function __construct()
     {
-        $this->label = $label;
-        $this->username = Auth::user()->name;
+        //
     }
 
     /**

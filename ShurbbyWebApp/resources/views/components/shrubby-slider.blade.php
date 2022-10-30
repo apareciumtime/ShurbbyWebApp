@@ -1,0 +1,85 @@
+<link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Prompt:400">
+
+<style>
+.shrubby-slider-frame{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    width: 64vw;
+    height: 452px;
+}
+
+.shrubby-slider-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: 100%;
+    height: 68px;
+}
+
+.shrubby-slider-slot{
+    width: 100%;
+    height: 384px;
+
+    background: #E6E6E8;
+
+    overflow-x: scroll;
+}
+
+.shrubby-slider-label{
+    padding:16px;
+
+    width: 100%;
+    height: 36px;
+
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+
+    color: #445650;
+
+}
+.all-a a{
+    display: flex;
+    width: 77px;
+    height: 30px;
+
+    padding: 16px;
+
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #4B819F;
+}
+
+.all-a a:hover{
+    color: #F1B24B;
+}
+</style>
+
+<div class="shrubby-slider-frame">
+    <div class="shrubby-slider-header">
+        <div class="shrubby-slider-label">
+            {{$label}}
+        </div>
+        <div class="all-a">
+            <a href="{{$link_to}}">
+                ดูทั้งหมด
+            </a>
+        </div>
+    </div>
+
+    <div class="shrubby-slider-slot">
+    dnasndaksndklasndlkasndl;kasnldk;asnlkdasnlkdasnlkdnaslkdnal;sdnlk;asndlkasndlkaslnkdasnkldasnlkdnklsadnasndaksndklasndlkasndl;kasnldk;asnlkdasnlkdasnlkdnaslkdnal;sdnlk;asndlkasndlkaslnkdasnkldasnlkdnklsadnasndaksndklasndlkasndl;kasnldk;asnlkdasnlkdasnlkdnaslkdnal;sdnlk;asndlkasndlkaslnkdasnkldasnlkdnklsadnasndaksndklasndlkasndl;kasnldk;asnlkdasnlkdasnlkdnaslkdnal;sdnlk;asndlkasndlkaslnkdasnkldasnlkdnklsadnasndaksndklasndlkasndl;kasnldk;asnlkdasnlkdasnlkdnaslkdnal;sdnlk;asndlkasndlkaslnkdasnkldasnlkdnklsa
+    </div>
+
+
+</div>

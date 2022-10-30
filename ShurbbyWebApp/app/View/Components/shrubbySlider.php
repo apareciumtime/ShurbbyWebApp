@@ -2,15 +2,12 @@
 
 namespace App\View\Components;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\View\Component;
-use NunoMaduro\Collision\Adapters\Phpunit\Style;
 
-class header extends Component
+class shrubbySlider extends Component
 {
     public $label;
-    public $username;
-    
+    public $link_to;
     /**
      * Create a new component instance.
      *
@@ -19,7 +16,12 @@ class header extends Component
     public function __construct($label)
     {
         $this->label = $label;
-        $this->username = Auth::user()->name;
+        if($label == 'Shrubby ที่แนะนำ'){
+            $this->link_to = 'shubbyrecommand';
+        }
+        elseif($label == 'Shrubby ที่มาใหม่'){
+            $this->link_to = 'shrubbynewby';
+        }
     }
 
     /**
@@ -29,6 +31,6 @@ class header extends Component
      */
     public function render()
     {
-        return view('components.header');
+        return view('components.shrubby-slider');
     }
 }

@@ -10,7 +10,7 @@
 </head>
 <body>
     <section class="header">
-        <x-header/>
+        <x-leftpane/>
     </section>
     <section class="content">
         <div class="article">

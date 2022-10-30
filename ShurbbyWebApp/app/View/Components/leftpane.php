@@ -6,16 +6,14 @@ use Illuminate\View\Component;
 
 class leftpane extends Component
 {
-
-    public $topic;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($topic)
+    public function __construct()
     {
-        $this->topic = $topic;
+        //
     }
 
     /**

@@ -8,23 +8,40 @@
     <!--
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     -->
-        <link rel = "stylesheet" href = "/css/journalIndex.css">
-        <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Sarabun:100">
+        <link rel = "stylesheet" href = "/css/homeIndex.css">
+        <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Prompt:100">
 </head>
 <body>
-    <section class="header">
-        <x-header/>
-    </section>
-    <section class="body">
-        <div class="leftpane">
-            <x-leftpane topic="แท็กยอดนิยม"/>
+    <div class="leftpane">
+        <x-leftpane/>
+
+    </div>
+    <div class="right-section">
+        <div class="header">
+            <x-header label="สมุดบันทึก" />
         </div>
-        <div class="interpane">
-            <h1>Hello</h1>
+        <div class="body-right-section">
+            <div class="inside-body">
+                <div class="nav-bar">
+                    nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > 
+                </div>
+                <div class="playground">
+                    playground
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    sadasd
+                </div>
+            </div>
+            <div class="rightpane">
+                rightpane
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                asd
+            </div>
         </div>
-        <div class="rightpane">
-            <x-rightpane/>
-        </div>
-    </section>
+    </div>
+    
 </body>
 </html>

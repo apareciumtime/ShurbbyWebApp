@@ -2,24 +2,18 @@
 
 namespace App\View\Components;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\View\Component;
-use NunoMaduro\Collision\Adapters\Phpunit\Style;
 
-class header extends Component
+class tab-menu extends Component
 {
-    public $label;
-    public $username;
-    
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($label)
+    public function __construct()
     {
-        $this->label = $label;
-        $this->username = Auth::user()->name;
+        //
     }
 
     /**
@@ -29,6 +23,6 @@ class header extends Component
      */
     public function render()
     {
-        return view('components.header');
+        return view('components.tab-menu');
     }
 }

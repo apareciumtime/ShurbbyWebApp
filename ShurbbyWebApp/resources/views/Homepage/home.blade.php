@@ -12,27 +12,30 @@
         <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Prompt:100">
 </head>
 <body>
-    <section class="header">
-        <x-header/>
-    </section>
-    <section class="body">
-        <div class="leftpane">
-            <x-leftpane topic="แท็กยอดนิยม">
-                <x-tag/>
-                <x-tag/>
-                <x-tag/>
-                <x-tag/>
-                <x-tag/>
-            </x-leftpane>
-        </div>
-        <div class="interpane">
-            <h1>Hello</h1>
-        </div>
-        <div class="rightpane">
-            <x-rightpane/>
-        </div>
-    </section>
+    <div class="leftpane">
+        <x-leftpane/>
 
+    </div>
+    <div class="right-section">
+        <x-header label="หน้าหลัก"/>
+
+        <div class="body-right-section">
+            <div class="inside-body">
+                <div class="nav-bar">
+                    nav-bar
+                </div>
+                <div class="playground">
+                    <x-shrubby-slider label="Shrubby ที่แนะนำ"/>
+                    <x-shrubby-slider label="Shrubby ที่มาใหม่"/>
+                    
+
+                </div>
+            </div>
+            <div class="rightpane">
+                rightpane
+            </div>
+        </div>
+    </div>
     
 </body>
 </html>
