@@ -1,0 +1,253 @@
+a{
+    list-style: none;
+    text-decoration: none;
+}
+
+body{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+
+    
+    font-family: "Prompt";
+    font-weight: normal;
+    color:#304045;
+    background: #FAFAFA;
+}
+
+.right-section{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content:start;
+    padding: 0px;
+
+    width: 100vw;
+    height: 100vh;
+
+}
+
+.body-right-topic{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 0px;
+    gap: 8px;
+
+    width: 1185px;
+    height: fit-content;
+    
+}
+
+.body-right-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 48px;
+
+    width: 1185px;
+    height: fit-content;
+    
+}
+
+.head-topic{
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 48px;
+
+    color: #445650;
+
+}
+
+.description-topic{
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+
+    color: #445650;
+    
+
+}
+
+.topic-login{
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+
+    color: #445650;
+
+}
+
+.form-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 32px;
+
+    width: 1185px;
+    height: 239px;
+}
+
+.form-item{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap:8px;
+
+    width: 300px;
+    height: 79px;
+}
+
+.topic{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+
+    width: 300px;
+    height: 33px;
+
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 33px;
+
+    color: #445650;
+}
+
+.form-control{
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 8px 12px;
+
+    width: 300px;
+    height: 46px;
+
+    background: #F3F3F3;
+
+    outline:none;
+    border:none;
+    border-bottom: 2px solid #445650;
+
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #445650;
+}
+
+.form-control:hover{
+    border-bottom: 2px solid #F1B24B;
+}
+
+.forget-btn{
+    width: 300px;
+    height: 33px;
+
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 33px;
+
+    color: #4B819F;
+}
+
+.forget-btn:hover{
+    color: #F1B24B;
+}
+
+.wrong-user{
+    color:red;
+}
+
+.button-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 24px;    
+}
+
+.login-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    
+    width: 300px;
+    height: 50px;
+    
+    background: #EFE5D5;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    border:none;
+    border-radius: 8px;
+
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+
+    color: #445650;
+    
+}
+
+.login-btn:focus{
+    box-shadow: inset 2px 2px 1px rgba(0, 0, 0, 0.25);
+}
+
+.register-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    
+    width: 300px;
+    height: 50px;
+    
+    background: #FAFAFA;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    border:none;
+    border-radius: 8px;
+
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+
+    color: #445650;
+}
+
+.register-btn:focus{
+    box-shadow: inset 2px 2px 1px rgba(0, 0, 0, 0.25);
+}

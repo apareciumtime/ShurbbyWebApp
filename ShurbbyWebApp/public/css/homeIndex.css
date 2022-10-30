@@ -4,18 +4,20 @@ a{
 }
 
 body{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+
+    
     font-family: "Prompt";
     font-weight: normal;
     color:#304045;
     background: #FAFAFA;
-    
-    overflow-y: hidden;
-}
-
-.leftpane{
-    position:sticky;
-    top:0px;
-    left:0px;
 }
 
 .right-section{
@@ -24,10 +26,9 @@ body{
     align-items: flex-start;
     padding: 0px;
 
-    position: absolute;
+    position:relative;
     width: 82vw;
     height: 100vh;
-    left: 18vw;
     top: 0px;
 
 }

@@ -11,7 +11,7 @@
     gap: 16px;
 
     width: 82vw;
-    height: 8vh;
+    height: fit-content;
 
     background: #FAFAFA;
 
@@ -24,7 +24,7 @@
 }
 
 .header-label{
-    width: fit-content;
+    width: 16vw;
     height: 48px;
 
     font-family: 'Prompt';
@@ -68,14 +68,18 @@ img{
 
 </style>
 
-
-    <div class="header-frame">
+<div class="header-frame">
     <div class="header-left"></div>
     <div class="header-label">
         {{$label}}
     </div>
     <div class="header-right">
-        {{$username}}
-        <img src="#">
+        @guest
+            
+        @else
+            {{$username}}
+            <img src="#">
+        @endguest
+        
     </div>
 </div>

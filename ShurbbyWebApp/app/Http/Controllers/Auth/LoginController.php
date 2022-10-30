@@ -55,7 +55,7 @@ class LoginController extends Controller
                 return redirect()->route('home');
             }
         } else {
-            return redirect()->route('login')->with('error','Email-ddress and Password are wrong');
+            return redirect()->route('login')->with('error','อีเมล หรือ รหัสผ่านผิดพลาด โปรดลองใหม่อีกครั้ง');
         }
     }
 }

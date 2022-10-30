@@ -14,7 +14,7 @@ body{
     padding: 0px;
     gap: 16px;
     
-    width: 18vw;
+    width: fit-content;
     height: 100vh;
     
     border-right: 1px solid #D2D2D5;
@@ -152,14 +152,13 @@ body{
             <x-tab-menu label="สมัครสมาชิก"/>
         @else
             <x-tab-menu label="ตั้งค่า"/>
-            <div class="signup">
-                <div class="signup" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <div href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <x-tab-menu label="ออกจากระบบ"/>
                 </div>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-            </form>
-        </div>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                </form>
+            
         @endguest
             
     </div>

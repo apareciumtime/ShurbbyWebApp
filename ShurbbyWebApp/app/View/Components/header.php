@@ -9,7 +9,7 @@ use NunoMaduro\Collision\Adapters\Phpunit\Style;
 class header extends Component
 {
     public $label;
-    public $username;
+    public $username='';
     
     /**
      * Create a new component instance.
@@ -19,7 +19,9 @@ class header extends Component
     public function __construct($label)
     {
         $this->label = $label;
-        $this->username = Auth::user()->name;
+        if(Auth::check()){
+            $this->username = Auth::user()->name;
+        }
     }
 
     /**
