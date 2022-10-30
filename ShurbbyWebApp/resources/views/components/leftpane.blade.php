@@ -152,10 +152,14 @@ body{
             <x-tab-menu label="สมัครสมาชิก"/>
         @else
             <x-tab-menu label="ตั้งค่า"/>
+            <div class="signup">
+                <div class="signup" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <x-tab-menu label="ออกจากระบบ"/>
+                </div>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
-                        <x-tab-menu label="ออกจากระบบ"/>
             </form>
+        </div>
         @endguest
             
     </div>
