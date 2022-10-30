@@ -31,9 +31,7 @@
 
                 </div>
             </div>
-            <div class="rightpane">
-                rightpane
-            </div>
+            <x-rightpane/>
         </div>
     </div>
     

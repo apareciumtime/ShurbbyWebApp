@@ -33,13 +33,7 @@
                     sadasd
                 </div>
             </div>
-            <div class="rightpane">
-                rightpane
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                asd
-            </div>
+            <x-rightpane/>
         </div>
     </div>
     
