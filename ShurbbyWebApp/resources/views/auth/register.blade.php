@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Register</title>
     <link href="https://fonts.googleapis.com/css?family=Prompt:400" rel="stylesheet">
     <link rel = "stylesheet" href = "/css/register.css">
 </head>
@@ -40,6 +40,7 @@
                                 <input  type="text"
                                         class="form-control"
                                         name="alias"
+                                        id="alias"
                                         autofocus placeholder="shrubbynarak"
                                 >
                         </div>
@@ -50,6 +51,7 @@
                                 <input  type="text"
                                         class="form-control"
                                         name="username"
+                                        id="username"
                                         autofocus placeholder="@shrubbynarak"
                                         value="@"
                                 >
@@ -64,6 +66,7 @@
                                 <input  type="email"
                                         class="form-control"
                                         name="email"
+                                        id="email"
                                         autofocus placeholder="shrubby@gmail.com"
                                 >
                         </div>
@@ -74,6 +77,7 @@
                                 <input  type="password"
                                         class="form-control"
                                         name="password"
+                                        id="password"
                                         autofocus placeholder="รหัสผ่าน"
                                 >
                         </div>
@@ -83,7 +87,8 @@
                                 </div>
                                 <input  type="password"
                                         class="form-control"
-                                        name="password-confirm"
+                                        name="password_confirm"
+                                        id="password_confirm"
                                         autofocus placeholder="ยืนยันรหัสผ่าน"
                                 >
                         </div>
@@ -118,9 +123,10 @@
                                 <div class="topic">
                                     หมายเลขโทรศัพท์
                                 </div>
-                                <input  type="tel"
+                                <input  type="text"
                                         class="form-control"
                                         name="telNum"
+                                        id="telNum"
                                         autofocus placeholder="081-234-56xx"
                                 >
                         </div>
@@ -128,7 +134,7 @@
                                 <div class="topic">
                                     ที่อยู่
                                 </div>
-                                <textarea placeholder="ที่อยู่"></textarea>
+                                <textarea placeholder="ที่อยู่"  name="address_info" id="address_info" class="form-control"></textarea>
                         </div>
                     </form>
                 </div>
@@ -138,7 +144,7 @@
             
         </div>
         <div class="button-section">
-            <button class="register-btn" type="button" onclick="location.href='register'">
+            <button class="register-btn" type="button" onclick="location.href='register'" form="register-form">
                 สมัครสมาชิก
             </button>
         </div>

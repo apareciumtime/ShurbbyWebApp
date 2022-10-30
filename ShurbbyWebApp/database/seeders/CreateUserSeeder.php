@@ -16,32 +16,26 @@ class CreateUserSeeder extends Seeder
     {
         $user = [
             [
-                'name' => 'Admin',
+                'alias' => 'Admin',
                 'email' => 'admin@admin.com',
                 'is_admin' => '1',
                 'password' => bcrypt('admin4321'),
                 'telNum' => '081245678',
                 'address_info' => '00/00 St.',
-                'address_province' => 'Bangkok',
-                'address_district' => 'Phatum wan',
-                'address_sub_district' => 'samyan',
-                'address_postcode' => '12345',
-                'birthday' => '2002-01-01',
+                'birthdate' => '2002-01-01',
                 'gender' => 'female',
+                'username'=>'@admin'
             ],
             [
-                'name' => 'User',
+                'alias' => 'User',
                 'email' => 'user@user.com',
                 'is_admin' => '0',
                 'password' => bcrypt('user1234'),
                 'telNum' => '081245678',
                 'address_info' => '00/00 St.',
-                'address_province' => 'Bangkok',
-                'address_district' => 'Phatum wan',
-                'address_sub_district' => 'samyan',
-                'address_postcode' => '12345',
-                'birthday' => '2002-01-01',
+                'birthdate' => '2002-01-01',
                 'gender' => 'female',
+                'username'=>'@user1'
             ]
             ];
 

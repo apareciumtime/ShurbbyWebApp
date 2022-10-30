@@ -59,6 +59,7 @@ class RegisterController extends Controller
      */
     public function register(Request $request)
     {
+        dd($request);
         $this->validator($request->all());
         $this->create($request->all());
 
@@ -80,17 +81,14 @@ class RegisterController extends Controller
     {
         // dd($data);
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'alias' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'telNum' => ['required', 'string' ,'size:12'],
             'address_info' => ['required', 'string', 'max:255'],
-            'address_province' => ['required', 'string', 'max:255'],
-            'address_district' => ['required', 'string', 'max:255'],
-            'address_sub_district' => ['required', 'string', 'max:255'],
-            'address_postcode' => ['required', 'string', 'size:5'],
-            'birthday' => ['required', 'string', 'date'],
+            'birthdate' => ['required', 'string', 'date'],
             'gender' => ['required', 'string'],
+            'username'=> ['required', 'string', 'max:255', 'unique:users']
             
         ]);
     }
@@ -105,18 +103,15 @@ class RegisterController extends Controller
     {
         // dd($data);
         return User::create([
-            'name' => $data['name'],
+            'alias' => $data['alias'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'is_admin' => '0',
             'telNum' => $data['telNum'],
             'address_info' => $data['address_info'],
-            'address_province' => $data['address_province'],
-            'address_district' => $data['address_district'],
-            'address_sub_district' => $data['address_sub_district'],
-            'address_postcode' => $data['address_postcode'],
-            'birthday' => $data['birthday'],
+            'birthdate' => $data['birthdate'],
             'gender' => $data['gender'],
+            'username' => $data['username'],
         ]);
     }
 }
