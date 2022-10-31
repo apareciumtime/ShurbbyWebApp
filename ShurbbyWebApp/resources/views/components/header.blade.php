@@ -78,7 +78,7 @@ img{
         @guest
             
         @else
-            {{$username}}
+            {{Auth::user()->alias}}
             <img src="#">
         @endguest
         

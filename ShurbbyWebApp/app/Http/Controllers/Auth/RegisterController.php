@@ -57,18 +57,6 @@ class RegisterController extends Controller
      *
      * @return response()
      */
-    public function register(Request $request)
-    {
-        dd($request);
-        $this->validator($request->all());
-        $this->create($request->all());
-
-        $input = $request->all();
-        # if login successfully -> check Admin?
-        if (auth()->attempt(array('email' => $input['email'],'password' => $input['password']))) {
-            return redirect()->route('home');   
-        }
-    }
     
 
     /**
@@ -105,8 +93,8 @@ class RegisterController extends Controller
         return User::create([
             'alias' => $data['alias'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
             'is_admin' => '0',
+            'password' => Hash::make($data['password']),
             'telNum' => $data['telNum'],
             'address_info' => $data['address_info'],
             'birthdate' => $data['birthdate'],

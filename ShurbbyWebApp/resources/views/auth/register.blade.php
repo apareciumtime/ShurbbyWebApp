@@ -28,113 +28,157 @@
                 </div>
                 <br><br>
                 <div class="form-container">
-                    <form class="form-section"  method="POST" action="{{ route('register') }}" id="register-form">
-                        @csrf
-                        <div class="topic">
-                            ข้อมูลผู้ใช้งาน
-                        </div>
-                        <div class="form-item" form="register-form">
-                                <div class="topic">
-                                    ชื่อแสดง
-                                </div>
-                                <input  type="text"
-                                        class="form-control"
-                                        name="alias"
-                                        id="alias"
-                                        autofocus placeholder="shrubbynarak"
-                                >
-                        </div>
-                        <div class="form-item" form="register-form">
-                                <div class="topic">
-                                    ชื่อบัญชีผู้ใช้
-                                </div>
-                                <input  type="text"
-                                        class="form-control"
-                                        name="username"
-                                        id="username"
-                                        autofocus placeholder="@shrubbynarak"
-                                        value="@"
-                                >
-                                <div class="comment">
-                                    กรุณาใส่ข้อมูลขึ้นต้นด้วย '@' และชื่อบัญชีผู้ใช้จะไม่สามารถเปลี่ยนแปลงได้
-                                </div>
-                        </div>
-                        <div class="form-item" form="register-form">
-                                <div class="topic">
-                                    อีเมล
-                                </div>
-                                <input  type="email"
-                                        class="form-control"
-                                        name="email"
-                                        id="email"
-                                        autofocus placeholder="shrubby@gmail.com"
-                                >
-                        </div>
-                        <div class="form-item" form="register-form">
-                                <div class="topic">
-                                    รหัสผ่าน
-                                </div>
-                                <input  type="password"
-                                        class="form-control"
-                                        name="password"
-                                        id="password"
-                                        autofocus placeholder="รหัสผ่าน"
-                                >
-                        </div>
-                        <div class="form-item" form="register-form">
-                                <div class="topic">
-                                    ยืนยันรหัสผ่าน
-                                </div>
-                                <input  type="password"
-                                        class="form-control"
-                                        name="password_confirm"
-                                        id="password_confirm"
-                                        autofocus placeholder="ยืนยันรหัสผ่าน"
-                                >
-                        </div>
-                    </form>
-                    <form class="form-section"  method="POST" action="{{ route('register') }}" id="register-form">
-                        @csrf
-                        <div class="topic">
-                            ข้อมูลส่วนตัว
-                        </div>
-                        <div class="form-item" form="register-form">
-                                <div class="topic">
-                                    วันเกิด
-                                </div>
-                                <input  type="date"
-                                        class="form-control"
-                                        name="birthdate"
-                                        id="birthdate"
-                                >
-                        </div>
-                        <div class="form-item" form="register-form">
+                    <div class="form-section">
+                        <form class="form-section" method="POST" action="{{ route('register') }}" id="register-form">
+                            @csrf
+                            <td colspan="2"> 
                             <div class="topic">
-                                เพศ
+                                ข้อมูลผู้ใช้งาน
                             </div>
-                            <select name="gender" id="gender" class="form-control">
-                                <option value="male">ชาย</option>
-                                <option value="female">หญิง</option>
-                                <option value="custom">กำหนดเอง</option>
-                                <option value="undefine">ไม่ระบุ</option>
-                            </select>
-                        </div>
-                        <div class="form-item" form="register-form">
+                            <div class="form-item" form="register-form">
+                                    <div class="topic">
+                                        ชื่อแสดง
+                                    </div>
+                                    <input  type="text"
+                                            class="form-control"
+                                            name="alias"
+                                            id="alias"
+                                            value="{{ old('alias') }}"
+                                            autofocus placeholder="shrubbynarak"
+                                    >
+                                    @error('alias')
+                                        <span class="invalid-feedback" role="alert">
+                                            <small style="white">{{ $message }}</small>
+                                        </span>
+                                    @enderror
+                            </div>
+                            <div class="form-item" form="register-form">
+                                    <div class="topic">
+                                        ชื่อบัญชีผู้ใช้
+                                    </div>
+                                    <input  type="text"
+                                            class="form-control"
+                                            name="username"
+                                            id="username"
+                                            autofocus placeholder="@shrubbynarak"
+                                            value="@"
+                                            pattern="@.+"
+                                            title="กรุณาใส่ข้อมูลขึ้นต้นด้วย '@'"
+                                    >
+                                    @error('username')
+                                        <span class="invalid-feedback" role="alert">
+                                            <small style="white">{{ $message }}</small>
+                                        </span>
+                                    @enderror
+                                    <div class="comment">
+                                        กรุณาใส่ข้อมูลขึ้นต้นด้วย '@' และชื่อบัญชีผู้ใช้จะไม่สามารถเปลี่ยนแปลงได้
+                                    </div>
+                            </div>
+                            <div class="form-item" form="register-form">
+                                    <div class="topic">
+                                        อีเมล
+                                    </div>
+                                    <input  type="email"
+                                            class="form-control"
+                                            name="email"
+                                            id="email"
+                                            value="{{ old('email') }}"
+                                            autofocus placeholder="shrubby@gmail.com"
+                                    >
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <small style="white">{{ $message }}</small>
+                                        </span>
+                                    @enderror
+                            </div>
+                            <div class="form-item" form="register-form">
+                                    <div class="topic">
+                                        รหัสผ่าน
+                                    </div>
+                                    <input  type="password"
+                                            class="form-control"
+                                            name="password"
+                                            id="password"
+                                            autofocus placeholder="รหัสผ่าน"
+                                    >
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <small style="white">{{ $message }}</small>
+                                        </span>
+                                    @enderror
+                            </div>
+                            <div class="form-item" form="register-form">
+                                    <div class="topic">
+                                        ยืนยันรหัสผ่าน
+                                    </div>
+                                    <input  type="password"
+                                            class="form-control"
+                                            name="password_confirmation"
+                                            id="password_confirm"
+                                            autofocus placeholder="ยืนยันรหัสผ่าน"
+                                    >
+                            </div>
+                    </div>
+                    <div class="form-section">
+                            <div class="topic">
+                                ข้อมูลส่วนตัว
+                            </div>
+                            <div class="form-item" form="register-form">
+                                    <div class="topic">
+                                        วันเกิด
+                                    </div>
+                                    <input  type="date"
+                                            class="form-control"
+                                            name="birthdate"
+                                            value="{{ old('birthdate') }}"
+                                            id="birthdate"
+                                    >
+                                    @error('birthdate')
+                                        <span class="invalid-feedback" role="alert">
+                                            <small style="white">{{ $message }}</small>
+                                        </span>
+                                    @enderror
+                            </div>
+                            <div class="form-item" form="register-form">
                                 <div class="topic">
-                                    หมายเลขโทรศัพท์
+                                    เพศ
                                 </div>
-                                <input  type="text"
-                                        class="form-control"
-                                        name="telNum"
-                                        id="telNum"
-                                        autofocus placeholder="081-234-56xx"
-                                >
-                        </div>
-                        <div class="form-item" form="register-form">
-                                <div class="topic">
-                                    ที่อยู่
-                                </div>
-                                <textarea placeholder="ที่อยู่"  name="address_info" id="address_info" class="form-control"></textarea>
+                                <select name="gender" id="gender" class="form-control">
+                                    <option value="undefine">ไม่ระบุ</option>
+                                    <option value="male">ชาย</option>
+                                    <option value="female">หญิง</option>
+                                    <option value="custom">กำหนดเอง</option>
+                                    
+                                </select>
+                            </div>
+                            <div class="form-item" form="register-form">
+                                    <div class="topic">
+                                        หมายเลขโทรศัพท์
+                                    </div>
+                                    <input  type="text"
+                                            class="form-control"
+                                            name="telNum"
+                                            id="telNum"
+                                            value="{{ old('telNum') }}"
+                                            autofocus placeholder="081-234-56xx"
+                                    >
+                                    @error('telNum')
+                                        <span class="invalid-feedback" role="alert">
+                                            <small style="white">{{ $message }}</small>
+                                        </span>
+                                    @enderror
+                            </div>
+                            <div class="form-item" form="register-form">
+                                    <div class="topic">
+                                        ที่อยู่
+                                    </div>
+                                    <textarea placeholder="ที่อยู่"  name="address_info" id="address_info" class="form-control">{{ old('address_info') }}</textarea>
+                                    @error('address_info')
+                                        <span class="invalid-feedback" role="alert">
+                                            <small style="white">{{ $message }}</small>
+                                        </span>
+                                    @enderror
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -144,7 +188,7 @@
             
         </div>
         <div class="button-section">
-            <button class="register-btn" type="button" onclick="location.href='register'" form="register-form">
+            <button class="register-btn" type="submit" form="register-form">
                 สมัครสมาชิก
             </button>
         </div>
