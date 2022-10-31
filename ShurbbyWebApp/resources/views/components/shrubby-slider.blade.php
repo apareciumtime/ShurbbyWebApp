@@ -9,6 +9,7 @@
 
     width: 64vw;
     height: 452px;
+    overflow-x: hidden;
 }
 
 .shrubby-slider-header{
@@ -21,10 +22,20 @@
 }
 
 .shrubby-slider-slot{
-    width: 100%;
-    height: 384px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap:16px;
 
+    position:relative;
+
+    width: 64vw;
+    height: 384px;
+    
     background: #E6E6E8;
+
+    left:0px;
 
     overflow-x: scroll;
 }
@@ -42,7 +53,6 @@
     line-height: 36px;
 
     color: #445650;
-
 }
 .all-a a{
     display: flex;
@@ -78,7 +88,17 @@
     </div>
 
     <div class="shrubby-slider-slot">
-    dnasndaksndklasndlkasndl;kasnldk;asnlkdasnlkdasnlkdnaslkdnal;sdnlk;asndlkasndlkaslnkdasnkldasnlkdnklsadnasndaksndklasndlkasndl;kasnldk;asnlkdasnlkdasnlkdnaslkdnal;sdnlk;asndlkasndlkaslnkdasnkldasnlkdnklsadnasndaksndklasndlkasndl;kasnldk;asnlkdasnlkdasnlkdnaslkdnal;sdnlk;asndlkasndlkaslnkdasnkldasnlkdnklsadnasndaksndklasndlkasndl;kasnldk;asnlkdasnlkdasnlkdnaslkdnal;sdnlk;asndlkasndlkaslnkdasnkldasnlkdnklsadnasndaksndklasndlkasndl;kasnldk;asnlkdasnlkdasnlkdnaslkdnal;sdnlk;asndlkasndlkaslnkdasnkldasnlkdnklsa
+        <x-shrubby-card/>
+        <x-shrubby-card/>
+        <x-shrubby-card/>
+        <x-shrubby-card/>
+        <x-shrubby-card/>
+        <x-shrubby-card/>
+        <x-shrubby-card/>
+        <x-shrubby-card/>
+        <x-shrubby-card/>
+        <x-shrubby-card/>
+        <x-shrubby-card/>
     </div>
 
 

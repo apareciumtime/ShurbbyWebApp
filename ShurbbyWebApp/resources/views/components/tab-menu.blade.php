@@ -21,6 +21,7 @@
 
 .label{
     font-size: 24px;
+    /* color:#F1B24B; */
     color:#D2D2D5;
     width: fit-content;
 }

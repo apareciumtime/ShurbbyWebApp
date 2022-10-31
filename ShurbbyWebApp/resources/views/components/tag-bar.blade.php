@@ -29,7 +29,7 @@
 
 }
 
-.label{
+.tag-label{
     font-family: 'Prompt';
     font-style: normal;
     font-weight: 700;
@@ -81,7 +81,7 @@
 
 <div class="tag-bar-frame">
     <div class="left-side">
-        <a href="#" class="label">
+        <a href="#" class="tag-label">
             {{$label}}
         </a>
         <div class="follower">

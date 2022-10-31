@@ -53,6 +53,22 @@
     top: 84px;
     overflow-y: scroll;
 }
+
+.view-tag-all{
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    margin:12px;
+
+    color: #4B819F;
+}
+
+.view-tag-all:hover{
+    color:#F1B24B;
+}
+
 </style>
 <div class="rightpane">
     <div class="top-tag">
@@ -72,6 +88,9 @@
             <x-tag-bar/>
         </div>
     </div>
+    <a href="#" class="view-tag-all">
+            ดูทั้งหมด
+    </a>
     <div class="followed-tag">
         <div class="topic">
             แท็กที่ฉันติดตาม
@@ -88,5 +107,8 @@
                 <x-tag-bar/>
                 <x-tag-bar/>
         </div>
+        <a href="#" class="view-tag-all">
+            ดูทั้งหมด
+        </a>
     </div>
 </div>

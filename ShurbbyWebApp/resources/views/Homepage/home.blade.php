@@ -25,9 +25,9 @@
                     nav-bar
                 </div>
                 <div class="playground">
+                    <x-component-bar $identity = "shrubby"/>
                     <x-shrubby-slider label="Shrubby ที่แนะนำ"/>
                     <x-shrubby-slider label="Shrubby ที่มาใหม่"/>
-                    
 
                 </div>
             </div>

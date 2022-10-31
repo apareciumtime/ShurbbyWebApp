@@ -20,7 +20,7 @@ class header extends Component
     {
         $this->label = $label;
         if(Auth::check()){
-            $this->username = Auth::user()->name;
+            $this->username = Auth::user()->alias;
         }
     }
 
