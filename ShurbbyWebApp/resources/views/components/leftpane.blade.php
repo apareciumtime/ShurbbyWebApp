@@ -1,6 +1,18 @@
 <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Prompt:400">
 
 <style>
+a{
+    text-decoration: none;
+
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+
+    color: #D2D2D5;
+}
+
 body{
     margin:0px;
 }

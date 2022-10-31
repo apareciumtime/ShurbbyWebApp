@@ -8,6 +8,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    padding:8px;
     gap: 16px;
 
     width: 82vw;

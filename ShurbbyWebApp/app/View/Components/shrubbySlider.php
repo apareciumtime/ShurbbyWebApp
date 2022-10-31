@@ -17,7 +17,7 @@ class shrubbySlider extends Component
     {
         $this->label = $label;
         if($label == 'Shrubby ที่แนะนำ'){
-            $this->link_to = 'shubbyrecommand';
+            $this->link_to = 'shrubbyrecommand';
         }
         elseif($label == 'Shrubby ที่มาใหม่'){
             $this->link_to = 'shrubbynewby';

@@ -29,3 +29,6 @@ Route::view('login', 'auth.login')->name('login');
 Route::post('register', [RegisterController::class, 'register']);
 // Route::get('search', #ControllerClass for  searching) --> search route method
 
+Route::get('shrubbyrecommand', [HomeController::class, 'shrubbyrecommand'])->name('shrubbyrecommand');
+Route::get('shrubbynewby', [HomeController::class, 'shrubbynewby'])->name('shrubbynewby');
+Route::get('shrubbycreate', [HomeController::class, 'createShrubby'])->name('shrubbycreate');

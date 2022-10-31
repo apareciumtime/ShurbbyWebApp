@@ -13,7 +13,6 @@ body{
     width: 100vw;
     height: 100vh;
 
-    
     font-family: "Prompt";
     font-weight: normal;
     color:#304045;
@@ -30,7 +29,6 @@ body{
     width: 82vw;
     height: 100vh;
     top: 0px;
-
 }
 
 .body-right-section{
@@ -67,8 +65,36 @@ body{
     gap: 8px;
 
     width:64vw;
+    height:auto;
 
     overflow-y: scroll;
+}
+
+.component-bar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:flex-end;
+    padding: 16px;
+    
+    width: 62vw;
+    height: fit-content;
+
+    background: #5B6C67;
+}
+
+.component-bar a{
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #EFE5D5;
+}
+
+.component-bar a:hover{
+    color:#F1B24B;
 }
 
 .rightpane{

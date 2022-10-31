@@ -19,6 +19,8 @@
 
     width: 100%;
     height: 68px;
+
+    background: #FAFAFA;
 }
 
 .shrubby-slider-slot{
