@@ -58,6 +58,5 @@
         </div>
         <x-rightpane/>
     </div>
-    
 </body>
 </html>

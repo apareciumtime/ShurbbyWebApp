@@ -32,3 +32,4 @@ Route::post('register', [RegisterController::class, 'register']);
 Route::get('shrubbyrecommand', [HomeController::class, 'shrubbyrecommand'])->name('shrubbyrecommand');
 Route::get('shrubbynewby', [HomeController::class, 'shrubbynewby'])->name('shrubbynewby');
 Route::get('shrubbycreate', [HomeController::class, 'createShrubby'])->name('shrubbycreate');
+Route::get('shrubbyupdate', [HomeController::class, 'updateShrubby'])->name('shrubbyupdate');

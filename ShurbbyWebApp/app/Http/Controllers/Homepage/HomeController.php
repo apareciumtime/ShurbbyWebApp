@@ -46,4 +46,9 @@ class HomeController extends Controller
     {
         return view('shrubby.shrubbycreate');
     }
+
+    public function updateShrubby()
+    {
+        return view('shrubby.shrubbyupdate');
+    }
 }
