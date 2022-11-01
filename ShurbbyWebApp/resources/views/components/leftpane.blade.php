@@ -1,10 +1,10 @@
-<link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Prompt:400">
+<link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Maitree">
 
 <style>
 a{
     text-decoration: none;
 
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
@@ -55,7 +55,7 @@ body{
     width: 132px;
     height: 48px;
 
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
     font-weight: 700;
     font-size: 32px;
@@ -103,7 +103,7 @@ body{
     background: transparent;
     
     color:#304045;
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
     font-weight: 400;
     font-size: 18px;

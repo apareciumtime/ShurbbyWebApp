@@ -1,4 +1,4 @@
-<link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Prompt:400">
+<link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Maitree:400">
 
 <style>
 .shrubby-slider-frame{
@@ -48,7 +48,7 @@
     width: 100%;
     height: 36px;
 
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
@@ -63,7 +63,7 @@
 
     padding: 16px;
 
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;

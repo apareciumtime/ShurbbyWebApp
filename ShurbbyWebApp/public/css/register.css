@@ -14,7 +14,7 @@ body{
     height: 100vh;
 
     
-    font-family: "Prompt";
+    font-family: "Maitree";
     font-weight: normal;
     color:#304045;
     background: #FAFAFA;
@@ -61,9 +61,9 @@ body{
 }
 
 .head-topic{
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
-    font-weight: 700;
+    font-weight: 400;
     font-size: 32px;
     line-height: 48px;
 
@@ -72,9 +72,9 @@ body{
 }
 
 .description-topic{
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 100;
     font-size: 24px;
     line-height: 36px;
 
@@ -83,7 +83,7 @@ body{
 }
 
 .topic-register{
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
@@ -140,7 +140,7 @@ body{
     width: 300px;
     height: 33px;
 
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
     font-weight: 700;
     font-size: 22px;
@@ -171,7 +171,7 @@ body{
     border:none;
     border-bottom: 2px solid #445650;
 
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -184,7 +184,7 @@ body{
     border-bottom: 2px solid #F1B24B;
 }
 
-.form-item textarea{
+.form-control-date{
     box-sizing: border-box;
 
     display: flex;
@@ -193,7 +193,7 @@ body{
     padding: 8px 12px;
 
     width: 300px;
-    height: 255px;
+    height: 46px;
 
     background: #F3F3F3;
 
@@ -201,15 +201,44 @@ body{
     border:none;
     border-bottom: 2px solid #445650;
 
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 30px;
 
     color: #445650;
-    
-    resize:none;
+}
+
+#address_text{
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 300px;
+    height: 200px;
+
+
+    outline:none;
+    border:none;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #445650;
+
+}
+
+.form-item textarea{
+    width:300px;
+    height: 200px;
+
+    resize: none;
 }
 
 .button-section{
@@ -241,7 +270,7 @@ body{
     border:none;
     border-radius: 8px;
 
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
     font-weight: 700;
     font-size: 20px;

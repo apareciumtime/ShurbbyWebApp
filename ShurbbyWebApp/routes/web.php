@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Homepage\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ShrubbyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,8 @@ Route::view('login', 'auth.login')->name('login');
 Route::post('register', [RegisterController::class, 'register']);
 // Route::get('search', #ControllerClass for  searching) --> search route method
 
-Route::get('shrubbyrecommand', [HomeController::class, 'shrubbyrecommand'])->name('shrubbyrecommand');
-Route::get('shrubbynewby', [HomeController::class, 'shrubbynewby'])->name('shrubbynewby');
-Route::get('shrubbycreate', [HomeController::class, 'createShrubby'])->name('shrubbycreate');
-Route::get('shrubbyupdate', [HomeController::class, 'updateShrubby'])->name('shrubbyupdate');
+Route::get('shrubbyrecommand', [ShrubbyController::class, 'shrubbyrecommand'])->name('shrubbyrecommand');
+Route::get('shrubbynewby', [ShrubbyController::class, 'shrubbynewby'])->name('shrubbynewby');
+Route::get('shrubbycreate', [ShrubbyController::class, 'createShrubby'])->name('shrubbycreate');
+Route::get('shrubbyupdate', [ShrubbyController::class, 'updateShrubby'])->name('shrubbyupdate');
+Route::get('shrubbypage', [ShrubbyController::class, 'pageShrubby'])->name('shrubbypage');

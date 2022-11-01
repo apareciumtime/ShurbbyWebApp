@@ -14,7 +14,7 @@ body{
     height: 100vh;
 
     
-    font-family: "Prompt";
+    font-family: "Maitree";
     font-weight: normal;
     color:#304045;
     background: #FAFAFA;
@@ -57,9 +57,9 @@ body{
 }
 
 .head-topic{
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
-    font-weight: 700;
+    font-weight: 400;
     font-size: 32px;
     line-height: 48px;
 
@@ -68,9 +68,9 @@ body{
 }
 
 .description-topic{
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 100;
     font-size: 24px;
     line-height: 36px;
 
@@ -80,7 +80,7 @@ body{
 }
 
 .topic-login{
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
@@ -122,7 +122,7 @@ body{
     width: 300px;
     height: 33px;
 
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
     font-weight: 700;
     font-size: 22px;
@@ -148,7 +148,7 @@ body{
     border:none;
     border-bottom: 2px solid #445650;
 
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -165,7 +165,7 @@ body{
     width: 300px;
     height: 33px;
 
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -207,7 +207,7 @@ body{
     border:none;
     border-radius: 8px;
 
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
@@ -238,7 +238,7 @@ body{
     border:none;
     border-radius: 8px;
 
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
     font-weight: 700;
     font-size: 20px;

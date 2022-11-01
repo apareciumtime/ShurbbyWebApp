@@ -1,4 +1,4 @@
-<link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Prompt:400">
+<link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Maitree:400">
 
 <style>
 .tag-bar-frame{
@@ -30,7 +30,7 @@
 }
 
 .tag-label{
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
@@ -40,7 +40,7 @@
 }
 
 .follower{
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -59,7 +59,7 @@
     width: 100px;
     height: 78px;
 
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
     font-weight: 700;
     font-size: 20px;

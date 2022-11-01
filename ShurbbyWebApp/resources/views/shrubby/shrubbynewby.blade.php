@@ -7,7 +7,7 @@
     <title>Shrubby</title>
 
         <link rel = "stylesheet" href = "/css/shrubby/shrubbynewby.css">
-        <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Prompt:100">
+        <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Maitree">
 </head>
 <body>
     <x-leftpane/>

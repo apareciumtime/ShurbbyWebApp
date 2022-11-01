@@ -38,7 +38,7 @@
     padding-left:16px;
     background: #FAFAFA;
 
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
     font-weight: 700;
     font-size: 22px;
@@ -61,7 +61,7 @@
 }
 
 .view-tag-all{
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;

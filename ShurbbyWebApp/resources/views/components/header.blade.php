@@ -1,4 +1,4 @@
-<link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Prompt:400">
+<link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Maitree">
 
 <style>
 .header-frame{
@@ -29,7 +29,7 @@
     height: 48px;
     
     text-align: center;
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
     font-weight: 700;
     font-size: 32px;
@@ -49,7 +49,7 @@
     width: 502.5px;
     height: 48px;
     
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
     font-weight: 400;
     font-size: 24px;

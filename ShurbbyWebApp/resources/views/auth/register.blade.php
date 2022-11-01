@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link href="https://fonts.googleapis.com/css?family=Prompt:400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Maitree" rel="stylesheet">
     <link rel = "stylesheet" href = "/css/register.css">
 </head>
 <body>
@@ -71,7 +71,7 @@
                                         </span>
                                     @enderror
                                     <div class="comment">
-                                        กรุณาใส่ข้อมูลขึ้นต้นด้วย '@' และชื่อบัญชีผู้ใช้จะไม่สามารถเปลี่ยนแปลงได้
+                                        ชื่อบัญชีผู้ใช้จะไม่สามารถเปลี่ยนแปลงได้ในภายหลัง
                                     </div>
                             </div>
                             <div class="form-item" form="register-form">
@@ -128,7 +128,7 @@
                                         วันเกิด
                                     </div>
                                     <input  type="date"
-                                            class="form-control"
+                                            class="form-control-date"
                                             name="birthdate"
                                             value="{{ old('birthdate') }}"
                                             id="birthdate"
@@ -168,10 +168,10 @@
                                         </span>
                                     @enderror
                             </div>
-                            <div class="form-item" form="register-form">
-                                    <div class="topic">
-                                        ที่อยู่
-                                    </div>
+                            <div class="form-item" id="address_text" form="register-form">
+                                <div class="topic">
+                                    ที่อยู่
+                                </div>
                                     <textarea placeholder="ที่อยู่"  name="address_info" id="address_info" class="form-control">{{ old('address_info') }}</textarea>
                                     @error('address_info')
                                         <span class="invalid-feedback" role="alert">
@@ -182,10 +182,7 @@
                         </div>
                     </form>
                 </div>
-                
             </div>
-
-            
         </div>
         <div class="button-section">
             <button class="register-btn" type="submit" form="register-form">

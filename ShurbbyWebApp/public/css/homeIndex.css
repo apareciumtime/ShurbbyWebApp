@@ -13,7 +13,7 @@ body{
     width: 100vw;
     height: 100vh;
 
-    font-family: "Prompt";
+    font-family: "Maitree";
     font-weight: normal;
     color:#304045;
     background: #FAFAFA;
@@ -84,7 +84,7 @@ body{
 }
 
 .component-bar a{
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -114,7 +114,7 @@ body{
     height: fit-content;
     margin: 12px;
 
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
     font-weight: 400;
     font-size: 18px;

@@ -31,24 +31,4 @@ class HomeController extends Controller
     {
         return view('homepage.adminHome');
     }
-    
-    public function shrubbyrecommand()
-    {
-        return view('shrubby.shrubbyrecommand');
-    }
-
-    public function shrubbynewby()
-    {
-        return view('shrubby.shrubbynewby');
-    }
-
-    public function createShrubby()
-    {
-        return view('shrubby.shrubbycreate');
-    }
-
-    public function updateShrubby()
-    {
-        return view('shrubby.shrubbyupdate');
-    }
 }
