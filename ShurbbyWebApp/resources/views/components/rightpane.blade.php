@@ -12,8 +12,6 @@
 
     width: 18vw;
     height: 92vh;
-
-    overflow-x: hidden;
 }
 
 .rightpane-body{
@@ -35,9 +33,9 @@
     align-items: flex-start;
     justify-content: center;
 
-    width: 18vw;
+    width: fit-content;
     height: 48px;
-    padding: 16px;
+    padding-left:16px;
     background: #FAFAFA;
 
     font-family: 'Prompt';
@@ -71,6 +69,8 @@
 
     color: #4B819F;
     padding:16px;
+
+    width: 18vw;
 }
 .view-tag-all:hover{
     color:#F1B24B;
@@ -95,6 +95,7 @@
                 <x-tag-bar/>
                 <x-tag-bar/>
             </div>
+            <br>
             <a href="#" class="view-tag-all">
                     ดูทั้งหมด
             </a>
@@ -115,6 +116,7 @@
                     <x-tag-bar/>
                     <x-tag-bar/>
             </div>
+            <br>
             <a href="#" class="view-tag-all">
                 ดูทั้งหมด
             </a>

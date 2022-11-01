@@ -108,3 +108,17 @@ body{
 
     overflow-y: scroll;
 }
+
+.nav-bar{
+    width: fit-content;
+    height: fit-content;
+    margin: 12px;
+
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+
+    color: #4B819F;
+}

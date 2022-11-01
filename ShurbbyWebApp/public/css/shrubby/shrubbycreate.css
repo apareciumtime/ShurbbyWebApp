@@ -44,3 +44,206 @@ body{
 
     overflow-y: scroll;
 }
+
+.nav-bar{
+    width: fit-content;
+    height: fit-content;
+    margin: 12px;
+
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+
+    color: #4B819F;
+}
+
+.shrubby-framework{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+    width: 64vw;
+    height: 894px;
+}
+
+.background-framework{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    gap: 16px;
+
+    width: 60vw;
+    height: fit-content;
+
+    background: #5B6C67;
+
+    box-shadow: 0px 2px 4px -2px rgba(0, 0, 0, 0.5), 0px 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border-radius: 24px;
+}
+
+.shrubby-head-framework{
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px;
+
+    width: 882px;
+    height: fit-content;
+
+    border-bottom: 1px solid #D2D2D5;
+}
+
+.shrubby-topic-framework{
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    gap:16px;
+}
+
+.shrubby-topic{
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #EFE5D5;
+
+}
+
+.shrubby-body-framework{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 12px;
+
+    width: 100%;
+    height: fit-content;
+}
+
+.topic-input{
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 8px 12px;
+
+    width: 100%;
+    height: 46px;
+
+    background: #F3F3F3;
+
+    border:none;
+    outline:none;
+    border-bottom: 2px solid #4B819F;
+
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #445650;
+}
+
+.topic-input:hover{
+    border-bottom: 2px solid #F1B24B;
+}
+
+.shrubby-body-framework{
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px;
+
+    width: 882px;
+    height: fit-content;
+}
+
+.content-input{
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 8px 12px;
+
+    width: 100%;
+    height: 700px;
+
+    background: #F3F3F3;
+
+    border:none;
+    outline:none;
+
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #445650;
+}
+
+textarea{
+    resize:none; 
+}
+
+.description{
+    color:#F1B24B;
+}
+
+.shrubby-button{
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 8px 12px;
+
+    width: 100%;
+    height: 46px;
+}
+
+.submit-button{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 8px 16px;
+
+    width: 118px;
+    height: 46px;
+
+    background: #EFE5D5;
+
+    box-shadow: 0px 2px 4px -2px rgba(0, 0, 0, 0.5), 0px 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #445650;
+
+    border:none;
+    outline:none;
+}
+
+
+.submit-button:active{
+    box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.25);
+}

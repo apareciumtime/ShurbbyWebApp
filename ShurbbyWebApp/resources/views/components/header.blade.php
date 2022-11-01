@@ -25,9 +25,10 @@
 }
 
 .header-label{
-    width: 16vw;
+    width: 30vw;
     height: 48px;
-
+    
+    text-align: center;
     font-family: 'Prompt';
     font-style: normal;
     font-weight: 700;
