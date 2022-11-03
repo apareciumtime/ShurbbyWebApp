@@ -20,7 +20,8 @@
                 </div>
                 <div class="shrubby-framework">
                     <div class="background-framework">
-                        <form id="shrubby-create">
+                        <form id="shrubby-create" action="{{route('shrubbycreate')}}">
+                            @csrf
                             <div class="shrubby-head-framework">
                                 <div class="shrubby-topic-framework">
                                     <div class="shrubby-topic">
