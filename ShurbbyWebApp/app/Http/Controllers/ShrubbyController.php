@@ -122,9 +122,10 @@ class ShrubbyController extends Controller
     }
     public function pageShrubby($id)
     { 
-        //$shrubby=Shrubby::where('id',$id)->first();
+        $shrubby=Shrubby::where('id',$id)->first();
         //$data['comments']=$shrubby->comments()->orderBy('id','asc')->get();
-        return view('shrubby/shrubbypage'/*,$data*/)
+        $tags=$shrubby->tags()->get();
+        return view('shrubby/shrubbypage'/*,$data*/)->with('tags',$tags)
             ->with('shrubby',Shrubby::where('id',$id)->first());
     }
     public function deleteShrubby($id)
