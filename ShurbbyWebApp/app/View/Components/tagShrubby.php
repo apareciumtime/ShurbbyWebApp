@@ -4,17 +4,17 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class header extends Component
+class tagShrubby extends Component
 {
-    public $title;
+    public $name;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($name)
     {
-        //
+        $this->name = $name;
     }
 
     /**
@@ -24,6 +24,6 @@ class header extends Component
      */
     public function render()
     {
-        return view('components.header');
+        return view('components.tag-shrubby');
     }
 }

@@ -13,7 +13,7 @@
 <body>
     <x-leftpane/>
     <div class="right-section">
-        <x-header label="สร้างกระทู้"/>
+        <x-header label="Shrubby"/>
         <div class="body-right-section">
             <div class="inside-body">
                 <div class="nav-bar">
@@ -21,7 +21,7 @@
                 </div>
                 <div class="shrubby-framework">
                     <div class="background-framework">
-                        <form id="shrubby-create">
+                        <div class="shrubby-create">
                             <div class="shrubby-head-framework">
                                 <div class="shrubby-topic-framework">
                                     <div class="shrubby-topic">
@@ -38,10 +38,17 @@
                             <div class="shrubby-body-framework">
                                 <div class="shrubby-tag-frame">
                                     <div class="shrubby-topic-tag-frame">
-                                        <div class="shrubby-topic-tag">
-                                            {{-- แท็ก --}}
+                                        <div class="shrubby-topic-tag-head">
+                                            <div class="shrubby-topic-tag">
+                                                แท็ก
+                                            </div>
+                                            <a href="#" class="shrubby-all-tag">
+                                                ดูแท็กทั้งหมด
+                                            </a>
+                                        </div>
+                                        <div class="shrubby-slot-tag-frame">
                                             @foreach($tags as $tag)
-                                                {{$tag->name}} , 
+                                                <x-tag-shrubby name={{$tag->name}}/> 
                                             @endforeach
                                         </div>
                                     </div>
@@ -52,7 +59,35 @@
                                 </div>
                             </div>
                             <br>
-                        </form>
+                            <div class="user-info-frame">
+                                <div class="upper-user-info">
+                                    <div class="profile-pic-upper-user-info-frame">
+                                        <div class="profile-pic-upper-user-info">
+                                            pp
+                                        </div>
+                                    </div>
+                                    <div class="name-upper-user-info">
+                                        <div class="alias-name-upper-user-info">
+                                            alias
+                                        </div>
+                                        <div class="username-name-upper-user-info">
+                                            @username
+                                        </div>
+                                    </div>
+                                    <div class="right-upper-user-info">
+                                        14 ก.พ. 2565 07:25
+                                    </div>
+                                </div>
+                                <div class="interaction-bar-user-info">
+                                    <x-interaction-engage label="like"/>
+                                    <x-interaction-engage label="comment"/>
+                                    <x-interaction-engage label="share"/>
+                                </div>  
+                            </div>
+                        </div>
+                        <div class="shrubby-comment">
+                            Hello
+                        </div>
                     </div>
                 </div>
             </div>
