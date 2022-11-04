@@ -34,7 +34,7 @@ a:hover svg, a:hover .label {
 </style>
 
 
-<a href="{{$link_to}}" class="frame-tab">
+<a href="/{{$link_to}}" class="frame-tab">
     <div class="icon">
         @if($label == 'หน้าหลัก')
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">

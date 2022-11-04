@@ -25,7 +25,8 @@
                             <div class="shrubby-head-framework">
                                 <div class="shrubby-topic-framework">
                                     <div class="shrubby-topic">
-                                        ชื่อกระทู้
+                                        {{-- ชื่อกระทู้ --}}
+                                        {{$shrubby->title}}
                                     </div>
                                     <div class="shrubby-edit-button-framework">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -46,21 +47,15 @@
                                             </a>
                                         </div>
                                         <div class="shrubby-slot-tag-frame">
-                                            <x-tag-shrubby name="ไม้ยืนต้นสีน้ำเงิน"/>
-                                            <x-tag-shrubby name="ไมยราพ"/>
-                                            <x-tag-shrubby name="กระบองเพชร"/>
-                                            <x-tag-shrubby name="ผักชี"/>
-                                            <x-tag-shrubby name="ใบสีน้ำตาล"/>
-                                            <x-tag-shrubby name="ไม้ยืนต้นสีน้ำเงิน"/>
-                                            <x-tag-shrubby name="ไมยราพ"/>
-                                            <x-tag-shrubby name="กระบองเพชร"/>
-                                            <x-tag-shrubby name="ผักชี"/>
-                                            <x-tag-shrubby name="ใบสีน้ำตาล"/>
+                                            @foreach($tags as $tag)
+                                                <x-tag-shrubby name={{$tag->name}}/> 
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
                                 <div class="shrubby-content">
-                                    สวัสดีครับ ผมกำลังปลูกต้นมะเขือเทศเชอร์รี่อยู่ ช่วง 1-3 วันที่ผ่านมานี้ผมสังเกตเห็น ว่าใบมันดูหงิกงอ แต่ผมไม่แน่ใจว่า ผมคิดไปเองหรือเปล่า รบกวนผู้เชี่ยวชาญช่วยดูหน่อยครับ แล้วถ้าผิดปกติ มีวิธีแก้ยังไงบ้างครับ
+                                    {{-- สวัสดีครับ ผมกำลังปลูกต้นมะเขือเทศเชอร์รี่อยู่ ช่วง 1-3 วันที่ผ่านมานี้ผมสังเกตเห็น ว่าใบมันดูหงิกงอ แต่ผมไม่แน่ใจว่า ผมคิดไปเองหรือเปล่า รบกวนผู้เชี่ยวชาญช่วยดูหน่อยครับ แล้วถ้าผิดปกติ มีวิธีแก้ยังไงบ้างครับ --}}
+                                    {{$shrubby->content}}
                                 </div>
                             </div>
                             <br>

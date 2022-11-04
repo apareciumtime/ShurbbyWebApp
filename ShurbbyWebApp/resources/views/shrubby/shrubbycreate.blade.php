@@ -20,13 +20,14 @@
                 </div>
                 <div class="shrubby-framework">
                     <div class="background-framework">
-                        <form id="shrubby-create">
+                        <form id="shrubby-create" action="{{route('shrubbycreate')}}" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <div class="shrubby-head-framework">
                                 <div class="shrubby-topic-framework">
                                     <div class="shrubby-topic">
                                         ชื่อกระทู้
                                     </div>
-                                    <input name="topic" id="topic" type="text" form="shrubby-create" class="topic-input" placeholder="ตั้งชื่อกระทู้">
+                                    <input name="title" id="title" type="text" form="shrubby-create" class="topic-input" placeholder="ตั้งชื่อกระทู้">
                                 </div>
                                 <!-- <div class="shrubby-edit-button-framework">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -38,14 +39,14 @@
                                 <div class="shrubby-topic">
                                      แท็กกระทู้
                                 </div>
-                                <input name="tag" id="tag" type="text" form="shrubby-create" class="topic-input" placeholder="แท็กกระทู้">
+                                <input name="tags" id="tags" type="text" form="shrubby-create" class="topic-input" placeholder="แท็กกระทู้">
                                 <div class="description">
                                     แต่ละแท็กคั่นด้วย ',' เช่น ไมยราพ,ผักชี,ไม้ยืนต้น
                                 </div>
                                 <div class="shrubby-topic">
                                     เนื้อหากระทู้
                                 </div>
-                                <textarea name="content-systax" id="content-syntax" form="shrubby-create" class="content-input" placeholder="เนื้อหากระทู้"></textarea>
+                                <textarea name="content" id="content" form="shrubby-create" class="content-input" placeholder="เนื้อหากระทู้"></textarea>
                             </div>
                             <br>
                             <div class="shrubby-button">

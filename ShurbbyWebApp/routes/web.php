@@ -30,8 +30,23 @@ Route::view('login', 'auth.login')->name('login');
 Route::post('register', [RegisterController::class, 'register']);
 // Route::get('search', #ControllerClass for  searching) --> search route method
 
+//search Tag
+Route::get('searchTag',[TagController::class,'indexSearchTag']);
+Route::post('searchTag',[TagController::class,'searchByTag'])->name('searchTag');
+
+    //Shrubby
+// create new thread
+Route::get('shrubbycreate', [ShrubbyController::class, 'createShrubby']);
+Route::post('shrubbycreate', [ShrubbyController::class, 'create'])->name('shrubbycreate');
+//
+Route::get('shrubbypage/{id}', [ShrubbyController::class, 'pageShrubby'])->name('showShrubby');
+Route::get('shrubbypage/{id}/edit', [ShrubbyController::class, 'editShrubby'])->name('shrubbyupdate');
+                                                                            // ->middleware('user.secutiry');
+Route::put('shrubbypage/{id}', [ShrubbyController::class, 'updateShrubby'])->name('editShrubby');
+Route::delete('shrubbypage/{id}', [ShrubbyController::class, 'deleteShrubby']);
+
 Route::get('shrubbyrecommand', [ShrubbyController::class, 'shrubbyrecommand'])->name('shrubbyrecommand');
 Route::get('shrubbynewby', [ShrubbyController::class, 'shrubbynewby'])->name('shrubbynewby');
-Route::get('shrubbycreate', [ShrubbyController::class, 'createShrubby'])->name('shrubbycreate');
-Route::get('shrubbyupdate', [ShrubbyController::class, 'updateShrubby'])->name('shrubbyupdate');
-Route::get('shrubbypage', [ShrubbyController::class, 'pageShrubby'])->name('shrubbypage');
+// Route::get('shrubbycreate', [ShrubbyController::class, 'createShrubby'])->name('shrubbycreate');
+// Route::get('shrubbyupdate', [ShrubbyController::class, 'updateShrubby']);
+// Route::get('shrubbypage', [ShrubbyController::class, 'pageShrubby'])->name('shrubbypage');
