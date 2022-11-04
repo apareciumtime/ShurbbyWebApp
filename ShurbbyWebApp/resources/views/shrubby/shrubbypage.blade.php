@@ -68,14 +68,15 @@
                                     </div>
                                     <div class="name-upper-user-info">
                                         <div class="alias-name-upper-user-info">
-                                            alias
+                                            {{$shrubby->user->alias}}
                                         </div>
                                         <div class="username-name-upper-user-info">
-                                            @username
+                                            {{$shrubby->user->username}}
                                         </div>
                                     </div>
                                     <div class="right-upper-user-info">
-                                        14 ก.พ. 2565 07:25
+                                        {{date('j M Y h:m',strtotime($shrubby->updated_at))}}
+                                        {{-- 14 ก.พ. 2565 07:25 --}}
                                     </div>
                                 </div>
                                 <div class="interaction-bar-user-info">
