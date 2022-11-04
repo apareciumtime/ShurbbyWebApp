@@ -48,7 +48,7 @@
                                         </div>
                                         <div class="shrubby-slot-tag-frame">
                                             @foreach($tags as $tag)
-                                                <x-tag-shrubby name={{$tag->name}}/> 
+                                                <x-tag-shrubby name="{{$tag->name}}"/> 
                                             @endforeach
                                         </div>
                                     </div>
