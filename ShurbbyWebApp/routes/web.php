@@ -40,9 +40,9 @@ Route::get('shrubbycreate', [ShrubbyController::class, 'createShrubby']);
 Route::post('shrubbycreate', [ShrubbyController::class, 'create'])->name('shrubbycreate');
 //
 Route::get('shrubbypage/{id}', [ShrubbyController::class, 'pageShrubby'])->name('showShrubby');
-Route::get('shrubbypage/{id}/edit', [ShrubbyController::class, 'editShrubby'])->name('shrubbyupdate');
+Route::get('shrubbypage/{id}/edit', [ShrubbyController::class, 'editShrubby']);
                                                                             // ->middleware('user.secutiry');
-Route::put('shrubbypage/{id}', [ShrubbyController::class, 'updateShrubby'])->name('editShrubby');
+Route::put('shrubbypage/{id}', [ShrubbyController::class, 'updateShrubby'])->name('updateShrubby');
 Route::delete('shrubbypage/{id}', [ShrubbyController::class, 'deleteShrubby']);
 
 Route::get('shrubbyrecommand', [ShrubbyController::class, 'shrubbyrecommand'])->name('shrubbyrecommand');

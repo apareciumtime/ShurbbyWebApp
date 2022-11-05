@@ -48,14 +48,16 @@
 }
 </style>
 
-<div class="shrubby-card-frame">
-    <div class="shrubby-card-pic">
-        Pic
+<a href="shrubbypage/{{ $shrubby->id }}" class="shrubby-card-frame">
+    <div class="shrubby-card-frame">
+        <div class="shrubby-card-pic">
+            Pic
+        </div>
+        <div class="shrubby-card-content">
+            {{$shrubby->title}}
+        </div>
     </div>
-    <div class="shrubby-card-content">
-        Content
-    </div>
-</div>
+</a>
 
 <!-- <div class="card">
     <div class="pic_card">

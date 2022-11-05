@@ -88,19 +88,10 @@
             </a>
         </div>
     </div>
-
     <div class="shrubby-slider-slot">
-        <x-shrubby-card/>
-        <x-shrubby-card/>
-        <x-shrubby-card/>
-        <x-shrubby-card/>
-        <x-shrubby-card/>
-        <x-shrubby-card/>
-        <x-shrubby-card/>
-        <x-shrubby-card/>
-        <x-shrubby-card/>
-        <x-shrubby-card/>
-        <x-shrubby-card/>
+        @foreach ($shrubbies as $shrubby)
+            <x-shrubby-card itemid="{{$shrubby->id}}"/>
+        @endforeach 
     </div>
 
 

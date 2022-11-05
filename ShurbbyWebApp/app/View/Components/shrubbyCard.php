@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Shrubby;
 use Illuminate\View\Component;
 
 class shrubbyCard extends Component
@@ -11,9 +12,10 @@ class shrubbyCard extends Component
      *
      * @return void
      */
-    public function __construct()
+    public $shrubby;
+    public function __construct($itemid)
     {
-        //
+        $this->shrubby = Shrubby::where('id','=',$itemid)->get()->first();
     }
 
     /**

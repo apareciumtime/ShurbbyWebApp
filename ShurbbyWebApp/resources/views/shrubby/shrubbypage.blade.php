@@ -8,7 +8,36 @@
 
     <link rel = "stylesheet" href = "/css/shrubby/shrubbypage.css">
     <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Maitree">
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            /* background-color: #f9f9f9; */
+            min-width: 80px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 2px 8px;
+            text-decoration: none;
+            display: block;
+            }
 
+            .dropdown-content a:hover {background-color: #f1f1f1;}
+
+            .dropdown:hover .dropdown-content {
+            display: block;
+            }
+
+            .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+            }
+    </style>
     </head>
 <body>
     <x-leftpane/>
@@ -28,11 +57,26 @@
                                         {{-- ชื่อกระทู้ --}}
                                         {{$shrubby->title}}
                                     </div>
-                                    <div class="shrubby-edit-button-framework">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <div class="shrubby-edit-button-framework dropdown">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                             <path d="M120 256c0 30.9-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56zm160 0c0 30.9-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56zm104 56c-30.9 0-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56s-25.1 56-56 56z"/>
-                                        </svg>
+                                            </svg>
+                                            <div class="dropdown-content" style="left:0;">
+                                                <a href="/shrubbypage/{{ $shrubby->id }}/edit">แก้ไข</a>
+                                                
+                                                    <form 
+                                                        action="/shrubbypage/{{ $shrubby->id }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('delete')
+                                        
+                                                        <button class="text-red-500 pr-3" type="submit">
+                                                            ลบ
+                                                        </button>
+                                                    </form>
+                                            </div>
                                     </div>
+
                                 </div>
                             </div>
                             <div class="shrubby-body-framework">
@@ -48,7 +92,7 @@
                                         </div>
                                         <div class="shrubby-slot-tag-frame">
                                             @foreach($tags as $tag)
-                                                <x-tag-shrubby name={{$tag->name}}/> 
+                                                <x-tag-shrubby name="{{$tag->name}}"/> 
                                             @endforeach
                                         </div>
                                     </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Shrubby;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ShrubbyController extends Controller
 {
@@ -15,12 +16,14 @@ class ShrubbyController extends Controller
     }
     public function shrubbyrecommand()
     {
-        return view('shrubby.shrubbyrecommand');
+        return view('shrubby.shrubbyrecommand')
+            ->with('shrubbies',Shrubby::orderBy('like','DESC')->get());
     }
 
     public function shrubbynewby()
     {
-        return view('shrubby.shrubbynewby');
+        return view('shrubby.shrubbynewby')
+            ->with('shrubbies',Shrubby::orderBy('updated_at','DESC')->get());
     }
 
     public function createShrubby()
@@ -80,8 +83,16 @@ class ShrubbyController extends Controller
 
     public function editShrubby($id)
     {
-        return view('editShrubby')
-            ->with('shrubby',Shrubby::where('id',$id)->first());
+        $tags = DB::table('taggables')->where('taggable_id',$id)->get();
+        $tag = '';
+        foreach($tags as $tagid){
+            $eachtag = Tag::where('id',$tagid->tag_id)->first();
+            $tag .= strval($eachtag->name).',';
+        }
+        $tag = rtrim($tag, ", ");
+        return view('shrubby.shrubbyupdate')
+            ->with('shrubby',Shrubby::where('id',$id)->first())
+            ->with('tag',$tag);
     }
 
     public function updateShrubby(Request $request, $id)
@@ -99,9 +110,11 @@ class ShrubbyController extends Controller
                 'user_id' => auth()->user()->id
             ]);
         
-        $shrubby = Shrubby::where('id', $id);
+        $shrubby = Shrubby::where('id', $id)->first();
+
+        DB::table('taggables')->where('taggable_id',$id)->delete();
         $tags=$request->tags;
-        $tags = explode(" ",$tags);
+        $tags = explode(",",$tags);
         foreach($tags as $value){
             $checktag = Tag::where('name', '=', $value)->first();
             if($checktag==null){
@@ -112,8 +125,9 @@ class ShrubbyController extends Controller
             else{
                 $tag=$checktag;
             }
-            
+
             $shrubby->tags()->save($tag);
+            
         }
 
         // return redirect('/home')
@@ -130,6 +144,8 @@ class ShrubbyController extends Controller
     }
     public function deleteShrubby($id)
     {
+        DB::table('taggables')->where('taggable_id',$id)->delete();
+
         $shrubby = Shrubby::where('id', $id);
         $shrubby->delete();
 
