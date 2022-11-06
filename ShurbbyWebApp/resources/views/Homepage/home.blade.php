@@ -22,6 +22,11 @@
                     nav-bar
                 </div>
                 <div class="component-bar">
+                    <a href="upload-profileimage">
+                        อัพโหลดรูปโปรไฟล์
+                    </a>
+                </div>
+                <div class="component-bar">
                     <a href="shrubbycreate">
                         สร้างกระทู้
                     </a>

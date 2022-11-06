@@ -8,6 +8,9 @@
 
         <link rel = "stylesheet" href = "/css/shrubby/shrubbycreate.css">
         <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Maitree">
+
+    {{-- this is for text box --}}
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
 </head>
 <body>
     <x-leftpane/>
@@ -46,7 +49,7 @@
                                 <div class="shrubby-topic">
                                     เนื้อหากระทู้
                                 </div>
-                                <textarea name="content" id="content" form="shrubby-create" class="content-input" placeholder="เนื้อหากระทู้"></textarea>
+                                <textarea name="content" id="editor" form="shrubby-create" class="content-input" placeholder="เนื้อหากระทู้"></textarea>
                             </div>
                             <br>
                             <div class="shrubby-button">
@@ -59,5 +62,23 @@
         </div>
         <x-rightpane/>
     </div>
+
+    {{-- add this script to make text box usable --}}
+    <script>
+        ClassicEditor
+                .create( document.querySelector( '#editor' ) 
+                ,{
+                    ckfinder:{
+                        uploadUrl : '{{ route('ckeditor.upload').'?_token='.csrf_token()}}'
+                    }
+                })
+                .then( editor => {
+                    console.log( editor );
+                } )
+                .catch( error => {
+                    console.error( error );
+                } );
+    </script>
+
 </body>
 </html>

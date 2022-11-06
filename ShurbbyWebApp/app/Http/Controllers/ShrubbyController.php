@@ -31,6 +31,20 @@ class ShrubbyController extends Controller
         return view('shrubby.shrubbycreate');
     }
 
+    /*
+         upload image for ckeditor
+         image display in shrubby
+    */
+    public function uploadImageShrubby(Request $request){
+        if($request->hasFile('upload')){
+            $fileName=time().$request->file('upload')->getClientOriginalName();
+            $file_path=$request->file('upload')->storeAs('shrubby_media',$fileName,'public');
+            $url='/storage/'.$file_path;
+
+            return response()->json(['fileName'=>$fileName,'uploaded'=>1, 'url'=>$url]);
+        }
+    }
+
     public function create(Request $request)
     {
         
@@ -152,4 +166,19 @@ class ShrubbyController extends Controller
         return redirect('/home')
             ->with('message', 'Your Shrubby has been deleted!');
     }
+
+
+    public function uploadProfileImage(Request $request){
+        $file=$request->hasFile('image');
+        if($file){
+            $fileName=time().$request->file('image')->getClientOriginalName();
+            $file_path=$request->file('image')->storeAs('profile_images',$fileName,'public');
+            $file_path='/storage/'.$file_path;
+            $user=\Auth::user();
+            $user->profile_image=$file_path;
+            $user->save();
+        }
+        return redirect()->route('home');
+    }
+
 }

@@ -23,6 +23,7 @@ Route::view('home', 'homepage.home')->name('home');
 Route::view('timeline', 'timeline.index')->name('timeline');
 Route::view('journal', 'journal.index')->name('journal');
 
+
 Auth::routes();
 
 Route::middleware(['auth', 'is_admin'])->get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
@@ -40,6 +41,7 @@ Route::post('followTag/{id}',[TagController::class,'follow'])->name('follow');
 // create new thread
 Route::get('shrubbycreate', [ShrubbyController::class, 'createShrubby']);
 Route::post('shrubbycreate', [ShrubbyController::class, 'create'])->name('shrubbycreate');
+Route::post('/upload', [ShrubbyController::class, 'uploadImageShrubby'])->name('ckeditor.upload');
 //
 Route::get('shrubbypage/{id}', [ShrubbyController::class, 'pageShrubby'])->name('showShrubby');
 Route::get('shrubbypage/{id}/edit', [ShrubbyController::class, 'editShrubby']);
@@ -52,3 +54,7 @@ Route::get('shrubbynewby', [ShrubbyController::class, 'shrubbynewby'])->name('sh
 // Route::get('shrubbycreate', [ShrubbyController::class, 'createShrubby'])->name('shrubbycreate');
 // Route::get('shrubbyupdate', [ShrubbyController::class, 'updateShrubby']);
 // Route::get('shrubbypage', [ShrubbyController::class, 'pageShrubby'])->name('shrubbypage');
+
+//profile image
+Route::view('upload-profileimage','upload-profileimage')->name('upload-profileimage');
+Route::post('/uploadprofileimage', [ShrubbyController::class, 'uploadProfileImage'])->name('uploadprofileimage');

@@ -80,7 +80,7 @@ img{
             
         @else
             {{Auth::user()->alias}}
-            <img src="#">
+            <img src="{{Auth::user()->profile_image}}">
         @endguest
         
     </div>
