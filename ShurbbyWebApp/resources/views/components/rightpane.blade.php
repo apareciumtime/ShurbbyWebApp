@@ -84,16 +84,9 @@
                 แท็กยอดนิยม
             </div>
             <div class="tag-container">
-                <x-tag-bar/>
-                <x-tag-bar/>
-                <x-tag-bar/>
-                <x-tag-bar/>
-                <x-tag-bar/>
-                <x-tag-bar/>
-                <x-tag-bar/>
-                <x-tag-bar/>
-                <x-tag-bar/>
-                <x-tag-bar/>
+                @foreach($top_tags as $tag)
+                    <x-tag-bar label="{{$tag->name}}"/>
+                @endforeach
             </div>
             <br>
             <a href="#" class="view-tag-all">
@@ -105,16 +98,9 @@
                 แท็กที่ฉันติดตาม
             </div>
             <div class="tag-container">
-                    <x-tag-bar/>
-                    <x-tag-bar/>
-                    <x-tag-bar/>
-                    <x-tag-bar/>
-                    <x-tag-bar/>
-                    <x-tag-bar/>
-                    <x-tag-bar/>
-                    <x-tag-bar/>
-                    <x-tag-bar/>
-                    <x-tag-bar/>
+                @foreach($following_tags as $tag)
+                    <x-tag-bar label="{{$tag->name}}"/>
+                @endforeach
             </div>
             <br>
             <a href="#" class="view-tag-all">

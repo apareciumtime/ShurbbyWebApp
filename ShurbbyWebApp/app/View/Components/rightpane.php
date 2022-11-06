@@ -2,10 +2,13 @@
 
 namespace App\View\Components;
 
+use App\Models\Tag;
 use Illuminate\View\Component;
 
 class rightpane extends Component
 {
+    public $top_tags;
+    public $following_tags;
     /**
      * Create a new component instance.
      *
@@ -13,7 +16,15 @@ class rightpane extends Component
      */
     public function __construct()
     {
-        //
+        $this->top_tags=Tag::orderBy('num_follower','DESC')->limit(10)->get();
+
+        $user=\Auth::user();
+        if($user!=null){
+            $this->following_tags=$user->tags()->get();
+        }
+        else{
+            $this->following_tags=[];
+        }
     }
 
     /**

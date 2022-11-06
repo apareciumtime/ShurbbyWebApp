@@ -89,9 +89,12 @@
         </div>
     </div>
     <div class="right-side">
-        <button class="follow-btn">
-            {{$button_label}}
-        </button>
+        <form action="{{route('follow',$tag_id)}}" method="POST">
+            @csrf
+            <button class="follow-btn">
+                {{$button_label}}
+            </button>
+        </form>
     </div>
 
 </div>

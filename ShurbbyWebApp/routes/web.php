@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Homepage\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ShrubbyController;
+use App\Http\Controllers\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,9 +31,10 @@ Route::view('login', 'auth.login')->name('login');
 Route::post('register', [RegisterController::class, 'register']);
 // Route::get('search', #ControllerClass for  searching) --> search route method
 
-//search Tag
+//Tag
 Route::get('searchTag',[TagController::class,'indexSearchTag']);
 Route::post('searchTag',[TagController::class,'searchByTag'])->name('searchTag');
+Route::post('followTag/{id}',[TagController::class,'follow'])->name('follow');
 
     //Shrubby
 // create new thread
