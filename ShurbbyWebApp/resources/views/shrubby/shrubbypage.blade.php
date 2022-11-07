@@ -107,7 +107,7 @@
                                 <div class="upper-user-info">
                                     <div class="profile-pic-upper-user-info-frame">
                                         <div class="profile-pic-upper-user-info">
-                                            pp
+                                            <img src="{{$shrubby->user->profile_image}}">
                                         </div>
                                     </div>
                                     <div class="name-upper-user-info">
