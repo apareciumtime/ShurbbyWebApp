@@ -63,7 +63,6 @@
                             <div class="shrubby-content">
                                 {!! $shrubby->content !!}
                             </div>
-                            <br>
                             <div class="user-info-frame">
                                 <div class="upper-user-info">
                                     <div class="profile-pic-upper-user-info-frame">
