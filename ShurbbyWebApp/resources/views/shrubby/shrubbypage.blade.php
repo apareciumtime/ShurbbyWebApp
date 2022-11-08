@@ -91,7 +91,7 @@
                         </div>
                         <div class="shrubby-comment-section">
                             <div class="shrubby-comment-header">
-                                <a href="#" class="shrubby-comment-comment">ความคิดเห็น</a>
+                                <a href="#" class="shrubby-comment-topic">ความคิดเห็น</a>
                                 <a href="#" class="shrubby-comment-button">แสดงความคิดเห็น</a>
                             </div>
                         </div>

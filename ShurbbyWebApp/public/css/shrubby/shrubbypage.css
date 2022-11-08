@@ -308,3 +308,51 @@ body{
     padding: 0px;
     gap: 8px;
 }
+
+.shrubby-comment-section{
+    width: 100%;
+
+    background:#FAFAFA;
+    border-radius:24px;
+}
+
+.shrubby-comment-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin:12px;
+
+    width: calc(100%-24px);
+    height: 36px;
+
+    border-bottom: 1px solid #D2D2D5;
+    
+}
+
+.shrubby-comment-topic{
+    width: 100%;
+    
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    
+    color: #F1B24B;
+}
+
+.shrubby-comment-button{
+    width: fit-content;
+    
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: right;
+    
+    color: #4B819F;
+
+    border:1px solid red;
+    white-space: nowrap;
+}
