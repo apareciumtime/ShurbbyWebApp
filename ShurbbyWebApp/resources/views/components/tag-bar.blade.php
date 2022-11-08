@@ -58,18 +58,19 @@
 
     width: 100px;
     height: 78px;
-
+    
+    
     font-family: 'Maitree';
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
     line-height: 30px;
-
+    
     color: #304045;
-
+    
     background:none;
     cursor: pointer;
-
+    
     border:none;
     outline:none;
 }

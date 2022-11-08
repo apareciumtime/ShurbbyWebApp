@@ -19,8 +19,10 @@ body{
     align-items: flex-start;
     padding: 0px;
 
-    width: 100%;
+    position:relative;
+    width: auto;
     height: 100vh;
+    top: 0px;
 }
 
 .body-right-section{

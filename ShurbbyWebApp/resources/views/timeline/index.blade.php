@@ -22,9 +22,6 @@
         </div>
         <div class="body-right-section">
             <div class="inside-body">
-                <div class="nav-bar">
-                    nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > 
-                </div>
                 <div class="playground">
                     playground
                     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

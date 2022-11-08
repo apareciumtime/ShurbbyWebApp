@@ -18,15 +18,10 @@
 
         <div class="body-right-section">
             <div class="inside-body">
-                <div class="nav-bar">
-                    nav-bar
-                </div>
                 <div class="component-bar">
                     <a href="upload-profileimage">
-                        อัพโหลดรูปโปรไฟล์
+                        อัปโหลดรูปโพรไฟล์
                     </a>
-                </div>
-                <div class="component-bar">
                     <a href="shrubbycreate">
                         สร้างกระทู้
                     </a>
@@ -34,7 +29,6 @@
                 <div class="playground">
                     <x-shrubby-slider label="Shrubby ที่แนะนำ"/>
                     <x-shrubby-slider label="Shrubby ที่มาใหม่"/>
-
                 </div>
             </div>
             <x-rightpane/>

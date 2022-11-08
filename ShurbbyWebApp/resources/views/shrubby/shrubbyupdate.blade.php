@@ -15,9 +15,6 @@
         <x-header label="แก้ไขกระทู้"/>
         <div class="body-right-section">
             <div class="inside-body">
-                <div class="nav-bar">
-                    nav-bar
-                </div>
                 <div class="shrubby-framework">
                     <div class="background-framework">
                         <form id="shrubby-create" action="{{route('updateShrubby',$shrubby->id)}}" method="POST" enctype="multipart/form-data">

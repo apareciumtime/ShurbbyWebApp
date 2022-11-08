@@ -26,7 +26,7 @@ body{
     padding: 0px;
     gap: 16px;
     
-    width: fit-content;
+    width: 18vw;
     height: 100vh;
     
     border-right: 1px solid #D2D2D5;

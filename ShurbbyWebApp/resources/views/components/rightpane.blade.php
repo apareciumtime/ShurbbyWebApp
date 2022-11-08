@@ -2,28 +2,33 @@
 .rightpane{
     box-sizing: border-box;
 
-    display: flex;
+    display: block;
     flex-direction: column;
     border-left: 1px solid #D2D2D5;
 
-    position:absolute;
+    position:inherit;
     right:0px;
-    top:8vh;
 
     width: 18vw;
     height: 92vh;
+
+    margin:0px;
+
+    background: #FAFAFA;
+
+    overflow-y: auto;
 }
 
 .rightpane-body{
     overflow-y: scroll;
 }
 .top-tag{
-    width: 18vw;
+    width: auto;
     height: 528px;
 }
 
 .followed-tag{
-    width: 18vw;
+    width: auto;
     height: 528px;
 }
 
@@ -33,7 +38,7 @@
     align-items: flex-start;
     justify-content: center;
 
-    width: fit-content;
+    width: auto;
     height: 48px;
     padding-left:16px;
     background: #FAFAFA;
@@ -53,7 +58,7 @@
     align-items: flex-start;
     padding: 0px;
 
-    width: 18vw;
+    width:auto;
     height: 390px;
     left: 0px;
     top: 84px;
@@ -70,8 +75,12 @@
     color: #4B819F;
     padding:16px;
 
-    width: 18vw;
+    display: block;
+    width: auto;
+
+    border-bottom: 1px solid #445650;
 }
+
 .view-tag-all:hover{
     color:#F1B24B;
 }
@@ -88,7 +97,6 @@
                     <x-tag-bar label="{{$tag->name}}"/>
                 @endforeach
             </div>
-            <br>
             <a href="#" class="view-tag-all">
                     ดูทั้งหมด
             </a>
@@ -102,7 +110,6 @@
                     <x-tag-bar label="{{$tag->name}}"/>
                 @endforeach
             </div>
-            <br>
             <a href="#" class="view-tag-all">
                 ดูทั้งหมด
             </a>

@@ -19,8 +19,10 @@ body{
     align-items: flex-start;
     padding: 0px;
 
-    width: 100%;
+    position:relative;
+    width: auto;
     height: 100vh;
+    top: 0px;
 }
 
 .body-right-section{
@@ -43,20 +45,6 @@ body{
     height: 92vh;
 
     overflow-y: scroll;
-}
-
-.nav-bar{
-    width: fit-content;
-    height: fit-content;
-    margin: 12px;
-
-    font-family: 'Prompt';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 27px;
-
-    color: #4B819F;
 }
 
 .shrubby-framework{
@@ -173,27 +161,6 @@ body{
 }
 
 .content-input{
-    box-sizing: border-box;
-
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    padding: 8px 12px;
-
-    width: 100%;
-    height: 700px;
-
-    background: #F3F3F3;
-
-    border:none;
-    outline:none;
-
-    font-family: 'Prompt';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 30px;
-
     color: #445650;
 }
 
