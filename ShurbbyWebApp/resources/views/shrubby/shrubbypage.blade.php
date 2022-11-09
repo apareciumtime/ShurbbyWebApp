@@ -8,8 +8,8 @@
 
     <link rel = "stylesheet" href = "/css/shrubby/shrubbypage.css">
     <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Maitree">
-
-    </head>
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+</head>
 <body>
     <x-leftpane/>
     <div class="right-section">
@@ -94,6 +94,18 @@
                                 <a href="#" class="shrubby-comment-topic">ความคิดเห็น</a>
                                 <a href="#" class="shrubby-comment-button">แสดงความคิดเห็น</a>
                             </div>
+                            <div class="shrubby-will-to-comment">
+                                <div class="shrubby-will-to-comment-topic">
+                                    แสดงความคิดเห็นของฉัน
+                                </div>
+                                <div class="shrubby-comment-writer">
+                                    <textarea name="content" id="editor" form="shrubby-comment" placeholder="แสดงความคิดเห็นของฉัน"></textarea>
+                                </div>
+                            </div>
+                            <div class="shrubby-comment-content">
+                                <x-comment-shrubby/>
+                                <x-comment-shrubby/>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -102,4 +114,19 @@
         </div>
     </div>
 </body>
+<script>
+    ClassicEditor
+            .create( document.querySelector( '#editor' ) 
+            ,{
+                ckfinder:{
+                    uploadUrl : '{{ route('ckeditor.upload').'?_token='.csrf_token()}}'
+                }
+            })
+            .then( editor => {
+                console.log( editor );
+            } )
+            .catch( error => {
+                console.error( error );
+            } );
+</script>
 </html>
