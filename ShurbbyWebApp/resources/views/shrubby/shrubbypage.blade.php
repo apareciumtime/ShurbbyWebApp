@@ -103,8 +103,6 @@
                                 </div>
                             </div>
                             <div class="shrubby-comment-content">
-                                <x-comment-shrubby/>
-                                <x-comment-shrubby/>
                             </div>
                         </div>
                     </div>
