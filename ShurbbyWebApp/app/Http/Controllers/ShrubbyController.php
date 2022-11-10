@@ -6,6 +6,7 @@ use App\Models\Shrubby;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class ShrubbyController extends Controller
 {
@@ -179,6 +180,31 @@ class ShrubbyController extends Controller
             $user->save();
         }
         return redirect()->route('home');
+    }
+
+    function crop(Request $request){
+        $path = 'storage/';
+        $file = $request->file('file');
+        $fileName = 'UIMG'.date('Ymd').uniqid().'.jpg';
+        //   $upload = $file->move(public_path($path), $new_image_name);
+        $file_path=$request->file('image')->storeAs('profile_images',$fileName,'public');
+        $file_path='/storage/'.$file_path;
+        
+        if($upload){
+            $user=\Auth::user();
+            $oldpict=$user->profile_image;
+            if($oldpict != ''){
+                unlink($file_path);
+            }
+
+            $user->profile_image=$file_path;
+            $user->save();
+            
+            return response()->json(['status'=>1, 'msg'=>'Image has been cropped successfully.', 'name'=>$fileName]);
+        }
+        else{
+            return response()->json(['status'=>0, 'msg'=>'Something went wrong, try again later']);
+        }
     }
 
 }
