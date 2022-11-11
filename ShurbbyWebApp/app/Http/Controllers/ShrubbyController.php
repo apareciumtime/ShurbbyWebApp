@@ -168,42 +168,26 @@ class ShrubbyController extends Controller
             ->with('message', 'Your Shrubby has been deleted!');
     }
 
+   
 
-    public function uploadProfileImage(Request $request){
-        $file=$request->hasFile('image');
-        if($file){
-            $fileName=time().$request->file('image')->getClientOriginalName();
-            $file_path=$request->file('image')->storeAs('profile_images',$fileName,'public');
-            $file_path='/storage/'.$file_path;
-            $user=\Auth::user();
-            $user->profile_image=$file_path;
-            $user->save();
-        }
-        return redirect()->route('home');
+    public function uploadProfileIndex(){
+        $user=\Auth::user();
+        return view('upload-profileimage',['user'=>$user,'newimg'=>null]);
     }
 
-    function crop(Request $request){
-        $path = 'storage/';
-        $file = $request->file('file');
+    public function crop(Request $request){
+        $path = 'storage/profile_images/';
+        $file = $request->file('image');
         $fileName = 'UIMG'.date('Ymd').uniqid().'.jpg';
-        //   $upload = $file->move(public_path($path), $new_image_name);
-        $file_path=$request->file('image')->storeAs('profile_images',$fileName,'public');
-        $file_path='/storage/'.$file_path;
-        
-        if($upload){
-            $user=\Auth::user();
-            $oldpict=$user->profile_image;
-            if($oldpict != ''){
-                unlink($file_path);
-            }
-
-            $user->profile_image=$file_path;
-            $user->save();
-            
-            return response()->json(['status'=>1, 'msg'=>'Image has been cropped successfully.', 'name'=>$fileName]);
+        $move = $file->move(public_path($path), $fileName);
+        if(!$move){
+            return response()->json(['status'=>0,'msg'=>'Something went wrong']);
         }
         else{
-            return response()->json(['status'=>0, 'msg'=>'Something went wrong, try again later']);
+            $user=\Auth::user();
+            $user->profile_image=$path.$fileName;
+            $user->save();
+            return response()->json(['status'=>1,'msg'=>'Your profile picture has been updated successfully','name'=>$fileName,'newimg'=>$path.$fileName]);
         }
     }
 

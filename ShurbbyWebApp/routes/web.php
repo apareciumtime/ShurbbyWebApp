@@ -56,6 +56,5 @@ Route::get('shrubbynewby', [ShrubbyController::class, 'shrubbynewby'])->name('sh
 // Route::get('shrubbypage', [ShrubbyController::class, 'pageShrubby'])->name('shrubbypage');
 
 //profile image
-Route::view('upload-profileimage','upload-profileimage')->name('upload-profileimage');
-Route::post('/uploadprofileimage', [ShrubbyController::class, 'uploadProfileImage'])->name('uploadprofileimage');
-Route::post('crop',[ShrubbyController::class, 'crop'])->name('crop');
+Route::get('upload-profileimage',[ShrubbyController::class, 'uploadProfileIndex']);
+Route::post('crop',[ShrubbyController::class, 'crop'])->name('croppict');
