@@ -7,5 +7,7 @@ use Illuminate\Http\Request;
 
 class HeaderController extends Controller
 {
-    //
+    public function profile(){
+        return view('profile.index');
+    }
 }

@@ -4,35 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Journal</title>
-    <!--
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    -->
-        <link rel = "stylesheet" href = "/css/homeIndex.css">
-        <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Prompt:100">
-</head>
-<body>
-    <div class="leftpane">
-        <x-leftpane/>
+    <title>Shrubby</title>
 
-    </div>
+    <link rel = "stylesheet" href = "/css/journalIndex.css">
+    <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Maitree">
+
+    </head>
+<body>
+    <x-leftpane/>
     <div class="right-section">
-        <div class="header">
-            <x-header label="สมุดบันทึก" />
-        </div>
+        <x-header label="สมุดบันทึก"/>
         <div class="body-right-section">
             <div class="inside-body">
-                <div class="playground">
-                    playground
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                    sadasd
+                <div class="journal-framework">
+                        <div class="info-framework">
+                            <div class="profilepic-frame">
+                                <img src="{{Auth::user()->profile_image}}" class="profile-pic">
+                                <a href="">เปลี่ยนรูปโปรไฟล์</a>
+                            </div>
+                            
+                            <div class="personal-frame">
+                                <div class="profilename-frame">
+                                    <div class="name-frame">
+                                        <h1>NAMEEEEEEE</h1>
+                                        <br>
+                                        <h2>@username</h2>
+                                    </div>
+                                    <div class="change">
+                                        <a href="">Change</a>
+                                    </div>
+                                </div>
+
+                                <div class="tag-frame">
+
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </div>
             <x-rightpane/>
         </div>
     </div>
-    
 </body>
 </html>

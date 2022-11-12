@@ -24,7 +24,8 @@ class CreateUserSeeder extends Seeder
                 'address_info' => '00/00 St.',
                 'birthdate' => '2002-01-01',
                 'gender' => 'female',
-                'username'=>'@admin'
+                'username'=>'@admin',
+                'profile_image' => ''
             ],
             [
                 'alias' => 'User',
@@ -35,7 +36,8 @@ class CreateUserSeeder extends Seeder
                 'address_info' => '00/00 St.',
                 'birthdate' => '2002-01-01',
                 'gender' => 'female',
-                'username'=>'@user1'
+                'username'=>'@user1',
+                'profile_image' => ''
             ]
             ];
 
