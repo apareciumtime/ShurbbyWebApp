@@ -28,7 +28,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    gap:16px;
+    gap:8px;
 
     position:relative;
 

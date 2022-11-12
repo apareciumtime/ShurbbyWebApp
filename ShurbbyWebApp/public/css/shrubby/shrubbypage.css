@@ -61,11 +61,14 @@ body{
     
     border:none;
     border-radius: 8px;
-    /* border:1px solid red; */
+
     background:#f9f9f9 ;
     
-    font-size:20px;
+    font-family: 'Maitree';
+    font-style: normal;
     font-weight: 400;
+    font-size: 20px;
+    line-height: 36px;
     color:#4F605D;
     padding: 2px 8px;
 
