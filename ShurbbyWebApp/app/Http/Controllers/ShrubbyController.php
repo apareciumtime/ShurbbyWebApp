@@ -168,7 +168,46 @@ class ShrubbyController extends Controller
             ->with('message', 'Your Shrubby has been deleted!');
     }
 
-   
+   /*
+        parameters
+        $request : request from create comment form
+        $id : shrubby id to add comment
+    */
+    public function commentPost(Request $request, $shrubbyid, $parentid){
+        $request->validate([
+            'content' => 'required',
+        ]);
+
+        $shrubby = Shrubby::find($shrubbyid);
+        $comment = new Comment;
+
+        //if null -> this is first comment
+        $isFirst=$shrubby->comments()->first();
+        if($isFirst==null){
+            $comment->comment_id=1;
+        }
+        else{
+            $lastCommentID=$shrubby->comments()->orderBy('comment_id','desc')->first()->comment_id;
+            $comment->comment_id=$lastCommentID+1;
+        }
+
+        $comment->user_id=\Auth::user()->id;
+        if($parentid==-1){
+            $comment->parent=null;
+        }
+        else{
+            $comment->parent=$parentid;
+        }
+        $comment->content=$request->content;
+        $comment->like=0;
+        $comment->credit=0;
+        $comment->accept=false;
+
+        $shrubby->comments()->save($comment);
+
+        $data['comments']=$shrubby->comments()->orderBy('id','asc')->get();
+        return Redirect::back()->withMessage('your comment saved!');
+    }
 
     public function uploadProfileIndex(){
         $user=\Auth::user();
