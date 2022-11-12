@@ -76,8 +76,8 @@ class RegisterController extends Controller
             'address_info' => ['required', 'string', 'max:255'],
             'birthdate' => ['required', 'string', 'date'],
             'gender' => ['required', 'string'],
-            'username'=> ['required', 'string', 'max:255', 'unique:users']
-            
+            'username'=> ['required', 'string', 'max:255', 'unique:users'],
+            'profile_image'=>['string']
         ]);
     }
 
