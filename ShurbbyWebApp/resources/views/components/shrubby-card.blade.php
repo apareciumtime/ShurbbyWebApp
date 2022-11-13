@@ -38,7 +38,7 @@
     flex-direction: column;
 
     margin:8px;
-    width: calc(100%-16px);
+    width: calc(100% - 16px);
     gap: 8px;
     font-family: 'Maitree';
     font-style: normal;
@@ -55,7 +55,7 @@
 
     gap:8px;
 
-    width: calc(100%-24px);
+    width: 100%;
 }
 
 .shrubby-card-content-topic{
@@ -172,7 +172,7 @@
 }
 
 .shrubby-card-content-user-info-name{
-    width: calc(100%-48px);
+    width: calc(100% - 48px);
 
     display: flex;
     flex-direction: column;

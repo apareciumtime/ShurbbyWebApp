@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shrubby</title>
+    <title>Journal</title>
 
-    <link rel = "stylesheet" href = "/css/journalIndex.css">
+    <link rel = "stylesheet" href = "/css/journal/journalIndex.css">
     <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Maitree">
 </head>
 <body>
@@ -33,9 +33,9 @@
                                         @username
                                     </div>
                                 </div>
-                                <div class="info-user-name-right">
+                                <a href="/journal/update" class="info-user-name-right">
                                     แก้ไข
-                                </div>
+                                </a>
                             </div>
                             <div class="info-description-framework">
                                 

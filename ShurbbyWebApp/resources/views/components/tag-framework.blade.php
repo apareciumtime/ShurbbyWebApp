@@ -7,7 +7,7 @@
 }
 
 .tag-topic-view-all{
-    width: calc(100%-16px);
+    width: calc(100% - 16px);
     margin:8px;
     display: flex;
     flex-direction: row;
@@ -46,7 +46,7 @@
 }
 
 .tag-slot{
-    width: calc(100%-16px);
+    width: calc(100% - 16px);
     margin:8px;
 
     display: flex;

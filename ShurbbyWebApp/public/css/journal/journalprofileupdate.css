@@ -1,0 +1,258 @@
+body{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: #FAFAFA;
+    border-radius: 12px;
+
+    margin:0px;
+    font-family: "Maitree";
+}
+
+.right-section{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    position:relative;
+    width: auto;
+    height: 100vh;
+}
+
+.body-right-section{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+
+    width: 100%;
+}
+
+.profile-update-framework{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    width: 64vw;
+    height: 92vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.profile-update-topic-submit{
+    width: calc(100% - 32px);
+    margin:16px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-update-topic{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+
+    width: 100%;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+
+    color: #445650;
+}
+
+.profile-update-submit{
+    border: none;
+    background: none;
+    cursor: pointer;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+
+    color: #4B819F;
+}
+
+.profile-update-submit:hover{
+    color:#F1B24B;
+}
+
+
+.info-framework{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 16px;
+    gap: 32px;
+
+    width: 100%;
+
+}
+
+.profile-pic-frame{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+
+    width: fit-content;
+    height: 100%;
+
+    /* border:1px solid red; */
+}
+
+.profile-pic{
+    width: 128px;
+    height: 128px;
+}
+
+.profile-pic-frame a{
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 33px;
+    text-align: center;
+
+    color: #4B819F;
+}
+
+.profile-pic-frame a:hover{
+    color:#F1B24B;
+}
+
+.info-user-framework{
+    /* border:1px solid blue; */
+    width: calc(64vw - 128px - 32px - 32px);
+    display: flex;
+    flex-direction:column;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 33px;
+
+    color: #304045;
+}
+
+.profile-form{
+    display: flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.info-user-input-line{
+    display:flex;
+    flex-direction: row;
+    gap:16px;
+}
+
+.info-user-input-label{
+    width: 25%;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.info-user-input-normal{
+    width: 75%;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #304045;
+    background: #F3F3F3;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+
+    color: #445650;
+}
+
+.info-user-input-normal:hover{
+    border-bottom: 2px solid #F1B24B;
+}
+
+.info-user-input-locked{
+    width: 75%;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #304045;
+    background: #F3F3F3;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+
+    color: #445650;
+
+    opacity:0.4;
+}
+
+.info-user-input-with-counter{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-user-input-normal-bio{
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #304045;
+    background: #F3F3F3;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+
+    color: #445650;
+
+    resize:none;
+}
+
+.info-user-input-normal-bio:hover{
+    border-bottom: 2px solid #F1B24B;
+}
+
+.info-user-input-normal-bio-counter{
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 16px;
+
+    color: #D2D2D5;
+}
+
+.info-user-input-normal-address{
+    width: 75%;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #304045;
+    background: #F3F3F3;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+
+    color: #445650;
+
+    resize:none;
+}
+
+.info-user-input-normal-address:hover{
+    border-bottom: 2px solid #F1B24B;
+}

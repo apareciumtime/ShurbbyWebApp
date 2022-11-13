@@ -9,7 +9,7 @@
 }
 
 .shrubby-slider-header{
-    width: calc(100%-32px);
+    width: calc(100% - 32px);
     margin:16px;
 
     display: flex;
@@ -43,13 +43,13 @@
 }
 
 .shrubby-slider-slot-ground{
-    width: calc(100%-16px);
+    width: calc(100% - 16px);
     padding:8px 8px;
     background: #E6E6E8;
     border-radius: 8px;
 }
 .shrubby-slider-slot{
-    width: calc(100%-16px);
+    width: calc(100% - 16px);
     padding:8px;
     gap:16px;
 
