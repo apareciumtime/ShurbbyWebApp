@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Shrubby;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class ShrubbyController extends Controller
 {
@@ -15,17 +17,33 @@ class ShrubbyController extends Controller
     }
     public function shrubbyrecommand()
     {
-        return view('shrubby.shrubbyrecommand');
+        return view('shrubby.shrubbyrecommand')
+            ->with('shrubbies',Shrubby::orderBy('like','DESC')->get());
     }
 
     public function shrubbynewby()
     {
-        return view('shrubby.shrubbynewby');
+        return view('shrubby.shrubbynewby')
+            ->with('shrubbies',Shrubby::orderBy('updated_at','DESC')->get());
     }
 
     public function createShrubby()
     {
         return view('shrubby.shrubbycreate');
+    }
+
+    /*
+         upload image for ckeditor
+         image display in shrubby
+    */
+    public function uploadImageShrubby(Request $request){
+        if($request->hasFile('upload')){
+            $fileName=time().$request->file('upload')->getClientOriginalName();
+            $file_path=$request->file('upload')->storeAs('shrubby_media',$fileName,'public');
+            $url='/storage/'.$file_path;
+
+            return response()->json(['fileName'=>$fileName,'uploaded'=>1, 'url'=>$url]);
+        }
     }
 
     public function create(Request $request)
@@ -80,8 +98,16 @@ class ShrubbyController extends Controller
 
     public function editShrubby($id)
     {
-        return view('editShrubby')
-            ->with('shrubby',Shrubby::where('id',$id)->first());
+        $tags = DB::table('taggables')->where('taggable_id',$id)->get();
+        $tag = '';
+        foreach($tags as $tagid){
+            $eachtag = Tag::where('id',$tagid->tag_id)->first();
+            $tag .= strval($eachtag->name).',';
+        }
+        $tag = rtrim($tag, ", ");
+        return view('shrubby.shrubbyupdate')
+            ->with('shrubby',Shrubby::where('id',$id)->first())
+            ->with('tag',$tag);
     }
 
     public function updateShrubby(Request $request, $id)
@@ -99,9 +125,11 @@ class ShrubbyController extends Controller
                 'user_id' => auth()->user()->id
             ]);
         
-        $shrubby = Shrubby::where('id', $id);
+        $shrubby = Shrubby::where('id', $id)->first();
+
+        DB::table('taggables')->where('taggable_id',$id)->delete();
         $tags=$request->tags;
-        $tags = explode(" ",$tags);
+        $tags = explode(",",$tags);
         foreach($tags as $value){
             $checktag = Tag::where('name', '=', $value)->first();
             if($checktag==null){
@@ -112,8 +140,9 @@ class ShrubbyController extends Controller
             else{
                 $tag=$checktag;
             }
-            
+
             $shrubby->tags()->save($tag);
+            
         }
 
         // return redirect('/home')
@@ -130,10 +159,75 @@ class ShrubbyController extends Controller
     }
     public function deleteShrubby($id)
     {
+        DB::table('taggables')->where('taggable_id',$id)->delete();
+
         $shrubby = Shrubby::where('id', $id);
         $shrubby->delete();
 
         return redirect('/home')
             ->with('message', 'Your Shrubby has been deleted!');
     }
+
+   /*
+        parameters
+        $request : request from create comment form
+        $id : shrubby id to add comment
+    */
+    public function commentPost(Request $request, $shrubbyid, $parentid){
+        $request->validate([
+            'content' => 'required',
+        ]);
+
+        $shrubby = Shrubby::find($shrubbyid);
+        $comment = new Comment;
+
+        //if null -> this is first comment
+        $isFirst=$shrubby->comments()->first();
+        if($isFirst==null){
+            $comment->comment_id=1;
+        }
+        else{
+            $lastCommentID=$shrubby->comments()->orderBy('comment_id','desc')->first()->comment_id;
+            $comment->comment_id=$lastCommentID+1;
+        }
+
+        $comment->user_id=\Auth::user()->id;
+        if($parentid==-1){
+            $comment->parent=null;
+        }
+        else{
+            $comment->parent=$parentid;
+        }
+        $comment->content=$request->content;
+        $comment->like=0;
+        $comment->credit=0;
+        $comment->accept=false;
+
+        $shrubby->comments()->save($comment);
+
+        $data['comments']=$shrubby->comments()->orderBy('id','asc')->get();
+        return Redirect::back()->withMessage('your comment saved!');
+    }
+
+    public function uploadProfileIndex(){
+        $user=\Auth::user();
+        return view('upload-profileimage',['user'=>$user,'newimg'=>null]);
+    }
+
+    public function crop(Request $request){
+        $path = 'storage/profile_images/';
+        $file = $request->file('image');
+        $fileName = 'UIMG'.date('Ymd').uniqid().'.jpg';
+        $move = $file->move(public_path($path), $fileName);
+        if(!$move){
+            return response()->json(['status'=>0,'msg'=>'Something went wrong']);
+        }
+        else{
+            $user=\Auth::user();
+            $user->profile_image=$path.$fileName;
+            $user->save();
+            return response()->json(['status'=>1,'msg'=>'Your profile picture has been updated successfully','name'=>$fileName,'newimg'=>$path.$fileName]);
+        }
+    }
+
 }

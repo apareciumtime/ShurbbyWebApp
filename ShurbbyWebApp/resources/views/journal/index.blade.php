@@ -5,37 +5,116 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Journal</title>
-    <!--
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    -->
-        <link rel = "stylesheet" href = "/css/homeIndex.css">
-        <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Prompt:100">
+
+    <link rel = "stylesheet" href = "/css/journal/journalIndex.css">
+    <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Maitree">
+
+    {{-- for crop and preview profile pict --}}
+    <link rel="stylesheet" href="{{ asset('/ijaboCropTool-master/ijaboCropTool.min.css') }}">
+
 </head>
 <body>
-    <div class="leftpane">
-        <x-leftpane/>
-
-    </div>
+    <x-leftpane/>
     <div class="right-section">
-        <div class="header">
-            <x-header label="สมุดบันทึก" />
-        </div>
+        <x-header label="สมุดบันทึก"/>
         <div class="body-right-section">
             <div class="inside-body">
-                <div class="nav-bar">
-                    nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > nav-bar > 
-                </div>
-                <div class="playground">
-                    playground
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                    sadasd
+                <div class="journal-framework">
+                    <div class="journal-creator-bar">
+                        <div class="journal-creator-bar-shrubby">
+                            <a href="/shrubbycreate">
+                                สร้างชรับบี
+                            </a>
+                        </div>
+                        <div class="journal-creator-bar-clumppy">
+                            <a href="/journal/clumppycreate">
+                                สร้างคลัมปี
+                            </a>
+                        </div>
+                    </div>
+                    <div class="info-framework">
+                        <div class="profile-pic-frame">
+                            <img src="{{Auth::user()->profile_image}}" class="profile-pic profile-image">
+                            <label>
+                                <input type="file" style="display: none;" name="image" id="image">
+                                <a>
+                                    เปลี่ยน<br>รูปโพรไฟล์
+                                </a>
+                            </label>
+                        </div>
+                        <div class="info-user-framework">
+                            <div class="info-user-name-frame">
+                                <div class="info-user-name-left">
+                                    <div class="info-user-name-alias">
+                                        {{Auth::user()->alias}}
+                                    </div>
+                                    <div class="info-user-name-username">
+                                        {{Auth::user()->username}}
+                                    </div>
+                                </div>
+                                <a href="/journal/update" class="info-user-name-right">
+                                    แก้ไข
+                                </a>
+                            </div>
+                            <div class="info-description-framework">
+                                
+                            </div>
+                            <div class="info-birthdate-and-gender-frame">
+                                <div class="info-birthdate">
+                                    วันเกิด
+                                </div>
+                                <div class="info-gender">
+                                    เพศ
+                                </div>
+                            </div>
+                            <div class="info-address">
+                                ที่อยู่
+                            </div>
+                            <div class="info-website">
+                                เว็บไซต์
+                            </div>
+                            <div class="info-amount-clumppy-shrubby">
+                                <div class="info-amount-clumppy">
+                                    คลัมปี
+                                </div>
+                                <div class="info-amount-shrubby">
+                                    ชรับบี
+                                </div>
+                            </div>
+                            <x-tag-framework/>
+                        </div>
+                    </div>
+                    <div class="slot-of-myclumppy-myshrubby">
+                        <x-shrubby-slider label="Shrubby ของฉัน"/>
+                        <x-clumppy-slider label="Clumppy ของฉัน"/>
+                    </div>
                 </div>
             </div>
             <x-rightpane/>
         </div>
     </div>
-    
+
+    {{-- for crop and preview profile pict --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script src="{{ asset('/ijaboCropTool-master/ijaboCropTool.min.js') }}"></script> 
+
+    <script>
+        $('#image').ijaboCropTool({
+            //profile_image = class of img element in html -> make picture update without refresh page
+            preview : '.profile-image',
+            setRatio:1,
+            allowedExtensions: ['jpg', 'jpeg','png'],
+            buttonsText:['CHANGE','QUIT'],
+            buttonsColor:['#FFFFFF','#4B819F', -15],
+            processUrl:'{{ route("croppict") }}',
+            withCSRF:['_token','{{ csrf_token() }}'],
+            onSuccess:function(message, element, status){
+                alert(message);
+            },
+            onError:function(message, element, status){
+                alert(message);
+            }
+       });
+   </script>
 </body>
 </html>

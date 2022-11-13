@@ -22,36 +22,41 @@ class TagController extends Controller
     // user follow tag
     public function follow(Request $request,$id){
         $user=\Auth::user();
-        $check=DB::table('tag_user')->where('tag_id','=',$id)->where('user_id','=',$user->id)->first();
-        // dd($check);
-        if($check==null){
+        if($user!=null){
             $tagtofollow=Tag::where('id','=',$id)->first();
-            $tagtofollow->num_follower+=1;
-            $tagtofollow->save();
-            $user->tags()->attach($tagtofollow->id);
+            if($tagtofollow!=null){
+                $check=DB::table('tag_user')->where('tag_id','=',$id)->where('user_id','=',$user->id)->first();
+                if($check==null){
+                    $tagtofollow->num_follower+=1;
+                    $tagtofollow->save();
+                    $user->tags()->attach($tagtofollow->id);
+                }
+                else{
+                    $tagtofollow->num_follower-=1;
+                    $tagtofollow->save();
+                    $user->tags()->detach($tagtofollow->id);
+                }
+            }
         }
-        
-        $data['tags']=Tag::orderBy('id','asc')->paginate(10);
-        // return view('showAllTags',$data);
-        return redirect('/testfollowtag');
+        return redirect()->route('home');;
     }
 
     //user unfollow tag
-    public function unfollow(Request $request,$id){
-        $user=\Auth::user();
-        $check=DB::table('tag_user')->where('tag_id','=',$id)->where('user_id','=',$user->id)->first();
-        // dd($check);
-        if($check!=null){
-            $tagtofollow=Tag::where('id','=',$id)->first();
-            $tagtofollow->num_follower-=1;
-            $tagtofollow->save();
-            $user->tags()->detach($tagtofollow->id);
-        }
+    // public function unfollow(Request $request,$id){
+    //     $user=\Auth::user();
+    //     $check=DB::table('tag_user')->where('tag_id','=',$id)->where('user_id','=',$user->id)->first();
+    //     // dd($check);
+    //     if($check!=null){
+    //         $tagtofollow=Tag::where('id','=',$id)->first();
+    //         $tagtofollow->num_follower-=1;
+    //         $tagtofollow->save();
+    //         $user->tags()->detach($tagtofollow->id);
+    //     }
  
-        $data['tags']=Tag::orderBy('id','asc')->paginate(10);
-        // return view('showAllTags',$data);
-        return redirect('/testfollowtag');
-    }
+    //     $data['tags']=Tag::orderBy('id','asc')->paginate(10);
+    //     // return view('showAllTags',$data);
+    //     return redirect('/testfollowtag');
+    // }
 
 
     public function searchByTag(Request $request){

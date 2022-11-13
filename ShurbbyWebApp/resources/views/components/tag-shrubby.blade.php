@@ -17,11 +17,21 @@
 
 .text-frame{
     white-space: nowrap;
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+
+    /* Font/Font Embed */
+
+    color: #EFE5D5;
+
 }
 </style>
 
 <div class="tag-shrubby-frame">
-    <div class="text-frame">
+    <a href="#" class="text-frame">
         {{$name}}
-    </div>
+    </a>
 </div>

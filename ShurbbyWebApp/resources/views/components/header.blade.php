@@ -68,6 +68,19 @@ img{
     
 }
 
+.username_profile{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px;
+    gap: 32px;
+}
+
+.username_profile:hover{
+    color: #F1B24B;
+}
+
 </style>
 
 <div class="header-frame">
@@ -79,8 +92,12 @@ img{
         @guest
             
         @else
-            {{Auth::user()->alias}}
-            <img src="#">
+        <a href="/journal">
+            <div class="username_profile" href="/profile">
+                {{Auth::user()->alias}}
+                <img src="{{Auth::user()->profile_image}}" class="profile-image">
+            </div>
+        </a>
         @endguest
         
     </div>

@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use GuzzleHttp\Psr7\Request;
+use App\Models\Tag;
 use Illuminate\View\Component;
 
 class tagBar extends Component
@@ -11,21 +12,33 @@ class tagBar extends Component
     public $follower;
     public $status=0;
     public $button_label;
+    public $tag_id;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($label)
     {
-        if($this->status == 0){
+        $this->label=$label;
+        $user=\Auth::user();
+        $tag=Tag::where('name','=',$label)->first();
+        $this->tag_id=$tag->id;
+        $this->follower = ''.$tag->num_follower.' ผู้ติดตาม';
+        if($user!=null){ 
+            $following=$user->tags()->where('tag_id','=',$tag->id)->first();
+            if($following==null){
+                $this->status=0;
+                $this->button_label = 'ติดตาม';
+            }
+            else{
+                $this->status=1;
+                $this->button_label = 'ติดตามแล้ว';
+            }
+        }else{
+            $this->status=0;
             $this->button_label = 'ติดตาม';
         }
-        elseif($this->status == 1){
-            $this->button_label = 'ติดตามแล้ว';
-        }
-        $this->label = 'ไมยราพ';
-        $this->follower = '16k ผู้ติดตาม';
     }
 
     /**

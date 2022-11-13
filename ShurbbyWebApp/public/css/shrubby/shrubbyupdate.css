@@ -19,7 +19,8 @@ body{
     align-items: flex-start;
     padding: 0px;
 
-    width: 100%;
+    position:relative;
+    width: auto;
     height: 100vh;
 }
 
@@ -30,54 +31,30 @@ body{
     padding: 0px;
 
     width: 100%;
-    height: 92vh;
-}
-
-.inside-body{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-
-    width: 64vw;
-    height: 92vh;
-
-    overflow-y: scroll;
-}
-
-.nav-bar{
-    width: fit-content;
-    height: fit-content;
-    margin: 12px;
-
-    font-family: 'Prompt';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 27px;
-
-    color: #4B819F;
 }
 
 .shrubby-framework{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+
+    background: #D2D2D5;
 
     width: 64vw;
-    height: 894px;
+    height: 92vh;
+    overflow-y: auto;
 }
 
 .background-framework{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 16px;
-    gap: 16px;
-
-    width: 60vw;
-    height: fit-content;
+    align-items: flex-start;
+    margin:16px;
+    
+    width: 100%;
 
     background: #5B6C67;
 
@@ -85,49 +62,41 @@ body{
     border-radius: 24px;
 }
 
-.shrubby-head-framework{
+.shrubby-create{
     box-sizing: border-box;
 
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 12px;
-
-    width: 882px;
-    height: fit-content;
-
-    border-bottom: 1px solid #D2D2D5;
-}
-
-.shrubby-topic-framework{
-    display: flex;
     flex-direction: column;
-
-    width: 100%;
-
-    gap:16px;
-}
-
-.shrubby-topic{
-    font-family: 'Prompt';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 30px;
-
-    color: #EFE5D5;
+    align-items: flex-start;
+    margin:16px;
+    gap:32px;
+    
+    width: calc(100% - 16*2px);
 
 }
-
-.shrubby-body-framework{
+.shrubby-each-topic-framework{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0px;
-    gap: 12px;
+    gap:8px;
 
     width: 100%;
-    height: fit-content;
+}
+
+.shrubby-topic{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+
+    color: #EFE5D5;
 }
 
 .topic-input{
@@ -139,15 +108,14 @@ body{
     padding: 8px 12px;
 
     width: 100%;
-    height: 46px;
 
     background: #F3F3F3;
 
-    border:none;
     outline:none;
-    border-bottom: 2px solid #4B819F;
+    border:none;
+    border-bottom: 2px solid #445650;
 
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -160,35 +128,19 @@ body{
     border-bottom: 2px solid #F1B24B;
 }
 
-.shrubby-body-framework{
-    box-sizing: border-box;
+.description{
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 36px;
 
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 12px;
-
-    width: 882px;
-    height: fit-content;
+    color: #D2D2D5;
 }
 
-.content-input{
-    box-sizing: border-box;
-
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    padding: 8px 12px;
-
+.shrubby-content-area{
     width: 100%;
-    height: 700px;
-
-    background: #F3F3F3;
-
-    border:none;
-    outline:none;
-
-    font-family: 'Prompt';
+    font-family: 'Maitree';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -196,15 +148,6 @@ body{
 
     color: #445650;
 }
-
-textarea{
-    resize:none; 
-}
-
-.description{
-    color:#F1B24B;
-}
-
 .shrubby-button{
     box-sizing: border-box;
 
@@ -219,6 +162,7 @@ textarea{
     width: 100%;
     height: fit-content;
 }
+
 .submit-button{
     display: flex;
     flex-direction: row;
@@ -242,9 +186,10 @@ textarea{
     outline:none;
 }
 
+
 .submit-button:active{
     box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.25);
-}
+} 
 
 .cancel-button{
     display: flex;
@@ -252,7 +197,7 @@ textarea{
     align-items: flex-end;
     padding: 8px 16px;
 
-    background: #FAFAFA;
+    background: #D2D2D5;
 
     box-shadow: 0px 2px 4px -2px rgba(0, 0, 0, 0.5), 0px 4px 6px -1px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
@@ -268,6 +213,7 @@ textarea{
     border:none;
     outline:none;
 }
+
 
 .cancel-button:active{
     box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.25);

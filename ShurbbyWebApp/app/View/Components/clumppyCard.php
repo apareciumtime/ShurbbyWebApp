@@ -2,21 +2,19 @@
 
 namespace App\View\Components;
 
-use App\Models\Shrubby;
 use Illuminate\View\Component;
 
-class shrubbyCard extends Component
+class clumppyCard extends Component
 {
+    public $pic_status = 0;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public $shrubby;
-    public $pic_status = 0;
-    public function __construct($itemid)
+    public function __construct()
     {
-        $this->shrubby = Shrubby::where('id','=',$itemid)->get()->first();
+        //
     }
 
     /**
@@ -26,6 +24,6 @@ class shrubbyCard extends Component
      */
     public function render()
     {
-        return view('components.shrubby-card');
+        return view('components.clumppy-card');
     }
 }

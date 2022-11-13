@@ -8,74 +8,78 @@
 
     <link rel = "stylesheet" href = "/css/shrubby/shrubbypage.css">
     <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Maitree">
-
-    </head>
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+</head>
 <body>
     <x-leftpane/>
     <div class="right-section">
         <x-header label="Shrubby"/>
         <div class="body-right-section">
             <div class="inside-body">
-                <div class="nav-bar">
-                    nav-bar
-                </div>
                 <div class="shrubby-framework">
                     <div class="background-framework">
                         <div class="shrubby-create">
-                            <div class="shrubby-head-framework">
-                                <div class="shrubby-topic-framework">
-                                    <div class="shrubby-topic">
-                                        {{-- ชื่อกระทู้ --}}
-                                        {{$shrubby->title}}
-                                    </div>
-                                    <div class="shrubby-edit-button-framework">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                            <path d="M120 256c0 30.9-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56zm160 0c0 30.9-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56zm104 56c-30.9 0-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56s-25.1 56-56 56z"/>
-                                        </svg>
+                            <div class="shrubby-topic-framework">
+                                <div class="shrubby-topic">
+                                    {{$shrubby->title}}
+                                </div>
+                                <div class="shrubby-edit-button-framework dropdown">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                        <path d="M120 256c0 30.9-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56zm160 0c0 30.9-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56zm104 56c-30.9 0-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56s-25.1 56-56 56z"/>
+                                    </svg>
+                                    <div class="dropdown-content">
+                                        <a href="/shrubbypage/{{ $shrubby->id }}/edit" class="edit-menu">
+                                            แก้ไข
+                                        </a>
+                                        <form 
+                                            action="/shrubbypage/{{ $shrubby->id }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="delete-shrubby-btn" type="submit">
+                                                ลบ
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
-                            <div class="shrubby-body-framework">
-                                <div class="shrubby-tag-frame">
-                                    <div class="shrubby-topic-tag-frame">
-                                        <div class="shrubby-topic-tag-head">
-                                            <div class="shrubby-topic-tag">
-                                                แท็ก
-                                            </div>
-                                            <a href="#" class="shrubby-all-tag">
-                                                ดูแท็กทั้งหมด
-                                            </a>
+                            <div class="shrubby-tag-frame">
+                                <div class="shrubby-topic-tag-frame">
+                                    <div class="shrubby-topic-tag-head">
+                                        <div class="shrubby-topic-tag">
+                                            แท็ก
                                         </div>
-                                        <div class="shrubby-slot-tag-frame">
-                                            @foreach($tags as $tag)
-                                                <x-tag-shrubby name="{{$tag->name}}"/> 
-                                            @endforeach
-                                        </div>
+                                        <a href="#" class="shrubby-all-tag">
+                                            ดูแท็กทั้งหมด
+                                        </a>
+                                    </div>
+                                    <div class="shrubby-slot-tag-frame">
+                                        @foreach($tags as $tag)
+                                            <x-tag-shrubby name="{{$tag->name}}"/> 
+                                        @endforeach
                                     </div>
                                 </div>
-                                <div class="shrubby-content">
-                                    {{-- สวัสดีครับ ผมกำลังปลูกต้นมะเขือเทศเชอร์รี่อยู่ ช่วง 1-3 วันที่ผ่านมานี้ผมสังเกตเห็น ว่าใบมันดูหงิกงอ แต่ผมไม่แน่ใจว่า ผมคิดไปเองหรือเปล่า รบกวนผู้เชี่ยวชาญช่วยดูหน่อยครับ แล้วถ้าผิดปกติ มีวิธีแก้ยังไงบ้างครับ --}}
-                                    {{$shrubby->content}}
-                                </div>
                             </div>
-                            <br>
+                            <div class="shrubby-content">
+                                {!! $shrubby->content !!}
+                            </div>
                             <div class="user-info-frame">
                                 <div class="upper-user-info">
                                     <div class="profile-pic-upper-user-info-frame">
                                         <div class="profile-pic-upper-user-info">
-                                            pp
+                                            <img src="{{$shrubby->user->profile_image}}">
                                         </div>
                                     </div>
                                     <div class="name-upper-user-info">
                                         <div class="alias-name-upper-user-info">
-                                            alias
+                                            {{$shrubby->user->alias}}
                                         </div>
                                         <div class="username-name-upper-user-info">
-                                            @username
+                                            {{$shrubby->user->username}}
                                         </div>
                                     </div>
                                     <div class="right-upper-user-info">
-                                        14 ก.พ. 2565 07:25
+                                        {{date('j M Y h:m',strtotime($shrubby->updated_at))}}
                                     </div>
                                 </div>
                                 <div class="interaction-bar-user-info">
@@ -85,14 +89,42 @@
                                 </div>  
                             </div>
                         </div>
-                        <div class="shrubby-comment">
-                            Hello
+                        <div class="shrubby-comment-section">
+                            <div class="shrubby-comment-header">
+                                <a href="#" class="shrubby-comment-topic">ความคิดเห็น</a>
+                                <a href="#" class="shrubby-comment-button">แสดงความคิดเห็น</a>
+                            </div>
+                            <div class="shrubby-will-to-comment">
+                                <div class="shrubby-will-to-comment-topic">
+                                    แสดงความคิดเห็นของฉัน
+                                </div>
+                                <div class="shrubby-comment-writer">
+                                    <textarea name="content" id="editor" form="shrubby-comment" placeholder="แสดงความคิดเห็นของฉัน"></textarea>
+                                </div>
+                            </div>
+                            <div class="shrubby-comment-content">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <x-rightpane/>
         </div>
-        <x-rightpane/>
     </div>
 </body>
+<script>
+    ClassicEditor
+            .create( document.querySelector( '#editor' ) 
+            ,{
+                ckfinder:{
+                    uploadUrl : '{{ route('ckeditor.upload').'?_token='.csrf_token()}}'
+                }
+            })
+            .then( editor => {
+                console.log( editor );
+            } )
+            .catch( error => {
+                console.error( error );
+            } );
+</script>
 </html>

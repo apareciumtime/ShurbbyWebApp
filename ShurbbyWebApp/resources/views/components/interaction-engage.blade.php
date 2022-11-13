@@ -33,7 +33,7 @@
     padding: 0px;
     gap: 8px;
 
-    width: 54px;
+    width: 40px;
     height: 27px;
     
     font-family: 'Maitree';
@@ -42,15 +42,13 @@
     font-size: 18px;
     line-height: 27px;
     
-    color: #EFE5D5;
+    color: #4B819F;
 
     /* border:1px solid red; */
 }
 
 svg{
-    fill:#EFE5D5;
-    width: 32px;
-    height: auto;
+    fill:#4B819F;
 }
 
 .interaction-engage-icon:hover{
