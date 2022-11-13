@@ -5,6 +5,7 @@ use App\Http\Controllers\Homepage\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ShrubbyController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\Auth\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,10 +56,10 @@ Route::get('shrubbynewby', [ShrubbyController::class, 'shrubbynewby'])->name('sh
 // Route::get('shrubbyupdate', [ShrubbyController::class, 'updateShrubby']);
 // Route::get('shrubbypage', [ShrubbyController::class, 'pageShrubby'])->name('shrubbypage');
 
-//profile image
-Route::get('upload-profileimage',[ShrubbyController::class, 'uploadProfileIndex']);
-Route::post('crop',[ShrubbyController::class, 'crop'])->name('croppict');
+//profile
+Route::post('crop',[ProfileController::class, 'crop'])->name('croppict');
 
 Route::view('/journal/update','journal.journal-profile-update')->name('updateJournalProfile');
+Route::post('editProfile',[ProfileController::class,'editProfile'])->name('editProfile');
 
 Route::view('/journal/clumppycreate','journal.clumppy.clumppycreate')->name('clumppycreate');

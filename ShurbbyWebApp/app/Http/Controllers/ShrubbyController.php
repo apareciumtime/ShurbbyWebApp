@@ -208,26 +208,4 @@ class ShrubbyController extends Controller
         $data['comments']=$shrubby->comments()->orderBy('id','asc')->get();
         return Redirect::back()->withMessage('your comment saved!');
     }
-
-    public function uploadProfileIndex(){
-        $user=\Auth::user();
-        return view('upload-profileimage',['user'=>$user,'newimg'=>null]);
-    }
-
-    public function crop(Request $request){
-        $path = 'storage/profile_images/';
-        $file = $request->file('image');
-        $fileName = 'UIMG'.date('Ymd').uniqid().'.jpg';
-        $move = $file->move(public_path($path), $fileName);
-        if(!$move){
-            return response()->json(['status'=>0,'msg'=>'Something went wrong']);
-        }
-        else{
-            $user=\Auth::user();
-            $user->profile_image=$path.$fileName;
-            $user->save();
-            return response()->json(['status'=>1,'msg'=>'Your profile picture has been updated successfully','name'=>$fileName,'newimg'=>$path.$fileName]);
-        }
-    }
-
 }

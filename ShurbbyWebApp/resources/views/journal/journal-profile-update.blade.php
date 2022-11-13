@@ -39,7 +39,8 @@
                             </label>
                         </div>
                         <div class="info-user-framework">
-                            <form id="profile-form" class="profile-form">
+                            <form action="{{route('editProfile')}}" method="POST" id="profile-form" class="profile-form" enctype="multipart/form-data">
+                                @csrf
                                 <div class="info-user-input-line">
                                     <div class="info-user-input-label">
                                         ชื่อแสดง
@@ -48,7 +49,8 @@
                                             name="alias"
                                             class="info-user-input-normal" 
                                             placeholder="ชื่อแสดง" 
-                                            id="alias">
+                                            id="alias"
+                                            value="{{Auth::user()->alias}}">
                                 </div>
 
                                 <div class="info-user-input-line">
@@ -60,7 +62,7 @@
                                                 class="info-user-input-locked" 
                                                 placeholder="ชื่อแสดง" 
                                                 id="username" 
-                                                value="@username"
+                                                value="{{Auth::user()->username}}"
                                                 readonly>
                                 </div>
                                         
@@ -73,7 +75,7 @@
                                     class="info-user-input-locked" 
                                     placeholder="อีเมล" 
                                     id="email"
-                                    value="user@user.com"
+                                    value="{{Auth::user()->email}}"
                                     readonly>
                                 </div>
                                 
@@ -85,7 +87,7 @@
                                                 class="info-user-input-normal"
                                                 name="telNum"
                                                 id="telNum"
-                                                value="{{ old('telNum') }}"
+                                                value="{{Auth::user()->telNum}}"
                                                 autofocus placeholder="081-234-56xx"
                                         >
                                         @error('telNum')
@@ -104,7 +106,8 @@
                                                     name="bio"
                                                     class="info-user-input-normal-bio" 
                                                     placeholder="ข้อมูลผู้ใช้งาน" 
-                                                    id="bio"></textarea>
+                                                    id="bio"
+                                                    value="{{Auth::user()->bio}}"></textarea>
                                         <div class="info-user-input-normal-bio-counter">
                                             0/200 ตัวอักษร
                                         </div>
@@ -118,7 +121,8 @@
                                     <input  type="date" 
                                             name="birthdate"
                                             class="info-user-input-normal"  
-                                            id="birthdate">
+                                            id="birthdate"
+                                            value="{{Auth::user()->birthdate}}">
                                 </div>
 
                                 <div class="info-user-input-line">
@@ -127,7 +131,8 @@
                                     </div>
                                     <select     name="gender"
                                                 id="gender"
-                                                class="info-user-input-normal">
+                                                class="info-user-input-normal"
+                                                value="{{Auth::user()->gender}}">
                                         <option value="undefine">ไม่ระบุ</option>
                                         <option value="male">ชาย</option>
                                         <option value="female">หญิง</option>
@@ -140,10 +145,10 @@
                                         ที่อยู่
                                     </div>
                                         <textarea   type="textarea" 
-                                                    name="address"
+                                                    name="address_info"
                                                     class="info-user-input-normal-address" 
                                                     placeholder="ที่อยู่" 
-                                                    id="address"></textarea>
+                                                    id="address_info">{{Auth::user()->address_info}}</textarea>
                                 </div>
 
                                 <div class="info-user-input-line">
@@ -154,7 +159,8 @@
                                             name="website"
                                             class="info-user-input-normal" 
                                             placeholder="เว็บไซต์" 
-                                            id="website">
+                                            id="website"
+                                            value="{{Auth::user()->website}}">
                                 </div>
                             </form>
                         </div>
