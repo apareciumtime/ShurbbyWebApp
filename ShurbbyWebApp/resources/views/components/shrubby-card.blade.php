@@ -1,5 +1,274 @@
 <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Prompt:400">
+
 <style>
+.shrubby-card-framework{
+    width: 280px;
+
+    padding-bottom: 8px;
+
+    background:#FAFAFA;
+    background-clip: border-box;
+
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.shrubby-card-pic-container{
+    width: 100%;
+    height: 280px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    background-color: #EFE5D5;
+    border-radius: 8px;
+}
+
+.logo{
+    width: 36px;
+    height: 36px;
+    fill:#445650;
+}
+
+.shrubby-card-content{
+    display: flex;
+    flex-direction: column;
+
+    margin:8px;
+    width: calc(100%-16px);
+    gap: 8px;
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+
+    color: #304045;
+}
+
+.shrubby-card-content-topic-edit{
+    display: flex;
+    flex-direction: row;
+
+    gap:8px;
+
+    width: calc(100%-24px);
+}
+
+.shrubby-card-content-topic{
+    width: calc(280px - 36px - 16px);
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+
+    color: #304045;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.shrubby-card-content-edit{
+    width: 36px;
+    height: 26px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 8px;
+
+    min-width: 80px;
+    width: 200px;
+    
+    /* left:-150px; */
+    top:0px;
+
+    z-index: 1;
+}
+
+.dropdown-content .edit-menu {
+    color: #4F605D;
+    padding: 2px 8px;
+    display: block;
+
+    border-radius: 8px;
+    
+    font-size:20px;
+    align-items: flex-start;
+}
+
+.dropdown-content a:hover {
+    color:#F1B24B;
+    background-color: #EFE5D5;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.delete-shrubby-btn{
+    width: 100%;
+    text-align: start;
+    align-items: flex-start;
+    
+    border:none;
+    border-radius: 8px;
+
+    background:#f9f9f9 ;
+    
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 36px;
+    color:#4F605D;
+    padding: 2px 8px;
+
+}
+
+.delete-shrubby-btn:hover{
+    color:#F1B24B;
+    background-color: #EFE5D5;
+    cursor:pointer;
+}
+
+.shrubby-card-interaction-engagement-bar{
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+
+    width: 100%;
+}
+
+.shrubby-card-content-user-info{
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+
+    gap:8px;
+}
+
+.shrubby-card-content-user-info-pic{
+    width: 48px;
+    height: 48px;
+
+    border-radius: 8px;
+}
+
+.shrubby-card-content-user-info-name{
+    width: calc(100%-48px);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.shrubby-card-content-user-info-alias{
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #304045;
+}
+
+.shrubby-card-content-user-info-username{
+    font-size: 18px;
+    line-height: 20px;
+
+    color: #5B6C67;
+}
+
+.post-date{
+    font-size: 16px;
+    line-height: 20px;
+
+    color: #D2D2D5;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+</style>
+
+<a href="shrubbypage/{{ $shrubby->id }}">
+    <div class="shrubby-card-framework">
+        <div class="shrubby-card-pic-container">
+            @if($pic_status==0)
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="logo">
+                    <path d="M384 312.7c-55.1 136.7-187.1 54-187.1 54-40.5 81.8-107.4 134.4-184.6 134.7-16.1 0-16.6-24.4 0-24.4 64.4-.3 120.5-42.7 157.2-110.1-41.1 15.9-118.6 27.9-161.6-82.2 109-44.9 159.1 11.2 178.3 45.5 9.9-24.4 17-50.9 21.6-79.7 0 0-139.7 21.9-149.5-98.1 119.1-47.9 152.6 76.7 152.6 76.7 1.6-16.7 3.3-52.6 3.3-53.4 0 0-106.3-73.7-38.1-165.2 124.6 43 61.4 162.4 61.4 162.4.5 1.6.5 23.8 0 33.4 0 0 45.2-89 136.4-57.5-4.2 134-141.9 106.4-141.9 106.4-4.4 27.4-11.2 53.4-20 77.5 0 0 83-91.8 172-20z"/>
+                </svg>
+            @elseif($pic_status==1)
+                picture of shrubby
+            @endif
+        </div>
+        <div class="shrubby-card-content">
+            <div class="shrubby-card-content-topic-edit">
+                <div class="shrubby-card-content-topic">
+                    {{$shrubby->title}}
+                </div>
+                <div class="shrubby-card-content-edit dropdown">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path d="M120 256c0 30.9-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56zm160 0c0 30.9-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56zm104 56c-30.9 0-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56s-25.1 56-56 56z"/>
+                    </svg>
+                    <div class="dropdown-content">
+                        <a href="/shrubbypage/{{ $shrubby->id }}/edit" class="edit-menu">
+                            แก้ไข
+                        </a>
+                        <form 
+                            action="/shrubbypage/{{ $shrubby->id }}"
+                            method="POST">
+                            @csrf
+                            @method('delete')
+                            <button class="delete-shrubby-btn" type="submit">
+                                ลบ
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="shrubby-card-interaction-engagement-bar">
+                <x-interaction-engage label='like'/>
+                <x-interaction-engage label='comment'/>
+                <x-interaction-engage label='share'/>
+            </div>
+            <div class="shrubby-card-content-user-info">
+                <div class="shrubby-card-content-user-info-pic">
+                    <img src="{{$shrubby->user->profile_image}}">
+                </div>
+                <div class="shrubby-card-content-user-info-name">
+                    <div class="shrubby-card-content-user-info-alias">
+                        {{$shrubby->user->alias}}
+                    </div>
+                    <div class="shrubby-card-content-user-info-username">
+                        {{$shrubby->user->username}}
+                    </div>
+                </div>
+            </div>
+            <div class="post-date">
+                โพสต์เมื่อ 14 พ.ย. 2022
+            </div>
+        </div>
+    </div>
+</a>
+
+<!-- <style>
 .shrubby-card{
     border:1px solid red;
     width: 100%;
@@ -232,7 +501,7 @@
         </div>
     </div>
 </div>
-</a>
+</a> -->
 <!-- <style>
 .shrubby-card-frame{
     display: flex;

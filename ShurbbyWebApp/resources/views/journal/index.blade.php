@@ -8,8 +8,7 @@
 
     <link rel = "stylesheet" href = "/css/journalIndex.css">
     <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Maitree">
-
-    </head>
+</head>
 <body>
     <x-leftpane/>
     <div class="right-section">
@@ -17,29 +16,59 @@
         <div class="body-right-section">
             <div class="inside-body">
                 <div class="journal-framework">
-                        <div class="info-framework">
-                            <div class="profilepic-frame">
-                                <img src="{{Auth::user()->profile_image}}" class="profile-pic">
-                                <a href="">เปลี่ยนรูปโปรไฟล์</a>
-                            </div>
-                            
-                            <div class="personal-frame">
-                                <div class="profilename-frame">
-                                    <div class="name-frame">
-                                        <h1>NAMEEEEEEE</h1>
-                                        <br>
-                                        <h2>@username</h2>
-                                    </div>
-                                    <div class="change">
-                                        <a href="">Change</a>
-                                    </div>
-                                </div>
-
-                                <div class="tag-frame">
-
-                                </div>
-                            </div>
+                    <div class="info-framework">
+                        <div class="profile-pic-frame">
+                            <img src="{{Auth::user()->profile_image}}" class="profile-pic">
+                            <a href="upload-profileimage">
+                                เปลี่ยน<br>รูปโพรไฟล์
+                            </a>
                         </div>
+                        <div class="info-user-framework">
+                            <div class="info-user-name-frame">
+                                <div class="info-user-name-left">
+                                    <div class="info-user-name-alias">
+                                        Alias
+                                    </div>
+                                    <div class="info-user-name-username">
+                                        @username
+                                    </div>
+                                </div>
+                                <div class="info-user-name-right">
+                                    แก้ไข
+                                </div>
+                            </div>
+                            <div class="info-description-framework">
+                                
+                            </div>
+                            <div class="info-birthdate-and-gender-frame">
+                                <div class="info-birthdate">
+                                    วันเกิด
+                                </div>
+                                <div class="info-gender">
+                                    เพศ
+                                </div>
+                            </div>
+                            <div class="info-address">
+                                ที่อยู่
+                            </div>
+                            <div class="info-website">
+                                เว็บไซต์
+                            </div>
+                            <div class="info-amount-clumppy-shrubby">
+                                <div class="info-amount-clumppy">
+                                    คลัมปี
+                                </div>
+                                <div class="info-amount-shrubby">
+                                    ชรับบี
+                                </div>
+                            </div>
+                            <x-tag-framework/>
+                        </div>
+                    </div>
+                    <div class="slot-of-myclumppy-myshrubby">
+                        <x-shrubby-slider label="Shrubby ของฉัน"/>
+                        <x-clumppy-slider/>
+                    </div>
                 </div>
             </div>
             <x-rightpane/>

@@ -92,10 +92,12 @@ img{
         @guest
             
         @else
-            <a class="username_profile" href="/profile">
+        <a href="/journal">
+            <div class="username_profile" href="/profile">
                 {{Auth::user()->alias}}
                 <img src="{{Auth::user()->profile_image}}">
-            </a>
+            </div>
+        </a>
         @endguest
         
     </div>

@@ -1,14 +1,15 @@
 <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Maitree:400">
 
 <style>
-.shrubby-slider-frame{
+.clumppy-slider-frame{
     width: 64vw;
+    height: 200px;
 
     display: flex;
     flex-direction: column;
 }
 
-.shrubby-slider-header{
+.clumppy-slider-header{
     width: calc(100%-32px);
     margin:16px;
 
@@ -16,8 +17,9 @@
     flex-direction: row;
 }
 
-.shrubby-slider-label{
+.clumppy-slider-header-label{
     width: 100%;
+    height: 36px;
 
     font-family: 'Maitree';
     font-style: normal;
@@ -26,9 +28,10 @@
     line-height: 36px;
 
     color: #445650;
+
 }
 
-.shrubby-slider-view-all a{
+.clumppy-slider-header-view-all{
     width: fit-content;
     white-space: nowrap;
     font-family: 'Maitree';
@@ -42,13 +45,13 @@
     color: #4B819F;
 }
 
-.shrubby-slider-slot-ground{
+.clumppy-slider-slot-ground{
     width: calc(100%-16px);
     padding:8px 8px;
     background: #E6E6E8;
     border-radius: 8px;
 }
-.shrubby-slider-slot{
+.clumppy-slider-slot{
     width: calc(100%-16px);
     padding:8px;
     gap:16px;
@@ -60,24 +63,23 @@
 }
 </style>
 
-<div class="shrubby-slider-frame">
-    <div class="shrubby-slider-header">
-        <div class="shrubby-slider-label">
-            {{$label}}
+<div class="clumppy-slider-frame">
+    <div class="clumppy-slider-header">
+        <div class="clumppy-slider-header-label">
+            Clumppy ของฉัน
         </div>
-        <div class="shrubby-slider-view-all">
-            <a href="{{$link_to}}">
-                ดูทั้งหมด
-            </a>
+        <div class="clumppy-slider-header-view-all">
+            ดูทั้งหมด
         </div>
     </div>
-    <div class="shrubby-slider-slot-ground">
-        <div class="shrubby-slider-slot">
-            @foreach ($shrubbies as $shrubby)
-                <x-shrubby-card itemid="{{$shrubby->id}}"/>
-            @endforeach 
+    <div class="clumppy-slider-slot-ground">
+        <div class="clumppy-slider-slot">
+            <x-clumppy-card/>
+            <x-clumppy-card/>
+            <x-clumppy-card/>
+            <x-clumppy-card/>
+            <x-clumppy-card/>
+            <x-clumppy-card/>
+            </div>
         </div>
     </div>
-
-
-</div>

@@ -14,13 +14,15 @@ body{
 }
 
 .dropdown {
-    position: relative;
-    display: inline-block;
+    width: 32px;
+    display: block;
+
+    fill:#EFE5D5;
 }
 
 .dropdown-content {
     display: none;
-    position: absolute;
+    position:absolute;
 
     background-color: #f9f9f9;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -29,7 +31,8 @@ body{
     min-width: 80px;
     width: 200px;
     
-    left:-150px;
+    left:692px;
+    /* top:-100px; */
 
     z-index: 1;
 }
@@ -105,15 +108,12 @@ body{
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    width: 100%;
-    height: 100%;
 
     background: #D2D2D5;
 
     width: 64vw;
     height: 92vh;
     overflow-y: auto;
-
 }
 
 .background-framework{
@@ -143,8 +143,6 @@ body{
 }
 
 .shrubby-topic-framework{
-    box-sizing: border-box;
-
     display: flex;
     flex-direction: row;
     

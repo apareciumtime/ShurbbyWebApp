@@ -52,8 +52,8 @@
                     </div>
                 </div>
             </div>
+            <x-rightpane/>
         </div>
-        <x-rightpane/>
     </div>
 </body>
 <script>

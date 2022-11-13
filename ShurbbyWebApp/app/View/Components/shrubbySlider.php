@@ -26,6 +26,10 @@ class shrubbySlider extends Component
             $this->link_to = 'shrubbynewby';
             $this->shrubbies = Shrubby::orderBy('updated_at','DESC')->limit(10)->get();
         }
+        elseif($label == 'Shrubby ของฉัน'){
+            $this->link_to = 'myshrubby';
+            $this->shrubbies = Shrubby::orderBy('updated_at','DESC')->limit(10)->get();
+        }
     }
 
     /**

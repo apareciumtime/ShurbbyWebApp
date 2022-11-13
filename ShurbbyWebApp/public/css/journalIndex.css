@@ -11,7 +11,7 @@ body{
     border-radius: 12px;
 
     margin:0px;
-    font-family: Maitree;
+    font-family: "Maitree";
 }
 
 .right-section{
@@ -36,104 +36,191 @@ body{
 
 .journal-framework {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: flex-start;
-    width: 100%;
-    height: 100%;
-
-    background: #D2D2D5;
 
     width: 64vw;
     height: 92vh;
     overflow-y: auto;
+    overflow-x: hidden;
+    /* border:1px solid red; */
 }
 
 .info-framework{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     padding: 16px;
     gap: 32px;
 
-    width: 64vw;
-    height: 569px;
+    width: 100%;
 
-    background-color: skyblue;
 }
 
-.profilepic-frame{
+.profile-pic-frame{
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0px;
     gap: 8px;
 
-    width: 20%;
+    width: fit-content;
     height: 100%;
-}
 
-.profilepic-frame a{
-    font-size: 10px;
-    padding-top: 0px;
+    /* border:1px solid red; */
 }
 
 .profile-pic{
-    padding-top: 20px;
-    padding-bottom: 0px;
-
-    width: 80px;
-    height: 80px;
+    width: 128px;
+    height: 128px;
 }
 
-.personal-frame{
+.profile-pic-frame a{
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 33px;
+    text-align: center;
+
+    color: #4B819F;
+}
+
+.profile-pic-frame a:hover{
+    color:#F1B24B;
+}
+
+.info-user-framework{
+    /* border:1px solid blue; */
+    width: calc(64vw - 128px - 32px - 32px);
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 16px;
+    flex-direction:column;
+    gap:16px;
 
-    width: 100%;
-    height: 100%;
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 33px;
+
+    color: #304045;
 
 }
 
-.profilename-frame{
+.info-user-name-frame{
+    /* border:1px solid red; */
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-
     width: 100%;
-    background-color: blue;
 }
 
-.name-frame h1{
-    padding: 0%;
-    font-size: 40px;
+.info-user-name-left{
+    /* border:1px solid red; */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
-.name-frame h2{
-    padding: 0%;
+.info-user-name-alias{
+    /* border:1px solid red; */
+    width: fit-content;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 40px;
+
+    color: #304045;
+
+}
+
+.info-user-name-username{
+    /* border:1px solid red; */
+    width: fit-content;
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 700;
     font-size: 20px;
+    line-height: 33px;
+
+    color: #D2D2D5;
 }
 
-.name-frame{
+.info-user-name-right{
+    /* border:1px solid red; */
+
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 0px;
 
-}
-
-.change{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    width:fit-content;
+    height: fit-content;
     
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 33px;
+    text-align: right;
+
+    color: #4B819F;
+}
+
+.info-user-name-right:hover{
+    color:#F1B24B;
+}
+
+.info-description-framework{
+    /* border:1px solid red; */
+    width: 100%;
+    height: calc(36*2px);
+}
+
+.info-birthdate-and-gender-frame{
+    /* border:1px solid red; */
     width: 100%;
 
-    background-color: green;
-    font-size: 10px;
+    display:flex;
+    flex-direction: row;
+}
+
+.info-birthdate{
+    width:200px;
+    /* border:1px solid red; */
+}
+
+.info-gender{
+    width:200px;
+    /* border:1px solid red; */
+}
+
+.info-address{
+    width: 100%;
+    /* border:1px solid red; */
+}
+
+.info-website{
+    width: 100%;
+    /* border:1px solid red; */
+}
+
+.info-amount-clumppy-shrubby{
+    width: 100%;
+    /* border:1px solid red; */
+    display: flex;
+    flex-direction: row;
+}
+
+.info-amount-clumppy{
+    width: 128px;
+}
+
+.info-amount-shrubby{
+    width: 128px;
+}
+
+.slot-of-myclumppy-myshrubby{
+    width: 100%;
+    height: 100%;
 }

@@ -19,9 +19,6 @@
         <div class="body-right-section">
             <div class="inside-body">
                 <div class="component-bar">
-                    <a href="upload-profileimage">
-                        อัปโหลดรูปโพรไฟล์
-                    </a>
                     <a href="shrubbycreate">
                         สร้างกระทู้
                     </a>
