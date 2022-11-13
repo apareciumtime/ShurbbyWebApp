@@ -95,7 +95,7 @@ img{
         <a href="/journal">
             <div class="username_profile" href="/profile">
                 {{Auth::user()->alias}}
-                <img src="{{Auth::user()->profile_image}}">
+                <img src="{{Auth::user()->profile_image}}" class="profile-image">
             </div>
         </a>
         @endguest

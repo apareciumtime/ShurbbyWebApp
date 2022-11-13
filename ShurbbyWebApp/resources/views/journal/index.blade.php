@@ -8,6 +8,10 @@
 
     <link rel = "stylesheet" href = "/css/journal/journalIndex.css">
     <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Maitree">
+
+    {{-- for crop and preview profile pict --}}
+    <link rel="stylesheet" href="{{ asset('/ijaboCropTool-master/ijaboCropTool.min.css') }}">
+
 </head>
 <body>
     <x-leftpane/>
@@ -18,19 +22,22 @@
                 <div class="journal-framework">
                     <div class="info-framework">
                         <div class="profile-pic-frame">
-                            <img src="{{Auth::user()->profile_image}}" class="profile-pic">
-                            <a href="upload-profileimage">
-                                เปลี่ยน<br>รูปโพรไฟล์
-                            </a>
+                            <img src="{{Auth::user()->profile_image}}" class="profile-pic profile-image">
+                            <label>
+                                <input type="file" style="display: none;" name="image" id="image">
+                                <a>
+                                    เปลี่ยน<br>รูปโพรไฟล์
+                                </a>
+                            </label>
                         </div>
                         <div class="info-user-framework">
                             <div class="info-user-name-frame">
                                 <div class="info-user-name-left">
                                     <div class="info-user-name-alias">
-                                        Alias
+                                        {{Auth::user()->alias}}
                                     </div>
                                     <div class="info-user-name-username">
-                                        @username
+                                        {{Auth::user()->username}}
                                     </div>
                                 </div>
                                 <a href="/journal/update" class="info-user-name-right">
@@ -74,5 +81,28 @@
             <x-rightpane/>
         </div>
     </div>
+
+    {{-- for crop and preview profile pict --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script src="{{ asset('/ijaboCropTool-master/ijaboCropTool.min.js') }}"></script> 
+
+    <script>
+        $('#image').ijaboCropTool({
+            //profile_image = class of img element in html -> make picture update without refresh page
+            preview : '.profile-image',
+            setRatio:1,
+            allowedExtensions: ['jpg', 'jpeg','png'],
+            buttonsText:['CHANGE','QUIT'],
+            buttonsColor:['#FFFFFF','#4B819F', -15],
+            processUrl:'{{ route("croppict") }}',
+            withCSRF:['_token','{{ csrf_token() }}'],
+            onSuccess:function(message, element, status){
+                alert(message);
+            },
+            onError:function(message, element, status){
+                alert(message);
+            }
+       });
+   </script>
 </body>
 </html>
