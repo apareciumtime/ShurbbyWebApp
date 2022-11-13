@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Shrubby;
+use App\Models\Comment;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Redirect;
 
 class ShrubbyController extends Controller
 {
@@ -152,9 +154,9 @@ class ShrubbyController extends Controller
     public function pageShrubby($id)
     { 
         $shrubby=Shrubby::where('id',$id)->first();
-        //$data['comments']=$shrubby->comments()->orderBy('id','asc')->get();
+        $data['comments']=$shrubby->comments()->orderBy('id','asc')->get();
         $tags=$shrubby->tags()->get();
-        return view('shrubby/shrubbypage'/*,$data*/)->with('tags',$tags)
+        return view('shrubby/shrubbypage',$data)->with('tags',$tags)
             ->with('shrubby',Shrubby::where('id',$id)->first());
     }
     public function deleteShrubby($id)

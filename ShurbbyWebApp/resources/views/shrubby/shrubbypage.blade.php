@@ -98,16 +98,22 @@
                                     แสดงความคิดเห็นของฉัน
                                 </div>
                                 <div class="shrubby-comment-writer">
-                                    <textarea name="content" id="editor" form="shrubby-comment" placeholder="แสดงความคิดเห็นของฉัน"></textarea>
+                                    <form action="{{route('commentpost',['shrubbyid'=>$shrubby->id,'parentid'=>-1])}}" method="POST" id="comment" enctype="multipart/form-data">
+                                        @csrf
+                                        <textarea name="content" id="editor" form="comment" placeholder="แสดงความคิดเห็นของฉัน"></textarea>
+                                    </form>
                                 </div>
                             </div>
                             <div class="submit-comment-button-framework">
-                                <button class="submit-comment-btn">
+                                <button class="submit-comment-btn" type="submit" form="comment">
                                     แสดงความคิดเห็น
                                 </button>
                             </div>
                             <div class="shrubby-comment-content">
-                                <x-comment-shrubby/>
+                                @foreach($comments as $comment)
+                                    <x-comment-shrubby id="{{$comment->id}}"/>
+                                @endforeach
+            
                             </div>
                         </div>
                     </div>
