@@ -244,7 +244,7 @@
                 </div>
             </div>
             <div class="shrubby-card-interaction-engagement-bar">
-                <x-interaction-engage label='like'/>
+                <x-interaction-engage label='like' id='{{ $shrubby->id }}' type='shrubby'/>
                 <x-interaction-engage label='comment'/>
                 <x-interaction-engage label='share'/>
             </div>

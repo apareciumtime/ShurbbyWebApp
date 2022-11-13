@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Conner\Likeable\Likeable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Shrubby extends Model
 {
-    use HasFactory;
+    use HasFactory, Likeable;
     /**
      * The attributes that are mass assignable.
      *

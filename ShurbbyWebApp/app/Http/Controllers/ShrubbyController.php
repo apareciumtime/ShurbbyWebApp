@@ -26,7 +26,7 @@ class ShrubbyController extends Controller
     public function shrubbynewby()
     {
         return view('shrubby.shrubbynewby')
-            ->with('shrubbies',Shrubby::orderBy('updated_at','DESC')->get());
+            ->with('shrubbies',Shrubby::orderBy('created_at','DESC')->get());
     }
 
     public function createShrubby()
@@ -231,5 +231,28 @@ class ShrubbyController extends Controller
             return response()->json(['status'=>1,'msg'=>'Your profile picture has been updated successfully','name'=>$fileName,'newimg'=>$path.$fileName]);
         }
     }
+    public function likeShrubby($id)
+    {
+        $shrubby = Shrubby::find($id);
+        $cntlike = $shrubby->like;
+        if($shrubby->liked()){
+            Shrubby::where('id', $id)
+                        ->update([
+                            'like' => $cntlike-1
+                        ]);
+            $shrubby->unlike();
+            $shrubby->save();
+        }
+        else{
+            Shrubby::where('id', $id)
+                        ->update([
+                            'like' => $cntlike+1
+                        ]);
+            $shrubby->like();
+            $shrubby->save();
+        }
+        return Redirect::back();
+    }
+
 
 }
