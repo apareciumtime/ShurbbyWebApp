@@ -67,3 +67,6 @@ Route::view('/journal/update','journal.journal-profile-update')->name('updateJou
 Route::view('/clumppycreate','clumppy.clumppycreate')->name('clumppycreate');
 Route::view('/clumppypage','clumppy.clumppypage')->name('clumppypage');
 Route::view('/clumppyupdate','clumppy.clumppyupdate')->name('clumppyupdate');
+
+Route::view('/myshrubby','journal.myshrubby')->name('myshrubby');
+Route::view('/myclumppy','journal.myclumppy')->name('myclumppy');
