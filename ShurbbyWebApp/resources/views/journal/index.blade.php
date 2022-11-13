@@ -20,6 +20,18 @@
         <div class="body-right-section">
             <div class="inside-body">
                 <div class="journal-framework">
+                    <div class="journal-creator-bar">
+                        <div class="journal-creator-bar-shrubby">
+                            <a href="/shrubbycreate">
+                                สร้างชรับบี
+                            </a>
+                        </div>
+                        <div class="journal-creator-bar-clumppy">
+                            <a href="/journal/clumppycreate">
+                                สร้างคลัมปี
+                            </a>
+                        </div>
+                    </div>
                     <div class="info-framework">
                         <div class="profile-pic-frame">
                             <img src="{{Auth::user()->profile_image}}" class="profile-pic profile-image">
@@ -74,7 +86,7 @@
                     </div>
                     <div class="slot-of-myclumppy-myshrubby">
                         <x-shrubby-slider label="Shrubby ของฉัน"/>
-                        <x-clumppy-slider/>
+                        <x-clumppy-slider label="Clumppy ของฉัน"/>
                     </div>
                 </div>
             </div>

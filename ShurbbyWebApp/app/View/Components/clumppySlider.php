@@ -6,14 +6,29 @@ use Illuminate\View\Component;
 
 class clumppySlider extends Component
 {
+    public $label;
+    public $link_to;
+    public $clumppies;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($label)
     {
-        //
+        $this->label = $label;
+        if($label == 'Clumppy ที่แนะนำ'){
+            $this->link_to = 'clumppyrecommand';
+
+        }
+        elseif($label == 'Clumppy ที่มาใหม่'){
+            $this->link_to = 'clumppynewby';
+
+        }
+        elseif($label == 'Clumppy ของฉัน'){
+            $this->link_to = 'myclumppy';
+
+        }
     }
 
     /**

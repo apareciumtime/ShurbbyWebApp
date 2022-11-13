@@ -3,7 +3,6 @@
 <style>
 .clumppy-slider-frame{
     width: 64vw;
-    height: 200px;
 
     display: flex;
     flex-direction: column;
@@ -66,7 +65,7 @@
 <div class="clumppy-slider-frame">
     <div class="clumppy-slider-header">
         <div class="clumppy-slider-header-label">
-            Clumppy ของฉัน
+            {{$label}}
         </div>
         <div class="clumppy-slider-header-view-all">
             ดูทั้งหมด
@@ -80,6 +79,6 @@
             <x-clumppy-card/>
             <x-clumppy-card/>
             <x-clumppy-card/>
-            </div>
         </div>
     </div>
+</div>
