@@ -92,7 +92,6 @@
                         <div class="shrubby-comment-section">
                             <div class="shrubby-comment-header">
                                 <a href="#" class="shrubby-comment-topic">ความคิดเห็น</a>
-                                <a href="#" class="shrubby-comment-button">แสดงความคิดเห็น</a>
                             </div>
                             <div class="shrubby-will-to-comment">
                                 <div class="shrubby-will-to-comment-topic">
@@ -102,7 +101,13 @@
                                     <textarea name="content" id="editor" form="shrubby-comment" placeholder="แสดงความคิดเห็นของฉัน"></textarea>
                                 </div>
                             </div>
+                            <div class="submit-comment-button-framework">
+                                <button class="submit-comment-btn">
+                                    แสดงความคิดเห็น
+                                </button>
+                            </div>
                             <div class="shrubby-comment-content">
+                                <x-comment-shrubby/>
                             </div>
                         </div>
                     </div>

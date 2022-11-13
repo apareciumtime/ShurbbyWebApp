@@ -58,6 +58,7 @@
 
 #comment-shrubby-verified{
     fill:#D2D2D5;
+    width: 36px;
 }
 
 .comment-shrubby-context-verified{
@@ -136,6 +137,78 @@
 
     color: #304045;
 }
+
+
+.dropdown {
+    width: 32px;
+    display:flex;
+
+    fill:#EFE5D5;
+}
+
+.dropdown-content-comment {
+    display: none;
+    position:inherit;
+
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 8px;
+
+    min-width: 80px;
+    width: 200px;
+
+    left:-400px;
+
+
+
+    z-index: 1;
+}
+
+.dropdown-content-comment .edit-menu {
+    color: #4F605D;
+    padding: 2px 8px;
+    display: block;
+
+    border-radius: 8px;
+    
+    font-size:20px;
+    align-items: flex-start;
+}
+
+.dropdown-content-comment a:hover {
+    color:#F1B24B;
+    background-color: #EFE5D5;
+}
+
+.dropdown:hover .dropdown-content-comment {
+    display: block;
+}
+
+.delete-shrubby-btn{
+    width: 100%;
+    text-align: start;
+    align-items: flex-start;
+    
+    border:none;
+    border-radius: 8px;
+
+    background:#f9f9f9 ;
+    
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 36px;
+    color:#4F605D;
+    padding: 2px 8px;
+
+}
+
+.delete-shrubby-btn:hover{
+    color:#F1B24B;
+    background-color: #EFE5D5;
+    cursor:pointer;
+}
 </style>
 <div class="comment-shrubby-framework">
     <div class="comment-shrubby-score-bar">
@@ -166,7 +239,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <path d="M120 256c0 30.9-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56zm160 0c0 30.9-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56zm104 56c-30.9 0-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56s-25.1 56-56 56z"/>
                 </svg>
-                <div class="dropdown-content">
+                <div class="dropdown-content-comment">
                     <a href="#" class="edit-menu">
                         แก้ไข
                     </a>
