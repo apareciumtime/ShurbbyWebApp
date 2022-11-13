@@ -27,7 +27,7 @@
                             </a>
                         </div>
                         <div class="journal-creator-bar-clumppy">
-                            <a href="/journal/clumppycreate">
+                            <a href="/clumppycreate">
                                 สร้างคลัมปี
                             </a>
                         </div>

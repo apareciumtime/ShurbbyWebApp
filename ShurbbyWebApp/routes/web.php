@@ -61,4 +61,6 @@ Route::post('crop',[ShrubbyController::class, 'crop'])->name('croppict');
 
 Route::view('/journal/update','journal.journal-profile-update')->name('updateJournalProfile');
 
-Route::view('/journal/clumppycreate','journal.clumppy.clumppycreate')->name('clumppycreate');
+Route::view('/clumppycreate','clumppy.clumppycreate')->name('clumppycreate');
+Route::view('/clumppypage','clumppy.clumppypage')->name('clumppypage');
+Route::view('/clumppyupdate','clumppy.clumppyupdate')->name('clumppyupdate');

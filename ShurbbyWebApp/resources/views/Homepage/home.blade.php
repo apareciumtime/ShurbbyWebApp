@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('header')
+    <x-header label="หน้าหลัก"/>
+@endsection
 @section('inside-body')
     <div class="component-bar">
         <a href="shrubbycreate">
