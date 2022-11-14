@@ -5,34 +5,149 @@
     width: 64vw;
     height: 92vh;
     overflow-y: auto;
-    border:1px solid red;
 
     font-family: 'Maitree';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
+
+    gap:16px;
+}
+
+.clumppy-page-creator-bar{
+    display: flex;
+    flex-direction: row;
+
+    background: #5B6C67;
+
+    justify-content: right;
+}
+
+.clumppy-page-add-new-movement{
+    margin:16px;
+}
+
+.clumppy-page-add-new-movement a{
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color:#EFE5D5;
+}
+
+.clumppy-page-add-new-movement a:hover{
+    color:#F1B24B;
 }
 
 .clumppy-page-topic-amount-privacy-edit{
     display: flex;
     flex-direction: row;
 
-    margin:16px;
+    align-items: center;
+
+    margin:0px 16px;
     gap:8px;
 
     width:calc(100% - 32px);
-    border:1px solid blue;
 }
 
 .clumppy-page-topic{
     width: 256px;
-    color: #F1B24B;
-
-    border:1px solid red;
+    font-weight:bold;
+    color: #304045;
 }
 
 .clumppy-page-amount{
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+
     font-size: 16px;
+    color:#F1B24B;
     width: 200px;
-    border:1px solid red;
+}
+
+.clumppy-page-privacy{
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+
+    width: calc(100% - 256px - 200px);
+    height: 10px;
+}
+
+.clumppy-page-edit a{
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    color:#4B819F;
+    
+    font-family: 'Maitree';
+    font-weight: bold;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.clumppy-page-edit:hover a{
+    cursor: pointer;
+    color:#F1B24B;
+}
+
+.clumppy-page-description{
+    margin:0px 16px;
+    width: calc(100% - 32px);
+    height: 64px;
+}
+
+.clumppy-page-plant-amount-date-age{
+    display: flex;
+    flex-direction: column;
+
+    margin:0px 16px;
+    width: calc(100% - 32px);
+
+    font-size:18px;
+}
+
+.clumppy-page-tag-framework{
+    margin:16px;
+}
+
+.clumppy-page-gallery{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 33% 33% 33%;
+    row-gap: .33%;
+    column-gap: .33%;
+    align-items: center;
+    justify-content: center;
+}
+
+.clumppy-page-gallery-grid{
+    width: 100%;
+    height: 315px;
+}
+
+.clumppy-page-gallery-pic-frame{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 315;
+
+    background: #EFE5D5;
+}
+
+.clumppy-page-gallery-pic-frame svg{
+    fill:#5B6C67;
+    width: 36px;
+}
+
+.clumppy-page-gallery-pic-frame svg:hover{
+    fill:#F1B24B;
 }

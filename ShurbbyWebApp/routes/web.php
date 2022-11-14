@@ -5,6 +5,7 @@ use App\Http\Controllers\Homepage\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ShrubbyController;
 use App\Http\Controllers\TagController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,3 +71,5 @@ Route::view('/clumppyupdate','clumppy.clumppyupdate')->name('clumppyupdate');
 
 Route::view('/myshrubby','journal.myshrubby')->name('myshrubby');
 Route::view('/myclumppy','journal.myclumppy')->name('myclumppy');
+
+Route::view('/clumppymovementcreate','clumppy.clumppymovementcreate')->name('clumppymovementcreate');
