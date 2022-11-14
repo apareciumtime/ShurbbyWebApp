@@ -263,7 +263,7 @@
             <div class="upper-user-info">
                 <div class="profile-pic-upper-user-info-frame">
                     <div class="profile-pic-upper-user-info">
-                        <img src="{{$user->profile_image}}" alt="">
+                        <img src="{{asset($user->profile_image)}}" alt="">
                     </div>
                 </div>
                 <div class="name-upper-user-info">
