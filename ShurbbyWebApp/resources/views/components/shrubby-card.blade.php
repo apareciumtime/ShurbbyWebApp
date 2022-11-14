@@ -262,7 +262,7 @@
                 </div>
             </div>
             <div class="post-date">
-                โพสต์เมื่อ 14 พ.ย. 2022
+                โพสต์เมื่อ {{time_elapsed_string($shrubby->created_at)}}
             </div>
         </div>
     </div>

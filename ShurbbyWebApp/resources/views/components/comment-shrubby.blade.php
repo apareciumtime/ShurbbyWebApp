@@ -275,7 +275,7 @@
                     </div>
                 </div>
                 <div class="right-upper-user-info">
-                    {{date('j M Y h:m',strtotime($comment->created_at))}}
+                    {{thai_date($comment->created_at,false)}}
                 </div>
             </div>
             <div class="interaction-bar-user-info">

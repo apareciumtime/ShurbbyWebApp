@@ -14,6 +14,7 @@ class ShrubbyController extends Controller
 {
     public function __construct()
     {
+        date_default_timezone_set("Asia/Bangkok");
         $this->middleware('auth', ['except' => ['pageShrubby','shrubbyrecommand','shrubbynewby']]);
 
     }
@@ -50,7 +51,6 @@ class ShrubbyController extends Controller
 
     public function create(Request $request)
     {
-        
         $request->validate([
             'title' => 'required',
             'content' => 'required',

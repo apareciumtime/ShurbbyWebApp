@@ -79,7 +79,7 @@
                                         </div>
                                     </div>
                                     <div class="right-upper-user-info">
-                                        {{date('j M Y h:m',strtotime($shrubby->created_at))}}
+                                        {{thai_date($shrubby->created_at)}}
                                     </div>
                                 </div>
                                 <div class="interaction-bar-user-info">
