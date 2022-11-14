@@ -38,13 +38,13 @@
 
         <div class="clumppy-create-input-group">
             <div class="clumppy-create-input-label">
-                ชื่อต้นไม้
+                ชื่อคลัมปี
             </div>
             <input  type="text" 
                     class="clumppy-create-input-input"
-                    name="plant_name"
-                    id="plant_name"
-                    placeholder="ชื่อต้นไม้">
+                    name="clumppy_name"
+                    id="clumppy_name"
+                    placeholder="ชื่อคลัมปี">
             <div class="clumppy-create-input-counter">
                 0/60
             </div>
@@ -56,8 +56,8 @@
             </div>
             <textarea  type="text" 
                     class="clumppy-create-input-textarea"
-                    name="plant_description"
-                    id="plant_description"
+                    name="clumppy_description"
+                    id="clumppy_description"
                     placeholder="คำอธิบาย"></textarea>
             <div class="clumppy-create-input-counter">
                 0/200
@@ -70,8 +70,8 @@
             </div>
             <input  type="date" 
                     class="clumppy-create-input-date"
-                    name="plant_date"
-                    id="plant_date"
+                    name="clumppy_date"
+                    id="clumppy_date"
                     placeholder="วันที่เริ่มปลูก">
         </div>
 
