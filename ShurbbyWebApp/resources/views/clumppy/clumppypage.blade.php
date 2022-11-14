@@ -29,7 +29,7 @@
             <x-privacy-status status='public'/>
         </div>
         <div class="clumppy-page-edit">
-            <a href="#">
+            <a href="/clumppyupdate">
                 แก้ไข
             </a>
         </div>
@@ -95,5 +95,4 @@
         </div>
     </div>
 </div>
-
 @endsection

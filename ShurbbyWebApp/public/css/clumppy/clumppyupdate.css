@@ -1,0 +1,213 @@
+.clumppy-update-framework{
+    display: flex;
+    flex-direction: column;
+
+    width: 64vw;
+    height: 92vh;
+    overflow-y: auto;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+
+    gap:0px;
+}
+
+.clumppy-update-topic-submit{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.clumppy-update-topic{
+    margin:16px;
+    width: calc(100% - 32px);
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.clumppy-update-submit{
+    margin:16px;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 33px;
+
+    color: #4B819F;
+
+    cursor: pointer;
+
+    border:none;
+    outline:none;
+    background: none;
+}
+
+.clumppy-update-submit:hover{
+    color:#F1B24B;
+}
+
+.clumppy-update-add-display-picture{
+    display:flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    width: calc(100% - 32px);
+    margin:16px;
+
+    border:2px dashed #445650;
+    border-radius: 8px;
+}
+
+.clumppy-update-add-display-picture-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    margin:32px;
+
+    background: none;
+    border:none;
+    outline: none;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+
+    color: #4B819F;
+
+    cursor: pointer;
+}
+
+.clumppy-update-add-display-picture-btn:hover{
+    color:#F1B24B;
+}
+
+.clumppy-update-input-group{
+    margin:16px;
+    width: calc(100% - 32px);
+}
+
+.clumppy-update-input-label{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.clumppy-update-input-select{
+    border:none;
+    border-bottom:2px solid #445650;
+    outline:none;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    width: 20%;
+}
+
+.clumppy-update-input-input{
+    border:none;
+    border-bottom:2px solid #445650;
+    outline:none;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    width: 100%;
+}
+
+.clumppy-update-input-textarea{
+    border:none;
+    border-bottom:2px solid #445650;
+    outline:none;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    width: 100%;
+    resize: none;
+}
+
+.clumppy-update-input-date{
+    border:none;
+    border-bottom:2px solid #445650;
+    outline:none;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    width: 20%;
+}
+
+.clumppy-update-input-number{
+    border:none;
+    border-bottom:2px solid #445650;
+    outline:none;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    width: 20%;
+}
+
+.clumppy-update-input-counter{
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 16px;
+
+    color: #D2D2D5;
+}
+
+.amount-change-btn{
+    margin:16px 0px;
+}
+
+.clumppy-update-minus-amount-btn{     
+    padding:12px 8px;
+    background: #FAFAFA;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    border:none;
+    outline: none;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 16px;
+    text-align: center;
+
+    color: #445650;
+}
+
+.clumppy-update-plus-amount-btn{   
+    padding:12px 8px; 
+    background: #4B819F;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    border:none;
+    outline: none;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 16px;
+    text-align: center;
+
+    color: #EFE5D5;
+}
+
+.clumppy-update-minus-amount-btn:active, .clumppy-update-plus-amount-btn:active{
+    box-shadow: inset 2px 2px 1px rgba(0, 0, 0, 0.25);
+}
