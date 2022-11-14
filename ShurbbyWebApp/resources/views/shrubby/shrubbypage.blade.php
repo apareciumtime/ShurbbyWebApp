@@ -79,13 +79,13 @@
                                         </div>
                                     </div>
                                     <div class="right-upper-user-info">
-                                        {{date('j M Y h:m',strtotime($shrubby->updated_at))}}
+                                        {{date('j M Y h:m',strtotime($shrubby->created_at))}}
                                     </div>
                                 </div>
                                 <div class="interaction-bar-user-info">
-                                    <x-interaction-engage label="like"/>
-                                    <x-interaction-engage label="comment"/>
-                                    <x-interaction-engage label="share"/>
+                                    <x-interaction-engage label="like" id="{{$shrubby->id}}" type="shrubby"/>
+                                    <x-interaction-engage label="comment"  />
+                                    <x-interaction-engage label="share"  />
                                 </div>  
                             </div>
                         </div>

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Homepage\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ShrubbyController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Auth;
 
@@ -73,3 +74,7 @@ Route::view('/myshrubby','journal.myshrubby')->name('myshrubby');
 Route::view('/myclumppy','journal.myclumppy')->name('myclumppy');
 
 Route::view('/clumppymovementcreate','clumppy.clumppymovementcreate')->name('clumppymovementcreate');
+
+//like
+Route::post('shrubbypage/like/{id}',[ShrubbyController::class,'likeShrubby'])->name('like.shrubby');
+Route::post('shrubbypage/like/comment/{id}',[CommentController::class,'likeComment'])->name('like.comment');

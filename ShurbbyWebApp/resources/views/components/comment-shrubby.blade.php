@@ -275,12 +275,12 @@
                     </div>
                 </div>
                 <div class="right-upper-user-info">
-                    {{date('j M Y h:m',strtotime($comment->updated_at))}}
+                    {{date('j M Y h:m',strtotime($comment->created_at))}}
                 </div>
             </div>
             <div class="interaction-bar-user-info">
-                <x-interaction-engage label="like"/>
-                <x-interaction-engage label="comment"/>
+                <x-interaction-engage label="like" id='{{$comment->id}}' type='comment'/>
+                <x-interaction-engage label="comment" />
             </div>  
         </div>
     </div>
