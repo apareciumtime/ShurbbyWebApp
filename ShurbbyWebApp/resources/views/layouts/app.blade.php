@@ -11,14 +11,13 @@
 <body>
     <div class="leftpane">
         <x-leftpane/>
-
     </div>
     <div class="right-section">
-        <x-header label="หน้าหลัก"/>
-
+        @yield('header')
         <div class="body-right-section">
             <div class="inside-body">
                 @yield('inside-body')
+                
             </div>
             <x-rightpane/>
         </div>

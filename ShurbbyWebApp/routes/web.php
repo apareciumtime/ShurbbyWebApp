@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Homepage\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ShrubbyController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\TagController;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\ProfileController;
 
 /*
@@ -56,10 +58,25 @@ Route::get('shrubbynewby', [ShrubbyController::class, 'shrubbynewby'])->name('sh
 // Route::get('shrubbyupdate', [ShrubbyController::class, 'updateShrubby']);
 // Route::get('shrubbypage', [ShrubbyController::class, 'pageShrubby'])->name('shrubbypage');
 
-//profile
-Route::post('crop',[ProfileController::class, 'crop'])->name('croppict');
+//comment
+Route::post('comment/{shrubbyid}/{parentid}',[ShrubbyController::class,'commentPost'])->name('commentpost');
+
+//profile image
+Route::get('upload-profileimage',[ShrubbyController::class, 'uploadProfileIndex']);
+Route::post('crop',[ShrubbyController::class, 'crop'])->name('croppict');
 
 Route::view('/journal/update','journal.journal-profile-update')->name('updateJournalProfile');
 Route::post('editProfile',[ProfileController::class,'editProfile'])->name('editProfile');
 
-Route::view('/journal/clumppycreate','journal.clumppy.clumppycreate')->name('clumppycreate');
+Route::view('/clumppycreate','clumppy.clumppycreate')->name('clumppycreate');
+Route::view('/clumppypage','clumppy.clumppypage')->name('clumppypage');
+Route::view('/clumppyupdate','clumppy.clumppyupdate')->name('clumppyupdate');
+
+Route::view('/myshrubby','journal.myshrubby')->name('myshrubby');
+Route::view('/myclumppy','journal.myclumppy')->name('myclumppy');
+
+Route::view('/clumppymovementcreate','clumppy.clumppymovementcreate')->name('clumppymovementcreate');
+
+//like
+Route::post('shrubbypage/like/{id}',[ShrubbyController::class,'likeShrubby'])->name('like.shrubby');
+Route::post('shrubbypage/like/comment/{id}',[CommentController::class,'likeComment'])->name('like.comment');

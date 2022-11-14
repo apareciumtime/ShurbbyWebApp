@@ -26,7 +26,7 @@
 
 }
 
-.tag-view-all{
+.tag-view-all a{
     white-space: nowrap;
 
     font-family: 'Maitree';
@@ -41,7 +41,7 @@
 
 }
 
-.tag-view-all:hover{
+.tag-view-all a:hover{
     color:#F1B24B;
 }
 
@@ -62,7 +62,9 @@
             แท็ก
         </div>
         <div class="tag-view-all">
-            ดูทั้งหมด
+            <a href="#">
+                ดูทั้งหมด
+            </a>
         </div> 
     </div>
     <div class="tag-slot">
@@ -76,6 +78,11 @@
         <x-tag-shrubby name="แท็ก"/>
         <x-tag-shrubby name="แท็ก"/>
         <x-tag-shrubby name="แท็ก"/>
+        <x-tag-shrubby name="แท็กแท็กแท็ก"/>
+        <x-tag-shrubby name="แท็กแท็กแท็ก"/>
+        <x-tag-shrubby name="แท็กแท็กแท็ก"/>
+        <x-tag-shrubby name="แท็กแท็กแท็ก"/>
+        <x-tag-shrubby name="แท็กแท็กแท็ก"/>
         <x-tag-shrubby name="แท็กแท็กแท็ก"/>
         </div>
     </div>

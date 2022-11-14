@@ -30,7 +30,7 @@
                     </div>
                     <div class="info-framework">
                         <div class="profile-pic-frame">
-                            <img src="{{Auth::user()->profile_image}}" class="profile-pic profile-image">
+                            <img src="{{asset(Auth::user()->profile_image)}}" class="profile-pic profile-image">
                             <label>
                                 <input type="file" style="display: none;" name="image" id="image">
                                 <a>

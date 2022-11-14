@@ -1,0 +1,40 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Maitree';
+}
+
+.myshrubby-framework{
+    width: 64vw;
+    height: 92vh;
+    background: #E6E6E8;
+    overflow-y: auto;
+}
+
+.myshrubby-header-framework{
+    width: 64vw;
+    height: 68px;
+    background-color: #FAFAFA;
+    padding: 16px;
+}
+.myshrubby-header{
+    float: left;
+    font-weight: bold;
+    font-size: 24px;
+    color: #445650;
+}
+.myshrubby-text{
+    float: right;
+    margin-left: 60px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #4B819F;
+}
+
+.myshrubby-slot-framework{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 64vw;
+}

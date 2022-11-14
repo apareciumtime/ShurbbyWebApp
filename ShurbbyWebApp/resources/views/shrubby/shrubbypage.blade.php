@@ -67,7 +67,7 @@
                                 <div class="upper-user-info">
                                     <div class="profile-pic-upper-user-info-frame">
                                         <div class="profile-pic-upper-user-info">
-                                            <img src="{{$shrubby->user->profile_image}}">
+                                            <img src="{{asset($shrubby->user->profile_image)}}">
                                         </div>
                                     </div>
                                     <div class="name-upper-user-info">
@@ -79,30 +79,41 @@
                                         </div>
                                     </div>
                                     <div class="right-upper-user-info">
-                                        {{date('j M Y h:m',strtotime($shrubby->updated_at))}}
+                                        {{thai_date($shrubby->created_at)}}
                                     </div>
                                 </div>
                                 <div class="interaction-bar-user-info">
-                                    <x-interaction-engage label="like"/>
-                                    <x-interaction-engage label="comment"/>
-                                    <x-interaction-engage label="share"/>
+                                    <x-interaction-engage label="like" id="{{$shrubby->id}}" type="shrubby"/>
+                                    <x-interaction-engage label="comment"  />
+                                    <x-interaction-engage label="share"  />
                                 </div>  
                             </div>
                         </div>
                         <div class="shrubby-comment-section">
                             <div class="shrubby-comment-header">
                                 <a href="#" class="shrubby-comment-topic">ความคิดเห็น</a>
-                                <a href="#" class="shrubby-comment-button">แสดงความคิดเห็น</a>
                             </div>
                             <div class="shrubby-will-to-comment">
                                 <div class="shrubby-will-to-comment-topic">
                                     แสดงความคิดเห็นของฉัน
                                 </div>
                                 <div class="shrubby-comment-writer">
-                                    <textarea name="content" id="editor" form="shrubby-comment" placeholder="แสดงความคิดเห็นของฉัน"></textarea>
+                                    <form action="{{route('commentpost',['shrubbyid'=>$shrubby->id,'parentid'=>-1])}}" method="POST" id="comment" enctype="multipart/form-data">
+                                        @csrf
+                                        <textarea name="content" id="editor" form="comment" placeholder="แสดงความคิดเห็นของฉัน"></textarea>
+                                    </form>
                                 </div>
                             </div>
+                            <div class="submit-comment-button-framework">
+                                <button class="submit-comment-btn" type="submit" form="comment">
+                                    แสดงความคิดเห็น
+                                </button>
+                            </div>
                             <div class="shrubby-comment-content">
+                                @foreach($comments as $comment)
+                                    <x-comment-shrubby id="{{$comment->id}}"/>
+                                @endforeach
+            
                             </div>
                         </div>
                     </div>

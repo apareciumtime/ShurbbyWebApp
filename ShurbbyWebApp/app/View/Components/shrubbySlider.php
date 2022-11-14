@@ -24,7 +24,7 @@ class shrubbySlider extends Component
         }
         elseif($label == 'Shrubby ที่มาใหม่'){
             $this->link_to = 'shrubbynewby';
-            $this->shrubbies = Shrubby::orderBy('updated_at','DESC')->limit(10)->get();
+            $this->shrubbies = Shrubby::orderBy('created_at','DESC')->limit(10)->get();
         }
         elseif($label == 'Shrubby ของฉัน'){
             $this->link_to = 'myshrubby';

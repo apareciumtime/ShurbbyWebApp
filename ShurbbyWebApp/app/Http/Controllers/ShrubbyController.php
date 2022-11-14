@@ -3,15 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Shrubby;
+use App\Models\Comment;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Redirect;
 
 class ShrubbyController extends Controller
 {
     public function __construct()
     {
+        date_default_timezone_set("Asia/Bangkok");
         $this->middleware('auth', ['except' => ['pageShrubby','shrubbyrecommand','shrubbynewby']]);
 
     }
@@ -24,7 +27,7 @@ class ShrubbyController extends Controller
     public function shrubbynewby()
     {
         return view('shrubby.shrubbynewby')
-            ->with('shrubbies',Shrubby::orderBy('updated_at','DESC')->get());
+            ->with('shrubbies',Shrubby::orderBy('created_at','DESC')->get());
     }
 
     public function createShrubby()
@@ -48,7 +51,6 @@ class ShrubbyController extends Controller
 
     public function create(Request $request)
     {
-        
         $request->validate([
             'title' => 'required',
             'content' => 'required',
@@ -152,9 +154,9 @@ class ShrubbyController extends Controller
     public function pageShrubby($id)
     { 
         $shrubby=Shrubby::where('id',$id)->first();
-        //$data['comments']=$shrubby->comments()->orderBy('id','asc')->get();
+        $data['comments']=$shrubby->comments()->orderBy('id','asc')->get();
         $tags=$shrubby->tags()->get();
-        return view('shrubby/shrubbypage'/*,$data*/)->with('tags',$tags)
+        return view('shrubby/shrubbypage',$data)->with('tags',$tags)
             ->with('shrubby',Shrubby::where('id',$id)->first());
     }
     public function deleteShrubby($id)
@@ -207,5 +209,49 @@ class ShrubbyController extends Controller
 
         $data['comments']=$shrubby->comments()->orderBy('id','asc')->get();
         return Redirect::back()->withMessage('your comment saved!');
+    }
+
+    public function uploadProfileIndex(){
+        $user=\Auth::user();
+        return view('upload-profileimage',['user'=>$user,'newimg'=>null]);
+    }
+
+    public function crop(Request $request){
+        $path = 'storage/profile_images/';
+        $file = $request->file('image');
+        $fileName = 'UIMG'.date('Ymd').uniqid().'.jpg';
+        $move = $file->move(public_path($path), $fileName);
+        if(!$move){
+            return response()->json(['status'=>0,'msg'=>'Something went wrong']);
+        }
+        else{
+            $user=\Auth::user();
+            $user->profile_image=$path.$fileName;
+            $user->save();
+            return response()->json(['status'=>1,'msg'=>'Your profile picture has been updated successfully','name'=>$fileName,'newimg'=>$path.$fileName]);
+        }
+    }
+    
+    public function likeShrubby($id)
+    {
+        $shrubby = Shrubby::find($id);
+        $cntlike = $shrubby->like;
+        if($shrubby->liked()){
+            Shrubby::where('id', $id)
+                        ->update([
+                            'like' => $cntlike-1
+                        ]);
+            $shrubby->unlike();
+            $shrubby->save();
+        }
+        else{
+            Shrubby::where('id', $id)
+                        ->update([
+                            'like' => $cntlike+1
+                        ]);
+            $shrubby->like();
+            $shrubby->save();
+        }
+        return Redirect::back();
     }
 }

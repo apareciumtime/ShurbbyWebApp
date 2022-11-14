@@ -244,7 +244,7 @@
                 </div>
             </div>
             <div class="shrubby-card-interaction-engagement-bar">
-                <x-interaction-engage label='like'/>
+                <x-interaction-engage label='like' id='{{ $shrubby->id }}' type='shrubby'/>
                 <x-interaction-engage label='comment'/>
                 <x-interaction-engage label='share'/>
             </div>
@@ -262,7 +262,7 @@
                 </div>
             </div>
             <div class="post-date">
-                โพสต์เมื่อ 14 พ.ย. 2022
+                โพสต์เมื่อ {{time_elapsed_string($shrubby->created_at)}}
             </div>
         </div>
     </div>

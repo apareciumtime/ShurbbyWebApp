@@ -58,6 +58,7 @@
 
 #comment-shrubby-verified{
     fill:#D2D2D5;
+    width: 36px;
 }
 
 .comment-shrubby-context-verified{
@@ -136,6 +137,78 @@
 
     color: #304045;
 }
+
+
+.dropdown {
+    width: 32px;
+    display:flex;
+
+    fill:#EFE5D5;
+}
+
+.dropdown-content-comment {
+    display: none;
+    position:inherit;
+
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 8px;
+
+    min-width: 80px;
+    width: 200px;
+
+    left:-400px;
+
+
+
+    z-index: 1;
+}
+
+.dropdown-content-comment .edit-menu {
+    color: #4F605D;
+    padding: 2px 8px;
+    display: block;
+
+    border-radius: 8px;
+    
+    font-size:20px;
+    align-items: flex-start;
+}
+
+.dropdown-content-comment a:hover {
+    color:#F1B24B;
+    background-color: #EFE5D5;
+}
+
+.dropdown:hover .dropdown-content-comment {
+    display: block;
+}
+
+.delete-shrubby-btn{
+    width: 100%;
+    text-align: start;
+    align-items: flex-start;
+    
+    border:none;
+    border-radius: 8px;
+
+    background:#f9f9f9 ;
+    
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 36px;
+    color:#4F605D;
+    padding: 2px 8px;
+
+}
+
+.delete-shrubby-btn:hover{
+    color:#F1B24B;
+    background-color: #EFE5D5;
+    cursor:pointer;
+}
 </style>
 <div class="comment-shrubby-framework">
     <div class="comment-shrubby-score-bar">
@@ -143,7 +216,7 @@
             <path d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8H288c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z"/>
         </svg>
         <div class="comment-shrubby-score-display">
-            13
+            {{$comment->credit}}
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="score-down-arrow">
             <path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/>
@@ -160,13 +233,13 @@
     <div class="comment-shrubby-content">
         <div class="comment-shrubby-content-header">
             <div class="comment-shrubby-content-header-topic">
-                ความคิดเห็นที่ 1
+                {{$label}}
             </div>
             <div class="comment-shrubby-content-header-edit dropdown">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <path d="M120 256c0 30.9-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56zm160 0c0 30.9-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56zm104 56c-30.9 0-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56s-25.1 56-56 56z"/>
                 </svg>
-                <div class="dropdown-content">
+                <div class="dropdown-content-comment">
                     <a href="#" class="edit-menu">
                         แก้ไข
                     </a>
@@ -183,31 +256,31 @@
             </div>
         </div>
         <div class="comment-shrubby-content-text">
-            มะเขือเทศเชอร์รีจริง ๆ แล้วมีหลายสายพันธุ์คับ บางสายพันธุ์ก็จะมีใบที่ดูหงิก ๆ แบบนี้ ต้องดูว่าพี่ซื้อสายพันธุ์ไหนมาปลูกอะ
+            {!! $comment->content !!}
         </div>
         <br>
         <div class="user-info-frame">
             <div class="upper-user-info">
                 <div class="profile-pic-upper-user-info-frame">
                     <div class="profile-pic-upper-user-info">
-                        pic
+                        <img src="{{asset($user->profile_image)}}" alt="">
                     </div>
                 </div>
                 <div class="name-upper-user-info">
                     <div class="alias-name-upper-user-info">
-                        alias
+                        {{$user->alias}}
                     </div>
                     <div class="username-name-upper-user-info">
-                        @username
+                        {{$user->username}}
                     </div>
                 </div>
                 <div class="right-upper-user-info">
-                    18 Nov 2022 12:12
+                    {{thai_date($comment->created_at,false)}}
                 </div>
             </div>
             <div class="interaction-bar-user-info">
-                <x-interaction-engage label="like"/>
-                <x-interaction-engage label="comment"/>
+                <x-interaction-engage label="like" id='{{$comment->id}}' type='comment'/>
+                <x-interaction-engage label="comment" />
             </div>  
         </div>
     </div>
