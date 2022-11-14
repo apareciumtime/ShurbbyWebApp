@@ -231,6 +231,7 @@ class ShrubbyController extends Controller
             return response()->json(['status'=>1,'msg'=>'Your profile picture has been updated successfully','name'=>$fileName,'newimg'=>$path.$fileName]);
         }
     }
+    
     public function likeShrubby($id)
     {
         $shrubby = Shrubby::find($id);
@@ -253,6 +254,4 @@ class ShrubbyController extends Controller
         }
         return Redirect::back();
     }
-
-
 }

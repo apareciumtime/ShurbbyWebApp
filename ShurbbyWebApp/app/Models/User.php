@@ -27,6 +27,8 @@ class User extends Authenticatable
         'birthdate',
         'gender',
         'username',
+        'bio',
+        'website',
     ];
 
     /**
@@ -50,5 +52,9 @@ class User extends Authenticatable
     
     public function tags(){
         return $this->belongsToMany(Tag::class);
+    }
+
+    public function shrubbies(){
+        return $this->hasMany(Shrubby::class);
     }
 }

@@ -57,28 +57,28 @@
                                 </a>
                             </div>
                             <div class="info-description-framework">
-                                
+                                {{Auth::user()->bio}}
                             </div>
                             <div class="info-birthdate-and-gender-frame">
                                 <div class="info-birthdate">
-                                    วันเกิด
+                                    วันเกิด {{Auth::user()->birthdate}}
                                 </div>
                                 <div class="info-gender">
-                                    เพศ
+                                    เพศ {{Auth::user()->gender}}
                                 </div>
                             </div>
                             <div class="info-address">
-                                ที่อยู่
+                                ที่อยู่ {{Auth::user()->address_info}}
                             </div>
                             <div class="info-website">
-                                เว็บไซต์
+                                เว็บไซต์ {{Auth::user()->website}}
                             </div>
                             <div class="info-amount-clumppy-shrubby">
                                 <div class="info-amount-clumppy">
-                                    คลัมปี
+                                    คลัมปี 
                                 </div>
                                 <div class="info-amount-shrubby">
-                                    ชรับบี
+                                    ชรับบี {{Auth::user()->shrubbies()->count()}}
                                 </div>
                             </div>
                             <x-tag-framework/>
