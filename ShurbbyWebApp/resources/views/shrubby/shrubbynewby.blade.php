@@ -12,22 +12,21 @@
 <body>
     <x-leftpane/>
     <div class="right-section">
-        <x-header label="Shrubby ที่มาใหม่"/>
+        <x-header label="หน้าหลัก"/>
         <div class="body-right-section">
             <div class="inside-body">
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                <br><br><br><br><br><br>Hello<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                end
+            
+                <div class='myshrubby-header-framework'>
+                    <p class = 'myshrubby-header'>Shrubby ที่มาใหม่</p>
+                </div>
+                <div class='shrubby-clumppy-framework'>    
+                    @foreach ($shrubbies as $shrubby)
+                        <div class="card-grid-item">
+                            <x-shrubby-card itemid="{{$shrubby->id}}"/>
+                        </div>
+                    @endforeach
+                </div>
+
             </div>
         </div>
         <x-rightpane/>

@@ -30,6 +30,12 @@ class ShrubbyController extends Controller
             ->with('shrubbies',Shrubby::orderBy('created_at','DESC')->get());
     }
 
+    public function myShrubby(){
+        $userid=\Auth::user()->id;
+        $shrubbies=Shrubby::where('user_id','=',$userid)->orderBy('created_at','DESC')->get();
+        return view('journal.myshrubby')->with(['shrubbies'=>$shrubbies]);
+    }
+
     public function createShrubby()
     {
         return view('shrubby.shrubbycreate');

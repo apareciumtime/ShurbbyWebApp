@@ -13,10 +13,12 @@
 }
 
 .myshrubby-header-framework{
+    position: absolute;
+    top: 64px;
     width: 64vw;
     height: 68px;
-    background-color: #FAFAFA;
     padding: 16px;
+    background-color: #FFFFFF;
 }
 .myshrubby-header{
     float: left;
@@ -32,9 +34,19 @@
     color: #4B819F;
 }
 
-.myshrubby-slot-framework{
+.shrubby-clumppy-framework{
+    position: absolute;
+    top: 132px;
+    left: 3%;
+    width: 898px;;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.card-grid-item {
+    margin-top: 24px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    width: 64vw;
+    justify-content: center;
 }
