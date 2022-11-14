@@ -148,6 +148,12 @@ body{
 
     color: #445650;
 }
+
+.shrubby-content-area img{
+    width: 100%;
+    height: 100%;
+}
+
 .shrubby-button{
     box-sizing: border-box;
 
