@@ -27,7 +27,7 @@
                             </a>
                         </div>
                         <div class="journal-creator-bar-clumppy">
-                            <a href="/clumppycreate">
+                            <a href="{{route('clumppycreate')}}">
                                 สร้างคลัมปี
                             </a>
                         </div>

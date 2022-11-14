@@ -16,11 +16,15 @@
     <div class="clumppy-create-topic">
         สร้างคลัมปีใหม่
     </div>
-    <form id="create-clumppy-form">
+    <form id="create-clumppy-form" action="{{route('createclumppy')}}" method="POST">
+        @csrf
+        <img src="{{asset($cover)}}" alt="cover-image" class="cover-image">
         <div class="clumppy-create-add-display-picture">
-            <button class="clumppy-create-add-display-picture-btn">
+            <label for="cover-image" class="clumppy-create-add-display-picture-btn">
                 เพิ่มรูปภาพหน้าปก
-            </button>
+            </label>
+            <input id="cover-image" type="file" style="display: none;" name="cover-image"/>
+            <input id="cover" type="file" style="display: none;" name="cover" value="{{$cover}}"/>
         </div>
 
         <div class="clumppy-create-input-group">
@@ -92,7 +96,7 @@
             </div>
         </div>
         <div class="clumppy-create-btn-section">
-            <button class="clumppy-create-new-clumppy-btn">สร้างคลัมปี</button>
+            <button class="clumppy-create-new-clumppy-btn" form="create-clumppy-form" type="submit">สร้างคลัมปี</button>
         </div>
     </form>
 </div>
@@ -111,14 +115,14 @@ function minusPlantAmount() {
     <script src="{{ asset('/ijaboCropTool-master/ijaboCropTool.min.js') }}"></script> 
 
     <script>
-        $('#image').ijaboCropTool({
+        $('#cover-image').ijaboCropTool({
             //profile_image = class of img element in html -> make picture update without refresh page
-            preview : '.profile-image',
+            preview : '.cover-image',
             setRatio:1,
             allowedExtensions: ['jpg', 'jpeg','png'],
-            buttonsText:['CHANGE','QUIT'],
+            buttonsText:['OK','QUIT'],
             buttonsColor:['#FFFFFF','#4B819F', -15],
-            processUrl:'{{ route("croppict") }}',
+            processUrl:'{{ route("cropcover") }}',
             withCSRF:['_token','{{ csrf_token() }}'],
             onSuccess:function(message, element, status){
                 alert(message);

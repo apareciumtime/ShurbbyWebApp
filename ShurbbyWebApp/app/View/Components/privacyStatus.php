@@ -15,13 +15,13 @@ class privacyStatus extends Component
      */
     public function __construct($status)
     {
-        $this->status = $status;
-        if($this->status == 'private')
-        {
+        if($status=='1'){
+            $this->status = 'private';
             $this->label = 'ส่วนตัว';
         }
-        elseif($this->status == 'public')
+        else
         {
+            $this->status = 'public';
             $this->label = 'สาธารณะ';
         }
     }

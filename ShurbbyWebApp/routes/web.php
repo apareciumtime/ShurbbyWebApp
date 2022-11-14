@@ -8,6 +8,8 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\ProfileController;
+use App\Http\Controllers\ClumppyController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -68,9 +70,14 @@ Route::post('crop',[ShrubbyController::class, 'crop'])->name('croppict');
 Route::view('/journal/update','journal.journal-profile-update')->name('updateJournalProfile');
 Route::post('editProfile',[ProfileController::class,'editProfile'])->name('editProfile');
 
-Route::view('/clumppycreate','clumppy.clumppycreate')->name('clumppycreate');
-Route::view('/clumppypage','clumppy.clumppypage')->name('clumppypage');
+// Route::view('/clumppycreate','clumppy.clumppycreate')->name('clumppycreate');
+Route::get('/clumppycreate',[ClumppyController::class,'indexCreateClumppy'])->name('clumppycreate');
+// Route::view('/clumppypage','clumppy.clumppypage')->name('clumppypage');
+Route::get('clumppypage/{id}', [ClumppyController::class, 'pageClumppy'])->name('showclumppy');
 Route::view('/clumppyupdate','clumppy.clumppyupdate')->name('clumppyupdate');
+Route::post('/createclumppy',[ClumppyController::class,'createClumppy'])->name('createclumppy');
+Route::post('/cropcover',[ClumppyController::class,'cropCover'])->name('cropcover');
+
 
 Route::view('/myshrubby','journal.myshrubby')->name('myshrubby');
 Route::view('/myclumppy','journal.myclumppy')->name('myclumppy');

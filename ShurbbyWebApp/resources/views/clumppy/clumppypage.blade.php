@@ -19,14 +19,14 @@
     </div>
     <div class="clumppy-page-topic-amount-privacy-edit">
         <div class="clumppy-page-topic">
-            น้องอะโวะ
+            {{$clumppy->name}}
         </div>
         <div class="clumppy-page-amount">
             (5 ความเคลื่อนไหว)
         </div>
         <div class="clumppy-page-privacy">
             <!-- Receive status indicate privacy status -->
-            <x-privacy-status status='public'/>
+            <x-privacy-status status='{{$clumppy->is_private}}'/>
         </div>
         <div class="clumppy-page-edit">
             <a href="/clumppyupdate">
@@ -35,14 +35,14 @@
         </div>
     </div>
     <div class="clumppy-page-description">
-        น้องอะโวะ เริ่มปลูกกะจะเอาไว้ขายคับ น้องน่ารักดี ใครมีเทคนิคดี ๆ เอามาแชร์กันได้นะคับ
+        {{$clumppy->description}}
     </div>
     <div class="clumppy-page-plant-amount-date-age">
         <div class="clumppy-page-plant-amount">
-            มีทั้งหมด 12 ต้น
+            มีทั้งหมด {{$clumppy->amount}} ต้น
         </div>
         <div class="clumppy-page-plant-date">
-            วันที่เริ่มปลูก 14 พ.ย. 2562
+            วันที่เริ่มปลูก {{$clumppy->plant_date}}
         </div>
         <div class="clumppy-page-plant-age">
             อาย 2 ปี 1 เดือน 21 วัน

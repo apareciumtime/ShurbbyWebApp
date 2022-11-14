@@ -57,4 +57,8 @@ class User extends Authenticatable
     public function shrubbies(){
         return $this->hasMany(Shrubby::class);
     }
+
+    public function clumppies(){
+        return $this->hasMany(Clumppy::class);
+    }
 }
