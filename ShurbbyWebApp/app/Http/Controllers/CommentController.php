@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Comment;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class CommentController extends Controller
@@ -35,5 +36,17 @@ class CommentController extends Controller
         }
         // dd($comment);
         return Redirect::back();
+    }
+
+    public function deleteComment($id)
+    {
+        DB::table('likeable_likes')->where('likeable_id',$id)->where('likeable_type','App\Models\Comment')->delete();
+        DB::table('likeable_like_counters')->where('likeable_id',$id)->where('likeable_type','App\Models\Comment')->delete();
+
+        $comment = Comment::where('id', $id);
+        $comment->delete();
+
+        return Redirect::back()
+            ->with('message', 'Your Comment has been deleted!');
     }
 }

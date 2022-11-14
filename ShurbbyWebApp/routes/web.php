@@ -60,6 +60,7 @@ Route::get('shrubbynewby', [ShrubbyController::class, 'shrubbynewby'])->name('sh
 
 //comment
 Route::post('comment/{shrubbyid}/{parentid}',[ShrubbyController::class,'commentPost'])->name('commentpost');
+Route::delete('comment/{id}', [CommentController::class, 'deleteComment'])->name('delete.comment');
 
 //profile image
 Route::get('upload-profileimage',[ShrubbyController::class, 'uploadProfileIndex']);
