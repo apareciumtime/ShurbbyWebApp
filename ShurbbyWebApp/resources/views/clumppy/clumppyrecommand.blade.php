@@ -15,23 +15,11 @@
     </div>
     <div class="clumppy-clumppy-framework-outside">
         <div class='clumppy-clumppy-framework'>    
-
-            <div class="card-grid-item">
-                    <x-clumppy-card/>
-            </div>
-            <div class="card-grid-item">
-                    <x-clumppy-card/>
-            </div>
-            <div class="card-grid-item">
-                    <x-clumppy-card/>
-            </div>
-            <div class="card-grid-item">
-                    <x-clumppy-card/>
-            </div>
-            <div class="card-grid-item">
-                    <x-clumppy-card/>
-            </div>
-
+            @foreach ($clumppies as $clumppy)
+                <div class="card-grid-item">
+                    <x-clumppy-card clumppyid='{{$clumppy->id}}'/>
+                </div>
+            @endforeach
         </div>
     </div>
 </div>

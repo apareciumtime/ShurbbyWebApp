@@ -82,7 +82,7 @@ Route::post('/cropcover/{empty_clumppy_id}',[ClumppyController::class,'cropCover
 
 // Route::view('/myshrubby','journal.myshrubby')->name('myshrubby');
 Route::get('myshrubby', [ShrubbyController::class, 'myShrubbyPage'])->name('myshrubby');
-Route::view('/myclumppy','journal.myclumppy')->name('myclumppy');
+Route::get('/myclumppy',[ClumppyController::class, 'myClumppyPage'])->name('myclumppy');
 
 Route::view('/clumppymovementcreate','clumppy.clumppymovementcreate')->name('clumppymovementcreate');
 
@@ -94,6 +94,6 @@ Route::view('/movementpage','movement.movementpage')->name('movementpage');
 Route::view('/movementcreate','movement.movementcreate')->name('movementcreate');
 Route::view('/movementupdate','movement.movementupdate')->name('movementupdate');
 
-Route::view('/clumppyrecommand','clumppy.clumppyrecommand')->name('clumppyrecommand');
-Route::view('/clumppynewby','clumppy.clumppynewby')->name('clumppynewby');
+Route::get('/clumppyrecommand',[ClumppyController::class, 'clumppyrecommand'])->name('clumppyrecommand');
+Route::get('/clumppynewby',[ClumppyController::class, 'clumppynewby'])->name('clumppynewby');
 

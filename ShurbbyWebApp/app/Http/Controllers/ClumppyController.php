@@ -8,6 +8,7 @@ use App\Models\Comment;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class ClumppyController extends Controller
 {
@@ -15,13 +16,19 @@ class ClumppyController extends Controller
     public function clumppyrecommand()
     {
         return view('clumppy.clumppyrecommand')
-            ->with('clumppies',Clumppy::orderBy('amount','DESC')->get());
+            ->with('clumppies',Clumppy::orderBy('amount','DESC')->where('amount', '!=' , 0)->get());
     }
 
     public function clumppynewby()
     {
         return view('clumppy.clumppynewby')
-            ->with('clumppies',Clumppy::orderBy('created_at','DESC')->get());
+            ->with('clumppies',Clumppy::orderBy('created_at','DESC')->where('amount', '!=' , 0)->get());
+    }
+
+    public function myClumppyPage()
+    {
+        return view('journal.myclumppy')
+            ->with('clumppies',Clumppy::orderBy('updated_at','DESC')->where('user_id','=',Auth::id())->where('amount', '!=' , 0)->get());
     }
 
     public function indexCreateClumppy(){
