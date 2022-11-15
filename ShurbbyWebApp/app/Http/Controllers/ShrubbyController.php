@@ -35,6 +35,13 @@ class ShrubbyController extends Controller
         return view('shrubby.shrubbycreate');
     }
 
+    public function myShrubbyPage(){
+        $userid=\Auth::user()->id;
+        $shrubbies=Shrubby::where('user_id','=',$userid)->get();
+        return view('journal.myshrubby')
+            ->with(["shrubbies"=>$shrubbies]);
+    }
+
     /*
          upload image for ckeditor
          image display in shrubby

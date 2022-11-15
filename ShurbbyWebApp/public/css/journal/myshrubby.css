@@ -6,35 +6,68 @@
 }
 
 .myshrubby-framework{
+    display: flex;
+    flex-direction: column;
+    
     width: 64vw;
     height: 92vh;
-    background: #E6E6E8;
+    
     overflow-y: auto;
 }
 
 .myshrubby-header-framework{
-    width: 64vw;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
     height: 68px;
     background-color: #FAFAFA;
     padding: 16px;
 }
 .myshrubby-header{
-    float: left;
+    width: 100%;
     font-weight: bold;
     font-size: 24px;
     color: #445650;
 }
 .myshrubby-text{
-    float: right;
-    margin-left: 60px;
+    width: 120px;
+    text-align: right;
     font-weight: bold;
     font-size: 20px;
     color: #4B819F;
 }
+.myshrubby-text-withhover{
+    width: 120px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 20px;
+    color: #4B819F;
+}
+.myshrubby-text-withhover:hover{
+    color: #F1B24B;
+}
 
-.myshrubby-slot-framework{
+.shrubby-clumppy-framework-outside{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 64vw;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.shrubby-clumppy-framework{
+    top: 132px;
+    left: 3%;
+    width: 58vw;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.card-grid-item {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

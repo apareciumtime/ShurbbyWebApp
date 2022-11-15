@@ -1,46 +1,56 @@
-body{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-
-    width: 100vw;
-    height: 100vh;
-
-    background: #FAFAFA;
-    border-radius: 12px;
-
-    margin:0px;
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Maitree';
 }
 
-.right-section{
+.myshrubby-framework{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-
-    width: 100%;
-    height: 100vh;
-}
-
-.body-right-section{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-
-    width: 100%;
-    height: 92vh;
-}
-
-.inside-body{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-
+    
     width: 64vw;
     height: 92vh;
+    
+    overflow-y: auto;
+}
 
-    overflow-y: scroll;
+.myshrubby-header-framework{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 68px;
+    padding: 16px;
+}
+.myshrubby-header{
+    width: 100%;
+    font-weight: bold;
+    font-size: 24px;
+    color: #445650;
+}
+
+.shrubby-clumppy-framework-outside{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.shrubby-clumppy-framework{
+    top: 132px;
+    left: 3%;
+    width: 898px;;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.card-grid-item {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
