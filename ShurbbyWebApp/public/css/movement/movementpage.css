@@ -1,0 +1,174 @@
+.movement-framework{
+    display: flex;
+    flex-direction: column;
+
+    width: 64vw;
+    height: 92vh;
+
+    overflow-y: auto;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+
+    gap:16px;
+}
+
+.movement-page-topic-amount-privacy-edit{
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+
+    margin:16px;
+    gap:8px;
+
+    width:calc(100% - 32px);
+}
+
+.movement-page-topic{
+    width: 256px;
+    font-weight:bold;
+    color: #304045;
+}
+
+.movement-page-amount{
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+
+    font-size: 16px;
+    color:#F1B24B;
+    width: 200px;
+}
+
+.movement-page-privacy{
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+
+    width: calc(100% - 256px - 200px);
+    height: 10px;
+}
+
+.movement-page-edit a{
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    color:#4B819F;
+    
+    font-family: 'Maitree';
+    font-weight: bold;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.movement-page-edit:hover a{
+    cursor: pointer;
+    color:#F1B24B;
+}
+
+.movement-picture-section{
+    display:flex;
+    flex-direction: row;
+
+    justify-content: center;
+
+    height:fit-content;
+
+    border-radius: 8px;
+
+    background: #F3F3F3;
+}
+
+.movement-picture-framework{
+    width: .1px;
+    min-height: 315px;
+}
+
+.image-movement{
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-items: center;
+    width: fit-content;
+    height: 100%;
+}
+
+.movement-page-description{
+    margin:0px 16px;
+    width: calc(100% - 32px);
+    height: 64px;
+}
+
+.movement-interaction-engage-bar{
+    display: flex;
+    flex-direction: row;
+    
+    margin:16px;
+    width: calc(100% - 32px);
+}
+
+.movement-page-tag-framework{
+    margin:16px;
+}
+
+.user-info-bar{
+    display: flex;
+    flex-direction: row;
+
+    gap:8px;
+
+    margin:16px;
+    width: calc(100% - 32px);
+}
+
+.user-info-pic{
+    width: 48px;
+    height: 48px;
+
+    border-radius: 8px;
+}
+
+.user-info-name{
+    display: flex;
+    flex-direction: column;
+    
+    width: fit-content;
+}
+
+.user-info-name-alias{
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.user-info-name-username{
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    color: #445650;
+}
+
+.user-info-post-date{
+    display: flex;
+    flex-direction: row;
+
+    align-items: flex-end;
+    height: 100%;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: #445650;
+}

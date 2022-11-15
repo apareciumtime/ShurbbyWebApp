@@ -165,7 +165,7 @@
     align-items: flex-end;
 }
 </style>
-<a href="#" class="clumppy-card">
+<a href="/clumppypage" class="clumppy-card">
     <div class="clumppy-card-framework">
         <div class="clumppy-card-amount-of-plants">
             12 ต้น
