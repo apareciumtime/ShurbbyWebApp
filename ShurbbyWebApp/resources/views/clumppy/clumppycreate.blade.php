@@ -1,3 +1,8 @@
+@php
+    use App\Http\Controllers\ClumppyController;
+    $cover=null;
+@endphp
+
 <link rel = "stylesheet" href = "/css/clumppy/clumppycreate.css">
 {{-- for crop and preview profile pict --}}
 <link rel="stylesheet" href="{{ asset('/ijaboCropTool-master/ijaboCropTool.min.css') }}">
@@ -16,15 +21,14 @@
     <div class="clumppy-create-topic">
         สร้างคลัมปีใหม่
     </div>
-    <form id="create-clumppy-form" action="{{route('createclumppy')}}" method="POST">
+    <form id="create-clumppy-form" action="{{route('createclumppy',[$empty_clumppy_id])}}" method="POST">
         @csrf
-        <img src="{{asset($cover)}}" alt="cover-image" class="cover-image">
+        <img src="{{asset($clumppy->cover)}}" alt="cover-image" class="cover-image"> 
         <div class="clumppy-create-add-display-picture">
             <label for="cover-image" class="clumppy-create-add-display-picture-btn">
                 เพิ่มรูปภาพหน้าปก
             </label>
             <input id="cover-image" type="file" style="display: none;" name="cover-image"/>
-            <input id="cover" type="file" style="display: none;" name="cover" value="{{$cover}}"/>
         </div>
 
         <div class="clumppy-create-input-group">
@@ -122,7 +126,7 @@ function minusPlantAmount() {
             allowedExtensions: ['jpg', 'jpeg','png'],
             buttonsText:['OK','QUIT'],
             buttonsColor:['#FFFFFF','#4B819F', -15],
-            processUrl:'{{ route("cropcover") }}',
+            processUrl:"{{ route('cropcover',['empty_clumppy_id'=>$empty_clumppy_id]) }}",
             withCSRF:['_token','{{ csrf_token() }}'],
             onSuccess:function(message, element, status){
                 alert(message);

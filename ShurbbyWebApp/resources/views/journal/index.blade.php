@@ -75,7 +75,7 @@
                             </div>
                             <div class="info-amount-clumppy-shrubby">
                                 <div class="info-amount-clumppy">
-                                    คลัมปี 
+                                    คลัมปี {{Auth::user()->clumppies()->count()}}
                                 </div>
                                 <div class="info-amount-shrubby">
                                     ชรับบี {{Auth::user()->shrubbies()->count()}}

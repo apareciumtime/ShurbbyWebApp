@@ -76,8 +76,8 @@ Route::get('/clumppycreate',[ClumppyController::class,'indexCreateClumppy'])->na
 // Route::view('/clumppypage','clumppy.clumppypage')->name('clumppypage');1
 Route::get('clumppypage/{id}', [ClumppyController::class, 'pageClumppy'])->name('showclumppy');
 Route::view('/clumppyupdate','clumppy.clumppyupdate')->name('clumppyupdate');
-Route::post('/createclumppy',[ClumppyController::class,'createClumppy'])->name('createclumppy');
-Route::post('/cropcover',[ClumppyController::class,'cropCover'])->name('cropcover');
+Route::post('/createclumppy/{empty_clumppy_id}',[ClumppyController::class,'createClumppy'])->name('createclumppy');
+Route::post('/cropcover/{empty_clumppy_id}',[ClumppyController::class,'cropCover'])->name('cropcover');
 
 
 // Route::view('/myshrubby','journal.myshrubby')->name('myshrubby');
