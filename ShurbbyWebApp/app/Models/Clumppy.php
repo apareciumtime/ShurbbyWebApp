@@ -29,8 +29,8 @@ class Clumppy extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function clumppyposts()
+    public function movements()
     {
-        return $this->hasMany(Clumppyposts::class);
+        return $this->hasMany(Movement::class);
     }
 }
