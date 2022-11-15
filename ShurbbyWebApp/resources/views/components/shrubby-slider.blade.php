@@ -66,7 +66,7 @@
             {{$label}}
         </div>
         <div class="shrubby-slider-view-all">
-            <a href="{{$link_to}}">
+            <a href="{{route($link_to)}}">
                 ดูทั้งหมด
             </a>
         </div>

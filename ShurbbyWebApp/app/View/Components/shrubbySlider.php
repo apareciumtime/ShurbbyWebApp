@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use App\Models\Shrubby;
+use Auth;
 use Illuminate\View\Component;
 
 class shrubbySlider extends Component
@@ -28,7 +29,7 @@ class shrubbySlider extends Component
         }
         elseif($label == 'Shrubby ของฉัน'){
             $this->link_to = 'myshrubby';
-            $this->shrubbies = Shrubby::orderBy('updated_at','DESC')->limit(10)->get();
+            $this->shrubbies = Shrubby::orderBy('updated_at','DESC')->where('user_id','=',Auth::id())->limit(10)->get();
         }
     }
 
