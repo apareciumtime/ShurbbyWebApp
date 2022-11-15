@@ -12,9 +12,18 @@ use Carbon\Carbon;
 class ClumppyController extends Controller
 {
 
-    // public static function getcover_img($cover){
-    //     return $this->cover_img;
-    // }
+    public function clumppyrecommand()
+    {
+        return view('clumppy.clumppyrecommand')
+            ->with('clumppies',Clumppy::orderBy('amount','DESC')->get());
+    }
+
+    public function clumppynewby()
+    {
+        return view('clumppy.clumppynewby')
+            ->with('clumppies',Clumppy::orderBy('created_at','DESC')->get());
+    }
+
     public function indexCreateClumppy(){
         $user=\Auth::user();
         $lastClumppy=DB::table('clumppies')->where('user_id','=',$user->id)->orderBy('id','DESC')->first();

@@ -75,12 +75,9 @@
     </div>
     <div class="clumppy-slider-slot-ground">
         <div class="clumppy-slider-slot">
-            <x-clumppy-card/>
-            <x-clumppy-card/>
-            <x-clumppy-card/>
-            <x-clumppy-card/>
-            <x-clumppy-card/>
-            <x-clumppy-card/>
+            @foreach($clumppies as $clumppy)
+                <x-clumppy-card clumppyid="{{$clumppy->id}}"/>
+            @endforeach
         </div>
     </div>
 </div>

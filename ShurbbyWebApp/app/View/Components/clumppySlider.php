@@ -1,7 +1,8 @@
 <?php
 
 namespace App\View\Components;
-
+use App\Models\Clumppy;
+use Auth;
 use Illuminate\View\Component;
 
 class clumppySlider extends Component
@@ -19,15 +20,17 @@ class clumppySlider extends Component
         $this->label = $label;
         if($label == 'Clumppy ที่แนะนำ'){
             $this->link_to = 'clumppyrecommand';
+            $this->clumppies=Clumppy::orderBy('amount','DESC')->limit(10)->get();
 
         }
         elseif($label == 'Clumppy ที่มาใหม่'){
             $this->link_to = 'clumppynewby';
-
+            $this->clumppies=Clumppy::orderBy('created_at','DESC')->limit(10)->get();
         }
         elseif($label == 'Clumppy ของฉัน'){
             $this->link_to = 'myclumppy';
-
+            $user=\Auth::user();
+            $this->clumppies=Clumppy::where('user_id','=',$user->id)->orderBy('created_at','DESC')->get();
         }
     }
 
