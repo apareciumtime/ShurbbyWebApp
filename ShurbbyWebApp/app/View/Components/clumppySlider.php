@@ -1,8 +1,9 @@
 <?php
 
 namespace App\View\Components;
+
 use App\Models\Clumppy;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\Component;
 
 class clumppySlider extends Component
@@ -29,8 +30,7 @@ class clumppySlider extends Component
         }
         elseif($label == 'Clumppy ของฉัน'){
             $this->link_to = 'myclumppy';
-            $user=\Auth::user();
-            $this->clumppies=Clumppy::where('user_id','=',$user->id)->orderBy('created_at','DESC')->get();
+            $this->clumppies= Clumppy::orderBy('updated_at','DESC')->where('user_id','=',Auth::id())->get();
         }
     }
 

@@ -23,7 +23,7 @@ class commentShrubby extends Component
         $this->user=User::where('id','=',$comment->user_id)->first();
         $this->label='ความคิดเห็นที่ '.$comment->comment_id;
         if($comment->parent!=null){
-            $this->label=$label.' ตอบกลับความคิดเห็นที่ '.$comment->parent;
+            $this->label=$this->label.' ตอบกลับความคิดเห็นที่ '.$comment->parent;
         }
         
     }

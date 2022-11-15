@@ -1,7 +1,8 @@
 <?php
+use Carbon\Carbon;
 
 if (! function_exists('time_elapsed_string')) {
-    function time_elapsed_string($datetime, $full = false) {
+    function time_elapsed_string($datetime, $full = false, $ago = true) {
         date_default_timezone_set("Asia/Bangkok");
         $now = new DateTime;
         $ago = new DateTime($datetime);
@@ -28,7 +29,12 @@ if (! function_exists('time_elapsed_string')) {
         }
     
         if (!$full) $string = array_slice($string, 0, 1);
-        return $string ? implode(', ', $string) . ' ที่ผ่านมา' : 'เมื่อสักครู่';
+
+        if($ago){
+            return $string ? implode(', ', $string) . ' ที่ผ่านมา' : 'เมื่อสักครู่';
+        }
+        
+        return $string;
     }
 
     if (! function_exists('thai_date')) {
@@ -67,4 +73,61 @@ if (! function_exists('time_elapsed_string')) {
             return $string;
         }
     }
+    
+if (! function_exists('plant_age')) {
+    function plant_age($plant_date){
+        $begin=$plant_date; //  วันที่เริ่มนับ
+        $end=Carbon::now(); // วันที่สิ้นสุด
+        
+        $remain=intval(strtotime($end)-strtotime($begin));
+        $day=floor($remain/86400);
+        $month=0;
+        $year=0;
+
+        $duration="";
+
+        if($day>=365){
+            $year=floor($day/365);
+            $days_remain=$day%365;
+            if($days_remain>30){
+                $month=floor($days_remain/30);
+                $days_remain=$days_remain%30;
+                if($days_remain==0){
+                    $duration="อายุ ".$year." ปี ".$month." เดือน ";
+                }
+                else{
+                    $duration="อายุ ".$year." ปี ".$month." เดือน ".$days_remain." วัน ";
+                }
+            }
+            else{
+                if($days_remain==0){
+                    $duration="อายุ ".$year." ปี ";
+                }
+                else{
+                    $duration="อายุ ".$year." ปี ".$days_remain." วัน ";
+                }
+                
+            }
+        }
+        else{
+            if($day>30){
+                $month=floor($day/30);
+                $days_remain=$day%30;
+                if($days_remain==0){
+                    $duration="อายุ ".$month." เดือน ";
+                }
+                else{
+                    $duration="อายุ ".$month." เดือน ".$days_remain." วัน ";
+                }
+            }
+            else{
+                $duration="อายุ ".$day." วัน ";
+            }
+            
+        }
+
+        return $duration;
+    }
+}
+
 }

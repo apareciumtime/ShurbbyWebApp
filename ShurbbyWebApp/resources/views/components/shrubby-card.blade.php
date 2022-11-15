@@ -207,7 +207,7 @@
 
 </style>
 
-<a href="shrubbypage/{{ $shrubby->id }}">
+<a href="/shrubbypage/{{ $shrubby->id }}">
     <div class="shrubby-card-framework">
         <div class="shrubby-card-pic-container">
             @if($pic_status==0)
