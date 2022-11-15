@@ -20,6 +20,7 @@
     flex-direction: row;
     width: 100%;
     height: 68px;
+    background-color: #FAFAFA;
     padding: 16px;
 }
 .myshrubby-header{
@@ -27,6 +28,23 @@
     font-weight: bold;
     font-size: 24px;
     color: #445650;
+}
+.myshrubby-text{
+    width: 120px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 20px;
+    color: #4B819F;
+}
+.myshrubby-text-withhover{
+    width: 120px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 20px;
+    color: #4B819F;
+}
+.myshrubby-text-withhover:hover{
+    color: #F1B24B;
 }
 
 .shrubby-clumppy-framework-outside{
@@ -41,7 +59,7 @@
 .shrubby-clumppy-framework{
     top: 132px;
     left: 3%;
-    width: 898px;;
+    width: 58vw;
     height: fit-content;
     display: grid;
     grid-template-columns: auto auto auto;
@@ -50,7 +68,6 @@
 .card-grid-item {
     margin-top: 24px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-
 }

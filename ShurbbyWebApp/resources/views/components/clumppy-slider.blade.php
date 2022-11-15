@@ -30,7 +30,7 @@
 
 }
 
-.clumppy-slider-header-view-all{
+.clumppy-slider-header-view-all a{
     width: fit-content;
     white-space: nowrap;
     font-family: 'Maitree';
@@ -68,7 +68,9 @@
             {{$label}}
         </div>
         <div class="clumppy-slider-header-view-all">
-            ดูทั้งหมด
+            <a href="{{$link_to}}">
+                ดูทั้งหมด
+            </a>
         </div>
     </div>
     <div class="clumppy-slider-slot-ground">

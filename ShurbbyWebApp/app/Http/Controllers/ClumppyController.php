@@ -10,6 +10,17 @@ use Illuminate\Support\Facades\Redirect;
 
 class ClumppyController extends Controller
 {
+    // public function clumppyrecommand()
+    // {
+    //     return view('clumppy.clumppyrecommand')
+    //         ->with('clumppies',Clumppy::orderBy('like','DESC')->get());
+    // }
+
+    // public function clumppynewby()
+    // {
+    //     return view('clumppy.clumppynewby')
+    //         ->with('clumppies',Clumppy::orderBy('created_at','DESC')->get());
+    // }
 
     public function indexCreateClumppy(){
         return view('clumppy.clumppycreate',['cover'=>null]);

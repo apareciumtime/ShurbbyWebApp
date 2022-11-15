@@ -16,9 +16,9 @@
     <div class="shrubby-clumppy-framework-outside">
         <div class='shrubby-clumppy-framework'>    
             @foreach ($shrubbies as $shrubby)
-            <div class="card-grid-item">
-                <x-shrubby-card itemid="{{$shrubby->id}}"/>
-            </div>
+                <div class="card-grid-item">
+                    <x-shrubby-card itemid="{{$shrubby->id}}"/>
+                </div>
             @endforeach
         </div>
     </div>

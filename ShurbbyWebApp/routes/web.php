@@ -92,3 +92,7 @@ Route::post('shrubbypage/like/comment/{id}',[CommentController::class,'likeComme
 Route::view('/movementpage','movement.movementpage')->name('movementpage');
 Route::view('/movementcreate','movement.movementcreate')->name('movementcreate');
 Route::view('/movementupdate','movement.movementupdate')->name('movementupdate');
+
+Route::view('/clumppyrecommand','clumppy.clumppyrecommand')->name('clumppyrecommand');
+Route::view('/clumppynewby','clumppy.clumppynewby')->name('clumppynewby');
+
