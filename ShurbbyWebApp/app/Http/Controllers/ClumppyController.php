@@ -29,14 +29,16 @@ class ClumppyController extends Controller
         $lastClumppy=DB::table('clumppies')->where('user_id','=',$user->id)->orderBy('id','DESC')->first();
         // there is empty row from this user -> use this row to generate
         if($lastClumppy!=null && $lastClumppy->amount==0){
-            $lastClumppy->cover='storage/clumppy_covers/defaultClumppyCover.png';
+            Clumppy::where('user_id','=',$user->id)->orderBy('id','DESC')->first()
+                ->update(['cover'=>null]);
+            $lastClumppy=DB::table('clumppies')->where('user_id','=',$user->id)->orderBy('id','DESC')->first();
             return view('clumppy.clumppycreate',['empty_clumppy_id'=>$lastClumppy->id,'clumppy'=>$lastClumppy]);
         }
         else{
             $clumppy=new Clumppy;
             $clumppy->user_id=$user->id;
             $clumppy->name='clumppyOf'.$user->alias;
-            $clumppy->cover='storage/clumppy_covers/defaultClumppyCover.png';
+            $clumppy->cover=null;
             $clumppy->plant_date=Carbon::now();
             $clumppy->is_private=true;
             $clumppy->amount=0;
