@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
-use Conner\Likeable\Likeable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Clumppy extends Model
 {
-    use HasFactory, Likeable;
+    use HasFactory;
 
     protected $fillable =[
         'user_id',

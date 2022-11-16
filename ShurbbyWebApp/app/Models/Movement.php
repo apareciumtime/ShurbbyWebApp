@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Conner\Likeable\Likeable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class movement extends Model
 {
-    use HasFactory;
+    use HasFactory, Likeable;
 
     protected $fillable =[
         'clumppy_id',

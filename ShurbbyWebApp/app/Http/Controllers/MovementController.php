@@ -69,4 +69,19 @@ class MovementController extends Controller
 
         // return redirect()->route('showmovement');
     }
+
+    public function likeMovement($id)
+    {
+        $movement = Movement::find($id);
+        if($movement->liked()){
+            $movement->unlike();
+            $movement->save();
+        }
+        else{
+            $movement->like();
+            $movement->save();
+        }
+        return Redirect::back();
+    }
+
 }

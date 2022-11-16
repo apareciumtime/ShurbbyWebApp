@@ -135,17 +135,4 @@ class ClumppyController extends Controller
         }
     }
 
-    public function likeClumppy($id)
-    {
-        $clumppy = Clumppy::find($id);
-        if($clumppy->liked()){
-            $clumppy->unlike();
-            $clumppy->save();
-        }
-        else{
-            $clumppy->like();
-            $clumppy->save();
-        }
-        return Redirect::back();
-    }
 }

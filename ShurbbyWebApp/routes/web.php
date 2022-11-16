@@ -26,7 +26,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('home', [HomeController::class, 'index'])->name('home');
 Route::view('home', 'homepage.home')->name('home');
 Route::view('timeline', 'timeline.index')->name('timeline');
-Route::view('journal', 'journal.index')->name('journal');
+
+Route::view('journal', 'journal.index')->name('journal')->middleware('auth');;
 
 
 Auth::routes();
@@ -92,7 +93,7 @@ Route::view('/clumppymovementcreate','clumppy.clumppymovementcreate')->name('clu
 //like
 Route::post('shrubbypage/like/{id}',[ShrubbyController::class,'likeShrubby'])->name('like.shrubby');
 Route::post('shrubbypage/like/comment/{id}',[CommentController::class,'likeComment'])->name('like.comment');
-Route::post('clumppypage/like/{id}',[ClumppyController::class,'likeClumppy'])->name('like.clumppy');
+Route::post('movementpage/like/{id}',[MovementController::class,'likeMovement'])->name('like.movement');
 
     //Movement
 Route::view('/movementpage','movement.movementpage')->name('movementpage');
