@@ -27,8 +27,8 @@
     <form id="update-clumppy-form" action="{{route('updateclumppy',$clumppy->id)}}" method="POST">
         @csrf
         @method('PUT')
-        <img src="{{asset($clumppy->cover)}}" alt="cover-image" class="cover-image"> 
         <div class="clumppy-update-add-display-picture">
+            <img src="{{asset($clumppy->cover)}}" alt="cover-image" class="cover-image"> 
             <label for="cover-image" class="clumppy-update-add-display-picture-btn">
                 เปลี่ยนรูปภาพหน้าปก
             </label>

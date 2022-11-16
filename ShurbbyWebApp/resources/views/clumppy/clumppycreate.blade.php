@@ -23,8 +23,8 @@
     </div>
     <form id="create-clumppy-form" action="{{route('createclumppy',[$empty_clumppy_id])}}" method="POST">
         @csrf
-        <img src="{{asset($clumppy->cover)}}" alt="cover-image" class="cover-image"> 
         <div class="clumppy-create-add-display-picture">
+            <img src="{{asset($clumppy->cover)}}" alt="cover-image" class="cover-image"> 
             <label for="cover-image" class="clumppy-create-add-display-picture-btn">
                 เพิ่มรูปภาพหน้าปก
             </label>

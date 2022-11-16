@@ -1,6 +1,6 @@
 <style>
 .clumppy-card{
-    width: 280px;
+
 }
 
 .clumppy-card-framework{
@@ -165,8 +165,8 @@
     align-items: flex-end;
 }
 </style>
-<a href="/clumppypage/{{$clumppy->id}}" class="clumppy-card">
-    <div class="clumppy-card-framework">
+<div class="clumppy-card-framework">
+    <a href="/clumppypage/{{$clumppy->id}}" class="clumppy-card">
         <div class="clumppy-card-amount-of-plants">
             {{$clumppy->amount}} ต้น
         </div>
@@ -218,5 +218,5 @@
                 โพสต์เมื่อ {{time_elapsed_string($clumppy->created_at)}}
             </div>
         </div>
-    </div>
-</a>
+    </a>
+</div>

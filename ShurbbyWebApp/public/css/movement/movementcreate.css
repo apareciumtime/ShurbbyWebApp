@@ -177,3 +177,25 @@
     margin:16px;
     width: calc(100% - 32px);
 }
+
+.movement-create-input-group{
+    margin:16px;
+    width: calc(100% - 32px);
+}
+
+.movement-create-input-label{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.movement-create-input-select{
+    border:none;
+    border-bottom:2px solid #445650;
+    outline:none;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    width: 20%;
+}

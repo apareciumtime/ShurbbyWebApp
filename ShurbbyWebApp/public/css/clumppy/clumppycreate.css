@@ -28,8 +28,9 @@
     align-items: center;
     justify-content: center;
 
-    width: calc(100% - 32px);
+    width: calc(100% - 32px - 32px);
     margin:16px;
+    padding:16px;
 
     border:2px dashed #445650;
     border-radius: 8px;
@@ -41,7 +42,7 @@
     justify-content: center;
     align-items: center;
 
-    margin:32px;
+    margin:16px 0px 0px 0px;
 
     background: none;
     border:none;
@@ -223,7 +224,7 @@
 }
 
 .cover-image{
-    width: 100%;
+    width: 315px;
     height: 315px;
     background: #F3F3F3;
 }

@@ -1,0 +1,201 @@
+.movement-create-framework{
+    display: flex;
+    flex-direction: column;
+
+    width: 64vw;
+    height: 92vh;
+    overflow-y: auto;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+
+    gap:16px;
+}
+
+.movement-create-topic-amount-privacy{
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+
+    margin:16px;
+    gap:8px;
+
+    width:calc(100% - 32px);
+}
+
+.movement-page-topic{
+    width: 256px;
+    font-size: 22px;
+    font-weight:bold;
+    color: #304045;
+}
+
+.movement-page-amount{
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+
+    font-size: 16px;
+    color:#F1B24B;
+    width: 200px;
+}
+
+.movement-page-privacy{
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+
+    width: calc(100% - 256px - 200px);
+    height: 10px;
+}
+
+.movement-create-add-new-movement{
+    font-weight: bold;
+    font-size: 22px;
+    margin:0px 16px;
+    width: calc(100% - 32px);
+}
+
+.movement-create-add-display-picture{
+    display:flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    width: calc(100% - 32px);
+    margin:16px;
+
+    border:2px dashed #445650;
+    border-radius: 8px;
+}
+
+.movement-create-add-display-picture-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    margin:32px;
+
+    background: none;
+    border:none;
+    outline: none;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+
+    color: #4B819F;
+
+    cursor: pointer;
+}
+
+.movement-create-add-display-picture-btn:hover{
+    color:#F1B24B;
+}
+
+.movement-create-input-group{
+    margin:16px;
+    width: calc(100% - 32px);
+}
+
+.movement-create-input-label{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.movement-create-input-textarea{
+    border:none;
+    border-bottom:2px solid #445650;
+    outline:none;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    width: 100%;
+    resize: none;
+}
+
+.movement-create-input-counter{
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 16px;
+
+    color: #D2D2D5;
+}
+
+
+.movement-page-tag-framework{
+    margin:16px;
+}
+
+
+.movement-create-new-movement-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+    width: 300px;
+    height: 50px;
+    
+    background: #EFE5D5;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    border:none;
+    outline: none;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+
+    color: #445650;
+}
+
+.movement-create-new-movement-btn:active{
+    box-shadow: inset 2px 2px 1px rgba(0, 0, 0, 0.25);
+}
+
+.movement-create-btn-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    margin:16px;
+    width: calc(100% - 32px);
+}
+
+.movement-create-input-group{
+    margin:16px;
+    width: calc(100% - 32px);
+}
+
+.movement-create-input-label{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.movement-create-input-select{
+    border:none;
+    border-bottom:2px solid #445650;
+    outline:none;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    width: 20%;
+}

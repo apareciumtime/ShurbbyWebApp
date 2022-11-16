@@ -14,18 +14,26 @@
             <div class="movement-page-amount">
                 (5 ความเคลื่อนไหว)
             </div>
-            <div class="movement-page-privacy">
-                <!-- Receive status indicate privacy status -->
-                <x-privacy-status status='public'/>
-            </div>
         </div>
         <div class="movement-create-add-new-movement">
             เพิ่มความเคลื่อนไหวใหม่
         </div>
         <div class="movement-create-add-display-picture">
             <label for="cover-image" class="movement-create-add-display-picture-btn">
-                เพิ่มรูปภาพหน้าปก
+                เพิ่มรูปภาพ
             </label>
+        </div>
+        <div class="movement-create-input-group">
+            <div class="movement-create-input-label">
+                ความเป็นส่วนตัว
+            </div>
+            <select type="text" 
+                    class="movement-create-input-select"
+                    name="privacy_status"
+                    id="privacy_status">
+                <option value="0">สาธารณะ</option>
+                <option value="1">ส่วนตัว</option>
+            </select>
         </div>
         <div class="movement-create-input-group">
             <div class="movement-create-input-label">

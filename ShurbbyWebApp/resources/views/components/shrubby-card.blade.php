@@ -1,6 +1,9 @@
 <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Prompt:400">
 
 <style>
+.shrubby-a{    
+}
+
 .shrubby-card-framework{
     width: 280px;
 
@@ -207,8 +210,8 @@
 
 </style>
 
-<a href="/shrubbypage/{{ $shrubby->id }}">
-    <div class="shrubby-card-framework">
+<div class="shrubby-card-framework">
+    <a href="/shrubbypage/{{ $shrubby->id }}" class="shrubby-a">
         <div class="shrubby-card-pic-container">
             @if($pic_status==0)
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="logo">
@@ -267,8 +270,8 @@
                 โพสต์เมื่อ {{time_elapsed_string($shrubby->created_at)}}
             </div>
         </div>
-    </div>
-</a>
+    </a>
+</div>
 
 <!-- <style>
 .shrubby-card{
