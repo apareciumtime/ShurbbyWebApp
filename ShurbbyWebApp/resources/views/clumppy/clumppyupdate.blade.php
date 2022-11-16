@@ -9,7 +9,7 @@
 
 @section('header')
 
-<x-header label="แก้ไขลัมปี"/>
+<x-header label="แก้ไขคลัมปี"/>
 
 @endsection
 
@@ -20,7 +20,7 @@
         <div class="clumppy-update-topic">
             แก้ไขคลัมปีใหม่
         </div>
-        <button class="clumppy-update-submit" form="update-clumppy-form">
+        <button type="submit" class="clumppy-update-submit" form="update-clumppy-form">
             บันทึก
         </button>
     </div>
@@ -29,9 +29,9 @@
         @method('PUT')
         <img src="{{asset($clumppy->cover)}}" alt="cover-image" class="cover-image"> 
         <div class="clumppy-update-add-display-picture">
-            <button for="cover-image" class="clumppy-update-add-display-picture-btn">
-                เพิ่มรูปภาพหน้าปก
-            </button>
+            <label for="cover-image" class="clumppy-update-add-display-picture-btn">
+                เปลี่ยนรูปภาพหน้าปก
+            </label>
             <input id="cover-image" type="file" style="display: none;" name="cover-image"/>
         </div>
 
@@ -123,14 +123,14 @@ function minusPlantAmount() {
     <script src="{{ asset('/ijaboCropTool-master/ijaboCropTool.min.js') }}"></script> 
 
     <script>
-        $('#image').ijaboCropTool({
-            //profile_image = class of img element in html -> make picture update without refresh page
-            preview : '.profile-image',
+        $('#cover-image').ijaboCropTool({
+            //cover-image = class of img element in html -> make picture update without refresh page
+            preview : '.cover-image',
             setRatio:1,
             allowedExtensions: ['jpg', 'jpeg','png'],
-            buttonsText:['CHANGE','QUIT'],
+            buttonsText:['OK','QUIT'],
             buttonsColor:['#FFFFFF','#4B819F', -15],
-            processUrl:'{{ route("croppict") }}',
+            processUrl:"{{ route('cropcover',['empty_clumppy_id'=>$clumppy->id]) }}",
             withCSRF:['_token','{{ csrf_token() }}'],
             onSuccess:function(message, element, status){
                 alert(message);
