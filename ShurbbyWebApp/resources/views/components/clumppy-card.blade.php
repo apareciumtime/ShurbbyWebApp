@@ -197,7 +197,7 @@
                 </div>
             </div>
             <div class="clumppy-card-interaction-engagement-bar">
-                <x-interaction-engage label='like' class="engaging"/>
+                <x-interaction-engage label='like' id='{{$clumppy->id}}' type='clumppy' class="engaging"/>
                 <x-interaction-engage label='comment'/>
                 <x-interaction-engage label='share'/>
             </div>

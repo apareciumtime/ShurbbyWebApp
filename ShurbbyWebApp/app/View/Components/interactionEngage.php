@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Clumppy;
 use App\Models\Comment;
 use App\Models\Shrubby;
 use Illuminate\View\Component;
@@ -35,9 +36,9 @@ class interactionEngage extends Component
             $this->routeTo = route('like.shrubby',$id);
         }
         elseif($type == 'clumppy'){
-            // $post = Clumppy::where('id','=',$id)->get()->first();
-            // $this->post =$post;
-            // $this->routeTo ='route('like.clumbby',$id);
+            $post = Clumppy::where('id','=',$id)->get()->first();
+            $this->post =$post;
+            $this->routeTo =route('like.clumppy',$id);
         }
         elseif($type == 'comment'){
             $post = Comment::where('id','=',$id)->get()->first();
