@@ -128,7 +128,7 @@ function minusPlantAmount() {
             preview : '.cover-image',
             setRatio:1,
             allowedExtensions: ['jpg', 'jpeg','png'],
-            buttonsText:['OK','QUIT'],
+            buttonsText:['CHANGE','QUIT'],
             buttonsColor:['#FFFFFF','#4B819F', -15],
             processUrl:"{{ route('cropcover',['empty_clumppy_id'=>$clumppy->id]) }}",
             withCSRF:['_token','{{ csrf_token() }}'],

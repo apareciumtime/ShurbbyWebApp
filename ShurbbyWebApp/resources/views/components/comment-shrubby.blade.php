@@ -212,23 +212,44 @@
 </style>
 <div class="comment-shrubby-framework">
     <div class="comment-shrubby-score-bar">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="score-up-arrow">
-            <path d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8H288c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z"/>
-        </svg>
+        <form action="{{route('increasecredit.comment',['id'=>$comment->id])}}" method="POST" >
+            @csrf
+            <label for="increasecredit">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="score-up-arrow">
+                    <path d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8H288c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z"/>
+                </svg>
+            </label>
+            <input id="increasecredit" type="submit" style="display: none;">
+        </form>
         <div class="comment-shrubby-score-display">
             {{$comment->credit}}
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="score-down-arrow">
-            <path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/>
-        </svg>
-        <button class="comment-shrubby-verified-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="comment-shrubby-verified">
-                <path d="M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
-            </svg>
-        </button>
-        <div class="comment-shrubby-context-verified">
-            ยืนยันโดยเจ้าของกระทู้
-        </div>
+        <form action="{{route('decreasecredit.comment',['id'=>$comment->id])}}" method="POST" >
+            @csrf
+            <label for="decreasecredit">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="score-down-arrow">
+                    <path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/>
+                </svg>
+            </label>
+            <input id="decreasecredit" type="submit" style="display: none;">
+        </form>
+        <form action="{{route('accept.comment',['id'=>$comment->id])}}" method="POST" >
+            @csrf
+            <button class="comment-shrubby-verified-btn" type="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="comment-shrubby-verified">
+                    <path d="M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
+                </svg>
+            </button>
+        </form>
+        @if($comment->accept==true)
+            <div style="color:rgb(0, 0, 0)" class="comment-shrubby-context-verified">
+                ยืนยันโดยเจ้าของกระทู้
+            </div>
+        @else
+            <div class="comment-shrubby-context-verified">
+                ยืนยันโดยเจ้าของกระทู้
+            </div>
+        @endif
     </div>
     <div class="comment-shrubby-content">
         <div class="comment-shrubby-content-header">
