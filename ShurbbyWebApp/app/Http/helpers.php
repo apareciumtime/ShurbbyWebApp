@@ -38,7 +38,7 @@ if (! function_exists('time_elapsed_string')) {
     }
 
     if (! function_exists('thai_date')) {
-        function thai_date($myDATE, $prefix = true, $withDay = false){
+        function thai_date($myDATE, $prefix = true, $withday = false , $withtime = true){
             //วันภาษาไทย
             $ThDay = array ( "อาทิตย์", "จันทร์", "อังคาร", "พุธ", "พฤหัส", "ศุกร์", "เสาร์" );
             //เดือนภาษาไทย
@@ -52,23 +52,21 @@ if (! function_exists('time_elapsed_string')) {
             $hour = date("H",strtotime($myDATE));
             $min = date("i",strtotime($myDATE));
 
-            if($withDay){
-                $string = "วัน$ThDay[$week]ที่ $day  
+            $string = "";
+            if($prefix) $string = "โพสต์เมื่อ ";
+
+            if($withday){
+                $string = $string."วัน$ThDay[$week]ที่ $day  
                      $ThMonth[$months] 
-                     $years";
-            }
-            elseif($prefix){
-                $string = "โพสต์เมื่อ $day 
-                     $ThMonth[$months] 
-                     $years 
-                     เวลา $hour:$min น.";
+                     $years ";
             }
             else{
-                $string = "$day 
+                $string = $string."$day 
                      $ThMonth[$months] 
-                     $years 
-                     เวลา $hour:$min น.";
+                     $years ";
             }
+
+            if($withtime) $string = $string."เวลา $hour:$min น.";
             
             return $string;
         }

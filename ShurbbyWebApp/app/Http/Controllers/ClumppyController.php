@@ -16,19 +16,25 @@ class ClumppyController extends Controller
     public function clumppyrecommand()
     {
         return view('clumppy.clumppyrecommand')
-            ->with('clumppies',Clumppy::orderBy('amount','DESC')->where('amount', '!=' , 0)->get());
+            ->with('clumppies',Clumppy::orderBy('amount','DESC')
+                                        ->where('is_private', '=' , 0)
+                                        ->where('amount', '!=' , 0)->get());
     }
 
     public function clumppynewby()
     {
         return view('clumppy.clumppynewby')
-            ->with('clumppies',Clumppy::orderBy('created_at','DESC')->where('amount', '!=' , 0)->get());
+            ->with('clumppies',Clumppy::orderBy('created_at','DESC')
+                                        ->where('is_private', '=' , 0)
+                                        ->where('amount', '!=' , 0)->get());
     }
 
     public function myClumppyPage()
     {
         return view('journal.myclumppy')
-            ->with('clumppies',Clumppy::orderBy('updated_at','DESC')->where('user_id','=',Auth::id())->where('amount', '!=' , 0)->get());
+            ->with('clumppies',Clumppy::orderBy('updated_at','DESC')
+                                        ->where('user_id','=',Auth::id())
+                                        ->where('amount', '!=' , 0)->get());
     }
 
     public function indexCreateClumppy(){
@@ -74,15 +80,43 @@ class ClumppyController extends Controller
         $clumppy->name=$request->clumppy_name;
         $clumppy->description=$request->clumppy_description;
         $clumppy->plant_date=$request->clumppy_date;
-        if($request->privacy_status == 'public'){
-            $clumppy->is_private=false;
-        }
-        else if($request->privacy_status == 'private'){
-            $clumppy->is_private=true;
-        }
+        $clumppy->is_private=$request->privacy_status;
         $clumppy->amount=$request->plant_amount;
         $clumppy->save();
         return redirect()->route('showclumppy',[$clumppy->id]);
+    }
+
+    public function editClumppy($id)
+    {
+        $clumppy = Clumppy::where('id',$id)->first();
+        if($clumppy->is_private)  $private_status = 'ส่วนตัว';
+        else  $private_status = 'สาธารณะ';
+
+        return view('clumppy.clumppyupdate')
+            ->with('clumppy',Clumppy::where('id',$id)->first())
+            ->with('private_status',$private_status);
+    }
+
+    public function updateClumppy(Request $request,$id)
+    {
+        
+        $request->validate([
+            'clumppy_name' => ['required','string','max:60'],
+            'privacy_status' => ['required'],
+            'clumppy_date' => ['required','date'],
+            'plant_amount' => ['required'],
+        ]);
+
+        Clumppy::where('id', $id)
+            ->update([
+                'name' => $request->clumppy_name,
+                'description' => $request->clumppy_description,
+                'is_private' => $request->privacy_status,
+                'plant_date' => $request->clumppy_date,
+                'amount' => $request->plant_amount,
+            ]);
+
+        return redirect()->route('showclumppy',[$id]);
     }
 
     public function cropCover(Request $request,$empty_clumppy_id){

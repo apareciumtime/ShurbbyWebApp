@@ -29,7 +29,7 @@
             <x-privacy-status status='{{$clumppy->is_private}}'/>
         </div>
         <div class="clumppy-page-edit">
-            <a href="/clumppyupdate">
+            <a href="/clumppypage/{{$clumppy->id}}/edit">
                 แก้ไข
             </a>
         </div>
@@ -42,7 +42,7 @@
             มีทั้งหมด {{$clumppy->amount}} ต้น
         </div>
         <div class="clumppy-page-plant-date">
-            วันที่เริ่มปลูก {{$clumppy->plant_date}}
+            วันที่เริ่มปลูก {{thai_date($clumppy->plant_date, false, false, false)}}
         </div>
         <div class="clumppy-page-plant-age">
             {{$age}}

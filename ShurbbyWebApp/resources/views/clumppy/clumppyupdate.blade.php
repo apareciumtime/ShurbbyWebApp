@@ -1,3 +1,6 @@
+@php
+    use App\Http\Controllers\ClumppyController;
+@endphp
 <link rel = "stylesheet" href = "/css/clumppy/clumppyupdate.css">
 {{-- for crop and preview profile pict --}}
 <link rel="stylesheet" href="{{ asset('/ijaboCropTool-master/ijaboCropTool.min.css') }}">
@@ -21,11 +24,15 @@
             บันทึก
         </button>
     </div>
-    <form id="update-clumppy-form">
+    <form id="update-clumppy-form" action="{{route('updateclumppy',$clumppy->id)}}" method="POST">
+        @csrf
+        @method('PUT')
+        <img src="{{asset($clumppy->cover)}}" alt="cover-image" class="cover-image"> 
         <div class="clumppy-update-add-display-picture">
-            <button class="clumppy-update-add-display-picture-btn">
+            <button for="cover-image" class="clumppy-update-add-display-picture-btn">
                 เพิ่มรูปภาพหน้าปก
             </button>
+            <input id="cover-image" type="file" style="display: none;" name="cover-image"/>
         </div>
 
         <div class="clumppy-update-input-group">
@@ -36,8 +43,9 @@
                     class="clumppy-update-input-select"
                     name="privacy_status"
                     id="privacy_status">
-                <option value="public">สาธารณะ</option>
-                <option value="private">ส่วนตัว</option>
+                <option value="{{$clumppy->is_private}}" hidden>{{$private_status}}</option>
+                <option value="0">สาธารณะ</option>
+                <option value="1">ส่วนตัว</option>
             </select>
         </div>
 
@@ -49,7 +57,8 @@
                     class="clumppy-update-input-input"
                     name="clumppy_name"
                     id="clumppy_name"
-                    placeholder="ชื่อคลัมปี">
+                    placeholder="ชื่อคลัมปี"
+                    value="{{$clumppy->name}}">
             <div class="clumppy-update-input-counter">
                 0/60
             </div>
@@ -63,7 +72,7 @@
                     class="clumppy-update-input-textarea"
                     name="clumppy_description"
                     id="clumppy_description"
-                    placeholder="คำอธิบาย"></textarea>
+                    placeholder="คำอธิบาย">{{$clumppy->description}}</textarea>
             <div class="clumppy-update-input-counter">
                 0/200
             </div>
@@ -77,7 +86,8 @@
                     class="clumppy-update-input-date"
                     name="clumppy_date"
                     id="clumppy_date"
-                    placeholder="วันที่เริ่มปลูก">
+                    placeholder="วันที่เริ่มปลูก"
+                    value="{{$clumppy->plant_date}}">
         </div>
 
         <div class="clumppy-update-input-group">
@@ -88,7 +98,7 @@
                     class="clumppy-update-input-number"
                     name="plant_amount"
                     id="plant_amount"
-                    value="1"
+                    value="{{$clumppy->amount}}"
                     min="1"
                     max="999">
             <div class="amount-change-btn">

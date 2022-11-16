@@ -19,8 +19,9 @@
             <div class="inside-body">
                 <div class="shrubby-framework">
                     <div class="background-framework">
-                        <form class="shrubby-create" id="shrubby-create" action="{{route('shrubbycreate')}}" method="POST" enctype="multipart/form-data">
+                        <form class="shrubby-create" id="shrubby-create" action="{{route('updateShrubby',$shrubby->id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
+                            @method('PUT')
                             <div class="shrubby-each-topic-framework">
                                 <div class="shrubby-topic">
                                     ชื่อกระทู้

@@ -71,15 +71,18 @@ Route::post('crop',[ShrubbyController::class, 'crop'])->name('croppict');
 Route::view('/journal/update','journal.journal-profile-update')->name('updateJournalProfile');
 Route::post('editProfile',[ProfileController::class,'editProfile'])->name('editProfile');
 
+    //Clumppy
 // Route::view('/clumppycreate','clumppy.clumppycreate')->name('clumppycreate');
 Route::get('/clumppycreate',[ClumppyController::class,'indexCreateClumppy'])->name('clumppycreate');
 // Route::view('/clumppypage','clumppy.clumppypage')->name('clumppypage');1
 Route::get('clumppypage/{id}', [ClumppyController::class, 'pageClumppy'])->name('showclumppy');
-Route::view('/clumppyupdate','clumppy.clumppyupdate')->name('clumppyupdate');
+Route::get('/clumppypage/{id}/edit', [ClumppyController::class, 'editClumppy']);
+Route::put('/clumppypage/{id}', [ClumppyController::class, 'updateClumppy'])->name('updateclumppy');
+
 Route::post('/createclumppy/{empty_clumppy_id}',[ClumppyController::class,'createClumppy'])->name('createclumppy');
 Route::post('/cropcover/{empty_clumppy_id}',[ClumppyController::class,'cropCover'])->name('cropcover');
 
-
+    //My
 // Route::view('/myshrubby','journal.myshrubby')->name('myshrubby');
 Route::get('myshrubby', [ShrubbyController::class, 'myShrubbyPage'])->name('myshrubby');
 Route::get('/myclumppy',[ClumppyController::class, 'myClumppyPage'])->name('myclumppy');
@@ -90,6 +93,7 @@ Route::view('/clumppymovementcreate','clumppy.clumppymovementcreate')->name('clu
 Route::post('shrubbypage/like/{id}',[ShrubbyController::class,'likeShrubby'])->name('like.shrubby');
 Route::post('shrubbypage/like/comment/{id}',[CommentController::class,'likeComment'])->name('like.comment');
 
+    //Movement
 Route::view('/movementpage','movement.movementpage')->name('movementpage');
 Route::view('/movementcreate','movement.movementcreate')->name('movementcreate');
 Route::view('/movementupdate','movement.movementupdate')->name('movementupdate');

@@ -39,8 +39,8 @@
                     class="clumppy-create-input-select"
                     name="privacy_status"
                     id="privacy_status">
-                <option value="public">สาธารณะ</option>
-                <option value="private">ส่วนตัว</option>
+                <option value="0">สาธารณะ</option>
+                <option value="1">ส่วนตัว</option>
             </select>
         </div>
 
