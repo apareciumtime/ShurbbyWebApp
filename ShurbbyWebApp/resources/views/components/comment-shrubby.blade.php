@@ -7,7 +7,6 @@
     padding:16px;
 
     width: calc(100%-16*2px);
-
     border-bottom: 1px solid #D2D2D5;
 }
 
@@ -51,14 +50,43 @@
 }
 
 .comment-shrubby-verified-btn{
+    width: 48px;
     border:none;
     background-color: transparent;
     cursor:pointer;
 }
 
-#comment-shrubby-verified{
-    fill:#D2D2D5;
-    width: 36px;
+.comment-shrubby-verified-icon{
+    fill:#304045;
+    opacity: 1;
+}
+
+.comment-shrubby-verified-icon:hover{
+    fill:#F1B24B;
+    opacity: 1;
+}
+
+.comment-shrubby-unverify-icon{
+    fill:#304045;
+    opacity: 0.1;
+}
+
+.comment-shrubby-unverify-icon:hover{
+    fill:#445650;
+    opacity: 1;
+}
+
+
+.comment-shrubby-context-unverify{
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 33px;
+    text-align: center;
+
+    color:#445650;
+    opacity: 0.1;
 }
 
 .comment-shrubby-context-verified{
@@ -69,7 +97,8 @@
     line-height: 33px;
     text-align: center;
 
-    color: transparent;
+    color:#445650;
+    opacity: 1;
 }
 
 .comment-shrubby-content{
@@ -87,13 +116,115 @@
 .comment-shrubby-content-topic-edit{
     display: flex;
     flex-direction: flex;
-    align-items: flex-start;
+    align-items: center;
 
     width: 100%;
     height: 100%;
     margin:0px;
     padding: 0px;
     gap: 8px;
+}
+
+.comment-shrubby-content-topic{
+    width: 100%;
+
+    font-family: 'Maitree';
+    font-size: 18px;
+    font-weight: bold;
+    color:#F1B24B;
+}
+
+.comment-shrubby-content-edit{
+
+}
+
+.comment-shrubby-content-edit-link-to{
+    font-family: 'Maitree';
+    font-size: 16px;
+    font-weight: bold;
+    color:#4B819F;
+}
+
+.comment-shrubby-content-edit-link-to:hover{
+    color:#F1B24B;
+}
+
+.comment-shrubby-content-text{
+    font-family: 'Maitree';
+    font-size: 16px;
+    color:#445650;
+}
+
+.comment-shrubby-user-info{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+
+    width: auto;
+    height: auto;
+    margin: 0px;
+    padding: 0px;
+    gap: 16px;
+}
+
+.comment-shrubby-user-impage-profile{
+    width: 48px;
+    height: 48px;
+
+    border-radius: 8px;
+}
+
+.comment-shrubby-alias-username{
+    display: flex;
+    flex-direction: column;
+    
+    width: auto;
+    height: auto;
+    margin: 0px;
+    padding: 0px;
+    gap: 0px;
+}
+
+.comment-shrubby-alias{
+
+}
+
+.comment-shrubby-alias-link-to{
+    font-family: 'Maitree';
+    font-size: 18px;
+    font-weight: bold;
+    color:#445650;
+}
+
+.comment-shrubby-username{
+
+}
+
+.comment-shrubby-username-link-to{
+    font-family: 'Maitree';
+    font-size: 16px;
+    color:#D2D2D5;
+}
+
+.comment-shrubby-interaction-engage-bar-post-date{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: 100%;
+    height: auto;
+    margin: 0px;
+    padding: 0px;
+    gap: 8px;
+}
+
+.comment-shrubby-post-date{
+    width: 100%;
+
+    font-family: 'Maitree';
+    font-size: 16px;
+    color:#445650;
+    text-align: right;
 }
 /* 
 .comment-shrubby-content{
@@ -174,27 +305,34 @@
             </label>
             <input id="decreasecredit" type="submit" style="display: none;">
         </form>
-        <form action="{{route('accept.comment',['id'=>$comment->id])}}" method="POST" >
+        <form id="credit-form" action="{{route('accept.comment',['id'=>$comment->id])}}" method="POST" >
             @csrf
-            <button class="comment-shrubby-verified-btn" type="submit">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="comment-shrubby-verified">
+        </form>
+        
+        @if($comment->accept==true)
+            <button class="comment-shrubby-verified-btn" type="submit" form="credit-form">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="comment-shrubby-verified-icon">
                     <path d="M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
                 </svg>
             </button>
-        </form>
-        @if($comment->accept==true)
             <div style="color:rgb(0, 0, 0)" class="comment-shrubby-context-verified">
                 ยืนยันโดยเจ้าของกระทู้
             </div>
+            
         @else
-            <div class="comment-shrubby-context-verified">
+            <button class="comment-shrubby-verified-btn" type="submit" form="credit-form">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="comment-shrubby-unverify-icon">
+                    <path d="M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
+                </svg>
+            </button>
+            <div class="comment-shrubby-context-unverify">
                 ยืนยันโดยเจ้าของกระทู้
             </div>
         @endif
     </div>
     <div class="comment-shrubby-content">
         <div class="comment-shrubby-content-topic-edit">
-            <div class="comment-shrubby-content-header-topic">
+            <div class="comment-shrubby-content-topic">
                 {{$label}}
             </div>
             @if(isset(Auth::user()->id) && Auth::user()->id == $comment->user_id)
@@ -223,29 +361,29 @@
             {!! $comment->content !!}
         </div>
         <br>
-        <div class="user-info-frame">
-            <div class="upper-user-info">
-                <div class="profile-pic-upper-user-info-frame">
-                    <div class="profile-pic-upper-user-info">
-                        <img src="{{asset($user->profile_image)}}" alt="">
-                    </div>
-                </div>
-                <div class="name-upper-user-info">
-                    <div class="alias-name-upper-user-info">
+        <div class="comment-shrubby-user-info">
+            <a href="/journal" class="comment-shrubby-user-impage-profile-link-to">
+                <img src="{{asset($user->profile_image)}}" alt="" class="comment-shrubby-user-impage-profile">
+            </a>
+            <div class="comment-shrubby-alias-username">
+                <div class="comment-shrubby-alias">
+                    <a href="/journal" class="comment-shrubby-alias-link-to">
                         {{$user->alias}}
-                    </div>
-                    <div class="username-name-upper-user-info">
-                        {{$user->username}}
-                    </div>
+                    </a>
                 </div>
-                <div class="right-upper-user-info">
-                    {{thai_date($comment->created_at,false)}}
+                <div class="comment-shrubby-username">
+                    <a href="/journal" class="comment-shrubby-username-link-to">
+                        {{$user->username}}
+                    </a>
                 </div>
             </div>
-            <div class="interaction-bar-user-info">
-                <x-interaction-engage label="like" id='{{$comment->id}}' type='comment'/>
-                <x-interaction-engage label="comment" />
-            </div>  
         </div>
+        <div class="comment-shrubby-interaction-engage-bar-post-date">
+            <x-interaction-engage label="like" id='{{$comment->id}}' type='comment'/>
+            <x-interaction-engage label="comment" />
+            <div class="comment-shrubby-post-date">
+                {{thai_date($comment->created_at,false)}}
+            </div>
+        </div>  
     </div>
 </div>
