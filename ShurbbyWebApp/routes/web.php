@@ -55,7 +55,7 @@ Route::get('shrubbypage/{id}/edit', [ShrubbyController::class, 'editShrubby']);
 Route::put('shrubbypage/{id}', [ShrubbyController::class, 'updateShrubby'])->name('updateShrubby');
 Route::delete('shrubbypage/{id}', [ShrubbyController::class, 'deleteShrubby']);
 
-Route::get('shrubbyrecommand', [ShrubbyController::class, 'shrubbyrecommand'])->name('shrubbyrecommand');
+Route::get('shrubbyrecommend', [ShrubbyController::class, 'shrubbyrecommend'])->name('shrubbyrecommend');
 Route::get('shrubbynewby', [ShrubbyController::class, 'shrubbynewby'])->name('shrubbynewby');
 // Route::get('shrubbycreate', [ShrubbyController::class, 'createShrubby'])->name('shrubbycreate');
 // Route::get('shrubbyupdate', [ShrubbyController::class, 'updateShrubby']);
@@ -104,6 +104,6 @@ Route::view('/movementpage','movement.movementpage')->name('movementpage');
 Route::view('/movementcreate','movement.movementcreate')->name('movementcreate');
 Route::view('/movementupdate','movement.movementupdate')->name('movementupdate');
 
-Route::get('/clumppyrecommand',[ClumppyController::class, 'clumppyrecommand'])->name('clumppyrecommand');
+Route::get('/clumppyrecommend',[ClumppyController::class, 'clumppyrecommend'])->name('clumppyrecommend');
 Route::get('/clumppynewby',[ClumppyController::class, 'clumppynewby'])->name('clumppynewby');
 

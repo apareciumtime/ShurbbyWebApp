@@ -65,10 +65,6 @@ class interactionEngage extends Component
         {
             $this->comment_amount = 0;
         }
-        elseif($label == 'share')
-        {
-            $this->share_amount = 0;
-        }
     }
 
     /**

@@ -1,4 +1,110 @@
 <style>
+.rightpane-framework{
+    display: flex;
+    flex-direction: column;
+
+    width: calc(256px - 16px);
+    margin:0px;
+    padding:8px;
+    gap:32px;
+
+    border-left:1px solid #D2D2D5;
+
+    font-family: 'Maitree';
+}
+
+.rightpane-group-tag{
+    display: flex;
+    flex-direction: column;
+
+    border-bottom: 1px solid #D2D2D5;
+}
+
+.rightpane-head{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    width: calc(100% - 16px);
+    margin: 8px;
+    padding: 0px;
+    gap: 0px;
+
+    font-size: 18px;
+    font-weight: bold;
+    color:#445650;
+}
+
+.rightpane-header-topic{
+
+}
+
+.rightpane-tag-grid{
+    display: grid;
+    grid-template-columns: auto;
+
+    width: auto;
+    max-height: 214px;
+
+    overflow-y: auto;
+}
+
+.rightpane-tag-grid-item{
+
+}
+
+.rightpane-view-all{
+    display: flex;
+    flex-direction: row;
+
+    margin: 8px;
+    padding: 0px;
+    gap: 0px;
+
+    font-size: 18px;
+    font-weight: bold;
+    color: #4B819F;
+}
+
+</style>
+
+<div class="rightpane-framework">
+    <div class="rightpane-group-tag">
+        <div class="rightpane-head">
+            <div class="rightpane-header-topic">
+                แท็กยอดนิยม
+            </div>
+        </div>
+        <div class="rightpane-tag-grid">
+            @foreach($top_tags as $tag)
+                <div class="rightpane-tag-grid-item">
+                    <x-tag-bar label="{{$tag->name}}"/>
+                </div>
+            @endforeach
+        </div>
+        <a href="#" class="rightpane-view-all">
+            ดูทั้งหมด
+        </a>
+    </div>
+    <div class="rightpane-group-tag">
+        <div class="rightpane-head">
+            <div class="rightpane-header-topic">
+                แท็กที่กำลังติดตาม
+            </div>
+        </div>
+        <div class="rightpane-tag-grid">
+            @foreach($following_tags as $tag)
+                <div class="rightpane-tag-grid-item">
+                    <x-tag-bar label="{{$tag->name}}"/>
+                </div>
+            @endforeach
+        </div>
+        <a href="#" class="rightpane-view-all">
+            ดูทั้งหมด
+        </a>
+    </div>
+</div>
+<!-- <style>
 .rightpane{
     box-sizing: border-box;
 
@@ -93,9 +199,7 @@
                 แท็กยอดนิยม
             </div>
             <div class="tag-container">
-                @foreach($top_tags as $tag)
-                    <x-tag-bar label="{{$tag->name}}"/>
-                @endforeach
+
             </div>
             <a href="#" class="view-tag-all">
                     ดูทั้งหมด
@@ -106,13 +210,11 @@
                 แท็กที่ฉันติดตาม
             </div>
             <div class="tag-container">
-                @foreach($following_tags as $tag)
-                    <x-tag-bar label="{{$tag->name}}"/>
-                @endforeach
+
             </div>
             <a href="#" class="view-tag-all">
                 ดูทั้งหมด
             </a>
         </div>
     </div>
-</div>
+</div> -->

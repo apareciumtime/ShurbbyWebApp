@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Auth;
 class ClumppyController extends Controller
 {
 
-    public function clumppyrecommand()
+    public function clumppyrecommend()
     {
-        return view('clumppy.clumppyrecommand')
+        return view('clumppy.clumppyrecommend')
             ->with('clumppies',Clumppy::orderBy('amount','DESC')
                                         ->where('is_private', '=' , 0)
                                         ->where('amount', '!=' , 0)->get());

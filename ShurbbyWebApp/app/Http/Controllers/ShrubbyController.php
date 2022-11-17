@@ -15,12 +15,12 @@ class ShrubbyController extends Controller
     public function __construct()
     {
         date_default_timezone_set("Asia/Bangkok");
-        $this->middleware('auth', ['except' => ['pageShrubby','shrubbyrecommand','shrubbynewby']]);
+        $this->middleware('auth', ['except' => ['pageShrubby','shrubbyrecommend','shrubbynewby']]);
 
     }
-    public function shrubbyrecommand()
+    public function shrubbyrecommend()
     {
-        return view('shrubby.shrubbyrecommand')
+        return view('shrubby.shrubbyrecommend')
             ->with('shrubbies',Shrubby::orderBy('like','DESC')->get());
     }
 

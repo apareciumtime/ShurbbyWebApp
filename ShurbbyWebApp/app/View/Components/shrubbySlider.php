@@ -20,7 +20,7 @@ class shrubbySlider extends Component
     {
         $this->label = $label;
         if($label == 'Shrubby ที่แนะนำ'){
-            $this->link_to = 'shrubbyrecommand';
+            $this->link_to = 'shrubbyrecommend';
             $this->shrubbies = Shrubby::orderBy('like','DESC')->limit(10)->get();
         }
         elseif($label == 'Shrubby ที่มาใหม่'){

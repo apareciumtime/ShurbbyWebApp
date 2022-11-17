@@ -2,8 +2,6 @@
 
 <style>
 .clumppy-slider-frame{
-    width: 64vw;
-
     display: flex;
     flex-direction: column;
 }
@@ -44,20 +42,32 @@
     color: #4B819F;
 }
 
-.clumppy-slider-slot-ground{
-    width: calc(100%-16px);
-    padding:8px 8px;
-    background: #E6E6E8;
-    border-radius: 8px;
-}
-.clumppy-slider-slot{
-    width: calc(100%-16px);
-    padding:8px;
-    gap:16px;
-
+.clumppy-slider-slot-outside{
     display: flex;
     flex-direction: row;
-    
+    justify-content: center;
+
+    width: auto;
+    height: auto;
+    margin: 0px;
+    padding: 0px;
+    gap: 0px;
+
+    background:#E6E6E8;
+}
+
+.clumppy-slider-slot{
+    display: flex;
+    flex-direction: row;
+
+    width: 68vw;
+    height: auto;
+    margin: 16px 0px;
+    padding: 0px;
+    gap: 8px;
+
+    padding: 0px;
+
     overflow-x: auto;
 }
 </style>
@@ -73,7 +83,7 @@
             </a>
         </div>
     </div>
-    <div class="clumppy-slider-slot-ground">
+    <div class="clumppy-slider-slot-outside">
         <div class="clumppy-slider-slot">
             @foreach($clumppies as $clumppy)
                 <x-clumppy-card clumppyid="{{$clumppy->id}}"/>

@@ -33,7 +33,7 @@ class tagBar extends Component
             }
             else{
                 $this->status=1;
-                $this->button_label = 'ติดตามแล้ว';
+                $this->button_label = 'เลิกติดตาม';
             }
         }else{
             $this->status=0;

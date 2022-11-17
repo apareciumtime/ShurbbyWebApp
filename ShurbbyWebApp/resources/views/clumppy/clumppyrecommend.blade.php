@@ -1,4 +1,4 @@
-<link rel = "stylesheet" href = "/css/clumppy/clumppyrecommand.css">
+<link rel = "stylesheet" href = "/css/clumppy/clumppyrecommend.css">
 
 @extends('layouts.app')
 

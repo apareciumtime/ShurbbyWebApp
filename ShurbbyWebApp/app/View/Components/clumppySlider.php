@@ -20,7 +20,7 @@ class clumppySlider extends Component
     {
         $this->label = $label;
         if($label == 'Clumppy ที่แนะนำ'){
-            $this->link_to = 'clumppyrecommand';
+            $this->link_to = 'clumppyrecommend';
             $this->clumppies=Clumppy::orderBy('amount','DESC')
                                         ->where('amount', '!=' , 0)
                                         ->where('is_private', '=' , 0)

@@ -1,4 +1,4 @@
-<link rel = "stylesheet" href = "/css/shrubby/shrubbyrecommand.css">
+<link rel = "stylesheet" href = "/css/shrubby/shrubbyrecommend.css">
 
 @extends('layouts.app')
 

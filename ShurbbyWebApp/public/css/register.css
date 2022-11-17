@@ -1,285 +1,171 @@
-a{
-    list-style: none;
-    text-decoration: none;
-}
-
-body{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-
-    
-    font-family: "Maitree";
-    font-weight: normal;
-    color:#304045;
-    background: #FAFAFA;
-}
-
-.right-section-form{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content:start;
-    padding: 0px;
-
-    width: 100vw;
-    height: 100vh;
-    
-}
-
-.body-right-container{
-    overflow-y: scroll;
-    height: 100%;
-}
-
-.body-right-topic{
+.register-framework{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 32px 0px;
-    gap: 8px;
 
-    width: 1185px;
-    height: fit-content;
-    
+    width: auto;
+    height: auto;
+    margin: 0px;
+    padding:16px;
+    gap:32px;
+
+    font-family: 'Maitree';
+    color:#445650;
 }
 
-.body-right-form{
+.register-head-topic-description{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0px;
-    gap: 48px;
-
-    width: 1185px;
-    height: fit-content;
 }
 
-.head-topic{
-    font-family: 'Maitree';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 32px;
-    line-height: 48px;
-
-    color: #445650;
-
-}
-
-.description-topic{
-    font-family: 'Maitree';
-    font-style: normal;
-    font-weight: 100;
+.register-head-topic{
     font-size: 24px;
-    line-height: 36px;
-
-    color: #445650;
-
+    font-weight: bold;
 }
 
-.topic-register{
-    font-family: 'Maitree';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 36px;
-    text-align: center;
-
-    color: #445650;
-
+.register-head-description{
+    font-size: 20px;
 }
 
-.form-container{
+.register-body{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+
+    width: auto;
+    height: auto;
+    margin:0px;
+    padding:0px;
+    gap: 32px;
+}
+
+.register-body-topic{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.register-form-section{
+    display: flex;
+    flex-direction: row;
     align-items: flex-start;
-    padding: 0px;
+
+    width: auto;
+    height: auto;
+    margin:0px;
+    padding:0px;
     gap: 24px;
-
-    position: relative;
-    
-    width: 1185px;
-    height: 100%;
 }
 
-.form-section{
+.register-form-user-info{
     display: flex;
     flex-direction: column;
-    align-items: center;
+
+    width: auto;
+    height: auto;
+    margin: 0px;
     padding: 0px;
-    gap: 64px;
-
-    width: fit-content;
-    height: max-content;
-
+    gap: 16px;
 }
 
-.form-item{
+.register-form-user-info-topic{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.register-form-privacy-info{
+    display: flex;
+    flex-direction: column;
+
+    width: auto;
+    height: auto;
+    margin: 0px;
+    padding: 0px;
+    gap: 16px;
+}
+
+.register-form-privacy-info-topic{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.register-form-input-group{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0px;
+    
+    width: auto;
+    height: auto;
+    margin: 0px;
+    padding:0px;
     gap:8px;
-
-    width: 300px;
-    height: 79px;
 }
 
-.topic{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0px;
-
-    width: 300px;
-    height: 33px;
-
-    font-family: 'Maitree';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 33px;
-
-    color: #445650;
+.register-form-topic{
+    font-size: 18px;
 }
 
-.comment{
-    width:255px;
-    color:red;
-}
+.register-form-input{
+    width: 215px;
+    height: 48px;
 
-.form-control{
-    box-sizing: border-box;
+    font-size: 18px;
+    color:#445650;
 
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    padding: 8px 12px;
-
-    width: 300px;
-    height: 46px;
-
-    background: #F3F3F3;
-
-    outline:none;
     border:none;
     border-bottom: 2px solid #445650;
-
-    font-family: 'Maitree';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 30px;
-
-    color: #445650;
+    outline: none;
 }
 
-.form-control:hover{
+.register-form-input:hover{
     border-bottom: 2px solid #F1B24B;
 }
 
-.form-control-date{
-    box-sizing: border-box;
+.register-form-input:-webkit-autofill{
+    -webkit-text-fill-color: #445650;
+}
 
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    padding: 8px 12px;
+.register-form-comment{
+    width: 215px;
+    color:#DD3535;
+}
 
-    width: 300px;
-    height: 46px;
+.register-form-input-text-area{
+    width: 215px;
+    height: 210px;
 
-    background: #F3F3F3;
+    font-size: 18px;
+    color:#445650;
 
-    outline:none;
     border:none;
     border-bottom: 2px solid #445650;
-
-    font-family: 'Maitree';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 30px;
-
-    color: #445650;
-}
-
-#address_text{
-    box-sizing: border-box;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    width: 300px;
-    height: 200px;
-
-
-    outline:none;
-    border:none;
-
-    font-family: 'Maitree';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 30px;
-
-    color: #445650;
-
-}
-
-.form-item textarea{
-    width:300px;
-    height: 200px;
+    outline: none;
 
     resize: none;
 }
 
-.button-section{
-    margin: 32px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    gap: 16px;
-
-    width: 1185px;
-    height: 50px;
+.register-form-input-text-area:hover{
+    border-bottom: 2px solid #F1B24B;
 }
 
-.register-btn{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    gap: 10px;
-    
+.register-register-btn{
     width: 300px;
-    height: 50px;
-    
+    height: 46px;
+
     background: #EFE5D5;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-    border:none;
     border-radius: 8px;
 
-    font-family: 'Maitree';
-    font-style: normal;
-    font-weight: 700;
+    font-family:'Maitree';
+    font-weight: bold;
     font-size: 20px;
-    line-height: 30px;
-    text-align: center;
-
     color: #445650;
+
+    border:none;
+    outline: none;
 }
 
-.register-btn:focus{
-    box-shadow: inset 2px 2px 1px rgba(0, 0, 0, 0.25);
+.register-register-btn:active{
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.25);
 }

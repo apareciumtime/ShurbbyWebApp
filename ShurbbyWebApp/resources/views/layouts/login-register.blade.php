@@ -19,7 +19,6 @@
             <div class="inside-body">
                 @yield('inside-body')
             </div>
-            <x-rightpane/>
         </div>
     </div>
     

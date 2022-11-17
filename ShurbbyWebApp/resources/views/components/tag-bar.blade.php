@@ -1,101 +1,85 @@
-<link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Maitree:400">
-
 <style>
-.tag-bar-frame{
+.tag-bar-framework{
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
 
-    gap: 8px;
-
-    width: 18vw;
-    height: 78px;
+    font-family: 'Maitree';
 
     background: #F3F3F3;
 }
 
-.tag-bar-frame:hover{
-    background: #D2D2D5;
+.tag-bar-framework:hover{
+    background: none;
 }
 
-.left-side{
+.tag-bar-name-follower{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 12px 16px;
-
-    width: 137px;
-    height: 54px;
-
-}
-
-.tag-label{
-    font-family: 'Maitree';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 30px;
-
-    color: #304045;
-}
-
-.follower{
-    font-family: 'Maitree';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-
-    color: #304045;
-}
-
-.follow-btn{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    
+    width: calc(100% - 16px);
+    margin: 8px;
     padding: 0px;
-
-    width: 100px;
-    height: 78px;
-    
-    
-    font-family: 'Maitree';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 30px;
-    
-    color: #304045;
-    
-    background:none;
-    cursor: pointer;
-    
-    border:none;
-    outline:none;
+    gap:0px;
 }
 
-.follow-btn:hover{
-    color:#F1B24B;
+.tag-bar-name{
+    white-space: nowrap; 
+    width: 100px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+
+    font-size: 18px;
+    font-weight: bold;
+    color: #445650;
+}
+
+.tag-bar-follower{
+    font-size: 16px;
+    color: #445650;
+}
+
+.tag-bar-follow-btn-section{
+    display: flex;
+    flex-direction: row;
+
+    margin: 8px;
+    padding: 0px;
+    gap: 0px;
+}
+
+.tag-bar-follow-btn{
+    width: 84px;
+
+    background: none;
+    border: none;
+    outline: none;
+
+    font-family: 'Maitree';
+    font-weight: bold;
+    font-size: 16px;
+    color: #4B819F;
+    text-align: right;
+    white-space: nowrap;
+
+    cursor: pointer;
 }
 </style>
 
-<div class="tag-bar-frame">
-    <div class="left-side">
-        <a href="#" class="tag-label">
-            {{$label}}
+<div class="tag-bar-framework">
+    <div class="tag-bar-name-follower">
+        <a href="#" class="tag-bar-name">
+            #{{$label}}
         </a>
-        <div class="follower">
+        <div class="tag-bar-follower">
             {{$follower}}
         </div>
     </div>
-    <div class="right-side">
+    <div class="tag-bar-follow-btn-section">
         <form action="{{route('follow',$tag_id)}}" method="POST">
             @csrf
-            <button class="follow-btn">
+            <button class="tag-bar-follow-btn">
                 {{$button_label}}
             </button>
         </form>
     </div>
-
 </div>

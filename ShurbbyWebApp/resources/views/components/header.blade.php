@@ -1,104 +1,110 @@
-<link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Maitree">
-
 <style>
-.header-frame{
-    box-sizing: border-box;
-
+.header-framework{
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding:8px;
-    gap: 16px;
+    
+    width: 100%;
 
-    width: 82vw;
-    height: fit-content;
-
-    background: #FAFAFA;
+    font-family: 'Maitree';
 
     border-bottom: 1px solid #D2D2D5;
 }
 
-.header-left{
-    width: 502.5px;
-    height: 48px;
-}
-
-.header-label{
-    width: 30vw;
-    height: 48px;
-    
-    text-align: center;
-    font-family: 'Maitree';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 48px;
-
-    color: #304045;
-}
-
-.header-right{
+.header-back-label-user-info{
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
     align-items: center;
+
+    width: calc(100% - 16px);
+    margin: 8px;
     padding: 0px;
-    gap: 32px;
-
-    width: 502.5px;
-    height: 48px;
-    
-    font-family: 'Maitree';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 36px;
-    text-align: center;
-    
-    color: #D2D2D5;
+    gap: 0px;
 }
 
-img{
-    width: 48px;
-    height: 48px;
-
-    background: #5B6C67;
-    border-radius: 8px;
-    
-}
-
-.username_profile{
+.header-back-link-to{
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 0px;
-    gap: 32px;
+    
+    font-size: 18px;
+    font-weight: bold;
+    color: #445650;
+
+    white-space: nowrap;
 }
 
-.username_profile:hover{
+.header-back-link-to:hover{
     color: #F1B24B;
 }
 
+.header-label{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    width: 100%;
+
+    font-size:24px;
+    font-weight: bold;
+    color:#445650;
+}
+
+.header-user-info-link-to-profile-image{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin: 0px;
+    padding: 0px;
+    gap: 16px;
+}
+
+.header-user-info-link-to-profile-image:hover .header-user-alias-profile-link-to{
+    color:#F1B24B;
+} 
+
+.header-user-alias-profile-link-to{
+    display: flex;
+    flex-direction: row;
+
+    font-size:18px;
+    color:#D2D2D5;
+}
+
+.header-user-info-profile-image{
+    display: flex;
+    flex-direction: row;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 8px;
+
+    overflow:hidden;
+}
 </style>
 
-<div class="header-frame">
-    <div class="header-left"></div>
-    <div class="header-label">
-        {{$label}}
-    </div>
-    <div class="header-right">
-        @guest
+<div class="header-framework">
+    <div class="header-back-label-user-info">
+        <div class="header-back">
+            <a href="#" class="header-back-link-to">
+                ย้อนกลับ
+            </a>
+        </div>
+        <div class="header-label">
+            {{$label}}
+        </div>
+        <a href="/journal" class="header-user-info-link-to-profile-image">
+            @guest
             
-        @else
-        <a href="/journal">
-            <div class="username_profile" href="/profile">
-                {{Auth::user()->alias}}
-                <img src="{{asset(Auth::user()->profile_image)}}" class="profile-image">
-            </div>
+            @else
+                <div class="header-user-alias-profile-link-to">
+                    {{Auth::user()->alias}}
+                </div>
+                
+                <div class="header-user-info-profile-image">
+                    <img src="{{asset(Auth::user()->profile_image)}}" class="header-user-info-profile-image-image">
+                </div>
+            @endguest
         </a>
-        @endguest
-        
     </div>
 </div>
