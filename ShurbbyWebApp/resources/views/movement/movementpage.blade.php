@@ -13,14 +13,14 @@
             {{$clumppy->name}}
         </div>
         <div class="movement-page-amount">
-            ({{$clumppy->movements->count()}} ความเคลื่อนไหว)
+            ({{$clumppy->movements->where('like','>',-1)->count()}} ความเคลื่อนไหว)
         </div>
         <div class="movement-page-privacy">
             <!-- Receive status indicate privacy status -->
-            <x-privacy-status status='public'/>
+            <x-privacy-status status='{{$movement->is_private}}'/>
         </div>
         <div class="movement-page-edit">
-            <a href="/movementupdate" class="movement-page-edit-link-to">
+            <a href="{{route('movementupdate',$movement->id)}}" class="movement-page-edit-link-to">
                 แก้ไข
             </a>
         </div>

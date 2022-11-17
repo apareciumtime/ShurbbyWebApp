@@ -5,22 +5,23 @@
 <x-header label="Clumppy"/>
 @endsection
 @section('inside-body')
-<form id="update-movement-form">
+<form id="update-movement-form" action="{{route('updatemovement',[$movement->id])}}" method="POST" >
+    @csrf
     <div class="movement-update-framework">
         <div class="movement-update-topic-amount-submit">
             <div class="movement-update-topic">
-                น้องอะโวะ
+                {{$clumppy->name}}
             </div>
             <div class="movement-update-amount">
-                (5 ความเคลื่อนไหว)
+                ({{$clumppy->movements->where('like','>',-1)->count()}} ความเคลื่อนไหว)
             </div>
             <div class="movement-update-delete-submit">
-                <a href="#" class="movement-update-delete-link-to">
+                <label for="delete" class="movement-update-delete-link-to">
                     ลบความเคลื่อนไหว
-                </a>
-                <a href="#" class="movement-update-submit-link-to">
+                </label>
+                <label for="update" class="movement-update-submit-link-to">
                     บันทึก
-                </a>
+                </label>    
             </div>
         </div>
         <div class="movement-update-add-new-movement">
@@ -39,6 +40,7 @@
                     class="movement-update-input-select"
                     name="privacy_status"
                     id="privacy_status">
+                <option value="{{$movement->is_private}}" hidden>{{$private_status}}</option>
                 <option value="0">สาธารณะ</option>
                 <option value="1">ส่วนตัว</option>
             </select>
@@ -51,7 +53,7 @@
                     class="movement-update-input-textarea"
                     name="movement_description"
                     id="movement_description"
-                    placeholder="คำอธิบาย"></textarea>
+                    placeholder="คำอธิบาย"> {{$movement->description}} </textarea>
             <div class="movement-update-input-counter">
                 0/200
             </div>
@@ -62,13 +64,21 @@
             </div>
             <input  type="text" 
                     class="movement-update-input-input"
-                    name="movement_description"
-                    id="movement_description"
-                    placeholder="แท็ก"></input>
+                    name="movement_tags"
+                    id="movement_tags"
+                    placeholder="แท็ก"
+                    value={{$tag}}>
             <div class="movement-update-input-counter">
                 0/10
             </div>
         </div>
+        <button id="update" name="update" type="submit" style="display: none;"></button>
+    </form>
+    <form action="{{route('deletemovement',$movement->id)}}" method="POST">
+        @csrf
+        @method('delete')
+        <button id="delete" type="submit" style="display: none;">
+        </button>
     </form>
 </div>
 

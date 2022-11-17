@@ -132,4 +132,70 @@ class MovementController extends Controller
         return Redirect::back();
     }
 
+    public function updateMovementpage($movement_id){
+        $movement=Movement::where('id','=',$movement_id)->first();
+        $clumppy=Clumppy::where('id','=',$movement->clumppy_id)->first();
+        $movement_images=DB::table('image_movement')->where('movement_id','=',$movement_id)->get();
+
+        $tags = DB::table('taggables')->where('taggable_id','=',$movement_id)->where('taggable_type','=','App\Models\movement')->get();
+        $tag = '';
+        foreach($tags as $tagid){
+            $eachtag = Tag::where('id',$tagid->tag_id)->first();
+            $tag .= strval($eachtag->name).',';
+        }
+        $tag = rtrim($tag, ", ");
+
+        $private_status = 'สาธารณะ';
+        if($movement->is_private)  $private_status = 'ส่วนตัว';
+
+        return view('movement.movementupdate',['movement'=>$movement,'clumppy'=>$clumppy,'movement_images'=>$movement_images,
+                    'tag'=>$tag,'private_status'=>$private_status]);
+    }
+
+    public function updateMovement(Request $request,$id){
+        $request->validate([
+            'privacy_status' => ['required'],
+        ]);
+        $private=false;
+        if($request->privacy_status == '1'){
+            $private=true;
+        }
+        Movement::where('id','=',$id)->update([
+            'description' => $request->movement_description,
+            'is_private' => $private,
+        ]);
+
+        DB::table('taggables')->where('taggable_id','=',$id)->where('taggable_type','=','App\Models\movement')->delete();
+        
+        $movement=Movement::where('id','=',$id)->first();
+        $clumppy=Clumppy::where('id','=',$movement->clumppy_id)->first();
+        $tags=$request->movement_tags;
+        $tags = explode(",",$tags);
+        foreach($tags as $value){
+            $checktag = Tag::where('name', '=', $value)->first();
+            if($checktag==null){
+                $tag = new Tag;
+                $tag->name = $value;
+                $tag->num_follower=0;
+            }
+            else{
+                $tag=$checktag;
+            }
+            
+            $movement->tags()->save($tag);
+            if($clumppy->tags->where('id','=',$tag->id)->count()==0){
+                $clumppy->tags()->save($tag);
+            }
+        }
+        return redirect()->route('movementpage',['movement_id'=>$movement->id]);
+    }
+
+    public function deleteMovement($id){
+        $movement=Movement::where('id','=',$id)->first();
+        DB::table('taggables')->where('taggable_id','=',$id)->where('taggable_type','=','App\Models\movement')->delete();
+        DB::table('image_movement')->where('movement_id','=',$id)->delete();
+        Movement::where('id','=',$id)->delete();
+        return redirect()->route('showclumppy',[$movement->clumppy_id]);
+    }
+
 }
