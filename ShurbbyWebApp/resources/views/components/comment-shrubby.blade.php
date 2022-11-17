@@ -302,6 +302,15 @@
 </style>
 <div class="comment-shrubby-framework">
     <div class="comment-shrubby-score-bar">
+        {{-- -------------------------------------------------- --}}
+        @if($increasecredit==true)
+            เพิ่มเครดิตแล้ว
+        @endif
+        @if($decreasecredit==true)
+            ลดเครดิตแล้ว
+        @endif
+        {{-- -------------------------------------------------- --}}
+        
         <form action="{{route('increasecredit.comment')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <input type="number" name="id" id="id" value={{$comment->id}} style="display: none;">
