@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\Auth;
 
 class MovementController extends Controller
 {
+    public function __construct()
+    {
+        date_default_timezone_set("Asia/Bangkok");
+
+    }
+    
     public function createMovementPage($clumppy_id){
         $clumppy=Clumppy::where('id','=',$clumppy_id)->first();
         $user=\Auth::user();
