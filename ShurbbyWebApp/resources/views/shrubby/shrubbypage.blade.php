@@ -16,15 +16,6 @@
                     <a href="/shrubbypage/{{ $shrubby->id }}/edit" class="shrubby-page-content-edit-link-to">
                         แก้ไข
                     </a>
-                        <!-- <form 
-                            action="/shrubbypage/{{ $shrubby->id }}"
-                            method="POST">
-                            @csrf
-                            @method('delete')
-                            <button class="delete-shrubby-btn" type="submit">
-                                ลบ
-                            </button>
-                        </form> -->
                 @endif
             </div>
         </div>
