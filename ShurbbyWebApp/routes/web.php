@@ -106,4 +106,3 @@ Route::view('/movementupdate','movement.movementupdate')->name('movementupdate')
 
 Route::get('/clumppyrecommend',[ClumppyController::class, 'clumppyrecommend'])->name('clumppyrecommend');
 Route::get('/clumppynewby',[ClumppyController::class, 'clumppynewby'])->name('clumppynewby');
-

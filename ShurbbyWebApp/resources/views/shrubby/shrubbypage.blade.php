@@ -4,7 +4,6 @@
 @section('header')
     <x-header label="Shrubby"/>
 @endsection
-
 @section('inside-body')
 <div class="shrubby-page-framework">
     <div class="shrubby-page-background-framework">
@@ -80,22 +79,7 @@
             <div class="shrubby-comment-header">
                 <a href="#" class="shrubby-comment-topic">ความคิดเห็น</a>
             </div>
-            <!-- <div class="shrubby-will-to-comment">
-                <div class="shrubby-will-to-comment-topic">
-                    แสดงความคิดเห็นของฉัน
-                </div>
-                <div class="shrubby-comment-writer">
-                    <form action="{{route('commentpost',['shrubbyid'=>$shrubby->id,'parentid'=>-1])}}" method="POST" id="comment" enctype="multipart/form-data">
-                        @csrf
-                        <textarea name="content" id="editor" form="comment" placeholder="แสดงความคิดเห็นของฉัน"></textarea>
-                    </form>
-                </div>
-            </div> -->
-            <!-- <div class="submit-comment-button-framework">
-                <button class="submit-comment-btn" type="submit" form="comment">
-                    แสดงความคิดเห็น
-                </button>
-            </div> -->
+            <x-will-comment-shrubby/>
             <div class="shrubby-comment-content">
                 @foreach($comments as $comment)
                     <x-comment-shrubby id="{{$comment->id}}"/>

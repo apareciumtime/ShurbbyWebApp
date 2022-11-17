@@ -22,6 +22,12 @@
     width:100%;
 }
 
+.score-up-arrow-btn{
+    border:none;
+    outline: none;
+    background:none;
+}
+
 .score-up-arrow{
     width: 24px;
     fill:#D2D2D5;
@@ -29,6 +35,12 @@
 
 .score-up-arrow:hover{
     fill:#445650;
+}
+
+.score-down-arrow-btn{
+    border:none;
+    outline: none;
+    background:none;
 }
 
 .score-down-arrow{
@@ -47,6 +59,12 @@
     font-size: 24px;
 
     color: #304045;
+}
+
+.comment-shrubby-verify-btn-form{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .comment-shrubby-verified-btn{
@@ -287,7 +305,7 @@
         <form action="{{route('increasecredit.comment')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <input type="number" name="id" id="id" value={{$comment->id}} style="display: none;">
-            <button type="submit" >
+            <button type="submit" class="score-up-arrow-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="score-up-arrow">
                     <path d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8H288c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z"/>
                 </svg>
@@ -301,14 +319,14 @@
         <form action="{{route('decreasecredit.comment')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <input type="number" name="id" id="id" value={{$comment->id}} style="display: none;">
-            <button type="submit">
+            <button type="submit" class="score-down-arrow-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="score-down-arrow">
                     <path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/>
                 </svg>
             </button>
         </form>
 
-        <form id="verify-form" action="{{route('accept.comment')}}" method="POST" enctype="multipart/form-data">
+        <form id="verify-form" action="{{route('accept.comment')}}" method="POST" enctype="multipart/form-data" class="comment-shrubby-verify-btn-form">
             @csrf
             <input type="number" name="id" id="id" value={{$comment->id}} style="display: none;">
             @if($comment->accept==true)

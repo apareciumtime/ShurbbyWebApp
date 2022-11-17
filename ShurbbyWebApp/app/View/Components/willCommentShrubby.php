@@ -6,6 +6,7 @@ use Illuminate\View\Component;
 
 class willCommentShrubby extends Component
 {
+    public $status = 1;
     /**
      * Create a new component instance.
      *
