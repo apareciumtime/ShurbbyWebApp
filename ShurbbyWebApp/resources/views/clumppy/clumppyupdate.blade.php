@@ -20,6 +20,9 @@
         <div class="clumppy-update-topic">
             แก้ไขคลัมปีใหม่
         </div>
+        <button class="clumppy-update-delete" type="submit" form="clumppy-update-delete-form">
+            ลบคลัมปี
+        </button>
         <button type="submit" class="clumppy-update-submit" form="update-clumppy-form">
             บันทึก
         </button>
@@ -117,6 +120,12 @@ function minusPlantAmount() {
   document.getElementById("plant_amount").stepDown();
 }
 </script>
+
+<form   action="/clumppypage/{{ $clumppy->id }}"
+        method="POST" id="clumppy-update-delete-form">
+    @csrf
+    @method('delete')
+</form>
 
 {{-- for crop and preview profile pict --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 

@@ -82,6 +82,7 @@ Route::get('/clumppycreate',[ClumppyController::class,'indexCreateClumppy'])->na
 Route::get('clumppypage/{id}', [ClumppyController::class, 'pageClumppy'])->name('showclumppy');
 Route::get('/clumppypage/{id}/edit', [ClumppyController::class, 'editClumppy']);
 Route::put('/clumppypage/{id}', [ClumppyController::class, 'updateClumppy'])->name('updateclumppy');
+Route::delete('clumppypage/{id}', [ClumppyController::class, 'deleteClumppy']);
 
 Route::post('/createclumppy/{empty_clumppy_id}',[ClumppyController::class,'createClumppy'])->name('createclumppy');
 Route::post('/cropcover/{empty_clumppy_id}',[ClumppyController::class,'cropCover'])->name('cropcover');

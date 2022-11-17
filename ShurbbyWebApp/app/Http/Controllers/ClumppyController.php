@@ -74,6 +74,17 @@ class ClumppyController extends Controller
             ->with('clumppy',Clumppy::where('id',$id)->first())->with('age',$duration);
     }
 
+    public function deleteClumppy($id)
+    {
+        DB::table('taggables')->where('taggable_id',$id)->delete();
+
+        $clumppy = Clumppy::where('id', $id);
+        $clumppy->delete();
+
+        return redirect('/home')
+            ->with('message', 'Your Clumppy has been deleted!');
+    }
+
     public function createClumppy(Request $request,$empty_clumppy_id){
         $request->validate([
             'clumppy_name' => ['required','string','max:60'],

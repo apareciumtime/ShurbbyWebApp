@@ -5,8 +5,6 @@
     overflow-y: auto;
 
     font-family: 'Maitree';
-    font-style: normal;
-    font-weight: 400;
     font-size: 20px;
 
     gap:0px;
@@ -15,7 +13,7 @@
 .clumppy-update-topic-submit{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: center;    
 }
 
 .clumppy-update-topic{
@@ -25,14 +23,35 @@
     font-size: 22px;
 }
 
+.clumppy-update-delete{
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+
+    color: #DD3535;
+
+    cursor: pointer;
+
+    border:none;
+    outline:none;
+    background: none;
+
+    white-space: nowrap;
+}
+
+.clumppy-update-delete:hover{
+    color:#F1B24B;
+}
+
 .clumppy-update-submit{
     margin:16px;
 
     font-family: 'Maitree';
     font-style: normal;
     font-weight: 700;
-    font-size: 20px;
-    line-height: 33px;
+    font-size: 18px;
 
     color: #4B819F;
 
