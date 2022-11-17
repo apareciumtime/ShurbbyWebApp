@@ -131,7 +131,7 @@
                     <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/>
                 </svg>
                 
-                    <input type="search" placeholder="ค้นหา" name="qeury" autocomplete="on" class="leftpane-search-box" form="search-form">
+                    <input type="search" placeholder="ค้นหา" name="query" autocomplete="on" class="leftpane-search-box" form="search-form">
             </div>
         </div>
         <div class="leftpane-content-menu-bar-grid-item">
@@ -168,7 +168,7 @@
     </div>
 </div>
 <!-- Search Form -->
-<form id="search-form" type="get" action="{{url('/search')}}">
+<form id="search-form" type="get" action="{{ route('search') }}">
 </form>
 
 <!-- Logout Form -->

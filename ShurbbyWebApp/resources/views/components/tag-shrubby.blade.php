@@ -31,7 +31,7 @@
 </style>
 
 <div class="tag-shrubby-frame">
-    <a href="#" class="text-frame">
+    <a href="{{ route('search',$name) }}" class="text-frame">
         {{$name}}
     </a>
 </div>

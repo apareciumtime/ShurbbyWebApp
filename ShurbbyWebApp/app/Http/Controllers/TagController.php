@@ -38,7 +38,7 @@ class TagController extends Controller
                 }
             }
         }
-        return redirect()->route('home');;
+        return redirect()->route('home');
     }
 
     //user unfollow tag
@@ -59,10 +59,16 @@ class TagController extends Controller
     // }
 
 
-    public function searchByTag(Request $request){
-        $tag=Tag::where('name','=',$request->tag)->first();
-        // $data=$tag->shrubbies;
-        dd($tag->shrubbies);
+    public function searchByTag(Request $request,$name=''){
+        
+        $search = $request['query']??array_keys($request->query())['0'];
+        $tag=Tag::where('name','=',$search)->first();
+        $shrubbies=$tag->shrubbies;
+        $clumppies=$tag->clumppies;
+        
+        return  view('shrubby.shrubbynewby')
+                    ->with('shrubbies',$shrubbies)
+                    ->with('clumppies',$clumppies);
     }
     
 }

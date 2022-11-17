@@ -22,9 +22,8 @@ use App\Http\Controllers\ClumppyController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index']);
 Route::get('home', [HomeController::class, 'index'])->name('home');
-Route::view('home', 'homepage.home')->name('home');
 Route::view('timeline', 'timeline.index')->name('timeline');
 
 Route::view('journal', 'journal.index')->name('journal')->middleware('auth');;
@@ -106,3 +105,6 @@ Route::view('/movementupdate','movement.movementupdate')->name('movementupdate')
 
 Route::get('/clumppyrecommend',[ClumppyController::class, 'clumppyrecommend'])->name('clumppyrecommend');
 Route::get('/clumppynewby',[ClumppyController::class, 'clumppynewby'])->name('clumppynewby');
+
+//search
+Route::get('/search', [TagController::class, 'searchByTag'])->name('search');

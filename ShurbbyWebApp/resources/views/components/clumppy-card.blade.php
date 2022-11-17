@@ -226,7 +226,7 @@
                 </div>
             </div>
             <div class="clumppy-card-interaction-engagement-bar">
-                {{-- <x-interaction-engage label='like' class="engaging"/> --}}
+                <x-interaction-engage label='like' class="engaging"/>
                 <x-interaction-engage label='comment'/>
             </div>
             <div class="clumppy-card-content-user-info">

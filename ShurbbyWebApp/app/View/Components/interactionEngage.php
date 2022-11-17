@@ -4,6 +4,7 @@ namespace App\View\Components;
 
 use App\Models\Clumppy;
 use App\Models\Comment;
+use App\Models\Movement;
 use App\Models\Shrubby;
 use Illuminate\View\Component;
 
@@ -17,6 +18,7 @@ class interactionEngage extends Component
     public $like_amount;
     public $comment_amount;
     public $share_amount;
+    public $liked;
     /**
      * Create a new component instance.
      *
@@ -29,21 +31,29 @@ class interactionEngage extends Component
         $this->type = $type;
         $post =null;
         $routeTo='';
+        $this->liked= false;
 
         if($type == 'shrubby'){
             $post = Shrubby::where('id','=',$id)->get()->first();
             $this->post =$post;
+            $this->liked= $post->liked();
             $this->routeTo = route('like.shrubby',$id);
         }
-        elseif($type == 'clumppy'){
-            $post = Clumppy::where('id','=',$id)->get()->first();
-            $this->post =$post;
-            $this->routeTo =route('like.clumppy',$id);
-        }
+        // elseif($type == 'clumppy'){
+        //     $post = Clumppy::where('id','=',$id)->get()->first();
+        //     $this->post =$post;
+        // }
         elseif($type == 'comment'){
             $post = Comment::where('id','=',$id)->get()->first();
             $this->post = $post;
+            $this->liked= $post->liked();
             $this->routeTo = route('like.comment',$id);
+        }
+        elseif($type == 'movement'){
+            $post = Movement::where('id','=',$id)->get()->first();
+            $this->post =$post;
+            $this->liked= $post->liked();
+            $this->routeTo =route('like.movement',$id);
         }
         
         if($label == 'like')
@@ -55,15 +65,16 @@ class interactionEngage extends Component
             else{
                 $this->like_amount = $post->likeCount; //get amount from database
             }
-            // if($type == 'comment'){
-            //     // dd($post->likeCount);
-            //     dd($this->routeTo);
-            // }
             
         }
         elseif($label == 'comment')
         {
-            $this->comment_amount = 0;
+            if($post==null){
+                $this->comment_amount = 0;
+            }
+            else{
+                $this->comment_amount = $post->comments->count();
+            }
         }
     }
 
