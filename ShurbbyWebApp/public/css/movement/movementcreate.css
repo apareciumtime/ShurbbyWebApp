@@ -110,6 +110,18 @@
     font-size: 20px;
 }
 
+.movement-create-input-input{
+    border:none;
+    border-bottom:2px solid #445650;
+    outline:none;
+
+    font-family: 'Maitree';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    width: 100%;
+}
+
 .movement-create-input-textarea{
     border:none;
     border-bottom:2px solid #445650;

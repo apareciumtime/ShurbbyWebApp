@@ -48,13 +48,23 @@
                 0/200
             </div>
         </div>
-        <div class="movement-page-tag-framework">
-            <x-tag-framework/>
+        <div class="movement-create-input-group">
+            <div class="movement-create-input-label">
+                แท็ก
+            </div>
+            <input  type="text" 
+                    class="movement-create-input-input"
+                    name="movement_description"
+                    id="movement_description"
+                    placeholder="แท็ก"></input>
+            <div class="movement-create-input-counter">
+                0/10
+            </div>
         </div>
         <div class="movement-create-btn-section">
             <button class="movement-create-new-movement-btn" form="create-movement-form" type="submit">สร้างความเคลื่อนไหว</button>
         </div>
-    </form>
-</div>
+    </div>
+</form>
 
 @endsection

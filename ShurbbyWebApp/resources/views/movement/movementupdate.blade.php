@@ -53,8 +53,18 @@
                 0/200
             </div>
         </div>
-        <div class="movement-update-tag-framework">
-            <x-tag-framework/>
+        <div class="movement-update-input-group">
+            <div class="movement-update-input-label">
+                แท็ก
+            </div>
+            <input  type="text" 
+                    class="movement-update-input-input"
+                    name="movement_description"
+                    id="movement_description"
+                    placeholder="แท็ก"></input>
+            <div class="movement-update-input-counter">
+                0/10
+            </div>
         </div>
     </form>
 </div>
