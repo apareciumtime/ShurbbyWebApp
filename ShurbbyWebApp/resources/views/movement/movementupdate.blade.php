@@ -14,7 +14,10 @@
             <div class="movement-update-amount">
                 (5 ความเคลื่อนไหว)
             </div>
-            <div class="movement-update-submit">
+            <div class="movement-update-delete-submit">
+                <a href="#" class="movement-update-delete-link-to">
+                    ลบความเคลื่อนไหว
+                </a>
                 <a href="#" class="movement-update-submit-link-to">
                     บันทึก
                 </a>

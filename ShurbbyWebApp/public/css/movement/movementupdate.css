@@ -36,9 +36,23 @@
     color:#F1B24B;
 }
 
-.movement-update-submit{
+.movement-update-delete-submit{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
     width: calc(100% - 256px - 200px);
     text-align: right;
+    gap:16px;
+}
+
+.movement-update-delete-link-to{
+    font-size: 18px;
+    font-weight: bold;
+    color:#DD3535;
+}
+
+.movement-update-delete-link-to:hover{
+    color:#F1B24B;
 }
 
 .movement-update-submit-link-to{
@@ -143,7 +157,6 @@
 
     color: #D2D2D5;
 }
-
 
 .movement-update-tag-framework{
     margin:16px;
