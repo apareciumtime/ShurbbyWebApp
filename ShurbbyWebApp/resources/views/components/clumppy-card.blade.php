@@ -219,14 +219,14 @@
             </div>
             <div class="clumppy-card-plant-date-age">
                 <div class="clumppy-card-plant-date">
-                    วันที่เริ่มปลูก {{$clumppy->plant_date}}
+                    วันที่เริ่มปลูก {{thai_date($clumppy->plant_date,false,false,false)}}
                 </div>
                 <div class="clumppy-card-age">
                     {{$age}}
                 </div>
             </div>
             <div class="clumppy-card-interaction-engagement-bar">
-                <x-interaction-engage label='like' class="engaging"/>
+                {{-- <x-interaction-engage label='like' class="engaging"/> --}}
                 <x-interaction-engage label='comment'/>
             </div>
             <div class="clumppy-card-content-user-info">
