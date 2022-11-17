@@ -68,21 +68,8 @@
         </div> 
     </div>
     <div class="tag-slot">
-        <x-tag-shrubby name="แท็ก"/>
-        <x-tag-shrubby name="แท็กแท็กแท็ก"/>
-        <x-tag-shrubby name="แท็ก"/>
-        <x-tag-shrubby name="แท็ก"/>
-        <x-tag-shrubby name="แท็ก"/>
-        <x-tag-shrubby name="แท็ก"/>
-        <x-tag-shrubby name="แท็กแท็กแท็ก"/>
-        <x-tag-shrubby name="แท็ก"/>
-        <x-tag-shrubby name="แท็ก"/>
-        <x-tag-shrubby name="แท็ก"/>
-        <x-tag-shrubby name="แท็กแท็กแท็ก"/>
-        <x-tag-shrubby name="แท็กแท็กแท็ก"/>
-        <x-tag-shrubby name="แท็กแท็กแท็ก"/>
-        <x-tag-shrubby name="แท็กแท็กแท็ก"/>
-        <x-tag-shrubby name="แท็กแท็กแท็ก"/>
-        <x-tag-shrubby name="แท็กแท็กแท็ก"/>
+        @foreach($tags as $tag)
+            <x-tag-shrubby name="{{$tag->name}}"/>
+        @endforeach
         </div>
     </div>

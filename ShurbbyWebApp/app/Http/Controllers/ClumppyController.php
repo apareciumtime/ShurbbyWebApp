@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Clumppy;
 use App\Models\Comment;
+use App\Models\Tag;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Carbon\Carbon;
@@ -69,9 +70,11 @@ class ClumppyController extends Controller
     { 
         $clumppy=Clumppy::where('id',$id)->first();
         $duration = plant_age($clumppy->plant_date);
-        // $tags=$clumppy->tags()->get();
-        return view('clumppy/clumppypage')/*->with('tags',$tags)*/
-            ->with('clumppy',Clumppy::where('id',$id)->first())->with('age',$duration);
+        $movements=$clumppy->movements->where('like','>',-1);
+        // dd($movements);
+        $tags=$clumppy->tags()->get();
+        return view('clumppy/clumppypage')->with('tags',$tags)
+            ->with('clumppy',Clumppy::where('id',$id)->first())->with(['age'=>$duration,'movements'=>$movements]);
     }
 
     public function deleteClumppy($id)

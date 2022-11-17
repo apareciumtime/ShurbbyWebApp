@@ -12,7 +12,7 @@
 <div class="clumppy-framework">
     <div class="clumppy-page-creator-bar">
         <div class="clumppy-page-add-new-movement">
-            <a href="/movementcreate">
+            <a href="{{route('movementcreate',$clumppy->id)}}">
                 เพิ่มความเคลื่อนไหวใหม่
             </a>
         </div>
@@ -22,7 +22,7 @@
             {{$clumppy->name}}
         </div>
         <div class="clumppy-page-amount">
-            (5 ความเคลื่อนไหว)
+            ({{$clumppy->movements->where('like','>',-1)->count()}} ความเคลื่อนไหว)
         </div>
         <div class="clumppy-page-privacy">
             <!-- Receive status indicate privacy status -->
@@ -49,23 +49,13 @@
         </div>
     </div>
     <div class="clumppy-page-tag-framework">
-        <x-tag-framework/>
+        <x-tag-framework type="clumppy" id="{{$clumppy->id}}"/>
     </div>
 
     <div class="clumppy-page-gallery">
-        <x-movement-card/>
-        <x-movement-card/>
-        <x-movement-card/>
-        <x-movement-card/>
-        <x-movement-card/>
-        <x-movement-card/>
-        <x-movement-card/>
-        <x-movement-card/>
-        <x-movement-card/>
-        <x-movement-card/>
-        <x-movement-card/>
-        <x-movement-card/>
-        <x-movement-card/>
+        @foreach($movements as $movement)
+            <x-movement-card id='{{$movement->id}}'/>
+        @endforeach
     </div>
 </div>
 @endsection

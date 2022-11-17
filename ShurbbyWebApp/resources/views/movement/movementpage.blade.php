@@ -10,10 +10,10 @@
 <div class="movement-framework">
     <div class="movement-page-topic-amount-privacy-edit">
         <div class="movement-page-topic">
-            น้องอะโวะ
+            {{$clumppy->name}}
         </div>
         <div class="movement-page-amount">
-            (5 ความเคลื่อนไหว)
+            ({{$clumppy->movements->count()}} ความเคลื่อนไหว)
         </div>
         <div class="movement-page-privacy">
             <!-- Receive status indicate privacy status -->
@@ -26,32 +26,34 @@
         </div>
     </div>
     <div class="movement-page-tag-framework">
-        <x-tag-framework/>
+        <x-tag-framework type="movement" id="{{$movement->id}}"/>
     </div>
     <div class="movement-picture-section">
         <div class="movement-picture-framework">
         </div>
-        <img src="/storage/pic.jpg" class="image-movement">
+        @foreach ($movement_images as $movement_image)
+            <img src="{{asset($movement_image->image)}}" class="image-movement" style="width:50%; height:50%;">
+        @endforeach
     </div>
     <div class="movement-page-description">
-        น้องอะโวะ เริ่มปลูกกะจะเอาไว้ขายคับ น้องน่ารักดี ใครมีเทคนิคดี ๆ เอามาแชร์กันได้นะคับ
+        {{$movement->description}}
     </div>
     <div class="movement-interaction-engage-bar">
         <x-interaction-engage label='like'/>
         <x-interaction-engage label='comment'/>
         <div class="user-info-post-date">
-            โพสต์เมื่อ 14 พ.ย. 2563
+            {{$movement->created_at}}
         </div>
     </div>
 
     <div class="user-info-bar">
-        <img src="/storage/pic.jpg" class="user-info-pic">
+        <img src="{{asset($clumppy->user->profile_image)}}" class="user-info-pic">
         <div class="user-info-name">
             <div class="user-info-name-alias">
-                Alias
+                {{$clumppy->user->alias}}
             </div>
             <div class="user-info-name-username">
-                @username
+                {{$clumppy->user->username}}
             </div>
         </div>
     </div>

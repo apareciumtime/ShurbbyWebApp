@@ -72,7 +72,7 @@
                     ชรับบี {{Auth::user()->shrubbies()->count()}}
                 </div>
             </div>
-            <x-tag-framework/>
+            {{-- <x-tag-framework/> --}}
         </div>
     </div>
     <div class="slot-of-myclumppy-myshrubby">

@@ -3,17 +3,29 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
+use App\Models\Clumppy;
+use App\Models\Movement;
 
 class tagFramework extends Component
 {
+    public $tags;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($type,$id)
     {
-        //
+        switch ($type) {
+            case "clumppy":
+                $clumppy=Clumppy::where('id','=',$id)->first();
+                $this->tags=$clumppy->tags;
+                break;
+            case "movement":
+                $movement=Movement::where('id','=',$id)->first();
+                $this->tags=$movement->tags;
+                break;
+          }
     }
 
     /**

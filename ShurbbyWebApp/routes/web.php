@@ -9,6 +9,7 @@ use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\ClumppyController;
+use App\Http\Controllers\MovementController;
 
 
 /*
@@ -100,9 +101,13 @@ Route::post('shrubbypage/like/comment/{id}',[CommentController::class,'likeComme
 Route::post('movementpage/like/{id}',[MovementController::class,'likeMovement'])->name('like.movement');
 
     //Movement
-Route::view('/movementpage','movement.movementpage')->name('movementpage');
-Route::view('/movementcreate','movement.movementcreate')->name('movementcreate');
+Route::get('movementcreate/{clumppy_id}', [MovementController::class, 'createMovementPage'])->name('movementcreate');
+Route::get('movementpage/{movement_id}', [MovementController::class, 'indexMovementPage'])->name('movementpage');
 Route::view('/movementupdate','movement.movementupdate')->name('movementupdate');
+Route::post('/uploadmovementimage',[MovementController::class,'uploadMovementImage'])->name('uploadmovementimage');
+Route::post('/createmovement/{movement_id}',[MovementController::class,'createMovement'])->name('createmovement');
+
+
 
 Route::get('/clumppyrecommend',[ClumppyController::class, 'clumppyrecommend'])->name('clumppyrecommend');
 Route::get('/clumppynewby',[ClumppyController::class, 'clumppynewby'])->name('clumppynewby');

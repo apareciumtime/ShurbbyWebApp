@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Clumppy;
+use App\Models\Tag;
 use App\Models\Movement;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -21,12 +22,12 @@ class MovementController extends Controller
     public function createMovementPage($clumppy_id){
         $clumppy=Clumppy::where('id','=',$clumppy_id)->first();
         $user=\Auth::user();
-        $lastMovement=Movement::where('user_id','=',$user->id)->orderBy('id','DESC')->first();
+        $lastMovement=Movement::orderBy('id','DESC')->first();
         // there is empty row from this user -> use this row to generate
         if($lastMovement!=null && $lastMovement->like==-1){
             DB::table('image_movement')->where('movement_id','=',$lastMovement->id)->delete();
             $lastMovement->update(['clumppy_id'=>$clumppy_id]);
-            return view('movement.movementcreate',['movement'=>$lastMovement,'clumppy'=>$clumppy]);
+            return view('movement.movementcreate',['movement'=>$lastMovement,'clumppy'=>$clumppy,'movement_images'=>[]]);
         }
         else{
             $movement=new Movement;
@@ -35,45 +36,86 @@ class MovementController extends Controller
             $movement->share=-1;
             $movement->is_private=false;
             $movement->save();
-            return view('movement.movementcreate',['movement'=>$movement,'clumppy'=>$clumppy]);
+            return view('movement.movementcreate',['movement'=>$movement,'clumppy'=>$clumppy,'movement_images'=>[]]);
         }
     }
 
-    public function createMovement(Request $request,$movement_id){
-        // $request->validate([
-            // 'privacy_status' => ['required'],
-        // ]);
+    public function uploadMovementImage(Request $request){
+        // dd($request);
+        $movement_id=$request->movement_id; 
+        $validateImageData = $request->validate([
+            'images' => 'required',
+            'images.*' => 'mimes:jpg,png,jpeg,gif,svg'
+        ]);
+        if($request->hasfile('images'))
+        {
+            foreach($request->file('images') as $key => $file)
+            {
+                $path = 'storage/movement_images/'; 
+                $fileName = $file->getClientOriginalName();
+                $move = $file->move(public_path($path), $fileName);
+                $pathFile = $path.$fileName;
+                DB::table('image_movement')->insert([
+                    'movement_id'=>$movement_id,
+                    'image'=>$pathFile,
+                ]);
+
+            }
+        }
+        $movement_images=DB::table('image_movement')->where('movement_id','=',$movement_id)->get();
         $movement=Movement::where('id','=',$movement_id)->first();
-        $movement->description=$request->description;
+        $clumppy=Clumppy::where('id','=',$movement->clumppy_id)->first();
+        
+        // dd($movement_images);
+        return view('movement.movementcreate',['movement'=>$movement,'clumppy'=>$clumppy,'movement_images'=>$movement_images]);
+    }
+
+    public function createMovement(Request $request,$movement_id){
+        // dd($request);
+        $request->validate([
+            'privacy_status' => ['required'],
+        ]);
+        $movement=Movement::where('id','=',$movement_id)->first();
+        $movement->description=$request->movement_description;
         $movement->like=0;
         $movement->share=0;
-        // if($request->privacy_status == 'public'){
-        //     $movement->is_private=false;
-        // }
-        // else if($request->privacy_status == 'private'){
-        //     $movement->is_private=true;
-        // }
+        if($request->privacy_status == '0'){
+            $movement->is_private=false;
+        }
+        else if($request->privacy_status == '1'){
+            $movement->is_private=true;
+        }
         $movement->save();
 
-        // $clumppy=Clumppy::where('id','=',$movement->clumppy_id)->first();
-        // $tags=$request->tags;
-        // $tags = explode(",",$tags);
-        // foreach($tags as $value){
-        //     $checktag = Tag::where('name', '=', $value)->first();
-        //     if($checktag==null){
-        //         $tag = new Tag;
-        //         $tag->name = $value;
-        //         $tag->num_follower=0;
-        //     }
-        //     else{
-        //         $tag=$checktag;
-        //     }
+        $clumppy=Clumppy::where('id','=',$movement->clumppy_id)->first();
+        $tags=$request->movement_tags;
+        $tags = explode(",",$tags);
+        foreach($tags as $value){
+            $checktag = Tag::where('name', '=', $value)->first();
+            if($checktag==null){
+                $tag = new Tag;
+                $tag->name = $value;
+                $tag->num_follower=0;
+            }
+            else{
+                $tag=$checktag;
+            }
             
-        //     $movement->tags()->save($tag);
-        //     $clumppy->tags()->save($tag);
-        // }
+            $movement->tags()->save($tag);
+            if($clumppy->tags->where('id','=',$tag->id)->count()==0){
+                $clumppy->tags()->save($tag);
+            }
+        }
 
-        // return redirect()->route('showmovement');
+        return redirect()->route('movementpage',['movement_id'=>$movement->id]);
+    }
+
+    public function indexMovementPage($movement_id){
+        $movement=Movement::where('id','=',$movement_id)->first();
+        $movement_images=DB::table('image_movement')->where('movement_id','=',$movement_id)->get();
+        $clumppy=Clumppy::where('id','=',$movement->clumppy_id)->first();
+
+        return view('movement.movementpage')->with(['movement'=>$movement,'clumppy'=>$clumppy,'movement_images'=>$movement_images]);
     }
 
     public function likeMovement($id)
