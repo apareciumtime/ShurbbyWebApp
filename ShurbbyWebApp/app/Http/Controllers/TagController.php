@@ -59,12 +59,17 @@ class TagController extends Controller
     // }
 
 
-    public function searchByTag(Request $request,$name=''){
+    public function searchByTag(Request $request){
         
         $search = $request['query']??array_keys($request->query())['0'];
         $tag=Tag::where('name','=',$search)->first();
-        $shrubbies=$tag->shrubbies;
-        $clumppies=$tag->clumppies;
+        if($tag!= null){
+            $shrubbies=$tag->shrubbies;
+            $clumppies=$tag->clumppies;
+        }else{
+            $shrubbies=[];
+            $clumppies=[];
+        }
         
         return  view('shrubby.shrubbynewby')
                     ->with('shrubbies',$shrubbies)
