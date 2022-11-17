@@ -160,3 +160,23 @@
     font-size: 18px;
     color: #445650;
 }
+
+.movement-comment-topic{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: calc(100% - 32px);
+    height: auto;
+    margin: 16px;
+    padding: 0px;
+    gap: 0px;
+
+    font-family: 'Maitree';
+    font-weight: bold;
+    font-size: 20px;
+    color: #445650;
+
+    border-bottom:1px solid #445650;
+}

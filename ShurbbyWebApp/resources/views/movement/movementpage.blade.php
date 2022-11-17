@@ -39,7 +39,6 @@
     <div class="movement-interaction-engage-bar">
         <x-interaction-engage label='like'/>
         <x-interaction-engage label='comment'/>
-        <x-interaction-engage label='share'/>
         <div class="user-info-post-date">
             โพสต์เมื่อ 14 พ.ย. 2563
         </div>
@@ -58,7 +57,13 @@
     </div>
 
     <div class="movement-comment-framework">
-        hello
+        <div class="movement-comment-topic">
+            ความคิดเห็น
+        </div>
+        <x-will-comment-movement/>
+        <x-comment-movement/>
+        <x-comment-movement/>
+        <x-comment-movement/>
     </div>
 </div>
 @endsection
