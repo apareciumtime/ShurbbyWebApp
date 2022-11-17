@@ -20,10 +20,13 @@
             <x-privacy-status status='public'/>
         </div>
         <div class="movement-page-edit">
-            <a href="/movementupdate">
+            <a href="/movementupdate" class="movement-page-edit-link-to">
                 แก้ไข
             </a>
         </div>
+    </div>
+    <div class="movement-page-tag-framework">
+        <x-tag-framework/>
     </div>
     <div class="movement-picture-section">
         <div class="movement-picture-framework">
@@ -37,15 +40,13 @@
         <x-interaction-engage label='like'/>
         <x-interaction-engage label='comment'/>
         <x-interaction-engage label='share'/>
-    </div>
-    <div class="movement-page-tag-framework">
-        <x-tag-framework/>
+        <div class="user-info-post-date">
+            โพสต์เมื่อ 14 พ.ย. 2563
+        </div>
     </div>
 
     <div class="user-info-bar">
-        <div class="user-info-pic">
-            <img src="/storage/pic.jpg">
-        </div>
+        <img src="/storage/pic.jpg" class="user-info-pic">
         <div class="user-info-name">
             <div class="user-info-name-alias">
                 Alias
@@ -54,9 +55,10 @@
                 @username
             </div>
         </div>
-        <div class="user-info-post-date">
-            โพสต์เมื่อ 14 พ.ย. 2563
-        </div>
+    </div>
+
+    <div class="movement-comment-framework">
+        hello
     </div>
 </div>
 @endsection

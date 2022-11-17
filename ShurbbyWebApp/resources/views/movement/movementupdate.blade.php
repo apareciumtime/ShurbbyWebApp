@@ -5,54 +5,56 @@
 <x-header label="Clumppy"/>
 @endsection
 @section('inside-body')
-<form id="create-movement-form">
-    <div class="movement-create-framework">
-        <div class="movement-create-topic-amount-privacy">
-            <div class="movement-page-topic">
+<form id="update-movement-form">
+    <div class="movement-update-framework">
+        <div class="movement-update-topic-amount-submit">
+            <div class="movement-update-topic">
                 น้องอะโวะ
             </div>
-            <div class="movement-page-amount">
+            <div class="movement-update-amount">
                 (5 ความเคลื่อนไหว)
             </div>
+            <div class="movement-update-submit">
+                <a href="#" class="movement-update-submit-link-to">
+                    บันทึก
+                </a>
+            </div>
         </div>
-        <div class="movement-create-add-new-movement">
-            เพิ่มความเคลื่อนไหวใหม่
+        <div class="movement-update-add-new-movement">
+            แก้ไขความเคลื่อนไหว
         </div>
-        <div class="movement-create-add-display-picture">
-            <label for="cover-image" class="movement-create-add-display-picture-btn">
+        <div class="movement-update-add-display-picture">
+            <label for="cover-image" class="movement-update-add-display-picture-btn">
                 เพิ่มรูปภาพ
             </label>
         </div>
-        <div class="movement-create-input-group">
-            <div class="movement-create-input-label">
+        <div class="movement-update-input-group">
+            <div class="movement-update-input-label">
                 ความเป็นส่วนตัว
             </div>
             <select type="text" 
-                    class="movement-create-input-select"
+                    class="movement-update-input-select"
                     name="privacy_status"
                     id="privacy_status">
                 <option value="0">สาธารณะ</option>
                 <option value="1">ส่วนตัว</option>
             </select>
         </div>
-        <div class="movement-create-input-group">
-            <div class="movement-create-input-label">
+        <div class="movement-update-input-group">
+            <div class="movement-update-input-label">
                 คำอธิบาย
             </div>
             <textarea  type="text" 
-                    class="movement-create-input-textarea"
+                    class="movement-update-input-textarea"
                     name="movement_description"
                     id="movement_description"
                     placeholder="คำอธิบาย"></textarea>
-            <div class="movement-create-input-counter">
+            <div class="movement-update-input-counter">
                 0/200
             </div>
         </div>
-        <div class="movement-page-tag-framework">
+        <div class="movement-update-tag-framework">
             <x-tag-framework/>
-        </div>
-        <div class="movement-create-btn-section">
-            <button class="movement-create-new-movement-btn" form="create-movement-form" type="submit">สร้างความเคลื่อนไหว</button>
         </div>
     </form>
 </div>

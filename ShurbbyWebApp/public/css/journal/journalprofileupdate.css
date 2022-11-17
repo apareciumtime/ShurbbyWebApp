@@ -1,47 +1,11 @@
-body{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-
-    width: 100vw;
-    height: 100vh;
-
-    background: #FAFAFA;
-    border-radius: 12px;
-
-    margin:0px;
-    font-family: "Maitree";
-}
-
-.right-section{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-
-    position:relative;
-    width: auto;
-    height: 100vh;
-}
-
-.body-right-section{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-
-    width: 100%;
-}
-
 .profile-update-framework{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
 
-    width: 64vw;
-    height: 92vh;
+    width: auto;
+    height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -107,8 +71,6 @@ body{
 
     width: fit-content;
     height: 100%;
-
-    /* border:1px solid red; */
 }
 
 .profile-pic{
@@ -118,13 +80,11 @@ body{
 
 .profile-pic-frame a{
     font-family: 'Maitree';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 33px;
+    font-weight: bold;
+    font-size: 18px;
     text-align: center;
-
     color: #4B819F;
+    cursor: pointer;
 }
 
 .profile-pic-frame a:hover{

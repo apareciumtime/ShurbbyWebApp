@@ -29,7 +29,7 @@
             <label>
                 <input type="file" style="display: none;" name="image" id="image">
                 <a>
-                    เปลี่ยน<br>รูปโพรไฟล์
+                    เปลี่ยนรูปโพรไฟล์
                 </a>
             </label>
         </div>

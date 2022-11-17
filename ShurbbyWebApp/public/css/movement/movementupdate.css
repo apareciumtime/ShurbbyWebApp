@@ -1,67 +1,65 @@
-.movement-create-framework{
+.movement-update-framework{
     display: flex;
     flex-direction: column;
 
-    width: 64vw;
-    height: 92vh;
-    overflow-y: auto;
-
-    font-family: 'Maitree';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-
     gap:16px;
+    
+    font-family: 'Maitree';
+    
+    overflow-y: auto;
 }
 
-.movement-create-topic-amount-privacy{
+.movement-update-topic-amount-submit{
     display: flex;
     flex-direction: row;
-
     align-items: center;
 
+    width: calc(100% - 32px);
+    height: auto;
     margin:16px;
-    gap:8px;
-
-    width:calc(100% - 32px);
+    padding: 0px;
+    gap: 0px;
 }
 
-.movement-page-topic{
+.movement-update-topic{
     width: 256px;
-    font-size: 22px;
-    font-weight:bold;
-    color: #304045;
+
+    font-size: 20px;
+    font-weight: bold;
+    color:#445650;
 }
 
-.movement-page-amount{
-    display: flex;
-    flex-direction: row;
-
-    align-items: center;
+.movement-update-amount{
+    width: 200px;
 
     font-size: 16px;
     color:#F1B24B;
-    width: 200px;
 }
 
-.movement-page-privacy{
-    display: flex;
-    flex-direction: row;
-
-    align-items: center;
-
+.movement-update-submit{
     width: calc(100% - 256px - 200px);
-    height: 10px;
+    text-align: right;
 }
 
-.movement-create-add-new-movement{
+.movement-update-submit-link-to{
+    font-size: 18px;
     font-weight: bold;
-    font-size: 22px;
-    margin:0px 16px;
-    width: calc(100% - 32px);
+    color:#4B819F;
 }
 
-.movement-create-add-display-picture{
+.movement-update-submit-link-to:hover{
+    color:#F1B24B;
+}
+
+.movement-update-add-new-movement{
+    width: calc(100% - 32px);
+    margin:0px 16px;
+
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.movement-update-add-display-picture{
     display:flex;
     flex-direction: column;
 
@@ -75,7 +73,7 @@
     border-radius: 8px;
 }
 
-.movement-create-add-display-picture-btn{
+.movement-update-add-display-picture-btn{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -98,21 +96,21 @@
     cursor: pointer;
 }
 
-.movement-create-add-display-picture-btn:hover{
+.movement-update-add-display-picture-btn:hover{
     color:#F1B24B;
 }
 
-.movement-create-input-group{
+.movement-update-input-group{
     margin:16px;
     width: calc(100% - 32px);
 }
 
-.movement-create-input-label{
+.movement-update-input-label{
     font-weight: bold;
     font-size: 20px;
 }
 
-.movement-create-input-textarea{
+.movement-update-input-textarea{
     border:none;
     border-bottom:2px solid #445650;
     outline:none;
@@ -125,7 +123,7 @@
     resize: none;
 }
 
-.movement-create-input-counter{
+.movement-update-input-counter{
     font-family: 'Maitree';
     font-style: normal;
     font-weight: 100;
@@ -135,12 +133,12 @@
 }
 
 
-.movement-page-tag-framework{
+.movement-update-tag-framework{
     margin:16px;
+    width: 64vw;
 }
 
-
-.movement-create-new-movement-btn{
+.movement-update-new-movement-btn{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -164,11 +162,11 @@
     color: #445650;
 }
 
-.movement-create-new-movement-btn:active{
+.movement-update-new-movement-btn:active{
     box-shadow: inset 2px 2px 1px rgba(0, 0, 0, 0.25);
 }
 
-.movement-create-btn-section{
+.movement-update-btn-section{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -178,17 +176,17 @@
     width: calc(100% - 32px);
 }
 
-.movement-create-input-group{
+.movement-update-input-group{
     margin:16px;
     width: calc(100% - 32px);
 }
 
-.movement-create-input-label{
+.movement-update-input-label{
     font-weight: bold;
     font-size: 20px;
 }
 
-.movement-create-input-select{
+.movement-update-input-select{
     border:none;
     border-bottom:2px solid #445650;
     outline:none;

@@ -2,8 +2,6 @@
     display: flex;
     flex-direction: column;
 
-    width: 64vw;
-    height: 92vh;
     overflow-y: auto;
 
     font-family: 'Maitree';
