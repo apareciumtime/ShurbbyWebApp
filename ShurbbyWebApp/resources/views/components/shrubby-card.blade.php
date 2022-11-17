@@ -187,7 +187,7 @@
 
             <div class="shrubby-card-interaction-engagement-bar">
                 <x-interaction-engage label='like' id='{{ $shrubby->id }}' type='shrubby'/>
-                <x-interaction-engage label='comment'/>
+                <x-interaction-engage label='comment' id='{{ $shrubby->id }}' type='shrubby'/>
             </div>
             <div class="shrubby-card-content-user-info">
                 <a href="/journal" class="shrubby-card-content-user-info-username-link-to">

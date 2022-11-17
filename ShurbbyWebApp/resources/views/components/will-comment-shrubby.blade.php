@@ -58,12 +58,16 @@
         แสดงความคิดเห็น
     </div>
     <div class="will-comment-shrubby-area">
-        <textarea name="content" id="editor" form="shrubby-create" class="content-input" placeholder="เนื้อหากระทู้"></textarea>
+        <textarea name="content" id="editor" form="comment" class="content-input" placeholder="เนื้อหากระทู้"></textarea>
     </div>
-    <button class="will-comment-btn">
+    <button class="will-comment-btn" type="submit" form="comment">
         แสดงความคิดเห็น
     </button>
 </div>
+
+<form action="{{route('commentpost',['shrubbyid'=>$shrubbyid,'parentid'=>$parentid])}}" method="POST" id="comment" enctype="multipart/form-data">
+    @csrf
+</form>
 {{-- add this script to make text box usable --}}
 <script>
     ClassicEditor

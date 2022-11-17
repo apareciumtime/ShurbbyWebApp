@@ -7,14 +7,17 @@ use Illuminate\View\Component;
 class willCommentShrubby extends Component
 {
     public $status = 1;
+    public $shrubbyid;
+    public $parentid;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($shrubbyid,$parentid=-1)
     {
-        //
+        $this->parentid = $parentid;
+        $this->shrubbyid = $shrubbyid;
     }
 
     /**

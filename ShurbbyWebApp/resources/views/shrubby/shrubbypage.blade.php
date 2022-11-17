@@ -51,7 +51,7 @@
 
         <div class="shrubby-page-interaction-engagement-bar">
             <x-interaction-engage label='like' id='{{ $shrubby->id }}' type='shrubby'/>
-            <x-interaction-engage label='comment'/>
+            <x-interaction-engage label='comment' id='{{ $shrubby->id }}' type='shrubby'/>
             <div class="shrubby-page-post-date">
                 โพสต์เมื่อ {{time_elapsed_string($shrubby->created_at)}}
             </div>
@@ -79,7 +79,7 @@
             <div class="shrubby-comment-header">
                 <a href="#" class="shrubby-comment-topic">ความคิดเห็น</a>
             </div>
-            <x-will-comment-shrubby/>
+            <x-will-comment-shrubby shrubbyid="{{$shrubby->id}}"/>
             <div class="shrubby-comment-content">
                 @foreach($comments as $comment)
                     <x-comment-shrubby id="{{$comment->id}}"/>
