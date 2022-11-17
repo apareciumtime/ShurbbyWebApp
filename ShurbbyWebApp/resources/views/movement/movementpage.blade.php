@@ -34,7 +34,7 @@
         น้องอะโวะ เริ่มปลูกกะจะเอาไว้ขายคับ น้องน่ารักดี ใครมีเทคนิคดี ๆ เอามาแชร์กันได้นะคับ
     </div>
     <div class="movement-interaction-engage-bar">
-        <x-interaction-engage label='like'/>
+        {{-- <x-interaction-engage label='like'/> --}}
         <x-interaction-engage label='comment'/>
         <x-interaction-engage label='share'/>
     </div>
