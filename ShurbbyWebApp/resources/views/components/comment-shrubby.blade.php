@@ -284,33 +284,35 @@
 </style>
 <div class="comment-shrubby-framework">
     <div class="comment-shrubby-score-bar">
-        <form action="{{route('increasecredit.comment',['id'=>$comment->id])}}" method="POST" >
+        <form action="{{route('increasecredit.comment')}}" method="POST" enctype="multipart/form-data">
             @csrf
-            <label for="increasecredit">
+            <input type="number" name="id" id="id" value={{$comment->id}} style="display: none;">
+            <button type="submit" >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="score-up-arrow">
                     <path d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8H288c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z"/>
                 </svg>
-            </label>
-            <input id="increasecredit" type="submit" style="display: none;">
+            </button>
         </form>
+
         <div class="comment-shrubby-score-display">
             {{$comment->credit}}
         </div>
-        <form action="{{route('decreasecredit.comment',['id'=>$comment->id])}}" method="POST" >
+        
+        <form action="{{route('decreasecredit.comment')}}" method="POST" enctype="multipart/form-data">
             @csrf
-            <label for="decreasecredit">
+            <input type="number" name="id" id="id" value={{$comment->id}} style="display: none;">
+            <button type="submit">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="score-down-arrow">
                     <path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/>
                 </svg>
-            </label>
-            <input id="decreasecredit" type="submit" style="display: none;">
+            </button>
         </form>
-        <form id="verify-form" action="{{route('accept.comment',['id'=>$comment->id])}}" method="POST" >
+
+        <form id="verify-form" action="{{route('accept.comment')}}" method="POST" enctype="multipart/form-data">
             @csrf
-        </form>
-        
-        @if($comment->accept==true)
-            <button class="comment-shrubby-verified-btn" type="submit" form="verify-form">
+            <input type="number" name="id" id="id" value={{$comment->id}} style="display: none;">
+            @if($comment->accept==true)
+            <button class="comment-shrubby-verified-btn" type="submit">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="comment-shrubby-verified-icon">
                     <path d="M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
                 </svg>
@@ -318,18 +320,19 @@
             <div style="color:rgb(0, 0, 0)" class="comment-shrubby-context-verified">
                 ยืนยันโดยเจ้าของกระทู้
             </div>
-            
-        @else
-            <button class="comment-shrubby-verified-btn" type="submit" form="verify-form">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="comment-shrubby-unverify-icon">
-                    <path d="M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
-                </svg>
-            </button>
-            <div class="comment-shrubby-context-unverify">
-                ยืนยันโดยเจ้าของกระทู้
-            </div>
-        @endif
+            @else
+                <button class="comment-shrubby-verified-btn" type="submit">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="comment-shrubby-unverify-icon">
+                        <path d="M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
+                    </svg>
+                </button>
+                <div class="comment-shrubby-context-unverify">
+                    ยืนยันโดยเจ้าของกระทู้
+                </div>
+            @endif
+        </form>
     </div>
+
     <div class="comment-shrubby-content">
         <div class="comment-shrubby-content-topic-edit">
             <div class="comment-shrubby-content-topic">

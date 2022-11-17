@@ -64,9 +64,9 @@ Route::get('shrubbynewby', [ShrubbyController::class, 'shrubbynewby'])->name('sh
 //comment
 Route::post('comment/{shrubbyid}/{parentid}',[ShrubbyController::class,'commentPost'])->name('commentpost');
 Route::delete('comment/{id}', [CommentController::class, 'deleteComment'])->name('delete.comment');
-Route::post('commentincreasecredit/{id}',[CommentController::class, 'increaseCredit'])->name('increasecredit.comment');
-Route::post('commentdecreasecredit/{id}',[CommentController::class, 'decreaseCredit'])->name('decreasecredit.comment');
-Route::post('commentaccept/{id}',[CommentController::class, 'accept'])->name('accept.comment');
+Route::post('commentincreasecredit',[CommentController::class, 'increaseCredit'])->name('increasecredit.comment');
+Route::post('commentdecreasecredit',[CommentController::class, 'decreaseCredit'])->name('decreasecredit.comment');
+Route::post('commentaccept',[CommentController::class, 'accept'])->name('accept.comment');
 
 
 //profile image

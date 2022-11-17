@@ -51,7 +51,8 @@ class CommentController extends Controller
             ->with('message', 'Your Comment has been deleted!');
     }
 
-    public function increaseCredit($id){
+    public function increaseCredit(Request $request){
+        $id=$request->id;
         $comment = Comment::where('id', $id)->first();
         $user=\Auth::user();
         if($comment->user_id!=$user->id){
@@ -86,7 +87,8 @@ class CommentController extends Controller
         }
     }
 
-    public function decreaseCredit($id){
+    public function decreaseCredit(Request $request){
+        $id=$request->id;
         $comment = Comment::where('id', $id)->first();
         $user=\Auth::user();
         if($comment->user_id!=$user->id){
@@ -121,7 +123,8 @@ class CommentController extends Controller
         }
     }
 
-    public function accept($id){
+    public function accept(Request $request){
+        $id=$request->id;
         $comment = Comment::where('id', $id)->first();
         $user=\Auth::user();
         $shrubby=Shrubby::where('id','=',$comment->commentable_id)->first();
