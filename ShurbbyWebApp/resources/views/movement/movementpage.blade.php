@@ -62,10 +62,10 @@
         <div class="movement-comment-topic">
             ความคิดเห็น
         </div>
-        <x-will-comment-movement/>
-        <x-comment-movement/>
-        <x-comment-movement/>
-        <x-comment-movement/>
+        <x-will-comment-movement movementid="{{$movement->id}}"/>
+        @foreach($comments as $comment)
+            <x-comment-movement id="{{$comment->id}}"/>
+        @endforeach
     </div>
 </div>
 @endsection

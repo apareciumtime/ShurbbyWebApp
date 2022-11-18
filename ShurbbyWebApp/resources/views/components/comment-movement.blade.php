@@ -93,35 +93,33 @@
 
 <div class="comment-movement-framework">
     <div class="comment-movement-indexing">
-        ความคิดเห็นที่ 1
+        ความคิดเห็นที่ {{$comment->comment_id}}
     </div>
     <div class="comment-movement-pic-user-info-content">
         <a href="/journal" class="comment-movement-pic-link-to">
-            <img src="" class="comment-movement-pic">
+            <img src="{{asset($user->profile_image)}}" class="comment-movement-pic">
         </a>
         <div class="comment-movement-user-info">
             <div class="comment-movement-alias">
                 <a href="/journal" class="comment-movement-alias-link-to">
-                    HAlias
+                    {{$user->alias}}
                 </a>
             </div>
             <div class="comment-movement-username">
                 <a href="/journal" class="comment-movement-username-link-to">
-                    @username
+                    {{$user->username}}
                 </a>
             </div>
         </div>
         <div class="comment-movement-content">
-            คอมเมนต์แสดงความคิดเห็นออกมา เอาออกมาพิสูจน์ เพราะแค่เพียงคำพูดไม่พอ<br>
-            <br>
-            <br>พุดอีกที พูดอีกที พูดอีกทีได้หรือเปล่า
+            {!! $comment->content !!} 
         </div>
     </div>
     <div class="movement-interaction-engage-bar">
         <x-interaction-engage label='like'/>
         <x-interaction-engage label='comment'/>
         <div class="user-info-post-date">
-            โพสต์เมื่อ 14 พ.ย. 2563
+            {{thai_date($comment->created_at,false)}}
         </div>
     </div>
 </div>

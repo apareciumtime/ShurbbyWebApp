@@ -68,13 +68,16 @@
         แสดงความคิดเห็น
     </div>
     <div class="will-comment-movement-area">
-        <textarea name="content" id="editor" form="comment" class="content-input" placeholder="เนื้อหากระทู้"></textarea>
+        <textarea name="content" id="editor" form="comment" class="content-input" placeholder="แสดงความคิดเห็นที่นี่"></textarea>
     </div>
     <button class="will-comment-btn" type="submit" form="comment">
         แสดงความคิดเห็น
     </button>
 </div>
 
+<form action="{{route('commentmovement',[$movementid])}}" method="POST" id="comment" enctype="multipart/form-data">
+    @csrf
+</form>
 
 {{-- add this script to make text box usable --}}
 <script>

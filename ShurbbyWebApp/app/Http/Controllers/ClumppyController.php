@@ -84,6 +84,7 @@ class ClumppyController extends Controller
         $movements=Movement::where('clumppy_id','=',$id)->get();
         foreach($movements as $movement){
             DB::table('image_movement')->where('movement_id',$movement->id)->delete();
+            DB::table('taggables')->where('taggable_id','=',$movement->id)->where('taggable_type','=','App\Models\movement')->delete();
         }
         Movement::where('clumppy_id','=',$id)->delete();
         Clumppy::where('id', $id)->delete();

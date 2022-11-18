@@ -58,7 +58,7 @@
         แสดงความคิดเห็น
     </div>
     <div class="will-comment-shrubby-area">
-        <textarea name="content" id="editor" form="comment" class="content-input" placeholder="เนื้อหากระทู้"></textarea>
+        <textarea name="content" id="editor" form="comment" class="content-input" placeholder="แสดงความคิดเห็นที่นี่"></textarea>
     </div>
     <button class="will-comment-btn" type="submit" form="comment">
         แสดงความคิดเห็น

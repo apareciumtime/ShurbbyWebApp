@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Clumppy;
 use App\Models\Tag;
 use App\Models\Movement;
+use App\Models\Comment;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Carbon\Carbon;
@@ -115,7 +116,9 @@ class MovementController extends Controller
         $movement_images=DB::table('image_movement')->where('movement_id','=',$movement_id)->get();
         $clumppy=Clumppy::where('id','=',$movement->clumppy_id)->first();
 
-        return view('movement.movementpage')->with(['movement'=>$movement,'clumppy'=>$clumppy,'movement_images'=>$movement_images]);
+        $comments=$movement->comments()->orderBy('id','asc')->get();
+        return view('movement.movementpage')->with(['movement'=>$movement,'clumppy'=>$clumppy,'movement_images'=>$movement_images
+                ,'comments'=>$comments]);
     }
 
     public function likeMovement($id)
@@ -211,6 +214,39 @@ class MovementController extends Controller
         DB::table('image_movement')->where('movement_id','=',$id)->delete();
         Movement::where('id','=',$id)->delete();
         return redirect()->route('showclumppy',[$movement->clumppy_id]);
+    }
+
+    public function commentMovement(Request $request,$movement_id){
+        $request->validate([
+            'content' => 'required',
+        ]);
+
+        $movement = Movement::find($movement_id);
+        $comment = new Comment;
+
+        //if null -> this is first comment
+        $isFirst=$movement->comments()->first();
+        if($isFirst==null){
+            $comment->comment_id=1;
+        }
+        else{
+            $lastCommentID=$movement->comments()->orderBy('comment_id','desc')->first()->comment_id;
+            $comment->comment_id=$lastCommentID+1;
+        }
+
+        $comment->user_id=\Auth::user()->id;
+        $comment->parent=null;
+        
+        $comment->content=$request->content;
+        $comment->like=0;
+        $comment->credit=0;
+        $comment->accept=false;
+
+        // $comment->save();
+        $movement->comments()->save($comment);
+
+        $comments=$movement->comments()->orderBy('id','asc')->get();
+        return Redirect::back()->withMessage('your comment saved!')->with(['comments',$comments]);
     }
 
 }

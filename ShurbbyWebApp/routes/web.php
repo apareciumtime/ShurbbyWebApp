@@ -104,11 +104,13 @@ Route::post('movementpage/like/{id}',[MovementController::class,'likeMovement'])
 Route::get('movementcreate/{clumppy_id}', [MovementController::class, 'createMovementPage'])->name('movementcreate');
 Route::get('movementpage/{movement_id}', [MovementController::class, 'indexMovementPage'])->name('movementpage');
 Route::get('movementupdate/{movement_id}',[MovementController::class, 'updateMovementpage'])->name('movementupdate');
+
 Route::post('/uploadmovementimage',[MovementController::class,'uploadMovementImage'])->name('uploadmovementimage');
 Route::post('/createmovement/{movement_id}',[MovementController::class,'createMovement'])->name('createmovement');
 Route::post('/updatemovement/{id}',[MovementController::class,'updateMovement'])->name('updatemovement');
 Route::delete('/deletemovement/{id}',[MovementController::class,'deleteMovement'])->name('deletemovement');
 
+Route::post('commentmovement/{id}',[MovementController::class,'commentMovement'])->name('commentmovement');
 
 
 Route::get('/clumppyrecommend',[ClumppyController::class, 'clumppyrecommend'])->name('clumppyrecommend');
