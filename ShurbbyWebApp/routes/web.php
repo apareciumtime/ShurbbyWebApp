@@ -117,4 +117,5 @@ Route::get('/clumppyrecommend',[ClumppyController::class, 'clumppyrecommend'])->
 Route::get('/clumppynewby',[ClumppyController::class, 'clumppynewby'])->name('clumppynewby');
 
 //search
-Route::get('/search', [TagController::class, 'searchByTag'])->name('search');
+Route::get('/search', [TagController::class, 'searchAll'])->name('search');
+Route::get('/searchtag', [TagController::class, 'searchByTag'])->name('searchtag');

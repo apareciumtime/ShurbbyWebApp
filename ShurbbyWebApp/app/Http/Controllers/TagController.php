@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Clumppy;
+use App\Models\Shrubby;
 use Illuminate\Http\Request;
 use App\Models\Tag;
 use Illuminate\Support\Facades\DB;
@@ -62,15 +64,32 @@ class TagController extends Controller
     public function searchByTag(Request $request){
         
         $search = $request['query']??array_keys($request->query())['0'];
-        $tag=Tag::where('name','=',$search)->first();
-        if($tag!= null){
-            $shrubbies=$tag->shrubbies;
-            $clumppies=$tag->clumppies;
-        }else{
-            $shrubbies=[];
-            $clumppies=[];
+        $tags=Tag::Where('name','LIKE',$search)->first();
+        $shrubbies=[];
+        $clumppies=[];
+        if($tags->count()){
+            $shrubbies=$tags->shrubbies;
+            $clumppies=$tags->clumppies;
         }
+        return  view('shrubby.shrubbynewby')
+                    ->with('shrubbies',$shrubbies)
+                    ->with('clumppies',$clumppies);
+    }
+
+    public function searchAll(Request $request){
         
+        $search = $request['query']??array_keys($request->query())['0'];
+        $tags=Tag::Where('name','LIKE','%'.$search.'%')->get();
+        //search from name
+        $shrubbies=Shrubby::where('title','LIKE','%'.$search.'%')->get();
+        $clumppies=Clumppy::where('name','LIKE','%'.$search.'%')->get();
+
+        if($tags->count()){
+            foreach($tags as $tag){
+                $shrubbies=$tag->shrubbies->merge($shrubbies);
+                $clumppies=$tag->clumppies->merge($clumppies);
+            }
+        }
         return  view('shrubby.shrubbynewby')
                     ->with('shrubbies',$shrubbies)
                     ->with('clumppies',$clumppies);
