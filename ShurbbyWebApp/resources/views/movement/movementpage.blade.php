@@ -39,8 +39,8 @@
         {{$movement->description}}
     </div>
     <div class="movement-interaction-engage-bar">
-        <x-interaction-engage label='like'/>
-        <x-interaction-engage label='comment'/>
+        <x-interaction-engage label='like' id='{{$movement->id}}' type='movement'/>
+        <x-interaction-engage label='comment' id='{{$movement->id}}' type='movement'/>
         <div class="user-info-post-date">
             {{$movement->created_at}}
         </div>

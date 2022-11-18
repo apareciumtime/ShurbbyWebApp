@@ -106,9 +106,9 @@ class ShrubbyController extends Controller
             
             $shrubby->tags()->save($tag);
         }
-        // return view('showShrubby',$data);
+        // return view('shrubbypage',$data);
         // return redirect('/home')->with('message','Your Shrubby has been add >w<!');
-        return redirect()->route('showShrubby',[$shrubby->id]);
+        return redirect()->route('shrubbypage',[$shrubby->id]);
     }
 
     public function editShrubby($id)
@@ -162,7 +162,7 @@ class ShrubbyController extends Controller
 
         // return redirect('/home')
         //     ->with('message', 'Your Shrubby has been updated!');
-        return redirect()->route('showShrubby',[$id]);
+        return redirect()->route('shrubbypage',[$id]);
     }
     public function pageShrubby($id)
     { 
@@ -256,6 +256,7 @@ class ShrubbyController extends Controller
                         ]);
             $shrubby->unlike();
             $shrubby->save();
+            return response()->json(['status'=>'success','message'=>'unliked']);
         }
         else{
             Shrubby::where('id', $id)
@@ -264,7 +265,8 @@ class ShrubbyController extends Controller
                         ]);
             $shrubby->like();
             $shrubby->save();
+            return response()->json(['status'=>'success','message'=>'liked']);
         }
-        return Redirect::back();
+        // return Redirect::back();
     }
 }

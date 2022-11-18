@@ -32,6 +32,8 @@ class interactionEngage extends Component
         $post =null;
         $routeTo='';
         $this->liked= false;
+        $page=$type.'page';
+        // dd($page);
 
         if($type == 'shrubby'){
             $post = Shrubby::where('id','=',$id)->get()->first();
@@ -39,10 +41,10 @@ class interactionEngage extends Component
             $this->liked= $post->liked();
             $this->routeTo = route('like.shrubby',$id);
         }
-        // elseif($type == 'clumppy'){
-        //     $post = Clumppy::where('id','=',$id)->get()->first();
-        //     $this->post =$post;
-        // }
+        elseif($type == 'clumppy'){
+            $post = Clumppy::where('id','=',$id)->get()->first();
+            $this->post =$post;
+        }
         elseif($type == 'comment'){
             $post = Comment::where('id','=',$id)->get()->first();
             $this->post = $post;
@@ -74,6 +76,7 @@ class interactionEngage extends Component
             }
             else{
                 $this->comment_amount = $post->comments->count();
+                $this->routeTo = route($page,$id);
             }
         }
     }

@@ -184,7 +184,7 @@
                     </a>
                 @endif
             </div>
-
+    </a>
             <div class="shrubby-card-interaction-engagement-bar">
                 <x-interaction-engage label='like' id='{{ $shrubby->id }}' type='shrubby'/>
                 <x-interaction-engage label='comment' id='{{ $shrubby->id }}' type='shrubby'/>
@@ -218,5 +218,4 @@
             </div>
 
         </div>
-    </a>
 </div>

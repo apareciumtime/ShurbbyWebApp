@@ -28,6 +28,7 @@ class CommentController extends Controller
                         ]);
             $comment->unlike();
             $comment->save();
+            return response()->json(['status'=>'success','message'=>'unliked']);
         }
         else{
             Comment::where('id', $id)
@@ -36,9 +37,9 @@ class CommentController extends Controller
                         ]);
             $comment->like();
             $comment->save();
+            return response()->json(['status'=>'success','message'=>'liked']);
         }
         // dd($comment);
-        return Redirect::back();
     }
 
     public function deleteComment($id)

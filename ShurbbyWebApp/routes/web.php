@@ -49,7 +49,7 @@ Route::get('shrubbycreate', [ShrubbyController::class, 'createShrubby']);
 Route::post('shrubbycreate', [ShrubbyController::class, 'create'])->name('shrubbycreate');
 Route::post('/upload', [ShrubbyController::class, 'uploadImageShrubby'])->name('ckeditor.upload');
 //
-Route::get('shrubbypage/{id}', [ShrubbyController::class, 'pageShrubby'])->name('showShrubby');
+Route::get('shrubbypage/{id}', [ShrubbyController::class, 'pageShrubby'])->name('shrubbypage');
 Route::get('shrubbypage/{id}/edit', [ShrubbyController::class, 'editShrubby']);
                                                                             // ->middleware('user.secutiry');
 Route::put('shrubbypage/{id}', [ShrubbyController::class, 'updateShrubby'])->name('updateShrubby');
@@ -80,7 +80,7 @@ Route::post('editProfile',[ProfileController::class,'editProfile'])->name('editP
 // Route::view('/clumppycreate','clumppy.clumppycreate')->name('clumppycreate');
 Route::get('/clumppycreate',[ClumppyController::class,'indexCreateClumppy'])->name('clumppycreate');
 // Route::view('/clumppypage','clumppy.clumppypage')->name('clumppypage');1
-Route::get('clumppypage/{id}', [ClumppyController::class, 'pageClumppy'])->name('showclumppy');
+Route::get('clumppypage/{id}', [ClumppyController::class, 'pageClumppy'])->name('clumppypage');
 Route::get('/clumppypage/{id}/edit', [ClumppyController::class, 'editClumppy']);
 Route::put('/clumppypage/{id}', [ClumppyController::class, 'updateClumppy'])->name('updateclumppy');
 Route::delete('clumppypage/{id}', [ClumppyController::class, 'deleteClumppy']);

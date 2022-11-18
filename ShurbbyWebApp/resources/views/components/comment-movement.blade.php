@@ -116,8 +116,8 @@
         </div>
     </div>
     <div class="movement-interaction-engage-bar">
-        <x-interaction-engage label='like'/>
-        <x-interaction-engage label='comment'/>
+        <x-interaction-engage label='like' id='{{$comment->id}}' type='comment'/>
+        <x-interaction-engage label='comment' />
         <div class="user-info-post-date">
             {{thai_date($comment->created_at,false)}}
         </div>

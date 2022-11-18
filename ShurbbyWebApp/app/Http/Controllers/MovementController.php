@@ -127,12 +127,13 @@ class MovementController extends Controller
         if($movement->liked()){
             $movement->unlike();
             $movement->save();
+            return response()->json(['status'=>'success','message'=>'unliked']);
         }
         else{
             $movement->like();
             $movement->save();
+            return response()->json(['status'=>'success','message'=>'liked']);
         }
-        return Redirect::back();
     }
 
     public function updateMovementpage($movement_id){
@@ -213,7 +214,7 @@ class MovementController extends Controller
         DB::table('taggables')->where('taggable_id','=',$id)->where('taggable_type','=','App\Models\movement')->delete();
         DB::table('image_movement')->where('movement_id','=',$id)->delete();
         Movement::where('id','=',$id)->delete();
-        return redirect()->route('showclumppy',[$movement->clumppy_id]);
+        return redirect()->route('clumppypage',[$movement->clumppy_id]);
     }
 
     public function commentMovement(Request $request,$movement_id){

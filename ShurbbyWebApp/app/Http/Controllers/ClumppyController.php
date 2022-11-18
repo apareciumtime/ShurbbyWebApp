@@ -108,7 +108,7 @@ class ClumppyController extends Controller
         $clumppy->is_private=$request->privacy_status;
         $clumppy->amount=$request->plant_amount;
         $clumppy->save();
-        return redirect()->route('showclumppy',[$clumppy->id]);
+        return redirect()->route('clumppypage',[$clumppy->id]);
     }
 
     public function editClumppy($id)
@@ -141,7 +141,7 @@ class ClumppyController extends Controller
                 'amount' => $request->plant_amount,
             ]);
 
-        return redirect()->route('showclumppy',[$id]);
+        return redirect()->route('clumppypage',[$id]);
     }
 
     public function cropCover(Request $request,$empty_clumppy_id){
