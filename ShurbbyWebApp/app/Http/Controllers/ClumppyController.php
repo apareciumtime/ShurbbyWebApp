@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Clumppy;
+use App\Models\Movement;
 use App\Models\Comment;
 use App\Models\Tag;
 use Illuminate\Support\Facades\DB;
@@ -80,9 +81,13 @@ class ClumppyController extends Controller
     public function deleteClumppy($id)
     {
         DB::table('taggables')->where('taggable_id',$id)->delete();
-
-        $clumppy = Clumppy::where('id', $id);
-        $clumppy->delete();
+        $movements=Movement::where('clumppy_id','=',$id)->get();
+        foreach($movements as $movement){
+            DB::table('image_movement')->where('movement_id',$movement->id)->delete();
+        }
+        Movement::where('clumppy_id','=',$id)->delete();
+        Clumppy::where('id', $id)->delete();
+        // $clumppy->delete();
 
         return redirect('/home')
             ->with('message', 'Your Clumppy has been deleted!');

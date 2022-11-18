@@ -192,6 +192,21 @@ class MovementController extends Controller
 
     public function deleteMovement($id){
         $movement=Movement::where('id','=',$id)->first();
+        $clumppy=Clumppy::where('id','=',$movement->clumppy_id)->first();
+        $all_movement=$clumppy->movements->where('id','!=',$movement->id);
+        $movement_tags=$movement->tags;
+        foreach($movement_tags as $tag){
+            $tag_exist=false;
+            foreach($all_movement as $movement_c){
+                if($movement_c->tags->where('name','=',$tag->name)->count()>0){
+                    $tag_exist=true;
+                    break;
+                }
+            }
+            if($tag_exist==false){
+                $clumppy->tags()->detach($tag->id);
+            }
+        }
         DB::table('taggables')->where('taggable_id','=',$id)->where('taggable_type','=','App\Models\movement')->delete();
         DB::table('image_movement')->where('movement_id','=',$id)->delete();
         Movement::where('id','=',$id)->delete();

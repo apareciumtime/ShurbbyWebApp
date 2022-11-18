@@ -46,7 +46,7 @@
 
             <div class="images-preview-div"> 
             </div> 
-            <button type="submit" id="submit">เพิ่มรูปภาพ</button>
+            <button type="submit" id="submit" form="images-upload-form">เพิ่มรูปภาพ</button>
         </form>
     <form id="create-movement-form" action="{{route("createmovement",$movement->id)}}" method="POST">
         @csrf
