@@ -13,10 +13,12 @@ class shrubbyCard extends Component
      * @return void
      */
     public $shrubby;
+    public $slide;
     public $pic_status = 0;
-    public function __construct($itemid)
+    public function __construct($itemid,$slide='')
     {
         $this->shrubby = Shrubby::where('id','=',$itemid)->get()->first();
+        $this->slide = $slide;
     }
 
     /**

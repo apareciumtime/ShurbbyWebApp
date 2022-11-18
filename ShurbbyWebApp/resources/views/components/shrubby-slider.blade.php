@@ -83,7 +83,7 @@
     <div class="shrubby-slider-slot-outside">
         <div class="shrubby-slider-slot">
             @foreach ($shrubbies as $shrubby)
-                <x-shrubby-card itemid="{{$shrubby->id}}"/>
+                <x-shrubby-card itemid="{{$shrubby->id}}" slide="{{$link_to}}"/>
             @endforeach 
         </div>
     </div>

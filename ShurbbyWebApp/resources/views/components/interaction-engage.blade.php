@@ -94,9 +94,6 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
     function likeIt(postid,routeTo,type){
-        // alert(postid);
-        // alert(type);
-        // alert("islike-"+type+"-"+postid);
         var csrfToken='{{csrf_token()}}';
         var element = document.getElementById("islike-"+type+"-"+postid);
         var cnt = document.getElementById("likeCount-"+type+"-"+postid).innerHTML;
@@ -107,7 +104,7 @@
                 element.classList='interaction-engage-icon-svg';
                 document.getElementById("likeCount-"+type+"-"+postid).innerHTML = parseInt(cnt)+1;
             }else{
-                element.classList+='-yet';
+                element.classList='interaction-engage-icon-svg-yet';
                 document.getElementById("likeCount-"+type+"-"+postid).innerHTML = parseInt(cnt)-1;
             }
         }  

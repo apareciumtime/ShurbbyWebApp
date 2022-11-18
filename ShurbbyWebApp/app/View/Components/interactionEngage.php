@@ -24,7 +24,7 @@ class interactionEngage extends Component
      *
      * @return void
      */
-    public function __construct($label,$id='',$type='')
+    public function __construct($label,$id='',$type='',$slide='')
     {
         $this->label = $label;
         $this->id = $id;
@@ -66,6 +66,7 @@ class interactionEngage extends Component
             }
             else{
                 $this->like_amount = $post->likeCount; //get amount from database
+                $this->type = $type.$slide;
             }
             
         }
