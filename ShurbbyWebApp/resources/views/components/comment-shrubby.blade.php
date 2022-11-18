@@ -312,54 +312,48 @@
             @endif
         </div>
         {{-- -------------------------------------------------- --}}
-        
-        {{-- <form action="{{route('increasecredit.comment')}}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <input type="number" name="id" id="id" value={{$comment->id}} style="display: none;"> --}}
-            <button class="score-up-arrow-btn" onclick="increasecredit('{{$comment->id}}','{{$routeincrease}}')">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="score-up-arrow">
-                    <path d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8H288c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z"/>
-                </svg>
-            {{-- </button>
-        </form> --}}
+
+        <button class="score-up-arrow-btn" onclick="increasecredit('{{$comment->id}}','{{$routeincrease}}')">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="score-up-arrow">
+                <path d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8H288c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z"/>
+            </svg>
+        </button>
+        {{-- -------------------------------------------------- --}}
 
         <div class="comment-shrubby-score-display" id="creditscore-{{$comment->id}}">
             {{$comment->credit}}
         </div>
-{{--         
-        <form action="{{route('decreasecredit.comment')}}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <input type="number" name="id" id="id" value={{$comment->id}} style="display: none;"> --}}
-            <button class="score-down-arrow-btn" onclick="decreasecredit('{{$comment->id}}','{{$routedecrease}}')">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="score-down-arrow">
-                    <path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/>
-                </svg>
-            {{-- </button>
-        </form> --}}
+        
+        {{-- -------------------------------------------------- --}}
 
-        {{-- <form id="verify-form" action="{{route('accept.comment')}}" method="POST" enctype="multipart/form-data" class="comment-shrubby-verify-btn-form">
-            @csrf
-            <input type="number" name="id" id="id" value={{$comment->id}} style="display: none;">
+        <button class="score-down-arrow-btn" onclick="decreasecredit('{{$comment->id}}','{{$routedecrease}}')">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="score-down-arrow">
+                <path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/>
+            </svg>
+        </button>
+
+        {{-- -------------------------------------------------- --}}
+
+        <button class="comment-shrubby-verified-btn" onclick="accept('{{$comment->id}}','{{$routeaccept}}')">
             @if($comment->accept==true)
-            <button class="comment-shrubby-verified-btn" type="submit">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="comment-shrubby-verified-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="verifytick{{$comment->id}}" class="comment-shrubby-verified-icon">
                     <path d="M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
                 </svg>
-            </button>
-            <div style="color:rgb(0, 0, 0)" class="comment-shrubby-context-verified">
+            @else
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="verifytick{{$comment->id}}" class="comment-shrubby-unverify-icon">
+                    <path d="M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
+                </svg>
+            @endif
+        </button>
+        @if($comment->accept==true)
+            <div class="comment-shrubby-context-verified" id="verifytext{{$comment->id}}">
                 ยืนยันโดยเจ้าของกระทู้
             </div>
-            @else --}}
-                <button class="comment-shrubby-verified-btn" onclick="accept('{{$comment->id}}','{{$routeaccept}}')">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="verifytick{{$comment->id}}" class="comment-shrubby-unverify-icon">
-                        <path d="M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
-                    </svg>
-                </button>
-                <div class="comment-shrubby-context-unverify" id="verifytext{{$comment->id}}">
-                    ยืนยันโดยเจ้าของกระทู้
-                </div>
-            {{-- @endif --}}
-        {{-- </form> --}}
+        @else
+            <div class="comment-shrubby-context-unverify" id="verifytext{{$comment->id}}">
+                ยืนยันโดยเจ้าของกระทู้
+            </div>
+        @endif
     </div>
 
     <div class="comment-shrubby-content">
@@ -435,8 +429,6 @@
         var textaccept = document.getElementById("verifytext"+commentid);
         var symbolaccept = document.getElementById("verifytick"+commentid);
 
-        // var cnt = document.getElementById("likeCount-"+type+"-"+postid).innerHTML;
-            
         $.post(routeTo, {commentid:commentid, _token:csrfToken}, function (data) {
             console.log(data);
             if(data.message==='accepted'){
