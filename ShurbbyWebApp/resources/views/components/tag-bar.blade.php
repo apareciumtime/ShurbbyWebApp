@@ -67,19 +67,44 @@
 
 <div class="tag-bar-framework">
     <div class="tag-bar-name-follower">
-        <a href="#" class="tag-bar-name">
+        <a href="{{ route('searchtag',$label) }}" class="tag-bar-name">
             #{{$label}}
         </a>
         <div class="tag-bar-follower">
-            {{$follower}}
+            <span id='follower-{{$tag_id}}'>{{$follower}}</span> ผู้ติดตาม
         </div>
     </div>
     <div class="tag-bar-follow-btn-section">
-        <form action="{{route('follow',$tag_id)}}" method="POST">
-            @csrf
-            <button class="tag-bar-follow-btn">
-                {{$button_label}}
-            </button>
-        </form>
+        <button class="tag-bar-follow-btn" onclick="followIt('{{$tag_id}}','{{route('follow',$tag_id)}}',this)">
+            {{$button_label}}
+        </button>
     </div>
 </div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    function followIt(tagid,route,elem){
+        
+        // alert(type);
+        // alert("islike-"+type+"-"+postid);
+        var csrfToken='{{csrf_token()}}';
+        // var element = document.getElementById("islike-"+type+"-"+postid);
+        var cnt = document.getElementById('follower-'+tagid).innerHTML.split(" ");
+
+        // alert(tagid); 
+        // alert(cnt); 
+        $.post(route, {tagid: tagid,_token:csrfToken}, function (data) {
+            console.log(data);
+            if(data.message==='following'){
+                document.getElementById('follower-'+tagid).innerHTML = parseInt(cnt)+1;
+                elem.innerHTML = 'เลิกติดตาม';
+
+            }else{
+                document.getElementById('follower-'+tagid).innerHTML = parseInt(cnt)-1;
+                elem.innerHTML = 'ติดตาม';
+            }
+        }  
+        )
+    };
+</script>

@@ -24,7 +24,7 @@ class tagBar extends Component
         $user=\Auth::user();
         $tag=Tag::where('name','=',$label)->first();
         $this->tag_id=$tag->id;
-        $this->follower = ''.$tag->num_follower.' ผู้ติดตาม';
+        $this->follower = $tag->num_follower;
         if($user!=null){ 
             $following=$user->tags()->where('tag_id','=',$tag->id)->first();
             if($following==null){

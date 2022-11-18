@@ -32,11 +32,13 @@ class TagController extends Controller
                     $tagtofollow->num_follower+=1;
                     $tagtofollow->save();
                     $user->tags()->attach($tagtofollow->id);
+                    return response()->json(['status'=>'success','message'=>'following']);
                 }
                 else{
                     $tagtofollow->num_follower-=1;
                     $tagtofollow->save();
                     $user->tags()->detach($tagtofollow->id);
+                    return response()->json(['status'=>'success','message'=>'unfollow']);
                 }
             }
         }
