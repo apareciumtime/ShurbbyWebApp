@@ -54,9 +54,8 @@ class CommentController extends Controller
             ->with('message', 'Your Comment has been deleted!');
     }
 
-    public function increaseCredit(Request $request){
-        $id=$request->id;
-        $comment = Comment::where('id', $id)->first();
+    public function increaseCredit($commentid){
+        $comment = Comment::where('id', $commentid)->first();
         $user=\Auth::user();
         if($comment->user_id!=$user->id){
             $check=DB::table('credit_commentuser')->where('comment_id','=',$comment->id)->where('user_id','=',$user->id)->first();
@@ -68,6 +67,7 @@ class CommentController extends Controller
                     'user_id'=>$user->id,
                     'value'=>1
                 ]);
+                return response()->json(['status'=>'success','message'=>'increased','score'=>$comment->credit]);
             }
             // ever click credit
             else{
@@ -75,24 +75,23 @@ class CommentController extends Controller
                 if($check->value==-1){
                     $comment->update(['credit'=>$comment->credit+2]);
                     DB::table('credit_commentuser')->where('comment_id','=',$comment->id)->where('user_id','=',$user->id)->update(['value'=>1]);
-
+                    return response()->json(['status'=>'success','message'=>'increased','score'=>$comment->credit]);
                 }
                 // click increase credit before
                 else if($check->value==1){
                     $comment->update(['credit'=>$comment->credit-1]);
                     DB::table('credit_commentuser')->where('comment_id','=',$comment->id)->where('user_id','=',$user->id)->delete();
+                    return response()->json(['status'=>'success','message'=>'unincrease','score'=>$comment->credit]);
                 }
             }
-            return Redirect::back();
         }
         else{
-            return Redirect::back();
+            return response()->json(['status'=>'success','message'=>'not increased','score'=>$comment->credit]);
         }
     }
 
-    public function decreaseCredit(Request $request){
-        $id=$request->id;
-        $comment = Comment::where('id', $id)->first();
+    public function decreaseCredit($commentid){
+        $comment = Comment::where('id', $commentid)->first();
         $user=\Auth::user();
         if($comment->user_id!=$user->id){
             $check=DB::table('credit_commentuser')->where('comment_id','=',$comment->id)->where('user_id','=',$user->id)->first();
@@ -104,6 +103,8 @@ class CommentController extends Controller
                     'user_id'=>$user->id,
                     'value'=>-1
                 ]);
+                return response()->json(['status'=>'success','message'=>'decreased','score'=>$comment->credit]);
+
             }
             // ever click credit
             else{
@@ -111,37 +112,39 @@ class CommentController extends Controller
                 if($check->value==-1){
                     $comment->update(['credit'=>$comment->credit+1]);
                     DB::table('credit_commentuser')->where('comment_id','=',$comment->id)->where('user_id','=',$user->id)->delete();
+                    return response()->json(['status'=>'success','message'=>'undecrease','score'=>$comment->credit]);
+
                 }
                 // click increase credit before
                 else if($check->value==1){
                     $comment->update(['credit'=>$comment->credit-2]);
                     DB::table('credit_commentuser')->where('comment_id','=',$comment->id)->where('user_id','=',$user->id)->update(['value'=>-1]);
-                    
+                    return response()->json(['status'=>'success','message'=>'decreased','score'=>$comment->credit]);
                 }
             }
-            return Redirect::back();
         }
         else{
-            return Redirect::back();
+            return response()->json(['status'=>'success','message'=>'not decrease','score'=>$comment->credit]);
+
         }
     }
 
-    public function accept(Request $request){
-        $id=$request->id;
-        $comment = Comment::where('id', $id)->first();
+    public function accept($commentid){
+        $comment = Comment::where('id','=',$commentid)->first();
         $user=\Auth::user();
         $shrubby=Shrubby::where('id','=',$comment->commentable_id)->first();
         if($shrubby->user_id==$user->id){
             if($comment->accept==true){
                 $comment->update(['accept'=>false]);
+                return response()->json(['status'=>'success','message'=>'unaccept']);
             }
             else{
                 $comment->update(['accept'=>true]);
+                return response()->json(['status'=>'success','message'=>'accepted']);
             }
-            return Redirect::back();
         }
         else{
-            return Redirect::back();
+            return response()->json(['status'=>'success','message'=>'can\'t accept']);
         }
     }
 }

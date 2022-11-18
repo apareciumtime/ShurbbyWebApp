@@ -15,6 +15,10 @@ class commentShrubby extends Component
     public $user; 
     public $increasecredit;
     public $decreasecredit;
+    public $routeaccept;
+    public $routeincrease;
+    public $routedecrease;
+
 
     /**
      * Create a new component instance.
@@ -24,6 +28,10 @@ class commentShrubby extends Component
     public function __construct($id)
     {
         $this->comment=Comment::where('id','=',$id)->first();
+        $this->routeaccept=route('accept.comment',$id);
+        $this->routeincrease=route('increasecredit.comment',$id);
+        $this->routedecrease=route('decreasecredit.comment',$id);
+
         $comment=$this->comment;
         $this->user=User::where('id','=',$comment->user_id)->first();
         $this->label='ความคิดเห็นที่ '.$comment->comment_id;

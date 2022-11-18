@@ -50,7 +50,7 @@
 
         <div class="shrubby-page-content-user-info">
             <a href="/journal" class="shrubby-card-content-user-info-username-link-to">
-                <img src="{{$shrubby->user->profile_image}}" class="shrubby-page-content-user-info-pic">
+                <img src="{{asset($shrubby->user->profile_image)}}" class="shrubby-page-content-user-info-pic">
             </a>
             <div class="shrubby-page-content-user-info-name">
                 <div class="shrubby-page-content-user-info-alias">
