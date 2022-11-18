@@ -30,7 +30,9 @@ class commentShrubby extends Component
         if($comment->parent!=null){
             $this->label=$this->label.' ตอบกลับความคิดเห็นที่ '.$comment->parent;
         }
+        $check=null;
         $authuser=\Auth::user();
+        if(\Auth::user())
         $check=DB::table('credit_commentuser')->where('comment_id','=',$id)->where('user_id','=',$authuser->id)->first();
         if($check!=null){
             if($check->value==1){

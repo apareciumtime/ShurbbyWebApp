@@ -41,20 +41,20 @@
                     </div>
                 </div>
                 <div class="shrubby-button">
-                    <form 
-                            action="/shrubbypage/{{ $shrubby->id }}"
-                            method="POST">
-                            @csrf
-                            @method('delete')
-                        <button class="delete-shrubby-button" type="submit">
-                            ลบกระทู้
-                        </button>
-                    </form>
+                    <button class="delete-shrubby-button" type="submit" form="shrubby-delete">
+                        ลบกระทู้
+                    </button>
                     <input type="submit" class="submit-button" form="shrubby-update" value="แก้ไขกระทู้">
                 </div>
             </form>
         </div>
     </div>
+    <form action="/shrubbypage/{{ $shrubby->id }}"
+        method="POST"
+        id = "shrubby-delete">
+        @csrf
+        @method('delete')
+    </form>
 <script>
     ClassicEditor
             .create( document.querySelector( '#editor' ) 
