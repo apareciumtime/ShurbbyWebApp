@@ -3,9 +3,12 @@ body{
     flex-direction: row;
     align-items: flex-start;
 
+    width: 100vw;
     margin: 0px;
     padding: 0px;
     gap: 0px;
+
+    overflow-x: hidden;
 }
 
 a{
