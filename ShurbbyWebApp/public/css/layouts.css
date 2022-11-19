@@ -39,3 +39,37 @@ a{
 
     overflow-y: auto;
 }
+
+.traiter-finder-btn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 100px;
+    
+    position: absolute;
+    right: 20vw;
+    bottom: 10vh;
+    
+    width: 64px;
+    height: 64px;
+
+    background-color: #FAFAFA;
+    cursor: pointer;
+}
+
+.traiter-finder-btn:hover{
+    background-color: #4B819F;
+}
+
+.trait-finder-icon{
+    width: 32px;
+    height: 32px;
+
+    fill:#4B819F;
+}
+
+.traiter-finder-btn:hover .trait-finder-icon{
+    fill: #F1B24B;
+}
