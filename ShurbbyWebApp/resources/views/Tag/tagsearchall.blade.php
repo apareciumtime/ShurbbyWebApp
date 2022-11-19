@@ -12,7 +12,7 @@
 <div class="tagsallall-framework">
     <div class = "tagsearchall-header">ค้นหา #{{$search}}</div>
     <div class="tagsearchall-go-to-bar" id="tagsearchall-shrubby">
-        <a href="#tagsearchall-clumppy" class="tagsearchall-go-to-bar-link-to">ไปยัง Clumppy</a>
+        <a href="#tagsearchall-clumppy" class="tagsearchall-go-to-bar-link-to">ไปยัง Shrubby</a>
     </div>
     <div class="shrubby-clumppy-framework-outside">
         <div class='shrubby-clumppy-framework'>    
@@ -25,7 +25,7 @@
     </div>
 
     <div class="tagsearchall-go-to-bar" id="tagsearchall-clumppy">
-        <a href="#tagsearchall-shrubby" class="tagsearchall-go-to-bar-link-to">ไปยัง Shrubby</a>
+        <a href="#tagsearchall-shrubby" class="tagsearchall-go-to-bar-link-to">ไปยัง Clumppy</a>
     </div>
     <div class="shrubby-clumppy-framework-outside">
         <div class='shrubby-clumppy-framework'>

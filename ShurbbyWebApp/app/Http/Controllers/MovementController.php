@@ -76,6 +76,7 @@ class MovementController extends Controller
         $request->validate([
             'privacy_status' => ['required'],
         ]);
+    
         $movement=Movement::where('id','=',$movement_id)->first();
         $movement->description=$request->movement_description;
         $movement->like=0;
@@ -89,6 +90,11 @@ class MovementController extends Controller
         $movement->save();
 
         $clumppy=Clumppy::where('id','=',$movement->clumppy_id)->first();
+        if($clumppy->cover==null){
+            Clumppy::where('id','=',$clumppy->id)->update([
+                'cover' => DB::table('image_movement')->where('movement_id','=',$movement_id)->first()->image,
+            ]);
+        }
         $tags=$request->movement_tags;
         $tags = explode(",",$tags);
         foreach($tags as $value){

@@ -12,7 +12,7 @@
 <div class="tagseacheach-framework">
     <div class = "tagsearcheach-header">ค้นหา #{{$search->name}}</div>
     <div class="tagsearcheach-go-to-bar" id="tagsearcheach-shrubby">
-        <a href="#tagsearcheach-clumppy" class="tagsearcheach-go-to-bar-link-to">ไปยัง Clumppy</a>
+        <a href="#tagsearcheach-clumppy" class="tagsearcheach-go-to-bar-link-to">ไปยัง Shrubby</a>
     </div>
     <div class="shrubby-clumppy-framework-outside">
         <div class='shrubby-clumppy-framework'>    
@@ -25,7 +25,7 @@
     </div>
 
     <div class="tagsearcheach-go-to-bar" id="tagsearcheach-clumppy">
-        <a href="#tagsearcheach-shrubby" class="tagsearcheach-go-to-bar-link-to">ไปยัง Shrubby</a>
+        <a href="#tagsearcheach-shrubby" class="tagsearcheach-go-to-bar-link-to">ไปยัง Clumppy</a>
     </div>
     <div class="shrubby-clumppy-framework-outside">
         <div class='shrubby-clumppy-framework'>
