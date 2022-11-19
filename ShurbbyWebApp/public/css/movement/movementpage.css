@@ -58,26 +58,73 @@
     color:#F1B24B;
 }
 
+.movement-picture-section-outside{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
+
+    width: auto;
+
+    background: #F3F3F3;
+    border-radius: 8px;
+}
+
 .movement-picture-section{
     display:flex;
     flex-direction: row;
 
-    justify-content: center;
-
     height:fit-content;
 
     border-radius: 8px;
-
-    background: #F3F3F3;
+    overflow: hidden;
 }
 
-.movement-picture-framework{
-    width: .1px;
+.movement-picture-left-btn{
+    border: none;
+    outline: none;
+    background: #5B6C67;
+
+    width: 50px;
     min-height: 315px;
+    height: 100%;
+
+    font-size: 32px;
+    color: #EFE5D5;
+    opacity: 0.2;
+
+    border-radius: 8px 0px 0px 8px;
+}
+
+.movement-picture-left-btn:hover{
+    color:#F1B24B;
+    opacity: 1;
+}
+
+.movement-picture-right-btn{
+    border: none;
+    outline: none;
+    background: #5B6C67;
+
+    width: 50px;
+    min-height: 315px;
+
+    height: 100%;
+
+    font-size: 32px;
+    color: #EFE5D5;
+    opacity: 0.2;
+
+    border-radius: 0px 8px 8px 0px;
+}
+
+.movement-picture-right-btn:hover{
+    color:#F1B24B;
+    opacity: 1;
 }
 
 .image-movement{
-    display: flex;
+    display: none;
     flex-direction: column;
 
     align-items: center;
