@@ -11,7 +11,7 @@
         <div class="profile-update-topic">
             แก้ไขหน้าโพรไฟล์
         </div>
-        <button form="profile-form" class="profile-update-submit">
+        <button type="submit" form="profile-form"  class="profile-update-submit">
             บันทึก
         </button>
     </div>
@@ -28,6 +28,7 @@
         <div class="info-user-framework">
             <form action="{{route('editProfile')}}" method="POST" id="profile-form" class="profile-form" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 <div class="info-user-input-line">
                     <div class="info-user-input-label">
                         ชื่อแสดง
@@ -94,7 +95,7 @@
                                     class="info-user-input-normal-bio" 
                                     placeholder="ข้อมูลผู้ใช้งาน" 
                                     id="bio"
-                                    value="{{Auth::user()->bio}}"></textarea>
+                                    >{{Auth::user()->bio}}</textarea>
                         <div class="info-user-input-normal-bio-counter">
                             0/200 ตัวอักษร
                         </div>

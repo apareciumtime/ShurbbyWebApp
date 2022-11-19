@@ -46,7 +46,7 @@
                         {{Auth::user()->username}}
                     </div>
                 </div>
-                <a href="/journal/update" class="info-user-name-right">
+                <a href="{{route('updateJournalProfile')}}" class="info-user-name-right">
                     แก้ไข
                 </a>
             </div>
@@ -55,7 +55,7 @@
             </div>
             <div class="info-birthdate-and-gender-frame">
                 <div class="info-birthdate">
-                    วันเกิด {{Auth::user()->birthdate}}
+                    วันเกิด {{thai_date(Auth::user()->birthdate,false,false,false)}}
                 </div>
                 <div class="info-gender">
                     เพศ {{Auth::user()->gender}}
@@ -65,7 +65,7 @@
                 ที่อยู่ {{Auth::user()->address_info}}
             </div>
             <div class="info-website">
-                เว็บไซต์ {{Auth::user()->website}}
+                เว็บไซต์ <a href="https://{{Auth::user()->website}}">{{Auth::user()->website}}<a>
             </div>
             <div class="info-amount-clumppy-shrubby">
                 <div class="info-amount-clumppy">
