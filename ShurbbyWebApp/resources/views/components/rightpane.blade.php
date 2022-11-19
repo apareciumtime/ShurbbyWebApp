@@ -82,7 +82,7 @@
                 </div>
             @endforeach
         </div>
-        <a href="#" class="rightpane-view-all">
+        <a href="/tagviewall" class="rightpane-view-all">
             ดูทั้งหมด
         </a>
     </div>
@@ -99,7 +99,7 @@
                 </div>
             @endforeach
         </div>
-        <a href="#" class="rightpane-view-all">
+        <a href="/tagviewall" class="rightpane-view-all">
             ดูทั้งหมด
         </a>
     </div>
