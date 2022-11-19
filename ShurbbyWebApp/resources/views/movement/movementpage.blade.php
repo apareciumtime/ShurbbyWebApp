@@ -31,8 +31,6 @@
     <div class="movement-picture-section-outside">
         <button class="movement-picture-left-btn" onclick="plusDivs(-1)">&#10094;</button>
         <div class="movement-picture-section">
-            <!-- <div class="movement-picture-framework">
-            </div> -->
                 @foreach ($movement_images as $movement_image)
                     <img src="{{asset($movement_image->image)}}" class="image-movement">
                 @endforeach
@@ -75,14 +73,14 @@
 @endsection
 
 <script>
-    var slideIndex = 1;
-    showDivs(slideIndex);
+var slideIndex = 1;
+showDivs(slideIndex);
 
-    function plusDivs(n) {
+function plusDivs(n) {
     showDivs(slideIndex += n);
-    }
+}
 
-    function showDivs(n) {
+function showDivs(n) {
     var i;
     var x = document.getElementsByClassName("image-movement");
     if (n > x.length) {slideIndex = 1}
@@ -91,5 +89,5 @@
         x[i].style.display = "none";  
     }
     x[slideIndex-1].style.display = "block";  
-    }
+}
 </script>

@@ -24,7 +24,7 @@
                 <div class="shrubby-page-content-tag-head-topic">
                     แท็ก
                 </div>
-                <a href="#" class="shrubby-page-content-tag-head-view-all">
+                <a href="/tagviewall" class="shrubby-page-content-tag-head-view-all">
                     ดูทั้งหมด
                 </a>
             </div>

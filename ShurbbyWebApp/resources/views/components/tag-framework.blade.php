@@ -62,7 +62,7 @@
             แท็ก
         </div>
         <div class="tag-view-all">
-            <a href="#">
+            <a href="/tagviewall">
                 ดูทั้งหมด
             </a>
         </div> 

@@ -65,6 +65,7 @@
     justify-content:space-between;
 
     width: auto;
+    margin:16px;
 
     background: #F3F3F3;
     border-radius: 8px;
@@ -73,11 +74,20 @@
 .movement-picture-section{
     display:flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
 
+    max-width: 58vw;
+    width: auto;
     height:fit-content;
 
     border-radius: 8px;
-    overflow: hidden;
+    overflow: auto;
+}
+
+.image-movement{
+    width: 100px;
+    height: 100px;
 }
 
 .movement-picture-left-btn{

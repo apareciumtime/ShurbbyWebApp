@@ -119,3 +119,4 @@ Route::get('/clumppynewby',[ClumppyController::class, 'clumppynewby'])->name('cl
 //search
 Route::get('/search', [TagController::class, 'searchAll'])->name('search');
 Route::get('/searchtag', [TagController::class, 'searchByTag'])->name('searchtag');
+Route::view('/tagviewall','tag.tagviewall')->name('tagviewall');
