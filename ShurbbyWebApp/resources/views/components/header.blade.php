@@ -86,7 +86,7 @@
 <div class="header-framework">
     <div class="header-back-label-user-info">
         <div class="header-back">
-            <a href="#" class="header-back-link-to">
+            <a href="#" onclick="history.back()" class="header-back-link-to">
                 ย้อนกลับ
             </a>
         </div>
