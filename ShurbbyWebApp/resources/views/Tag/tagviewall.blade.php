@@ -15,10 +15,10 @@
     <div class="tagviewall-topic">
         แท็กทั้งหมด
     </div>
-    @foreach($tags as $tag)
-        <div class="tagviewall-grid">
+    <div class="tagviewall-grid">
+        @foreach($tags as $tag)
             <x-tag-bar label="{{$tag->name}}"/>
-        </div>
-    @endforeach
+        @endforeach
+    </div>
 </div>
 @endsection
