@@ -36,7 +36,7 @@ class ShrubbyController extends Controller
         return view('journal.myshrubby')->with(['shrubbies'=>$shrubbies]);
     }
 
-    public function createShrubby()
+    public function indexCreateShrubby()
     {
         return view('shrubby.shrubbycreate');
     }
@@ -62,7 +62,7 @@ class ShrubbyController extends Controller
         }
     }
 
-    public function create(Request $request)
+    public function createShrubby(Request $request)
     {
         $request->validate([
             'title' => 'required',
@@ -78,7 +78,6 @@ class ShrubbyController extends Controller
         $shrubby->content=$editor_data;
 
         $shrubby->like=0;
-        $shrubby->share=0;
 
         $username=\Auth::user()->name;
 
@@ -111,7 +110,7 @@ class ShrubbyController extends Controller
         return redirect()->route('shrubbypage',[$shrubby->id]);
     }
 
-    public function editShrubby($id)
+    public function indexEditShrubby($id)
     {
         $tags = DB::table('taggables')->where('taggable_id',$id)->get();
         $tag = '';
@@ -188,7 +187,7 @@ class ShrubbyController extends Controller
         $request : request from create comment form
         $id : shrubby id to add comment
     */
-    public function commentPost(Request $request, $shrubbyid, $parentid){
+    public function commentShrubby(Request $request, $shrubbyid){
         $request->validate([
             'content' => 'required',
         ]);
@@ -207,12 +206,7 @@ class ShrubbyController extends Controller
         }
 
         $comment->user_id=\Auth::user()->id;
-        if($parentid==-1){
-            $comment->parent=null;
-        }
-        else{
-            $comment->parent=$parentid;
-        }
+
         $comment->content=$request->content;
         $comment->like=0;
         $comment->credit=0;

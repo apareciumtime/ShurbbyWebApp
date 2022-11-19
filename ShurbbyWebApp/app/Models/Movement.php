@@ -14,7 +14,6 @@ class movement extends Model
         'clumppy_id',
         'description',
         'like',
-        'share',
         'is_private',
     ];
 

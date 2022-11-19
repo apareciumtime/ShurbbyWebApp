@@ -64,7 +64,7 @@
     </button>
 </div>
 
-<form action="{{route('commentpost',['shrubbyid'=>$shrubbyid,'parentid'=>$parentid])}}" method="POST" id="comment" enctype="multipart/form-data">
+<form action="{{route('commentshrubby',['shrubbyid'=>$shrubbyid])}}" method="POST" id="comment" enctype="multipart/form-data">
     @csrf
 </form>
 {{-- add this script to make text box usable --}}

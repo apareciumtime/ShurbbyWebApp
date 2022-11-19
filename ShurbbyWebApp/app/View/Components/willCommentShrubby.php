@@ -8,15 +8,14 @@ class willCommentShrubby extends Component
 {
     public $status = 1;
     public $shrubbyid;
-    public $parentid;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($shrubbyid,$parentid=-1)
+    public function __construct($shrubbyid)
     {
-        $this->parentid = $parentid;
         $this->shrubbyid = $shrubbyid;
     }
 

@@ -19,7 +19,6 @@ class Shrubby extends Model
         'title',
         'content',
         'like',
-        'share',
     ];
 
     /**

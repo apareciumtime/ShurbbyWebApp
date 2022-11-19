@@ -34,7 +34,7 @@ class MovementController extends Controller
             $movement=new Movement;
             $movement->clumppy_id=$clumppy_id;
             $movement->like=-1;
-            $movement->share=-1;
+
             $movement->is_private=false;
             $movement->save();
             return view('movement.movementcreate',['movement'=>$movement,'clumppy'=>$clumppy,'movement_images'=>[]]);
@@ -80,7 +80,6 @@ class MovementController extends Controller
         $movement=Movement::where('id','=',$movement_id)->first();
         $movement->description=$request->movement_description;
         $movement->like=0;
-        $movement->share=0;
         if($request->privacy_status == '0'){
             $movement->is_private=false;
         }
@@ -242,7 +241,6 @@ class MovementController extends Controller
         }
 
         $comment->user_id=\Auth::user()->id;
-        $comment->parent=null;
         
         $comment->content=$request->content;
         $comment->like=0;

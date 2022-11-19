@@ -11,16 +11,6 @@ use Illuminate\Support\Facades\DB;
 
 class TagController extends Controller
 {
-    //
-
-    public function indexSearchTag(){
-        return view('testSearchTag');
-    }
-
-    public function indexTagFollowTest(){
-        $data['tags']=Tag::orderBy('id','asc')->paginate(10);
-        return view('showAllTags',$data);
-    }
 
     // user follow tag
     public function follow(Request $request,$id){

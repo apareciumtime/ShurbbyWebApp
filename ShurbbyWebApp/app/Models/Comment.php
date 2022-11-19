@@ -14,7 +14,6 @@ class Comment extends Model
         'commentable_id',
         'comment_id',
         'user_id',
-        'parent',
         'content',
         'like',
         'credit',

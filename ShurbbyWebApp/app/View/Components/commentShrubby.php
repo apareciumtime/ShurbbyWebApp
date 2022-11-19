@@ -35,9 +35,6 @@ class commentShrubby extends Component
         $comment=$this->comment;
         $this->user=User::where('id','=',$comment->user_id)->first();
         $this->label='ความคิดเห็นที่ '.$comment->comment_id;
-        if($comment->parent!=null){
-            $this->label=$this->label.' ตอบกลับความคิดเห็นที่ '.$comment->parent;
-        }
         $check=null;
         $authuser=\Auth::user();
         if(\Auth::user())

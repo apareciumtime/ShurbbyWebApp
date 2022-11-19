@@ -111,7 +111,7 @@ class ClumppyController extends Controller
         return redirect()->route('clumppypage',[$clumppy->id]);
     }
 
-    public function editClumppy($id)
+    public function indexEditClumppy($id)
     {
         $clumppy = Clumppy::where('id',$id)->first();
         if($clumppy->is_private)  $private_status = 'ส่วนตัว';

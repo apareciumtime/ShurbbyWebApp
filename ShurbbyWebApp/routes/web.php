@@ -38,29 +38,25 @@ Route::view('login', 'auth.login')->name('login');
 Route::post('register', [RegisterController::class, 'register']);
 
 //Tag
-Route::get('searchTag',[TagController::class,'indexSearchTag']);
 Route::post('searchTag',[TagController::class,'searchByTag'])->name('searchTag');
 Route::post('followTag/{id}',[TagController::class,'follow'])->name('follow');
 
     //Shrubby
 // create new thread
-Route::get('shrubbycreate', [ShrubbyController::class, 'createShrubby']);
-Route::post('shrubbycreate', [ShrubbyController::class, 'create'])->name('shrubbycreate');
+Route::get('shrubbycreate', [ShrubbyController::class, 'indexCreateShrubby']);
+Route::post('shrubbycreate', [ShrubbyController::class, 'createShrubby'])->name('shrubbycreate');
 Route::post('/upload', [ShrubbyController::class, 'uploadImageShrubby'])->name('ckeditor.upload');
 //
 Route::get('shrubbypage/{id}', [ShrubbyController::class, 'pageShrubby'])->name('shrubbypage');
-Route::get('shrubbypage/{id}/edit', [ShrubbyController::class, 'editShrubby'])->middleware('user.security');
+Route::get('shrubbypage/{id}/edit', [ShrubbyController::class, 'indexEditShrubby'])->middleware('user.security');
 Route::put('shrubbypage/{id}', [ShrubbyController::class, 'updateShrubby'])->name('updateShrubby');
 Route::delete('shrubbypage/{id}', [ShrubbyController::class, 'deleteShrubby']);
 
 Route::get('shrubbyrecommend', [ShrubbyController::class, 'shrubbyrecommend'])->name('shrubbyrecommend');
 Route::get('shrubbynewby', [ShrubbyController::class, 'shrubbynewby'])->name('shrubbynewby');
-// Route::get('shrubbycreate', [ShrubbyController::class, 'createShrubby'])->name('shrubbycreate');
-// Route::get('shrubbyupdate', [ShrubbyController::class, 'updateShrubby']);
-// Route::get('shrubbypage', [ShrubbyController::class, 'pageShrubby'])->name('shrubbypage');
 
 //comment
-Route::post('comment/{shrubbyid}/{parentid}',[ShrubbyController::class,'commentPost'])->name('commentpost');
+Route::post('comment/{shrubbyid}',[ShrubbyController::class,'commentShrubby'])->name('commentshrubby');
 Route::delete('comment/{id}', [CommentController::class, 'deleteComment'])->name('delete.comment');
 Route::post('commentincreasecredit/{id}',[CommentController::class, 'increaseCredit'])->name('increasecredit.comment');
 Route::post('commentdecreasecredit/{id}',[CommentController::class, 'decreaseCredit'])->name('decreasecredit.comment');
@@ -79,7 +75,7 @@ Route::post('editProfile',[ProfileController::class,'editProfile'])->name('editP
 Route::get('/clumppycreate',[ClumppyController::class,'indexCreateClumppy'])->name('clumppycreate');
 // Route::view('/clumppypage','clumppy.clumppypage')->name('clumppypage');1
 Route::get('clumppypage/{id}', [ClumppyController::class, 'pageClumppy'])->name('clumppypage');
-Route::get('/clumppypage/{id}/edit', [ClumppyController::class, 'editClumppy'])->middleware('user.security');
+Route::get('/clumppypage/{id}/edit', [ClumppyController::class, 'indexEditClumppy'])->middleware('user.security');
 Route::put('/clumppypage/{id}', [ClumppyController::class, 'updateClumppy'])->name('updateclumppy');
 Route::delete('clumppypage/{id}', [ClumppyController::class, 'deleteClumppy']);
 

@@ -17,7 +17,6 @@ class interactionEngage extends Component
     public $routeTo;
     public $like_amount;
     public $comment_amount;
-    public $share_amount;
     public $liked;
     /**
      * Create a new component instance.
