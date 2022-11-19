@@ -29,9 +29,11 @@
             <x-privacy-status status='{{$clumppy->is_private}}'/>
         </div>
         <div class="clumppy-page-edit">
-            <a href="/clumppypage/{{$clumppy->id}}/edit">
-                แก้ไข
-            </a>
+            @if(isset(Auth::user()->id) && Auth::user()->id == $clumppy->user_id)
+                <a href="/clumppypage/{{$clumppy->id}}/edit">
+                    แก้ไข
+                </a>
+            @endif
         </div>
     </div>
     <div class="clumppy-page-description">

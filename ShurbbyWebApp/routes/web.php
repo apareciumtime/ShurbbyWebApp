@@ -27,7 +27,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('home', [HomeController::class, 'index'])->name('home');
 Route::view('timeline', 'timeline.index')->name('timeline');
 
-Route::view('journal', 'journal.index')->name('journal')->middleware('auth');;
+Route::view('journal', 'journal.index')->name('journal')->middleware('auth');
 
 
 Auth::routes();
@@ -36,7 +36,6 @@ Route::middleware(['auth', 'is_admin'])->get('/admin/home', [HomeController::cla
 
 Route::view('login', 'auth.login')->name('login');
 Route::post('register', [RegisterController::class, 'register']);
-// Route::get('search', #ControllerClass for  searching) --> search route method
 
 //Tag
 Route::get('searchTag',[TagController::class,'indexSearchTag']);
@@ -50,8 +49,7 @@ Route::post('shrubbycreate', [ShrubbyController::class, 'create'])->name('shrubb
 Route::post('/upload', [ShrubbyController::class, 'uploadImageShrubby'])->name('ckeditor.upload');
 //
 Route::get('shrubbypage/{id}', [ShrubbyController::class, 'pageShrubby'])->name('shrubbypage');
-Route::get('shrubbypage/{id}/edit', [ShrubbyController::class, 'editShrubby']);
-                                                                            // ->middleware('user.secutiry');
+Route::get('shrubbypage/{id}/edit', [ShrubbyController::class, 'editShrubby'])->middleware('user.security');
 Route::put('shrubbypage/{id}', [ShrubbyController::class, 'updateShrubby'])->name('updateShrubby');
 Route::delete('shrubbypage/{id}', [ShrubbyController::class, 'deleteShrubby']);
 
@@ -81,7 +79,7 @@ Route::post('editProfile',[ProfileController::class,'editProfile'])->name('editP
 Route::get('/clumppycreate',[ClumppyController::class,'indexCreateClumppy'])->name('clumppycreate');
 // Route::view('/clumppypage','clumppy.clumppypage')->name('clumppypage');1
 Route::get('clumppypage/{id}', [ClumppyController::class, 'pageClumppy'])->name('clumppypage');
-Route::get('/clumppypage/{id}/edit', [ClumppyController::class, 'editClumppy']);
+Route::get('/clumppypage/{id}/edit', [ClumppyController::class, 'editClumppy'])->middleware('user.security');
 Route::put('/clumppypage/{id}', [ClumppyController::class, 'updateClumppy'])->name('updateclumppy');
 Route::delete('clumppypage/{id}', [ClumppyController::class, 'deleteClumppy']);
 
@@ -103,7 +101,7 @@ Route::post('movementpage/like/{id}',[MovementController::class,'likeMovement'])
     //Movement
 Route::get('movementcreate/{clumppy_id}', [MovementController::class, 'createMovementPage'])->name('movementcreate');
 Route::get('movementpage/{movement_id}', [MovementController::class, 'indexMovementPage'])->name('movementpage');
-Route::get('movementupdate/{movement_id}',[MovementController::class, 'updateMovementpage'])->name('movementupdate');
+Route::get('movementpage/{movement_id}/edit',[MovementController::class, 'updateMovementpage'])->name('movementupdate')->middleware('user.security');
 
 Route::post('/uploadmovementimage',[MovementController::class,'uploadMovementImage'])->name('uploadmovementimage');
 Route::post('/createmovement/{movement_id}',[MovementController::class,'createMovement'])->name('createmovement');
@@ -119,6 +117,8 @@ Route::get('/clumppynewby',[ClumppyController::class, 'clumppynewby'])->name('cl
 //search
 Route::get('/search', [TagController::class, 'searchAll'])->name('search');
 Route::get('/searchtag', [TagController::class, 'searchByTag'])->name('searchtag');
-Route::view('/tagviewall','tag.tagviewall')->name('tagviewall');
+Route::get('/toptagview', [TagController::class, 'TopTagView'])->name('toptagview');
+Route::get('/followingtagview', [TagController::class, 'FollowTagView'])->name('followtagview');
+Route::get('/tagviewall/{label}/{id}', [TagController::class, 'TagViewAll'])->name('tagviewall');
 
 Route::view('/traitfinder','traitfinder.traitfinderIndex')->name('traitfinder');

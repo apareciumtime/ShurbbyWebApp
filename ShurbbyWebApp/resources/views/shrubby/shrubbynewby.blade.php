@@ -19,13 +19,13 @@
                 </div>
             @endforeach
         </div>
-        <div class='shrubby-clumppy-framework'>  
+        {{-- <div class='shrubby-clumppy-framework'>  
         @foreach ($clumppies as $clumppy)
                 <div class="card-grid-item">
                     <x-clumppy-card clumppyid='{{$clumppy->id}}'/>
                 </div>
             @endforeach
-        </div>
+        </div> --}}
     </div>
 </div>
 @endsection

@@ -12,7 +12,7 @@
 <div class="myshrubby-framework">
     <div class='myshrubby-header-framework'>
         <div class = 'myshrubby-header'>Shrubby ของฉัน</div>
-        <div class = 'myshrubby-amount'>4 ชรับบี</div>
+        <div class = 'myshrubby-amount'>{{$shrubbies->count()}} ชรับบี</div>
         <a href="/shrubbycreate">
             <div class = 'myshrubby-create-shrubby'>สร้างชรับบี</div>
         </a>

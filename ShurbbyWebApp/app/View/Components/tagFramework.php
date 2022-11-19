@@ -9,6 +9,8 @@ use App\Models\Movement;
 class tagFramework extends Component
 {
     public $tags;
+    public $type;
+    public $id;
     /**
      * Create a new component instance.
      *
@@ -16,6 +18,8 @@ class tagFramework extends Component
      */
     public function __construct($type,$id)
     {
+        $this->type = $type;
+        $this->id = $id;
         switch ($type) {
             case "clumppy":
                 $clumppy=Clumppy::where('id','=',$id)->first();

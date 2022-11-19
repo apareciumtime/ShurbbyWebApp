@@ -7,19 +7,18 @@
 
 @section('inside-body')
 <div class="tagviewall-framework">
-    <div class="tagviewall-header">
-        ชื่อ shrubby หรือ clumppy
-    </div>
+    <a href="{{$link_to}}">
+        <div class="tagviewall-header">
+            {{$label}}
+        </div>
+    </a>
     <div class="tagviewall-topic">
         แท็กทั้งหมด
     </div>
-    <div class="tagviewall-grid">
-        <x-tag-bar label="asd"/>
-        <x-tag-bar label="asd"/>
-        <x-tag-bar label="asd"/>
-        <x-tag-bar label="asd"/>
-        <x-tag-bar label="asd"/>
-        <x-tag-bar label="asd"/>
-    </div>
+    @foreach($tags as $tag)
+        <div class="tagviewall-grid">
+            <x-tag-bar label="{{$tag->name}}"/>
+        </div>
+    @endforeach
 </div>
 @endsection

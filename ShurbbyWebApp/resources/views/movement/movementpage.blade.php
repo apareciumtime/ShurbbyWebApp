@@ -20,9 +20,11 @@
             <x-privacy-status status='{{$movement->is_private}}'/>
         </div>
         <div class="movement-page-edit">
-            <a href="{{route('movementupdate',$movement->id)}}" class="movement-page-edit-link-to">
-                แก้ไข
-            </a>
+            @if(isset(Auth::user()->id) && Auth::user()->id == $clumppy->user_id)
+                <a href="{{route('movementupdate',$movement->id)}}" class="movement-page-edit-link-to">
+                    แก้ไข
+                </a>
+            @endif
         </div>
     </div>
     <div class="movement-page-tag-framework">

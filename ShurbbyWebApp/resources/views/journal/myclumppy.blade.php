@@ -12,7 +12,7 @@
 <div class="myclumppy-framework">
     <div class='myclumppy-header-framework'>
         <div class = 'myclumppy-header'>Clumppy ของฉัน</div>
-        <div class = 'myclumppy-amount'>7 คลัมปี</div>
+        <div class = 'myclumppy-amount'>{{$clumppies->count()}} คลัมปี</div>
         <a href="/clumppycreate">
             <div class = 'myclumppy-create-clumppy'>สร้างคลัมปี</div>
         </a>
