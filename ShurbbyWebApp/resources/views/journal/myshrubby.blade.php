@@ -11,10 +11,10 @@
 @section('inside-body')
 <div class="myshrubby-framework">
     <div class='myshrubby-header-framework'>
-        <p class = 'myshrubby-header'>Shrubby ของฉัน</p>
-        <p class = 'myshrubby-text'>4 ชรับบี</p>
-        <a href="#">
-            <p class = 'myshrubby-text-withhover'>สร้างชรับบี</p>
+        <div class = 'myshrubby-header'>Shrubby ของฉัน</div>
+        <div class = 'myshrubby-amount'>4 ชรับบี</div>
+        <a href="/shrubbycreate">
+            <div class = 'myshrubby-create-shrubby'>สร้างชรับบี</div>
         </a>
     </div>
     <div class="shrubby-clumppy-framework-outside">

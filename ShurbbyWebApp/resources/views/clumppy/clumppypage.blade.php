@@ -51,7 +51,6 @@
     <div class="clumppy-page-tag-framework">
         <x-tag-framework type="clumppy" id="{{$clumppy->id}}"/>
     </div>
-
     <div class="clumppy-page-gallery">
         @foreach($movements as $movement)
             <x-movement-card id='{{$movement->id}}'/>

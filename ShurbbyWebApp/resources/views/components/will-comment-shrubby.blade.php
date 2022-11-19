@@ -25,8 +25,7 @@
 }
 
 .will-comment-shrubby-area{
-    width: calc(100% - 32px);
-    margin:16px;
+    width: 954px;
     height: auto;
 }
 

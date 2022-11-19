@@ -30,8 +30,10 @@
                     <div class="shrubby-topic">
                         เนื้อหากระทู้
                     </div>
-                    <div class="shrubby-content-area">
-                        <textarea name="content" id="editor" form="shrubby-create" class="content-input" placeholder="เนื้อหากระทู้"></textarea>
+                    <div class="shrubby-content-area-outside">
+                        <div class="shrubby-content-area">
+                            <textarea name="content" id="editor" form="shrubby-create" class="content-input" placeholder="เนื้อหากระทู้"></textarea>
+                        </div>
                     </div>
                 </div>
                 <div class="shrubby-button">

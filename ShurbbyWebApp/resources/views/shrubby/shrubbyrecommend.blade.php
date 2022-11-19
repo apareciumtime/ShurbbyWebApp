@@ -10,9 +10,7 @@
 
 @section('inside-body')
 <div class="myshrubby-framework">
-    <div class='myshrubby-header-framework'>
-        <p class = 'myshrubby-header'>Shrubby ที่แนะนำ</p>
-    </div>
+    <div class = 'myshrubby-header'>Shrubby ที่แนะนำ</div>
     <div class="shrubby-clumppy-framework-outside">
         <div class='shrubby-clumppy-framework'>    
             @foreach ($shrubbies as $shrubby)

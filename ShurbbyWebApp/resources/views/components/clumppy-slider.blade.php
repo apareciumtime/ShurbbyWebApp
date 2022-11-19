@@ -34,12 +34,16 @@
     font-family: 'Maitree';
     font-style: normal;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 33px;
 
     text-align: right;
 
     color: #4B819F;
+}
+
+.clumppy-slider-header-view-all a:hover{
+    color: #F1B24B;
 }
 
 .clumppy-slider-slot-outside{

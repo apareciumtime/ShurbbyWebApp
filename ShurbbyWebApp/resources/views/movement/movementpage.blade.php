@@ -28,12 +28,16 @@
     <div class="movement-page-tag-framework">
         <x-tag-framework type="movement" id="{{$movement->id}}"/>
     </div>
-    <div class="movement-picture-section">
-        <div class="movement-picture-framework">
-        </div>
-        @foreach ($movement_images as $movement_image)
-            <img src="{{asset($movement_image->image)}}" class="image-movement" style="width:50%; height:50%;">
-        @endforeach
+    <div class="movement-picture-section-outside">
+        <button class="movement-picture-left-btn" onclick="plusDivs(-1)">&#10094;</button>
+        <div class="movement-picture-section">
+            <!-- <div class="movement-picture-framework">
+            </div> -->
+                @foreach ($movement_images as $movement_image)
+                    <img src="{{asset($movement_image->image)}}" class="image-movement">
+                @endforeach
+            </div>
+        <button class="movement-picture-right-btn" onclick="plusDivs(1)">&#10095;</button>
     </div>
     <div class="movement-page-description">
         {{$movement->description}}
@@ -69,3 +73,23 @@
     </div>
 </div>
 @endsection
+
+<script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+
+    function plusDivs(n) {
+    showDivs(slideIndex += n);
+    }
+
+    function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("image-movement");
+    if (n > x.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = x.length}
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+    }
+    x[slideIndex-1].style.display = "block";  
+    }
+</script>

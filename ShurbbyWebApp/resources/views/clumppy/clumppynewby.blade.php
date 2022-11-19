@@ -10,10 +10,8 @@
 
 @section('inside-body')
 <div class="myclumppy-framework">
-    <div class='myclumppy-header-framework'>
-        <p class = 'myclumppy-header'>Clumppy ที่มาใหม่</p>
-    </div>
-    <div class="clumppy-clumppy-framework-outside">
+    <div class = 'myclumppy-header'>Clumppy ที่มาใหม่</div>
+    <div class="shrubby-clumppy-framework-outside">
         <div class='clumppy-clumppy-framework'>    
             @foreach ($clumppies as $clumppy)
                 <div class="card-grid-item">

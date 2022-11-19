@@ -67,6 +67,10 @@
     color:#5B6C67;
 }
 
+.comment-movement-content{
+    word-break: break-all;
+}
+
 .movement-interaction-engage-bar{
     display: flex;
     flex-direction: row;

@@ -6,7 +6,7 @@
     gap: 16px;
     padding:16px;
 
-    width: calc(100%-16*2px);
+    width: calc(100% - 16*2px);
     border-bottom: 1px solid #D2D2D5;
 }
 
@@ -171,6 +171,7 @@
     font-family: 'Maitree';
     font-size: 16px;
     color:#445650;
+    word-break: break-all;
 }
 
 .comment-shrubby-user-info{
@@ -406,7 +407,6 @@
         </div>
         <div class="comment-shrubby-interaction-engage-bar-post-date">
             <x-interaction-engage label="like" id='{{$comment->id}}' type='comment'/>
-            <x-interaction-engage label="comment" />
             <div class="comment-shrubby-post-date">
                 {{thai_date($comment->created_at,false)}}
             </div>

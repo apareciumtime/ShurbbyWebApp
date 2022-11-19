@@ -25,7 +25,7 @@
 }
 
 .will-comment-movement-area{
-    width: 100%;
+    width: 954px;
 }
 
 .content-input{
