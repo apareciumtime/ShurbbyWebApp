@@ -54,11 +54,13 @@ class TagController extends Controller
     }
     public function FollowTagView(){
         $data['label']='แท็กที่กำลังติดตาม';
-        $data['tags']=null;
+        $data['tags']=[];
         $data['link_to']= route('followtagview') ;
-        if(\Auth::user()!=null)
+        if(\Auth::user()!=null){
             $data['tags']=\Auth::user()->tags()->get();
-        return view('tag.tagviewall',$data);
+            return view('tag.tagviewall',$data);
+        }
+        return redirect()->route('login');
     }
     public function TagViewAll(Request $request){
         // dd($request->label,$request->id);
