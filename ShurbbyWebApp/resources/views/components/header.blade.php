@@ -102,7 +102,7 @@
                 </div>
                 
                 <div class="header-user-info-profile-image">
-                    <img src="{{asset(Auth::user()->profile_image)}}" class="header-user-info-profile-image-image">
+                    <img src="{{asset(Auth::user()->profile_image)}}" class="header-user-info-profile-image-image profile-image">
                 </div>
             @endguest
         </a>

@@ -1,4 +1,7 @@
 <link rel = "stylesheet" href = "/css/journal/journalIndex.css">
+{{-- for crop and preview profile pict --}}
+<link rel="stylesheet" href="{{ asset('/ijaboCropTool-master/ijaboCropTool.min.css') }}">
+
 <title>Journal สมุดบันทึก</title>
 
 @extends('layouts.app')
