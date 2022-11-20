@@ -1,0 +1,122 @@
+.trait-finder-framework{
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    
+    width: auto;
+    height: 100vh;
+    gap: 16px;
+
+    font-family: 'Maitree';
+    color:#445650;
+
+    overflow-y: auto;
+}
+
+.trait-finder-header{
+    padding: 16px;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+.trait-finder-search-icon{
+    width: 32px;
+    fill:#445650;
+    cursor: pointer;
+}
+
+.trait-finder-search-icon:hover{
+    fill:#F1B24B;
+}
+
+
+.trait-finder-search-input{
+    width: 200px;
+    height: 32px;
+
+    border:none;
+    outline: none;
+
+    border-bottom: 2px solid #445650;
+
+    font-family: 'Maitree';
+    font-size: 16px;
+}
+
+.trait-finder-slot{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: auto;
+    height: auto;
+    padding:16px;
+    gap: 16px;
+}
+
+.trait-finder-more-trait-section{
+    display: flex;
+    flex-direction: column;
+
+    padding:16px;
+}
+
+.trait-finder-input{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 100%;
+    gap:8px;
+    
+    font-size: 32px;
+}
+
+.trait-finder-input-label{
+    font-family: 'Maitree';
+    font-size: 18px;
+    font-weight: bold;
+    color:#445650;
+}
+
+.trait-finder-search-input{
+    width: 100%;
+}
+
+.trait-finder-define{
+    font-family: 'Maitree';
+    font-size: 16px;
+    color:#445650;
+}
+
+.trait-finder-btn-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding:32px 16px;
+}
+
+.trait-finder-submit-btn{
+    width: 300px;
+    height: 50px;
+    
+    background: #EFE5D5;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;    
+
+    border:none;
+    outline: none;
+
+    font-family: 'Maitree';
+    font-size: 16px;
+    font-weight: bold;
+    color:#445650;
+}
+
+.trait-finder-submit-btn:active{
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.25);
+}
