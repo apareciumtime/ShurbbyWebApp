@@ -68,7 +68,7 @@ Route::get('upload-profileimage',[ShrubbyController::class, 'uploadProfileIndex'
 Route::post('crop',[ShrubbyController::class, 'crop'])->name('croppict');
 
 Route::view('/journal/update','journal.journal-profile-update')->name('updateJournalProfile');
-Route::post('editProfile',[ProfileController::class,'editProfile'])->name('editProfile');
+Route::put('editProfile',[ProfileController::class,'editProfile'])->name('editProfile');
 
     //Clumppy
 // Route::view('/clumppycreate','clumppy.clumppycreate')->name('clumppycreate');

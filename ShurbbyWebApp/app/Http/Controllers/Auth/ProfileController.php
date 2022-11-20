@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
+    public function indexProfile(Request $request){
+        return view('journal.journal-profile-update');
+    }
     public function editProfile(Request $request){
         $request->validate([
             'alias' => ['required', 'string', 'max:255'],
@@ -16,8 +19,8 @@ class ProfileController extends Controller
             'address_info' => ['required', 'string', 'max:255'],
             'birthdate' => ['required', 'string', 'date'],
             'gender' => ['required', 'string'],
-            'bio'=>['string','max:200'],
-            'website'=>['string'],
+            'bio'=>['nullable','string','max:200'],
+            'website'=>['nullable','string'],
         ]);
 
         $user=\Auth::user();
