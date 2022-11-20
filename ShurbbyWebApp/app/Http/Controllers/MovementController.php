@@ -123,7 +123,7 @@ class MovementController extends Controller
 
         $comments=$movement->comments()->orderBy('id','asc')->get();
         return view('movement.movementpage')->with(['movement'=>$movement,'clumppy'=>$clumppy,'movement_images'=>$movement_images
-                ,'comments'=>$comments]);
+                ,'comments'=>$comments,'first_images'=>$movement_images->first()]);
     }
 
     public function likeMovement($id)

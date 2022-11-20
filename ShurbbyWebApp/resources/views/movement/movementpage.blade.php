@@ -33,6 +33,7 @@
     <div class="movement-picture-section-outside">
         <button class="movement-picture-left-btn" onclick="plusDivs(-1)">&#10094;</button>
         <div class="movement-picture-section">
+            <img src="{{asset($first_images->image)}}" class="first-image-movement" style="display:block;">
                 @foreach ($movement_images as $movement_image)
                     <img src="{{asset($movement_image->image)}}" class="image-movement">
                 @endforeach
@@ -76,10 +77,16 @@
 
 <script>
 var slideIndex = 1;
+var firstcheck = true;
 showDivs(slideIndex);
 
 function plusDivs(n) {
     showDivs(slideIndex += n);
+    if(firstcheck){
+        var first = document.getElementsByClassName("first-image-movement");
+        first[0].style.display = "none";
+        firstcheck = false;
+    }
 }
 
 function showDivs(n) {

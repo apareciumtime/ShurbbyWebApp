@@ -110,10 +110,11 @@ class TagController extends Controller
             $shrubbies=$tags->shrubbies;
             $clumppies=$tags->clumppies;
         }
-        return  view('tag.tagsearcheach')
+        $search ="#".$tags->name;
+        return  view('tag.tagsearchall')
                     ->with('shrubbies',$shrubbies)
                     ->with('clumppies',$clumppies)
-                    ->with('search', $tags);
+                    ->with('search', $search);
     }
 
     public function searchAll(Request $request){
@@ -130,6 +131,7 @@ class TagController extends Controller
                 $clumppies=$tag->clumppies->merge($clumppies);
             }
         }
+        $search ="'".$search."'";
         return  view('tag.tagsearchall')
                     ->with('shrubbies',$shrubbies)
                     ->with('clumppies',$clumppies)

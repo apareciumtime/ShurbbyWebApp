@@ -10,7 +10,7 @@
 
 @section('inside-body')
 <div class="tagsallall-framework">
-    <div class = "tagsearchall-header">ค้นหา #{{$search}}</div>
+    <div class = "tagsearchall-header">ค้นหา {{$search}}</div>
     <div class="tagsearchall-go-to-bar" id="tagsearchall-shrubby">
         <a href="#tagsearchall-clumppy" class="tagsearchall-go-to-bar-link-to">ไปยัง Clumppy</a>
     </div>
