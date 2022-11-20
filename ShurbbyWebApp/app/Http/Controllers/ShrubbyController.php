@@ -168,6 +168,14 @@ class ShrubbyController extends Controller
         $shrubby=Shrubby::where('id',$id)->first();
         $data['comments']=$shrubby->comments()->orderBy('id','asc')->get();
         $tags=$shrubby->tags()->get();
+
+        // $texthtml = $shrubby->content;
+        // $img = preg_match_all('/<img [^>]*src=["|\']([^"|\']+)/i', $texthtml, $image);
+        // // if($image->src){
+
+        // // }
+        // dd($texthtml,$img,$image,$image[1][0]);
+        // 
         return view('shrubby/shrubbypage',$data)->with('tags',$tags)
             ->with('shrubby',Shrubby::where('id',$id)->first());
     }

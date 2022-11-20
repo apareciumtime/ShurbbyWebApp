@@ -15,10 +15,19 @@ class shrubbyCard extends Component
     public $shrubby;
     public $slide;
     public $pic_status = 0;
+    public $pic;
     public function __construct($itemid,$slide='')
     {
         $this->shrubby = Shrubby::where('id','=',$itemid)->get()->first();
         $this->slide = $slide;
+
+        $texthtml = $this->shrubby->content;
+        $this->pic_status = preg_match_all('/<img [^>]*src=["|\']([^"|\']+)/i', $texthtml, $found);
+        
+        if($this->pic_status){
+            $this->pic = $found[1][0];
+            // dd($this->pic_status,$found,$this->pic);
+        }
     }
 
     /**
