@@ -80,26 +80,6 @@ class TagController extends Controller
         return view('tag.tagviewall',$data);
     }
 
-
-
-    //user unfollow tag
-    // public function unfollow(Request $request,$id){
-    //     $user=\Auth::user();
-    //     $check=DB::table('tag_user')->where('tag_id','=',$id)->where('user_id','=',$user->id)->first();
-    //     // dd($check);
-    //     if($check!=null){
-    //         $tagtofollow=Tag::where('id','=',$id)->first();
-    //         $tagtofollow->num_follower-=1;
-    //         $tagtofollow->save();
-    //         $user->tags()->detach($tagtofollow->id);
-    //     }
- 
-    //     $data['tags']=Tag::orderBy('id','asc')->paginate(10);
-    //     // return view('showAllTags',$data);
-    //     return redirect('/testfollowtag');
-    // }
-
-
     public function searchByTag(Request $request){
         
         $search = $request['query']??array_keys($request->query())['0'];
@@ -136,6 +116,23 @@ class TagController extends Controller
                     ->with('shrubbies',$shrubbies)
                     ->with('clumppies',$clumppies)
                     ->with('search', $search);
+    }
+    public function indexTimeline(Request $request){
+        $data['posts']=[];
+        if(\Auth::user()!=null){
+            $data['tags']=\Auth::user()->tags()->get();
+        }
+        $data['shrubbies']=[];
+        $data['clumppies']=[];
+        if($data['tags']->count()){
+            foreach($data['tags'] as $tag){
+                $data['shrubbies']=$tag->shrubbies->merge($data['shrubbies']);
+                $data['clumppies']=$tag->clumppies->merge($data['clumppies']);
+            }
+            $data['posts']=$data['shrubbies']->merge($data['clumppies'])->sortByDesc('created_at');
+        }
+        
+        return  view('timeline.index',$data);
     }
     
 }

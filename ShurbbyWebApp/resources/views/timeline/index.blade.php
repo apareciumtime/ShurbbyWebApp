@@ -1,38 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timeline</title>
-    <!--
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    -->
-        <link rel = "stylesheet" href = "/css/homeIndex.css">
-        <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Prompt:100">
-</head>
-<body>
-    <div class="leftpane">
-        <x-leftpane/>
+<link rel = "stylesheet" href = "/css/tag/tagsearchall.css">
+<link rel = "stylesheet" href = "/css/shrubby/shrubbypage.css">
+@extends('layouts.app')
 
-    </div>
-    <div class="right-section">
-        <div class="header">
-            <x-header label="ไทม์ไลน์" />
-        </div>
-        <div class="body-right-section">
-            <div class="inside-body">
-                <div class="playground">
-                    playground
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                    sadasd
-                </div>
+@section('header')
+
+<x-header label="ไทม์ไลน์"/>
+
+@endsection
+
+@section('inside-body')
+<div class="inside-body">
+    <div class="shrubby-page-content-tag-frame">
+        <div class="shrubby-page-content-tag-head">
+            <div class="shrubby-page-content-tag-head-topic">
+                แท็กที่ติดตาม
             </div>
-            <x-rightpane/>
+            <a href="{{route('followtagview')}}" class="shrubby-page-content-tag-head-view-all">
+                ดูทั้งหมด
+            </a>
+        </div>
+        <div class="shrubby-page-content-tag-slot-outside">
+            <div class="shrubby-page-content-tag-slot">
+                @foreach($tags as $tag)
+                    <x-tag-shrubby name="{{$tag->name}}"/> 
+                @endforeach
+            </div>
         </div>
     </div>
-    
-</body>
-</html>
+    <div class="shrubby-clumppy-framework-outside">
+        <div class='shrubby-clumppy-framework'>    
+            @foreach ($posts as $post)
+                <div class="card-grid-item">
+                    @if($post->getTable() == 'shrubbies')
+                        <x-shrubby-card itemid="{{$post->id}}"/>
+                    @elseif($post->getTable() == 'clumppies')
+                        <x-clumppy-card clumppyid='{{$post->id}}'/>
+                    @endif
+                </div>
+            @endforeach
+        </div>
+    </div>
+</div>
+@endsection

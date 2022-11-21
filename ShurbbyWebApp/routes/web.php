@@ -25,7 +25,7 @@ use App\Http\Controllers\MovementController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('home', [HomeController::class, 'index'])->name('home');
-Route::view('timeline', 'timeline.index')->name('timeline');
+Route::get('timeline', [TagController::class, 'indexTimeline'])->name('timeline')->middleware('auth');
 
 Route::view('journal', 'journal.index')->name('journal')->middleware('auth');
 
