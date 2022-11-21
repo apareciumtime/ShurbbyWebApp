@@ -21,7 +21,7 @@
     font-family: 'Maitree';
     font-style: normal;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 36px;
 
     color: #445650;

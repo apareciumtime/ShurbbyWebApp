@@ -2,14 +2,16 @@
 .shrubby-slider-framework{
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .shrubby-slider-topic-view-all{
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     align-items: center;
 
-    width: calc(100% - 32px);
+    width: 100%;
 
     margin:0px;
     padding:16px;
@@ -31,6 +33,8 @@
 
 .shrubby-slider-view-all-link-to{
     white-space: nowrap;
+    width: 100%;
+    text-align: right;
     font-family: 'Maitree';
     font-size: 18px;
     font-weight: bold;
