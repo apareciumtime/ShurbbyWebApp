@@ -27,10 +27,23 @@
         <div class="movement-update-add-new-movement">
             แก้ไขความเคลื่อนไหว
         </div>
-        <div class="movement-update-add-display-picture">
-            <label for="cover-image" class="movement-update-add-display-picture-btn">
-                เพิ่มรูปภาพ
-            </label>
+        <div class="movement-image-box">
+            <form action="{{route("uploadmovementimage")}}" method="POST" enctype="multipart/form-data" id="images-upload-form" accept-charset="utf-8">
+                @csrf
+                <div class="images-preview-div"> 
+                    <input type="file" name="images[]" id="images" class="form-control" style="display: none;" multiple>
+                    <input type="number" name="movement_id" id="movement_id" value="{{$movement->id}}" style="display: none;">
+                    <label for="images" class="movement-create-add-display-picture-btn">
+                        เลือกรูปภาพ
+                    </label>
+                </div>
+            </form>
+        </div>
+        <button type="submit" id="submit" form="images-upload-form" class="add-image-btn">เพิ่มรูปภาพ</button>
+        <div class="images-selected-div">
+            @foreach ($movement_images as $img)
+                <img src="{{asset($img->image)}}" alt="" style="max-width: 100px;">
+            @endforeach
         </div>
         <div class="movement-update-input-group">
             <div class="movement-update-input-label">

@@ -85,6 +85,11 @@
     overflow: auto;
 }
 
+.movement-picture-section img{
+    max-height: 500px;
+    max-width: 58vw;
+}
+
 .image-movement{
     width: 100px;
     height: 100px;

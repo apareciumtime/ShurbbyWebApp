@@ -271,3 +271,10 @@
     
     color: #445650;
 }
+
+.shrubby-page-content-content img{
+    max-width: calc(100% - 16px);
+    max-height: 1000px ;
+    margin:8px;
+    ;
+}

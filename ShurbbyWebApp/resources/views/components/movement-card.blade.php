@@ -29,7 +29,8 @@
 }
 
 .clumppy-page-gallerly-pic-movement{
-    
+    height: 315px;
+    width : 315px ;
 }
 </style>
 

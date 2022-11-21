@@ -45,7 +45,7 @@
         <button type="submit" id="submit" form="images-upload-form" class="add-image-btn">เพิ่มรูปภาพ</button>
         <div class="images-selected-div">
             @foreach ($movement_images as $img)
-                <img src="{{$img->image}}" alt="" style="max-width: 100px;">
+                <img src="{{asset($img->image)}}" alt="" style="max-width: 100px;">
             @endforeach
         </div>
     <form id="create-movement-form" action="{{route("createmovement",$movement->id)}}" method="POST">
