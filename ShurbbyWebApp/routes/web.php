@@ -118,3 +118,4 @@ Route::get('/followingtagview', [TagController::class, 'FollowTagView'])->name('
 Route::get('/tagviewall/{label}/{id}', [TagController::class, 'TagViewAll'])->name('tagviewall');
 
 Route::view('/traitfinder','traitfinder.traitfinderIndex')->name('traitfinder');
+Route::post('traitfinder',[TagController::class,'traitFinder'])->name('findtrait');

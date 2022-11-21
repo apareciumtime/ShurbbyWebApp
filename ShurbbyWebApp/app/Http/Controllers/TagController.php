@@ -146,5 +146,39 @@ class TagController extends Controller
         // dd($data);
         return  view('timeline.index',$data);
     }
+
+    public function traitFinder(Request $request){
+        // $traits=DB::table('traits')->where('name','=',$request->value1)->get();
+        $traits=DB::table('traits')->where('name','=',$request->value2)->get();
+        $traits=DB::table('traits')->where('name','=',$request->value3)->get()->merge($traits);
+        $traits=DB::table('traits')->where('name','=',$request->value4)->get()->merge($traits);
+
+        //find result of 'AND'
+        $resultAnd=Shrubby::where('content','LIKE','%'.$request->value1.'%')->get();
+        foreach($traits as $trait){
+            $resultAnd=Shrubby::where('content','LIKE','%'.$trait->name.'%')->get()->intersect($resultAnd);
+        }
+        $resultAnd=$resultAnd->sortByDesc('like');
+        dd($resultAnd);
+
+
+        //find result of 'OR'
+        $resultOr=Shrubby::where('title','LIKE','%'.$request->value1.'%')->get();
+        $resultOr=Shrubby::where('content','LIKE','%'.$request->value1.'%')->get()->merge($resultOr);
+        $tags=Tag::Where('name','LIKE','%'.$request->value1.'%')->get();
+        foreach($traits as $trait){
+            $resultOr=Shrubby::where('title','LIKE','%'.$trait->name.'%')->get()->merge($resultOr);
+            $resultOr=Shrubby::where('content','LIKE','%'.$trait->name.'%')->get()->merge($resultOr);
+            $tags=Tag::Where('name','LIKE','%'.$trait->name.'%')->get()->merge($tags);
+        }
+        if($tags->count()){
+            foreach($tags as $tag){
+                $resultOr=$tag->shrubbies->merge($resultOr);
+            }
+        }
+        $resultOr=$resultOr->sortByDesc('like');
+
+        dd($resultOr,$resultAnd);
     
+    }
 }

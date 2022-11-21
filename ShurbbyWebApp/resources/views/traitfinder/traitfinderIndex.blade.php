@@ -16,6 +16,7 @@
         <x-trait-slider/>
         <x-trait-slider/>
     </div>
+    
 
     <div class="trait-finder-more-trait-section">
         <div class="trait-finder-input">
@@ -31,6 +32,15 @@
     <div class="trait-finder-btn-section">
         <button class="trait-finder-submit-btn">ค้นหา</button>
     </div>
+
+    <form action="{{route('findtrait')}}" method="POST" >
+        @csrf
+        <input type="text" name="value1" id="value1" value="ใบหงิก">
+        <input type="text" name="value2" id="value2" value="ใบน้ำตาล">
+        <input type="text" name="value3" id="value3" value="ใบไหม้">
+        <input type="text" name="value4" id="value4" value="ใบเหลือง">
+        <button type="submit">submit</button>
+    </form>
 </div>
 
 @endsection
