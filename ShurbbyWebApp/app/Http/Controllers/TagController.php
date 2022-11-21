@@ -148,19 +148,49 @@ class TagController extends Controller
     }
 
     public function traitFinder(Request $request){
-        // $traits=DB::table('traits')->where('name','=',$request->value1)->get();
-        $traits=DB::table('traits')->where('name','=',$request->value2)->get();
+        //save all trait to variable
+        $traits=DB::table('traits')->where('name','=',$request->value1)->get();
+        $traits=DB::table('traits')->where('name','=',$request->value2)->get()->merge($traits);
         $traits=DB::table('traits')->where('name','=',$request->value3)->get()->merge($traits);
         $traits=DB::table('traits')->where('name','=',$request->value4)->get()->merge($traits);
 
-        //find result of 'AND'
-        $resultAnd=Shrubby::where('content','LIKE','%'.$request->value1.'%')->get();
-        foreach($traits as $trait){
-            $resultAnd=Shrubby::where('content','LIKE','%'.$trait->name.'%')->get()->intersect($resultAnd);
+        //find result of 'AND'---------------------
+
+        //create collection $test to keep text that concat 'title','content','tags' of all shrubby in database
+        $resultAnd=Shrubby::all();
+        $test=collect();
+        foreach($resultAnd as $result){
+            $tags = DB::table('taggables')->where('taggable_type','App\Models\Shrubby')->where('taggable_id',$result->id)->get();
+            $tag = '';
+            foreach($tags as $tagid){
+                $eachtag = Tag::where('id',$tagid->tag_id)->first();
+                $tag .= strval($eachtag->name).',';
+            }
+            $tag = rtrim($tag, ", ");
+            
+            $test->add([
+                'id'=>$result->id,
+                'word'=>($result->title).($result->content).$tag,
+            ]);
+        }
+
+        // keep all shrubby that have all trait in title+content+tags in $resultAnd
+        $resultAnd=collect();
+        foreach($test as $t){
+            $haveAll=true;
+            foreach($traits as $trait){
+                if(strpos($t['word'], $trait->name)==false){
+                    $haveAll=false;
+                }
+            }
+            if($haveAll){
+                $shrubby=Shrubby::where('id','=',$t['id'])->first();
+                if(!($resultAnd->contains($shrubby))){
+                    $resultAnd->add($shrubby);
+                }
+            }
         }
         $resultAnd=$resultAnd->sortByDesc('like');
-        dd($resultAnd);
-
 
         //find result of 'OR'
         $resultOr=Shrubby::where('title','LIKE','%'.$request->value1.'%')->get();
@@ -177,8 +207,12 @@ class TagController extends Controller
             }
         }
         $resultOr=$resultOr->sortByDesc('like');
-
-        dd($resultOr,$resultAnd);
+        $resultAll=$resultAnd->merge($resultOr);
+        return  view('tag.tagsearchall')
+                    ->with('shrubbies',$resultAll)
+                    ->with('clumppies',[])
+                    ->with('search', 'traitFinder')
+                    ->with('tag_id',null);
     
     }
 }
