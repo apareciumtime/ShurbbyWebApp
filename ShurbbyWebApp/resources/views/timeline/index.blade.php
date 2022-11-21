@@ -1,5 +1,4 @@
-<link rel = "stylesheet" href = "/css/tag/tagsearchall.css">
-<link rel = "stylesheet" href = "/css/shrubby/shrubbypage.css">
+<link rel = "stylesheet" href = "/css/timelineIndex.css">
 @extends('layouts.app')
 
 @section('header')
@@ -9,8 +8,13 @@
 @endsection
 
 @section('inside-body')
-<div class="inside-body">
-    <div class="shrubby-page-content-tag-frame">
+<div class="timeline-framework">
+    <x-timeline-shrubby-element/>
+    <x-timeline-clumppy-element/>
+    <x-timeline-movement-element/>
+</div>
+@endsection
+    <!-- <div class="shrubby-page-content-tag-frame">
         <div class="shrubby-page-content-tag-head">
             <div class="shrubby-page-content-tag-head-topic">
                 แท็กที่ติดตาม
@@ -41,6 +45,4 @@
                 </div>
             @endforeach
         </div>
-    </div>
-</div>
-@endsection
+    </div> -->

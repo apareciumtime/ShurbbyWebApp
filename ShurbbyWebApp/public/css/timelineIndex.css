@@ -1,0 +1,7 @@
+.timeline-framework{
+    display: flex;
+    flex-direction: column;
+
+    width: auto;
+    height: 100vh;
+}
