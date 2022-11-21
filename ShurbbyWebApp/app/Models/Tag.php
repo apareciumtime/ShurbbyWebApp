@@ -50,7 +50,8 @@ class Tag extends Model
         return $this->belongsToMany(User::class);
     }
 
-    // public function clumppies() {
-        // return $this->belongsTo(\App\Clumppy::class);
-    // }
+    public function movements()
+    {
+        return $this->morphedByMany(Movement::class, 'taggable');
+    }
 }

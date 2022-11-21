@@ -35,6 +35,8 @@
                         <x-shrubby-card itemid="{{$post->id}}"/>
                     @elseif($post->getTable() == 'clumppies')
                         <x-clumppy-card clumppyid='{{$post->id}}'/>
+                    @elseif($post->getTable() == 'movements')
+                        movement
                     @endif
                 </div>
             @endforeach

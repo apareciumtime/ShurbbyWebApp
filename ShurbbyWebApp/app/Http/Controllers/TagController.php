@@ -118,20 +118,25 @@ class TagController extends Controller
                     ->with('search', $search);
     }
     public function indexTimeline(Request $request){
-        $data['posts']=[];
+        $data['posts']= new \Illuminate\Database\Eloquent\Collection; 
         if(\Auth::user()!=null){
             $data['tags']=\Auth::user()->tags()->get();
         }
         $data['shrubbies']=[];
         $data['clumppies']=[];
+        $data['movements']=[];
         if($data['tags']->count()){
             foreach($data['tags'] as $tag){
                 $data['shrubbies']=$tag->shrubbies->merge($data['shrubbies']);
                 $data['clumppies']=$tag->clumppies->merge($data['clumppies']);
+                $data['movements']=$tag->movements->merge($data['movements']);
             }
-            $data['posts']=$data['shrubbies']->merge($data['clumppies'])->sortByDesc('created_at');
+            $data['posts']= $data['posts']->concat($data['shrubbies']);
+            $data['posts']= $data['posts']->concat($data['clumppies']);
+            $data['posts']= $data['posts']->concat($data['movements']);
+            $data['posts']= $data['posts']->sortByDesc('created_at');
         }
-        
+        // dd($data);
         return  view('timeline.index',$data);
     }
     
