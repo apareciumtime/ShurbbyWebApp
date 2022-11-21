@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Clumppy;
 use Illuminate\View\Component;
 
 class timelineClumppyElement extends Component
@@ -11,9 +12,12 @@ class timelineClumppyElement extends Component
      *
      * @return void
      */
-    public function __construct()
+    public $clumppy;
+    public $age;
+    public function __construct($id)
     {
-        //
+        $this->clumppy = Clumppy::where('id','=',$id)->get()->first();
+        $this->age = plant_age($this->clumppy->plant_date);
     }
 
     /**

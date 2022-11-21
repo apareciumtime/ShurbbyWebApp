@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Shrubby;
 use Illuminate\View\Component;
 
 class timelineShrubbyElement extends Component
@@ -11,9 +12,10 @@ class timelineShrubbyElement extends Component
      *
      * @return void
      */
-    public function __construct()
+    public $shrubby;
+    public function __construct($id)
     {
-        //
+        $this->shrubby = Shrubby::where('id','=',$id)->get()->first();
     }
 
     /**

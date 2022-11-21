@@ -143,43 +143,45 @@
     </div>
     <div class="timeline-clumppy-element-pic-user-info-post-date-view">
         <div class="timeline-clumppy-element-pic">
-            <div class="image"></div>
+            <img src="{{asset($clumppy->user->profile_image)}}" alt="img" class="image">
         </div>
         <div class="timeline-clumppy-element-user-info-name">
             <div class="timeline-clumppy-element-user-info-alias">
-                Alias
+                {{$clumppy->user->alias}}
             </div>
             <div class="timeline-clumppy-element-user-info-username">
-                @username
+                {{$clumppy->user->username}}
             </div>
         </div>
         <div class="timeline-clumppy-element-post-date">
-            โพสต์เมื่อ 14 นาทีที่แล้ว
+            โพสต์เมื่อ {{time_elapsed_string($clumppy->created_at)}}
         </div>
         <div class="timeline-clumppy-element-view">
-            เข้าดู
+            <a href="/clumppypage/{{ $clumppy->id }}" class="timeline-clumppy-element-view">
+                เข้าดู
+            </a>
         </div>
     </div>
 
     <div class="timeline-clumppy-element-content-section">
         <div class="timeline-clumppy-element-content-topic">
-            ชื่อคลัมปี
+            {{$clumppy->name}}
         </div>
         <div class="timeline-clumppy-element-content-plant-date-amount">
             <div class="timeline-clumppy-element-content-plant-date">
-                วันที่เริ่มปลูก: 14 พ.ย. 2563
+                วันที่เริ่มปลูก: {{thai_date($clumppy->plant_date,false,false,false)}}
             </div>
             <div class="timeline-clumppy-element-content-amount">
-                ทั้งหมด 2 ต้น
+                ทั้งหมด {{$clumppy->amount}} ต้น
             </div>
         </div>
         <div class="timeline-clumppy-element-content-content">
-            คำอธิบาย clumppy
+            {{ $clumppy->description }}
         </div>
     </div>
 
     <div class="timeline-clumppy-element-interaction-bar">
-        <x-interaction-engage label="like"/>
-        <x-interaction-engage label="comment"/>
+        {{-- <x-interaction-engage label="like"/>
+        <x-interaction-engage label="comment"/> --}}
     </div>
 </div>

@@ -114,6 +114,9 @@
     font-size: 16px;
     color:#445650;
     word-break: break-all;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .timeline-shrubby-element-interaction-bar{
@@ -134,35 +137,39 @@
     </div>
     <div class="timeline-shrubby-element-pic-user-info-post-date-view">
         <div class="timeline-shrubby-element-pic">
-            <div class="image"></div>
+            <div class="image">
+                <img src="{{$shrubby->user->profile_image}}" class="image">
+            </div>
         </div>
         <div class="timeline-shrubby-element-user-info-name">
             <div class="timeline-shrubby-element-user-info-alias">
-                Alias
+                {{$shrubby->user->alias}}
             </div>
             <div class="timeline-shrubby-element-user-info-username">
-                @username
+                {{$shrubby->user->username}}
             </div>
         </div>
         <div class="timeline-shrubby-element-post-date">
-            โพสต์เมื่อ 14 นาทีที่แล้ว
+            โพสต์เมื่อ {{time_elapsed_string($shrubby->created_at)}}
         </div>
         <div class="timeline-shrubby-element-view">
-            เข้าดู
+            <a href="/shrubbypage/{{ $shrubby->id }}" class="timeline-shrubby-element-view">
+                เข้าดู
+            </a>
         </div>
     </div>
 
     <div class="timeline-shrubby-element-content-section">
         <div class="timeline-shrubby-element-content-topic">
-            ชื่อกระทู้
+            {{$shrubby->title}}
         </div>
         <div class="timeline-shrubby-element-content-content">
-            เนื้อหากระทู้แบบจัดเต็มเค็มอย่างสุด
+            {!! $shrubby->content !!}
         </div>
     </div>
 
     <div class="timeline-shrubby-element-interaction-bar">
-        <x-interaction-engage label="like"/>
-        <x-interaction-engage label="comment"/>
+        <x-interaction-engage label='like' id='{{ $shrubby->id }}' type='shrubby'/>
+        <x-interaction-engage label='comment' id='{{ $shrubby->id }}' type='shrubby'/>
     </div>
 </div>

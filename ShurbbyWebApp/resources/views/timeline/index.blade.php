@@ -9,9 +9,17 @@
 
 @section('inside-body')
 <div class="timeline-framework">
-    <x-timeline-shrubby-element/>
-    <x-timeline-clumppy-element/>
-    <x-timeline-movement-element/>
+    @foreach ($posts as $post)
+            <div class="card-grid-item">
+                @if($post->getTable() == 'shrubbies')
+                    <x-timeline-shrubby-element id="{{$post->id}}"/>
+                @elseif($post->getTable() == 'clumppies')
+                    <x-timeline-clumppy-element id="{{$post->id}}"/>
+                @elseif($post->getTable() == 'movements')
+                    <x-timeline-movement-element id="{{$post->id}}"/>
+                @endif
+            </div>
+    @endforeach
 </div>
 @endsection
     <!-- <div class="shrubby-page-content-tag-frame">

@@ -218,52 +218,59 @@
     </div>
     <div class="timeline-movement-element-pic-user-info-post-date-view">
         <div class="timeline-movement-element-pic">
-            <div class="image"></div>
+            <div class="image">
+                <img src="{{asset($clumppy->user->profile_image)}}" class="image">
+            </div>
         </div>
         <div class="timeline-movement-element-user-info-name">
             <div class="timeline-movement-element-user-info-alias">
-                Alias
+                {{$clumppy->user->alias}}
             </div>
             <div class="timeline-movement-element-user-info-username">
-                @username
+                {{$clumppy->user->username}}
             </div>
         </div>
         <div class="timeline-movement-element-post-date">
-            โพสต์เมื่อ 14 นาทีที่แล้ว
+            โพสต์เมื่อ {{time_elapsed_string($movement->created_at)}}
         </div>
         <div class="timeline-movement-element-view">
-            เข้าดู
+            <a href="{{route('movementpage',$movement->id)}}" class="timeline-movement-element-view">
+                เข้าดู
+            </a>
         </div>
     </div>
 
     <div class="timeline-movement-element-picture-section-outside">
         <button class="timeline-movement-element-picture-left-btn" onclick="plusDivs(-1)">&#10094;</button>
         <div class="timeline-movement-element-picture-section">
-            
+            <img src="{{asset($first_images->image)}}" class="first-image-movement" style="display:block;">
+                @foreach ($movement_images as $movement_image)
+                    <img src="{{asset($movement_image->image)}}" class="image-movement">
+                @endforeach
         </div>
         <button class="timeline-movement-element-picture-right-btn" onclick="plusDivs(1)">&#10095;</button>
     </div>
 
     <div class="timeline-movement-element-content-section">
         <div class="timeline-movement-element-content-topic">
-            ชื่อคลัมปี
+            {{$clumppy->name}}
         </div>
         <div class="timeline-movement-element-content-plant-date-amount">
             <div class="timeline-movement-element-content-plant-date">
-                วันที่เริ่มปลูก: 14 พ.ย. 2563
+                วันที่เริ่มปลูก: {{thai_date($clumppy->plant_date,false,false,false)}}
             </div>
             <div class="timeline-movement-element-content-amount">
-                ทั้งหมด 2 ต้น
+                ทั้งหมด {{$clumppy->amount}} ต้น
             </div>
         </div>
         <div class="timeline-movement-element-content-content">
-            คำอธิบาย movement
+            {{$movement->description}}
         </div>
     </div>
 
     <div class="timeline-movement-element-interaction-bar">
-        <x-interaction-engage label="like"/>
-        <x-interaction-engage label="comment"/>
+        <x-interaction-engage label='like' id='{{$movement->id}}' type='movement'/>
+        <x-interaction-engage label='comment' id='{{$movement->id}}' type='movement'/>
     </div>
 </div>
 
