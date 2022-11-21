@@ -10,7 +10,14 @@
 
 @section('inside-body')
 <div class="tagsallall-framework">
-    <div class = "tagsearchall-header">ค้นหา {{$search}}</div>
+    <div class = "tagsearchall-header">
+        ค้นหา {{$search}}
+        @if($tag_id!=null)
+            <button class="tag-bar-follow-btn" onclick="followTag('{{$tag_id}}','{{route('follow',$tag_id)}}',this)">
+                {{$tag_status}}
+            </button>
+        @endif
+    </div>
     <div class="tagsearchall-go-to-bar" id="tagsearchall-shrubby">
         <a href="#tagsearchall-clumppy" class="tagsearchall-go-to-bar-link-to">ไปยัง Clumppy</a>
     </div>
@@ -37,4 +44,23 @@
         </div>
     </div>
 </div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    function followTag(tagid,route,elem){
+        
+        var csrfToken='{{csrf_token()}}';
+        $.post(route, {tagid: tagid,_token:csrfToken}, function (data) {
+            console.log(data);
+            if(data.message==='following'){
+                elem.innerHTML = 'เลิกติดตาม';
+
+            }else{
+                elem.innerHTML = 'ติดตาม';
+            }
+        }  
+        )
+    };
+</script>
 @endsection

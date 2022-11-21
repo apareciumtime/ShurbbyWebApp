@@ -91,10 +91,16 @@ class TagController extends Controller
             $clumppies=$tags->clumppies;
         }
         $search ="#".$tags->name;
+        if(DB::table('tag_user')->where('tag_id','=',$tags->id)->where('user_id','=',\Auth::id())->first()!=null)
+            $tag_status = 'เลิกติดตาม';
+        else
+            $tag_status = 'ติดตาม';
         return  view('tag.tagsearchall')
                     ->with('shrubbies',$shrubbies)
                     ->with('clumppies',$clumppies)
-                    ->with('search', $search);
+                    ->with('search', $search)
+                    ->with('tag_id',$tags->id)
+                    ->with('tag_status',$tag_status);
     }
 
     public function searchAll(Request $request){
@@ -115,7 +121,8 @@ class TagController extends Controller
         return  view('tag.tagsearchall')
                     ->with('shrubbies',$shrubbies)
                     ->with('clumppies',$clumppies)
-                    ->with('search', $search);
+                    ->with('search', $search)
+                    ->with('tag_id',null);
     }
     public function indexTimeline(Request $request){
         $data['posts']= new \Illuminate\Database\Eloquent\Collection; 
