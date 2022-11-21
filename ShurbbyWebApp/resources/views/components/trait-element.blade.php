@@ -38,13 +38,17 @@
 .trait-element-framework:hover .trait-element-display{
     box-shadow: 4px 4px 0px rgba(19, 78, 28, 0.25);
 }
+
+.trans{
+    opacity: 0.5;
+}
 </style>
 
-<div class="trait-element-framework">
+<div class="trait-element-framework" onclick="pickIt('{{$index}}','{{$label}}','{{$length}}',this)" id="trait-element-{{$index}}-{{$num}}">
     <div class="trait-element-display">
         <img src="" class="trait-element-display-img">
     </div>
     <div class="trait-element-label">
-        ต้นไม้ใหญ่
+        {{$label}}
     </div>
 </div>

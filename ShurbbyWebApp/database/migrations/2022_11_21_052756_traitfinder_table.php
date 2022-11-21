@@ -15,15 +15,16 @@ class TraitfinderTable extends Migration
     {
         Schema::create('traits', function (Blueprint $table) {
             $table->id();
+            $table->integer('trait_id');
             $table->string('name');
         });
-        Schema::create('trait_index', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('trait_id');
-            $table->foreign('trait_id')->references('id')->on('traits');
-            $table->unsignedBigInteger('shrubby_id');
-            $table->foreign('shrubby_id')->references('id')->on('shrubbies');
-        });
+        // Schema::create('trait_index', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->unsignedBigInteger('trait_id');
+        //     $table->foreign('trait_id')->references('id')->on('traits');
+        //     $table->unsignedBigInteger('shrubby_id');
+        //     $table->foreign('shrubby_id')->references('id')->on('shrubbies');
+        // });
     }
 
     /**
@@ -34,7 +35,7 @@ class TraitfinderTable extends Migration
     public function down()
     {
         Schema::dropIfExists('traits');
-        Schema::dropIfExists('trait_index');
+        // Schema::dropIfExists('trait_index');
         
     }
 }

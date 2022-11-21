@@ -16,19 +16,72 @@ class TraitSeeder extends Seeder
     {
         $traits = [
             [
-                'name' => 'ใบหงิก'
+                'name' => 'ใบหงิก',
+                'trait_id' => 1
             ],
             [
-                'name' => 'ใบเหลือง'
+                'name' => 'ใบเหลือง',
+                'trait_id' => 1
             ],
             [
-                'name' => 'ใบไหม้'
+                'name' => 'ใบไม้',
+                'trait_id' => 1
             ],
             [
-                'name' => 'ลำต้นแคระ'
+                'name' => 'ใบร่วง',
+                'trait_id' => 1
             ],
             [
-                'name' => 'รากเน่า'
+                'name' => 'ใบซีด',
+                'trait_id' => 1
+            ],
+            [
+                'name' => 'ใบจุด',
+                'trait_id' => 1
+            ],
+            [
+                'name' => 'ต้นไม้เล็ก',
+                'trait_id' => 2
+            ],
+            [
+                'name' => 'ต้นไม้กลาง',
+                'trait_id' => 2
+            ],
+            [
+                'name' => 'ต้นไม้ใหญ่',
+                'trait_id' => 2
+            ],
+            [
+                'name' => 'ไม้ยืนต้น',
+                'trait_id' => 2
+            ],
+            [
+                'name' => 'ไม้ผลัดใบ',
+                'trait_id' => 2
+            ],
+            [
+                'name' => 'ลำต้นแคระ',
+                'trait_id' => 3
+            ],
+            [
+                'name' => 'รากเน่า',
+                'trait_id' => 3
+            ],
+            [
+                'name' => 'ยืนต้นตาย',
+                'trait_id' => 3
+            ],
+            [
+                'name' => 'วัชพืช',
+                'trait_id' => 4
+            ],
+            [
+                'name' => 'แมลง',
+                'trait_id' => 4
+            ],
+            [
+                'name' => 'บำรุง',
+                'trait_id' => 4
             ],
             ];
 

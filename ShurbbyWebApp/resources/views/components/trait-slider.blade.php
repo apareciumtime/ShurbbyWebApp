@@ -12,15 +12,15 @@
 }
 </style>
 <div>
-    <div class="trait-slider-framework">
-        <x-trait-element/>
-        <x-trait-element/>
-        <x-trait-element/>
-        <x-trait-element/>
-        <x-trait-element/>
-        <x-trait-element/>
-        <x-trait-element/>
-        <x-trait-element/>
-        <x-trait-element/>
+    <div class="trait-slider-framework" id="trait-slider-{{$index}}">
+        @php
+            $cnt=0
+        @endphp
+        @foreach ($traits as $trait)
+            <x-trait-element label='{{$trait->name}}' index='{{$trait->trait_id}}' num='{{$cnt}}'/>   
+            @php
+                $cnt+=1
+            @endphp
+        @endforeach
     </div>
 </div>

@@ -148,6 +148,7 @@ class TagController extends Controller
     }
 
     public function traitFinder(Request $request){
+        dd($request);
         //save all trait to variable
         $traits=DB::table('traits')->where('name','=',$request->value1)->get();
         $traits=DB::table('traits')->where('name','=',$request->value2)->get()->merge($traits);

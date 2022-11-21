@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\Component;
 
 class traitElement extends Component
@@ -11,9 +12,17 @@ class traitElement extends Component
      *
      * @return void
      */
-    public function __construct()
+    public $label;
+    public $index;
+    public $num;
+    public $length;
+    public function __construct($label='',$index='',$num='')
     {
-        //
+        $this->label = $label;
+        $this->index = $index;
+        $this->num = $num;
+        $traits = DB::table('traits')->where('trait_id','=',$index)->get();
+        $this->length = $traits->count();
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\Component;
 
 class traitSlider extends Component
@@ -11,9 +12,17 @@ class traitSlider extends Component
      *
      * @return void
      */
-    public function __construct()
+    public $traits;
+    public $index;
+    public function __construct($trait=null)
     {
-        //
+        $this->traits =[];
+        $this->index = '';
+        if($trait!=null){
+            $this->traits = DB::table('traits')->where('trait_id','=',$trait)->get();
+            $this->index = $trait;
+        }
+        
     }
 
     /**
