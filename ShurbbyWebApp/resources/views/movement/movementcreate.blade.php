@@ -29,25 +29,25 @@
         <div class="movement-create-add-new-movement">
             เพิ่มความเคลื่อนไหวใหม่
         </div>
+        
+        <div class="movement-image-box">
+            <form action="{{route("uploadmovementimage")}}" method="POST" enctype="multipart/form-data" id="images-upload-form" accept-charset="utf-8">
+                @csrf
+                <div class="images-preview-div"> 
+                    <input type="file" name="images[]" id="images" class="form-control" style="display: none;" multiple>
+                    <input type="number" name="movement_id" id="movement_id" value="{{$movement->id}}" style="display: none;">
+                    <label for="images" class="movement-create-add-display-picture-btn">
+                        เลือกรูปภาพ
+                    </label>
+                </div>
+            </form>
+        </div>
+        <button type="submit" id="submit" form="images-upload-form" class="add-image-btn">เพิ่มรูปภาพ</button>
         <div class="images-selected-div">
             @foreach ($movement_images as $img)
                 <img src="{{$img->image}}" alt="" style="max-width: 100px;">
             @endforeach
         </div>
-        <form action="{{route("uploadmovementimage")}}" method="POST" enctype="multipart/form-data" id="images-upload-form" accept-charset="utf-8">
-            @csrf
-            <div class="movement-create-add-display-picture">
-                <label for="images" class="movement-create-add-display-picture-btn">
-                    เลือกรูปภาพ
-                </label>
-            </div>
-            <input type="file" name="images[]" id="images" class="form-control" style="display: none;" multiple>
-            <input type="number" name="movement_id" id="movement_id" value="{{$movement->id}}" style="display: none;">
-
-            <div class="images-preview-div"> 
-            </div> 
-            <button type="submit" id="submit" form="images-upload-form">เพิ่มรูปภาพ</button>
-        </form>
     <form id="create-movement-form" action="{{route("createmovement",$movement->id)}}" method="POST">
         @csrf
         <div class="movement-create-input-group">
