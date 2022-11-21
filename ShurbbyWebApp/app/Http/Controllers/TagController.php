@@ -148,18 +148,30 @@ class TagController extends Controller
     }
 
     public function traitFinder(Request $request){
-        dd($request);
         //save all trait to variable
-        $traits=DB::table('traits')->where('name','=',$request->value1)->get();
-        $traits=DB::table('traits')->where('name','=',$request->value2)->get()->merge($traits);
-        $traits=DB::table('traits')->where('name','=',$request->value3)->get()->merge($traits);
-        $traits=DB::table('traits')->where('name','=',$request->value4)->get()->merge($traits);
+        $traits=collect();
+        if($request->value1!=null){
+            $traits=DB::table('traits')->where('name','=',$request->value1)->get()->merge($traits);
+        }
+        if($request->value2!=null){
+            $traits=DB::table('traits')->where('name','=',$request->value2)->get()->merge($traits);
+        }
+        if($request->value3!=null){
+            $traits=DB::table('traits')->where('name','=',$request->value3)->get()->merge($traits);
+        }
+        if($request->value4!=null){
+            $traits=DB::table('traits')->where('name','=',$request->value4)->get()->merge($traits);
+        }
+        
+        $extra=$request->tags;
+        if($extra!=null){
+            $extra = explode(",",$extra);
+        }
 
         //find result of 'AND'---------------------
-
-        //create collection $test to keep text that concat 'title','content','tags' of all shrubby in database
+        //create collection $concatText to keep text that concat 'title','content','tags' of all shrubby in database
         $resultAnd=Shrubby::all();
-        $test=collect();
+        $concatText=collect();
         foreach($resultAnd as $result){
             $tags = DB::table('taggables')->where('taggable_type','App\Models\Shrubby')->where('taggable_id',$result->id)->get();
             $tag = '';
@@ -169,7 +181,7 @@ class TagController extends Controller
             }
             $tag = rtrim($tag, ", ");
             
-            $test->add([
+            $concatText->add([
                 'id'=>$result->id,
                 'word'=>($result->title).($result->content).$tag,
             ]);
@@ -177,38 +189,43 @@ class TagController extends Controller
 
         // keep all shrubby that have all trait in title+content+tags in $resultAnd
         $resultAnd=collect();
-        foreach($test as $t){
-            $haveAll=true;
+        $resultOr=collect();
+        foreach($concatText as $t){
+            $haveAll=0;
             foreach($traits as $trait){
-                if(strpos($t['word'], $trait->name)==false){
-                    $haveAll=false;
+                if(strpos($t['word'], $trait->name)!=false){
+                    $haveAll+=1;
                 }
             }
-            if($haveAll){
+            $sizeextra=0;
+            if($extra!=null){
+                foreach($extra as $ex){
+                    if(strpos($t['word'], $ex)!=false){
+                        $haveAll+=1;
+                    }
+                }
+                $sizeextra=sizeof($extra);
+            }
+            if($haveAll==(4+$sizeextra)){
                 $shrubby=Shrubby::where('id','=',$t['id'])->first();
                 if(!($resultAnd->contains($shrubby))){
                     $resultAnd->add($shrubby);
                 }
             }
-        }
-        $resultAnd=$resultAnd->sortByDesc('like');
-
-        //find result of 'OR'
-        $resultOr=Shrubby::where('title','LIKE','%'.$request->value1.'%')->get();
-        $resultOr=Shrubby::where('content','LIKE','%'.$request->value1.'%')->get()->merge($resultOr);
-        $tags=Tag::Where('name','LIKE','%'.$request->value1.'%')->get();
-        foreach($traits as $trait){
-            $resultOr=Shrubby::where('title','LIKE','%'.$trait->name.'%')->get()->merge($resultOr);
-            $resultOr=Shrubby::where('content','LIKE','%'.$trait->name.'%')->get()->merge($resultOr);
-            $tags=Tag::Where('name','LIKE','%'.$trait->name.'%')->get()->merge($tags);
-        }
-        if($tags->count()){
-            foreach($tags as $tag){
-                $resultOr=$tag->shrubbies->merge($resultOr);
+            else if($haveAll>0){
+                $shrubby=Shrubby::where('id','=',$t['id'])->first();
+                if(!($resultOr->contains($shrubby))){
+                    $resultOr->add($shrubby);
+                }
             }
         }
+
+        $resultAnd=$resultAnd->sortByDesc('like');
+
         $resultOr=$resultOr->sortByDesc('like');
+
         $resultAll=$resultAnd->merge($resultOr);
+        
         return  view('tag.tagsearchall')
                     ->with('shrubbies',$resultAll)
                     ->with('clumppies',[])

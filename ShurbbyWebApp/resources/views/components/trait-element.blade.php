@@ -42,11 +42,16 @@
 .trans{
     opacity: 0.5;
 }
+
+.trait-element-display-img{
+    width: 128px;
+    height: 128px;
+}
 </style>
 
 <div class="trait-element-framework" onclick="pickIt('{{$index}}','{{$label}}','{{$length}}',this)" id="trait-element-{{$index}}-{{$num}}">
     <div class="trait-element-display">
-        <img src="" class="trait-element-display-img">
+        <img src="{{asset($image)}}" class="trait-element-display-img">
     </div>
     <div class="trait-element-label">
         {{$label}}

@@ -16,13 +16,16 @@ class traitElement extends Component
     public $index;
     public $num;
     public $length;
+    public $image;
     public function __construct($label='',$index='',$num='')
     {
         $this->label = $label;
         $this->index = $index;
         $this->num = $num;
         $traits = DB::table('traits')->where('trait_id','=',$index)->get();
+        $traitObj = DB::table('traits')->where('name','=',$label)->first();
         $this->length = $traits->count();
+        $this->image=$traitObj->image;
     }
 
     /**
