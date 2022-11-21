@@ -71,7 +71,10 @@ class ClumppyController extends Controller
     { 
         $clumppy=Clumppy::where('id',$id)->first();
         $duration = plant_age($clumppy->plant_date);
-        $movements=$clumppy->movements->where('like','>',-1);
+        if($clumppy->user_id == Auth::id())
+            $movements=$clumppy->movements->where('like','>',-1);
+        else
+            $movements=$clumppy->movements->where('like','>',-1)->where('is_private', '=' , 0);
         // dd($movements);
         $tags=$clumppy->tags()->get();
         return view('clumppy/clumppypage')->with('tags',$tags)
